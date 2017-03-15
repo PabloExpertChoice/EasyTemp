@@ -19,16 +19,8 @@
     </ul>
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item start active selected">
-            <a href="dashboard.jsp" class="nav-link ">
-                <i class="icon-home"></i>
-                <span class="title">Home</span>
-            </a>
-        </li>
-    </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-        <li class="nav-item start active selected">
             <a href="answer.jsp" class="nav-link ">
-                <i class="icon-home"></i>
+                <i class="fa fa-align-justify"></i>
                 <span class="title">Answer Tree Business</span>
                 <span class="selected"></span>
             </a>
@@ -37,7 +29,7 @@
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item start active selected">
             <a href="contrato.jsp" class="nav-link ">
-                <i class="icon-home"></i>
+                <i class="fa fa-file-text"></i>
                 <span class="title">Contrato</span>
                 <span class="selected"></span>
             </a>

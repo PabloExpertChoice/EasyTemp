@@ -74,10 +74,10 @@
                         </div>
                         <!-- END PAGE HEAD-->
 
-                        <div class="panel-body">
+                        <div class="portlet light bordered">
                             <div class="row">
-                                <span style="display: inline-block;width: 155px;">Razon Social</span><span id="razonSocial"></span>:<br>
-                                <span style="display: inline-block;width: 155px;">RUT</span><span id="rut"></span>:<br>
+                                <span style="display: inline-block;width: 155px;">Razon Social</span><span id="razonSocial"></span>: <span>Pedro Pablo Perez</span><br>
+                                <span style="display: inline-block;width: 155px;">RUT</span><span id="rut"></span>: <span>10.497.521-9</span><br>
                             </div>
                         </div>
 
@@ -104,7 +104,7 @@
                                         <div class="number">
                                             <span data-counter="counterup" data-value="1349">1349</span>
                                         </div>
-                                        <div class="desc"> New Feedbacks </div>
+                                        <div class="desc"> Estimacion de Leverage </div>
                                     </div>
                                 </a>
                             </div>
@@ -116,7 +116,7 @@
                                     <div class="details">
                                         <div class="number">
                                             <span data-counter="counterup" data-value="12,5">12,5</span>M$ </div>
-                                        <div class="desc"> Total Profit </div>
+                                        <div class="desc"> Estimacion de Activos </div>
                                     </div>
                                 </a>
                             </div>
@@ -129,7 +129,7 @@
                                         <div class="number">
                                             <span data-counter="counterup" data-value="549">549</span>
                                         </div>
-                                        <div class="desc"> New Orders </div>
+                                        <div class="desc"> Estimacion de Deuda </div>
                                     </div>
                                 </a>
                             </div>
@@ -141,7 +141,7 @@
                                     <div class="details">
                                         <div class="number"> +
                                             <span data-counter="counterup" data-value="89">89</span>% </div>
-                                        <div class="desc"> Brand Popularity </div>
+                                        <div class="desc"> Estimacion de mora </div>
                                     </div>
                                 </a>
                             </div>

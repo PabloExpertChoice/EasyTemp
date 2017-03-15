@@ -36,18 +36,18 @@
                             <img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_user_profile_1.html">
+                                <a href="#">
                                     <i class="icon-user"></i> My Profile </a>
                             </li>
                             <li>
-                                <a href="app_inbox.html">
+                                <a href="#">
                                     <i class="icon-envelope-open"></i> My Inbox
                                     <span class="badge badge-danger"> 3 </span>
                                 </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="page_user_login_1.html">
+                                <a href="login.jsp">
                                     <i class="icon-key"></i> Log Out </a>
                             </li>
                         </ul>
