@@ -74,6 +74,13 @@
                         </div>
                         <!-- END PAGE HEAD-->
 
+                        <div class="panel-body">
+                            <div class="row">
+                                <span style="display: inline-block;width: 155px;">Razon Social</span><span id="razonSocial"></span>:<br>
+                                <span style="display: inline-block;width: 155px;">RUT</span><span id="rut"></span>:<br>
+                            </div>
+                        </div>
+
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
@@ -145,63 +152,158 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="portlet light bordered">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-anchor font-green-sharp"></i>
-                                        <span class="caption-subject font-green-sharp bold uppercase">Tab drop</span>
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-anchor font-green-sharp"></i>
+                                            <span class="caption-subject font-green-sharp bold uppercase">Tab drop</span>
+                                        </div>
+                                        <div class="actions">
+                                            <div class="btn-group">
+                                                <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li>
+                                                        <a href="javascript:;"> Option 1</a>
+                                                    </li>
+                                                    <li class="divider"> </li>
+                                                    <li>
+                                                        <a href="javascript:;">Option 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Option 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">Option 4</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Option 1</a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 2</a>
+                                    <div class="portlet-body">
+                                        <p> Basic exemple. Resize the window to see how the tabs are moved into the dropdown </p>
+                                        <div class="tabbable tabbable-tabdrop">
+                                            <ul class="nav nav-tabs">
+
+                                                <li class="active">
+                                                    <a href="#tab1" data-toggle="tab">Resumen</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:;">Option 3</a>
+                                                    <a href="#tab2" data-toggle="tab">Detalle valoracion</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:;">Option 4</a>
+                                                    <a href="#tab3" data-toggle="tab">Otros datos</a>
                                                 </li>
                                             </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab1">
+
+                                                    <div class="portlet box blue">
+                                                        <div class="portlet-title">
+                                                            <div class="caption">
+                                                                <i class="fa fa-comments"></i>Resultado Evaluacion Cliente 
+                                                            </div>
+                                                            <div class="tools">
+                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body">
+                                                            <div class="table-scrollable">
+                                                                <table class="table table-striped table-hover">
+                                                                        <tr>
+                                                                            <th> Status </th>
+                                                                            <td>
+                                                                                <span class="label label-sm label-success"> Approved </span>
+                                                                                <span class="label label-sm label-info"> Pending </span>
+                                                                                <span class="label label-sm label-warning"> Suspended </span>
+                                                                                <span class="label label-sm label-danger"> Blocked </span>
+                                                                            </td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Score</th>
+                                                                            <td> 750 </td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Fecha nacimiento</th>
+                                                                            <td> 21-07-1678 </td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Edad</th>
+                                                                            <td> 32</td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Consulta cedula</th>
+                                                                            <td>SI</td>
+                                                                            
+                                                                        </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab2">
+                                                    <div class="row">
+                                                        <div class="col-lg-6" style="">
+                                                            <div class="hpanel filter-item">
+                                                                <a href="#">
+                                                                    <div class="portlet light bordered">
+                                                                        <div class="pull-right text-right">
+                                                                            <small class="stat-label">Valor</small>
+                                                                            <h4>250 <i class="fa fa-level-down text-danger"></i></h4>
+                                                                        </div>
+                                                                        <h4 class="m-b-xs">Sinacofi</h4>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="hpanel filter-item">
+                                                                <a href="#">
+                                                                    <div class="portlet light bordered">
+                                                                        <div class="pull-right text-right">
+                                                                            <small class="stat-label">Valor</small>
+                                                                            <h4>511 <i class="fa fa-level-up text-warning"></i></h4>
+                                                                        </div>
+                                                                        <h4 class="m-b-xs">Transunion</h4>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6" style="">
+                                                            <div class="hpanel filter-item">
+                                                                <a href="#">
+                                                                    <div class="portlet light bordered">
+                                                                        <div class="pull-right text-right">
+                                                                            <small class="stat-label">Valor</small>
+                                                                            <h4>882 <i class="fa fa-level-up text-success"></i></h4>
+                                                                        </div>
+                                                                        <h4 class="m-b-xs">Equifax</h4>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="hpanel filter-item">
+                                                                <a href="#">
+                                                                    <div class="portlet light bordered">
+                                                                        <div class="pull-right text-right">
+                                                                            <small class="stat-label">Valor</small>
+                                                                            <h4>420 <i class="fa fa-level-up text-warning"></i></h4>
+                                                                        </div>
+                                                                        <h4 class="m-b-xs">Otros</h4>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab3">
+                                                    <p> Howdy, I'm in Section 3. </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="portlet-body">
-                                    <p> Basic exemple. Resize the window to see how the tabs are moved into the dropdown </p>
-                                    <div class="tabbable tabbable-tabdrop">
-                                        <ul class="nav nav-tabs">
-                                            
-                                            <li class="active">
-                                                <a href="#tab1" data-toggle="tab">Section 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab2" data-toggle="tab">Section 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab3" data-toggle="tab">Section 3</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab1">
-                                                <p> I'm in Section 1. </p>
-                                            </div>
-                                            <div class="tab-pane" id="tab2">
-                                                <p> Howdy, I'm in Section 2. </p>
-                                            </div>
-                                            <div class="tab-pane" id="tab3">
-                                                <p> Howdy, I'm in Section 3. </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                         <div class="row">
@@ -210,30 +312,20 @@
                                 <div class="portlet light bordered">
                                     <div class="portlet-title">
                                         <div class="caption">
-                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
-                                            <span class="caption-helper">distance stats...</span>
+                                            <span class="caption-subject bold uppercase font-dark">Score</span>
                                         </div>
                                         <div class="actions">
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                                                <i class="icon-cloud-upload"></i>
-                                            </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                                                <i class="icon-wrench"></i>
-                                            </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                                                <i class="icon-trash"></i>
-                                            </a>
                                             <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
                                     <div class="panel-body">
                                         <div id="contenedor" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
                                     </div>
-                                    
+
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="icon-cursor font-dark hide"></i>
-                                            <span class="caption-subject font-dark bold uppercase">General Stats</span>
+                                            <span class="caption-subject font-dark bold uppercase">Detalle ultimos 3 meses pagados</span>
                                         </div>
                                         <div class="actions">
                                             <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
@@ -247,7 +339,7 @@
                                                 <div class="easy-pie-chart">
                                                     <div class="number transactions" data-percent="55">
                                                         <span>+55</span>% <canvas height="75" width="75"></canvas></div>
-                                                    <a class="title" href="javascript:;"> Transactions
+                                                    <a class="title" href="javascript:;"> Mes 3
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -257,7 +349,7 @@
                                                 <div class="easy-pie-chart">
                                                     <div class="number visits" data-percent="85">
                                                         <span>+85</span>% <canvas height="75" width="75"></canvas></div>
-                                                    <a class="title" href="javascript:;"> New Visits
+                                                    <a class="title" href="javascript:;"> Mes 2
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -267,7 +359,7 @@
                                                 <div class="easy-pie-chart">
                                                     <div class="number bounce" data-percent="46">
                                                         <span>-46</span>% <canvas height="75" width="75"></canvas></div>
-                                                    <a class="title" href="javascript:;"> Bounce
+                                                    <a class="title" href="javascript:;"> Mes 1
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -287,15 +379,7 @@
                                             <span class="caption-helper">distance stats...</span>
                                         </div>
                                         <div class="actions">
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                                                <i class="icon-cloud-upload"></i>
-                                            </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                                                <i class="icon-wrench"></i>
-                                            </a>
-                                            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                                                <i class="icon-trash"></i>
-                                            </a>
+                                            
                                             <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
@@ -305,14 +389,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-
-                            </div>
-                        </div>
-
-
                         <div class="row">
                             <!--datos de informacion previsional-->
 
@@ -325,7 +401,7 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small>INFORMACION PREVISIONAL</small>
+                                            <small style="display: inline-block;width: 300px;">INFORMACION PREVISIONAL</small>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -350,7 +426,7 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small>PODER JUDICIAL</small>
+                                            <small style="display: inline-block;width: 300px;">PODER JUDICIAL</small>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -375,7 +451,7 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small>SANCTIONS OFAC</small>
+                                            <small style="display: inline-block;width: 300px;">SANCTIONS OFAC</small>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -405,7 +481,7 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small>SUPERINTENDENCIA DE QUIEBRAS</small>
+                                            <small style="display: inline-block;width: 300px;">SUPERINTENDENCIA DE QUIEBRAS</small>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -431,7 +507,7 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small>ACTIVIDAD COMERCIAL</small>
+                                            <small style="display: inline-block;width: 300px;">ACTIVIDAD COMERCIAL</small>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -451,24 +527,24 @@
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="dashboard-stat2 bordered">
                                     <div class="display">
-                                        <img src="images/empresas.png" style="width: 15%;">
                                         <div class="number">
                                             <h3 class="font-green-sharp">
-                                                <span data-counter="counterup" data-value="7800">7800</span>
-                                                <small class="font-green-sharp">$</small>
+                                                <span data-counter="counterup" data-value="4">4</span>
+                                                <small class="font-green-sharp">°</small>
                                             </h3>
-                                            <small>Sociedades</small>
+                                            <small style="display: inline-block;width: 300px;">Sociedades</small>
                                         </div>
+                                        <img src="images/empresas.png" style="width: 15%;">
+
                                     </div>
                                     <div class="progress-info">
                                         <div class="progress">
-                                            <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
-                                                <span class="sr-only">76% progress</span>
+                                            <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
                                             </span>
                                         </div>
                                         <div class="status">
-                                            <div class="status-title"> progress </div>
-                                            <div class="status-number"> 76% </div>
+                                            <div class="status-title"> numero de sociedades </div>
+                                            <div class="status-number"> </div>
                                         </div>
                                     </div>
                                 </div>
