@@ -75,9 +75,11 @@
                         <!-- END PAGE HEAD-->
 
                         <div class="portlet light bordered">
-                            <div class="row">
-                                <span style="display: inline-block;width: 155px;">Razon Social</span><span id="razonSocial"></span>: <span>Pedro Pablo Perez</span><br>
-                                <span style="display: inline-block;width: 155px;">RUT</span><span id="rut"></span>: <span>10.497.521-9</span><br>
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
+                                    <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>
+                                </div>
                             </div>
                         </div>
 
@@ -154,8 +156,8 @@
                                 <div class="portlet light bordered">
                                     <div class="portlet-title">
                                         <div class="caption">
-                                            <i class="icon-anchor font-green-sharp"></i>
-                                            <span class="caption-subject font-green-sharp bold uppercase">Tab drop</span>
+                                            <i class="icon-anchor"></i>
+                                            <span class="caption-subject bold uppercase">Indicadores generales</span>
                                         </div>
                                         <div class="actions">
                                             <div class="btn-group">
@@ -184,10 +186,10 @@
                                         <div class="tabbable tabbable-tabdrop">
                                             <ul class="nav nav-tabs">
                                                 <li class="active">
-                                                    <a href="#tab1" data-toggle="tab">Resumen</a>
+                                                    <a href="#tab1" data-toggle="tab">Detalle valoracion</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#tab2" data-toggle="tab">Detalle valoracion</a>
+                                                    <a href="#tab2" data-toggle="tab">Informacion Resumida</a>
                                                 </li>
                                                 <li>
                                                     <a href="#tab3" data-toggle="tab">Otros datos</a>
@@ -195,57 +197,8 @@
                                             </ul>
                                             <!--cuerpo de los tab-->
                                             <!--tab 1-->
-                                            <div class="tab-content" style="height: 200px; overflow-y: scroll; ">
+                                            <div class="tab-content" style="height: 200px;">
                                                 <div class="tab-pane active" id="tab1">
-
-                                                    <div class="portlet box blue">
-                                                        <div class="portlet-title">
-                                                            <div class="caption">
-                                                                <i class="fa fa-comments"></i>Resultado Evaluacion Cliente 
-                                                            </div>
-                                                            <div class="tools">
-                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="portlet-body">
-                                                            <div class="table-scrollable">
-                                                                <table class="table table-striped table-hover">
-                                                                    <tr>
-                                                                        <th> Status </th>
-                                                                        <td>
-                                                                            <span class="label label-sm label-success"> Approved </span>
-                                                                            <span class="label label-sm label-info"> Pending </span>
-                                                                            <span class="label label-sm label-warning"> Suspended </span>
-                                                                            <span class="label label-sm label-danger"> Blocked </span>
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Score</th>
-                                                                        <td> 750 </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Fecha nacimiento</th>
-                                                                        <td> 21-07-1678 </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Edad</th>
-                                                                        <td> 32</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Consulta cedula</th>
-                                                                        <td>SI</td>
-
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane" id="tab2">
                                                     <div class="row">
                                                         <div class="col-lg-6" style="">
                                                             <div class="hpanel filter-item">
@@ -296,6 +249,46 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                </div>
+                                                <div class="tab-pane" id="tab2">
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-striped table-hover font-dark">
+                                                                <tr>
+                                                                    <th> Status </th>
+                                                                    <td>
+                                                                        <span class="label label-sm label-success"> Approved </span>
+                                                                        <span class="label label-sm label-info"> Pending </span>
+                                                                        <span class="label label-sm label-warning"> Suspended </span>
+                                                                        <span class="label label-sm label-danger"> Blocked </span>
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Score</th>
+                                                                    <td> 750 </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Fecha nacimiento</th>
+                                                                    <td> 21-07-1678 </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Edad</th>
+                                                                    <td> 32</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Consulta cedula</th>
+                                                                    <td>SI</td>
+
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                                 <div class="tab-pane" id="tab3">
                                                     <p> Howdy, I'm in Section 3. </p>
@@ -306,6 +299,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--seccion de graficos-->
                         <div class="row">
 
                             <div class="col-lg-7 col-xs-12 col-sm-12">
@@ -320,8 +314,9 @@
                                             <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
+                                    <!--grafico de barras-->
                                     <div class="portlet-body">
-                                        <div id="dashboard_amchart_1" class="CSSAnimationChart" style="overflow: hidden; text-align: left;"><div style="position: relative;" class="amcharts-main-div"><div style="overflow: hidden; position: relative; text-align: left; width: 588px; height: 393px; padding: 0px; cursor: default;" class="amcharts-chart-div"><svg version="1.1" style="position: absolute; width: 588px; height: 393px; top: 0.200012px; left: 0px;"><desc>JavaScript chart by amCharts 3.17.1</desc><g><path cs="100,100" d="M0.5,0.5 L587.5,0.5 L587.5,392.5 L0.5,392.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0" class="amcharts-bg"></path><path cs="100,100" d="M0.5,0.5 L473.5,0.5 L473.5,340.5 L0.5,340.5 L0.5,0.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0" class="amcharts-plot-area" transform="translate(74,20)"></path></g><g><g class="amcharts-category-axis" transform="translate(74,20)"><g><path cs="100,100" d="M0.5,0.5 L0.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M0.5,340.5 L0.5,340.5 L0.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M43.5,0.5 L43.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M43.5,340.5 L43.5,340.5 L43.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M86.5,0.5 L86.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M86.5,340.5 L86.5,340.5 L86.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M129.5,0.5 L129.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M129.5,340.5 L129.5,340.5 L129.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M172.5,0.5 L172.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M172.5,340.5 L172.5,340.5 L172.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M215.5,0.5 L215.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M215.5,340.5 L215.5,340.5 L215.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M258.5,0.5 L258.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M258.5,340.5 L258.5,340.5 L258.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M301.5,0.5 L301.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M301.5,340.5 L301.5,340.5 L301.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M344.5,0.5 L344.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M344.5,340.5 L344.5,340.5 L344.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M387.5,0.5 L387.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M387.5,340.5 L387.5,340.5 L387.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M430.5,0.5 L430.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M430.5,340.5 L430.5,340.5 L430.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g><g><path cs="100,100" d="M473.5,0.5 L473.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(0,340)" class="amcharts-axis-tick"></path><path cs="100,100" d="M473.5,340.5 L473.5,340.5 L473.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.1" stroke="#FFFFFF" class="amcharts-axis-grid"></path></g></g><g class="amcharts-value-axis value-axis-a1" transform="translate(74,20)" visibility="visible"></g><g class="amcharts-value-axis value-axis-a2" transform="translate(74,20)" visibility="visible"></g><g class="amcharts-value-axis value-axis-a3" transform="translate(74,20)" visibility="visible"></g></g><g></g><g></g><g></g><g><g transform="translate(74,20)"><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(5,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-211.5 L34.5,-211.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(48,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-140.5 L34.5,-140.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(91,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-111.5 L34.5,-111.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(134,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-28.5 L34.5,-28.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(177,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-13.5 L34.5,-13.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(220,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-112.5 L34.5,-112.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(263,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-303.5 L34.5,-303.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(306,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-251.5 L34.5,-251.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g><g class="amcharts-graph-column amcharts-graph-g1" transform="translate(349,340)" visibility="visible"><path cs="100,100" d="M0.5,0.5 L0.5,-169.5 L34.5,-169.5 L34.5,0.5 L0.5,0.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.4" stroke-width="1" stroke-opacity="1" class="amcharts-graph-column-front amcharts-graph-column-element"></path></g></g></g><g><g transform="translate(74,20)" class="amcharts-graph-column amcharts-graph-g1"><g></g></g><g transform="translate(74,20)" class="amcharts-graph-line amcharts-graph-g2"><g></g><g></g><g clip-path="url(#AmChartsEl-4)"><path cs="100,100" d="M22.5,305.5 L65.5,218.5 L108.5,228.5 L151.5,231.5 L194.5,174.5 L237.5,123.5 L280.5,55.5 L323.5,43.5 L366.5,24.5 L409.5,111.5 M0,0 L0,0" fill="none" stroke-width="1" stroke-opacity="1" stroke="#786c56" class="amcharts-graph-stroke"></path></g><clipPath id="AmChartsEl-4"><rect x="0" y="0" width="475" height="342" rx="0" ry="0" stroke-width="0"></rect></clipPath></g><g transform="translate(74,20)" class="amcharts-graph-line amcharts-graph-g3"><g></g><g></g><g clip-path="url(#AmChartsEl-5)"><path cs="100,100" d="M22.5,194.5 L65.5,222.5 L108.5,240.5 L151.5,287.5 L194.5,298.5 L237.5,202.5 L280.5,5.5 L323.5,44.5 L366.5,112.5 L409.5,209.5 M0,0 L0,0" fill="none" stroke-width="1" stroke-opacity="0.8" stroke="#e26a6a" class="amcharts-graph-stroke"></path></g><clipPath id="AmChartsEl-5"><rect x="0" y="0" width="475" height="342" rx="0" ry="0" stroke-width="0"></rect></clipPath></g></g><g></g><g><g class="amcharts-category-axis"><path cs="100,100" d="M0.5,0.5 L473.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#555555" transform="translate(74,360)" class="amcharts-axis-line"></path></g><g class="amcharts-value-axis value-axis-a1"><path cs="100,100" d="M0.5,0.5 L0.5,340.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#000000" transform="translate(74,20)" class="amcharts-axis-line" visibility="visible"></path></g><g class="amcharts-value-axis value-axis-a2"><path cs="100,100" d="M0.5,0.5 L0.5,340.5 L0.5,340.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#000000" transform="translate(547,20)" class="amcharts-axis-line" visibility="visible"></path></g><g class="amcharts-value-axis value-axis-a3"><path cs="100,100" d="M0.5,0.5 L0.5,340.5 L0.5,340.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#000000" transform="translate(547,20)" class="amcharts-axis-line" visibility="visible"></path></g></g><g><g transform="translate(74,20)" visibility="hidden"><path cs="100,100" d="M0.5,0.5 L0.5,0.5 L0.5,340.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#CC0000" class="amcharts-cursor-line" style="pointer-events: none;" visibility="hidden"></path></g></g><g></g><g><g transform="translate(74,20)" class="amcharts-graph-column amcharts-graph-g1"></g><g transform="translate(74,20)" class="amcharts-graph-line amcharts-graph-g2"><circle r="5" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(22,305)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(30,303)"><tspan y="6" x="0">Miami</tspan></text><circle r="3.5" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(65,218)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(72,218)"><tspan y="6" x="0"></tspan></text><circle r="5" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(108,228)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(116,228)"><tspan y="6" x="0"></tspan></text><circle r="8" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(151,231)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(162,229)"><tspan y="6" x="0">Houston</tspan></text><circle r="8.5" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(194,174)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(206,174)"><tspan y="6" x="0"></tspan></text><circle r="5.5" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(237,123)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(246,123)"><tspan y="6" x="0"></tspan></text><circle r="5" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(280,55)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(288,55)"><tspan y="6" x="0"></tspan></text><circle r="9" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(323,43)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(335,41)"><tspan y="6" x="0">Denver</tspan></text><circle r="6" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(366,24)" class="amcharts-graph-bullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(375,24)"><tspan y="6" x="0"></tspan></text><circle r="4" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" transform="translate(409,111)" class="amcharts-graph-bullet lastBullet"></circle><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" style="pointer-events: none;" class="amcharts-graph-label" transform="translate(416,109)"><tspan y="6" x="0">Las Vegas</tspan></text></g><g transform="translate(74,20)" class="amcharts-graph-line amcharts-graph-g3"><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(22,194)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(65,222)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(108,240)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(151,287)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(194,298)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(237,202)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(280,5)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(323,44)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(366,112)" class="amcharts-graph-bullet"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" transform="translate(409,209)" class="amcharts-graph-bullet"></path></g></g><g><g class="amcharts-category-axis" transform="translate(74,20)" visibility="visible"><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(21.500000022622054,353)" class="amcharts-axis-label"><tspan y="6" x="0">05</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(64.50000002262206,353)" class="amcharts-axis-label"><tspan y="6" x="0">06</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(107.50000002262206,353)" class="amcharts-axis-label"><tspan y="6" x="0">07</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(150.50000002262206,353)" class="amcharts-axis-label"><tspan y="6" x="0">08</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(193.50000002262206,353)" class="amcharts-axis-label"><tspan y="6" x="0">09</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(236.50000002262206,353)" class="amcharts-axis-label"><tspan y="6" x="0">10</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(279.50000002262203,353)" class="amcharts-axis-label"><tspan y="6" x="0">11</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(322.50000002262203,353)" class="amcharts-axis-label"><tspan y="6" x="0">12</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(365.50000002262203,353)" class="amcharts-axis-label"><tspan y="6" x="0">13</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(408.50000002262203,353)" class="amcharts-axis-label"><tspan y="6" x="0">14</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="middle" transform="translate(451.50000002262203,353)" class="amcharts-axis-label"><tspan y="6" x="0">15</tspan></text></g><g class="amcharts-value-axis value-axis-a1" transform="translate(74,20)" visibility="visible"><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,337.5)" class="amcharts-axis-label"><tspan y="6" x="0">200</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,299.5)" class="amcharts-axis-label"><tspan y="6" x="0">250</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,261.5)" class="amcharts-axis-label"><tspan y="6" x="0">300</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,224.5)" class="amcharts-axis-label"><tspan y="6" x="0">350</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,186.5)" class="amcharts-axis-label"><tspan y="6" x="0">400</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,148.5)" class="amcharts-axis-label"><tspan y="6" x="0">450</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,110.5)" class="amcharts-axis-label"><tspan y="6" x="0">500</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,73.5)" class="amcharts-axis-label"><tspan y="6" x="0">550</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,35.5)" class="amcharts-axis-label"><tspan y="6" x="0">600</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(-12,-2.5)" class="amcharts-axis-label"><tspan y="6" x="0">650</tspan></text><text y="7" fill="#6c7b88" font-family="Open Sans" font-size="13px" opacity="1" font-weight="bold" text-anchor="middle" class="amcharts-axis-title" transform="translate(-52,170) rotate(-90)"><tspan y="7" x="0">distance</tspan></text></g><g class="amcharts-value-axis value-axis-a2" transform="translate(74,20)" visibility="visible"></g><g class="amcharts-value-axis value-axis-a3" transform="translate(74,20)" visibility="visible"><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,330.5)" class="amcharts-axis-label"><tspan y="6" x="0">03h 20min</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,281.5)" class="amcharts-axis-label"><tspan y="6" x="0">05h 00min</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,233.5)" class="amcharts-axis-label"><tspan y="6" x="0">06h 40min</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,184.5)" class="amcharts-axis-label"><tspan y="6" x="0">08h 20min</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,136.5)" class="amcharts-axis-label"><tspan y="6" x="0">10h 00min</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,87.5)" class="amcharts-axis-label"><tspan y="6" x="0">11h 40min</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="end" transform="translate(464,39.5)" class="amcharts-axis-label"><tspan y="6" x="0">13h 20min</tspan></text><text y="7" fill="#6c7b88" font-family="Open Sans" font-size="13px" opacity="1" font-weight="bold" text-anchor="middle" class="amcharts-axis-title" transform="translate(490,170) rotate(-90)"><tspan y="7" x="0">duration</tspan></text></g></g><g><g></g></g><g></g><g></g><g></g></svg><a href="http://www.amcharts.com/javascript-charts/" title="JavaScript charts" style="position: absolute; text-decoration: none; color: rgb(108, 123, 136); font-family: Open Sans; font-size: 12px; opacity: 0.7; display: block; left: 79px; top: 25px;">JS chart by amCharts</a></div><div style="overflow: hidden; position: relative; text-align: left; width: 588px; height: 107px; cursor: default;" class="amChartsLegend amcharts-legend-div"><svg version="1.1" style="position: absolute; width: 588px; height: 107px;"><desc>JavaScript chart by amCharts 3.17.1</desc><g transform="translate(74,0)"><path cs="100,100" d="M0.5,0.5 L473.5,0.5 L473.5,96.5 L0.5,96.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0" class="amcharts-legend-bg"></path><g transform="translate(0,11)"><g cursor="pointer" class="amcharts-legend-item-g1" transform="translate(0,0)"><path cs="100,100" d="M-15.5,8.5 L16.5,8.5 L16.5,-7.5 L-15.5,-7.5 Z" fill="#08a3cc" stroke="#08a3cc" fill-opacity="0.7" stroke-width="1" stroke-opacity="1" transform="translate(16,8)" class="amcharts-graph-column amcharts-graph-g1 amcharts-legend-marker"></path><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" class="amcharts-legend-label" transform="translate(37,7)"><tspan y="6" x="0">distance</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" class="amcharts-legend-value" transform="translate(110,7)">total: 3,581 mi</text><rect x="32" y="0" width="213.5" height="19" rx="0" ry="0" stroke-width="0" stroke="none" fill="#fff" fill-opacity="0.005"></rect></g><g cursor="pointer" class="amcharts-legend-item-g2" transform="translate(0,29)"><g class="amcharts-graph-line amcharts-graph-g2 amcharts-legend-marker"><path cs="100,100" d="M0.5,8.5 L32.5,8.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#786c56" class="amcharts-graph-stroke"></path><circle r="4" cx="0" cy="0" fill="#89c4f4" stroke="#02617a" fill-opacity="1" stroke-width="2" stroke-opacity="1" class="amcharts-graph-bullet" transform="translate(17,8)"></circle></g><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" class="amcharts-legend-label" transform="translate(37,7)"><tspan y="6" x="0">latitude/city</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" class="amcharts-legend-value" transform="translate(129,7)"> </text><rect x="32" y="0" width="232.5" height="19" rx="0" ry="0" stroke-width="0" stroke="none" fill="#fff" fill-opacity="0.005"></rect></g><g cursor="pointer" class="amcharts-legend-item-g3" transform="translate(0,58)"><g class="amcharts-graph-line amcharts-graph-g3 amcharts-legend-marker"><path cs="100,100" d="M0.5,8.5 L32.5,8.5" fill="none" stroke-width="1" stroke-opacity="0.8" stroke="#e26a6a" class="amcharts-graph-stroke"></path><path cs="100,100" d="M-3.5,4.5 L4.5,4.5 L4.5,-3.5 L-3.5,-3.5 Z" fill="#e26a6a" stroke="#e26a6a" fill-opacity="1" stroke-width="1" stroke-opacity="0.8" class="amcharts-graph-bullet" transform="translate(17,8)"></path></g><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" class="amcharts-legend-label" transform="translate(37,7)"><tspan y="6" x="0">duration</tspan></text><text y="6" fill="#6c7b88" font-family="Open Sans" font-size="12px" opacity="1" text-anchor="start" class="amcharts-legend-value" transform="translate(110,7)"> </text><rect x="32" y="0" width="213.5" height="19" rx="0" ry="0" stroke-width="0" stroke="none" fill="#fff" fill-opacity="0.005"></rect></g></g></g></svg></div></div></div>
+                                    <jsp:include page="seccion/grafico_risktier.jsp"></jsp:include>
                                     </div>
                                 </div>
                             </div>
@@ -336,14 +331,18 @@
                                             <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
+                                    <!--grafico de score-->
                                     <div class="panel-body">
-                                        <div id="contenedor" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+                                        <!--                                        <div>
+                                                                                Nota: Este estimador o clasificador cumple con la Ley Nº 20.521 (que modifica la ley Nº 19.628), el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.
+                                                                            </div>-->
+                                        <div id="contenedor" style="width: 200px; height: 200px; margin: 0 auto"></div>
                                     </div>
-
+                                    <!--fin grafico de score-->
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="icon-cursor font-dark hide"></i>
-                                            <span class="caption-subject font-dark bold uppercase">Detalle ultimos 3 meses pagados</span>
+                                            <span class="small">Detalle ultimos 3 meses pagados</span>
                                         </div>
                                         <div class="actions">
                                             <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
@@ -352,8 +351,7 @@
                                     </div>
                                     <div class="portlet-body">
                                         <div class="row">
-
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-4 col-lg-4" style="height: 50px;">
                                                 <div class="easy-pie-chart">
                                                     <div class="number transactions" data-percent="55">
                                                         <span>+55</span>% <canvas height="75" width="75"></canvas></div>
@@ -363,7 +361,7 @@
                                                 </div>
                                             </div>
                                             <div class="margin-bottom-10 visible-sm"> </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-4 col-lg-4">
                                                 <div class="easy-pie-chart">
                                                     <div class="number visits" data-percent="85">
                                                         <span>+85</span>% <canvas height="75" width="75"></canvas></div>
@@ -373,7 +371,7 @@
                                                 </div>
                                             </div>
                                             <div class="margin-bottom-10 visible-sm"> </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-4 col-lg-4">
                                                 <div class="easy-pie-chart">
                                                     <div class="number bounce" data-percent="46">
                                                         <span>-46</span>% <canvas height="75" width="75"></canvas></div>
@@ -385,74 +383,43 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
-
-
                         </div>
+                        <!--fin de los graficos-->
+
                         <div class="row">
-                            <div class="col-md-6">
-                                <!-- BEGIN PORTLET-->
-                                <div class="portlet light bordered" style="height: 200px">
+
+
+                            <div class="col-lg-6 col-xs-12 col-sm-12">
+                                <div class="portlet light bordered" style="height: 240px">
                                     <div class="portlet-title">
-                                        <!--                                        <div class="portlet-title">
-                                                                                    <div class="caption">
-                                                                                        <i class="icon-settings font-dark"></i>
-                                                                                        <span class="caption-subject font-dark sbold uppercase">Horizontal Form</span>
-                                                                                    </div>
-                                                                                    <div class="actions">
-                                                                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                                                            <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                                                                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                                                                            <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                                                                                                <input type="radio" name="options" class="toggle" id="option2">Settings</label>
-                                        
-                                                                                            <button class="btn small" style="background: rgb(153, 0, 0); color: rgb(255, 255, 255);"><i class="glyphicon glyphicon-user"> </i></button> 
-                                                                                            <button class="btn small active" style="background: rgb(70, 184, 28); color: rgb(0, 0, 0);">G</button>
-                                        
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>-->
-                                        <div class="caption font-red-intense">
-                                            <i class="icon-speech font-red-intense"></i>
+                                        <div class="caption">
+                                            <i class="icon-speech"></i>
                                             <span class="caption-subject bold uppercase"> BLACK LIST</span>
                                             <span class="caption-helper">fetch clicked menu item</span>
                                         </div>
-                                         <div class="tools">
+                                        <div class="tools">
                                             <a href="#" class="collapse" data-original-title="" title=""> </a>
                                         </div>
                                         <div class="actions">
                                             <div class="btn-group btn-group-devided" data-toggle="buttons">
-<!--                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                                                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
+                                                <!--                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                                                                                                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                                                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                                                                                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
 
                                                 <div class="btn-toolbar">
-                                            <div class="btn-group">
-                                                <button class="btn small active" style="background: rgb(70, 184, 28); color: rgb(0, 0, 0);">G</button>
-                                                <button class="btn small" style="background: rgb(153, 0, 0); color: rgb(255, 255, 255);"><i class="glyphicon glyphicon-user"> </i></button> 
+                                                    <div class="btn-group">
+                                                        <button class="btn small active" style="background: #009900; color: rgb(255, 255, 255);"><i class="fa fa-plus"></i></button>
+                                                        <button class="btn small" style="background: #ff0000; color: rgb(255, 255, 255);"><i class="fa fa-remove"> </i></button> 
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                            </div>
-                                        </div>
-                                       
-                                        <!--                                        <div class="actions">
-                                                                                    <a href="javascript:;" class="btn btn-icon-only green">
-                                                                                        <i class="glyphicon glyphicon-user"> </i>
-                                                                                    </a>
-                                                                                    <a href="javascript:;" class="btn btn-icon-only red">
-                                                                                        <i class="glyphicon glyphicon-user"> </i>
-                                                                                    </a>
-                                                                                </div>-->
-                                        
-
-
                                     </div>
                                     <div class="portlet-body">
                                         <div class="input-group input-group-lg">
-                                            <input type="text" class="form-control" placeholder="Search for...">
+                                            <input type="text" class="form-control" placeholder="Agregar comentario...">
                                             <span class="input-group-btn">
                                                 <button class="btn green-haze"  type="button"><i class="fa fa-plus"></i></button>
                                             </span>
@@ -460,79 +427,87 @@
 
                                     </div>
                                 </div>
-                                <!-- END PORTLET-->
                             </div>
-                            <!--seccion de propuesta de negocio-->
-                            <div class="dashboard-stat2 bordered bordered col-md-6" style="height: 200px">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-settings font-dark"></i>
-                                        <span class="caption-subject font-dark sbold uppercase">PROPUESTA DE NEGOCIO A</span>
-                                    </div>
-                                    <div class="tools">
-                                        <a href="#" class="collapse" data-original-title="" title=""> </a>
-                                    </div>
+                            <div class="col-lg-6 col-xs-12 col-sm-12">
+                                <div class="portlet light bordered" style="height: 240px">
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-settings font-dark"></i>
+                                                    <span class="caption-subject font-dark sbold uppercase">PROPUESTA DE NEGOCIO A</span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="#" class="collapse" data-original-title="" title=""> </a>
+                                                </div>
 
-                                </div>
-                                <br><br>
-                                <div class="col-md-6">
-                                    <div class="progress-info">
-                                        <div class="number">
-                                            <small style="display: inline-block;width: 200px;">MONTO</small>
-                                            <small class="font-green-sharp">$</small>
-                                            <span data-counter="counterup" data-value="40000000">40000000</span>
-                                        </div>
-                                        <div class="progress">
-                                            <span style="width: 70%;" class="progress-bar progress-bar-success red">
-                                                <span class="sr-only">70% progress</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <br><br>
-                                    <div class="progress-info">
-                                        <div class="number">
-                                            <small style="display: inline-block;width: 220px;">TASA</small>
-                                            <span data-counter="counterup" data-value="0.80">0.80</span>
-                                            <small class="font-green-sharp">%</small>
-                                        </div>
-                                        <div class="progress">
-                                            <span style="width: 50%;" class="progress-bar progress-bar-success red">
-                                                <span class="sr-only">50% progress</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="progress-info">
-                                        <div class="number">
-                                            <small style="display: inline-block;width: 220px;">PLAZO</small>
-                                            <span data-counter="counterup" data-value="72">72</span>
-                                        </div>
-                                        <div class="progress">
-                                            <span style="width: 100%;" class="progress-bar progress-bar-success red">
-                                                <span class="sr-only">100% progress</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <br><br>
-                                    <div class="progress-info">
-                                        <div class="number">
-                                            <small style="display: inline-block;width: 220px;">CUOTA</small>
-                                            <small class="font-green-sharp">$</small>
-                                            <span data-counter="counterup" data-value="600000">600000</span>
-                                        </div>
-                                        <div class="progress">
-                                            <span style="width: 60%;" class="progress-bar progress-bar-success red">
-                                                <span class="sr-only">60% progress</span>
-                                            </span>
+                                            </div>
+                                            <br><br>
+                                            <div class="col-md-6 col-xs-6 col-lg-6" style="height: 200px">
+
+                                                <div class="progress-info">
+                                                    <div class="number">
+                                                        <small style="display: inline-block;width: 200px;">MONTO</small>
+                                                        <small class="font-green-sharp">$</small>
+                                                        <span data-counter="counterup" data-value="40000000">40000000</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 10px;">
+                                                        <span style="width: 70%;" class="progress-bar progress-bar-success blue">
+                                                            <span class="sr-only">70% progress</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <br><br>
+                                                <div class="progress-info">
+                                                    <div class="number">
+                                                        <small style="display: inline-block;width: 220px;">TASA</small>
+                                                        <span data-counter="counterup" data-value="0.80">0.80</span>
+                                                        <small class="font-green-sharp">%</small>
+                                                    </div>
+                                                    <div class="progress" style="height: 10px;">
+                                                        <span style="width: 50%;" class="progress-bar progress-bar-success blue">
+                                                            <span class="sr-only">50% progress</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-6 col-xs-6 col-lg-6">
+                                                <div class="progress-info">             
+                                                    <div class="number">
+                                                        <small style="display: inline-block;width: 220px;">PLAZO</small>
+                                                        <span data-counter="counterup" data-value="72">72</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 10px;">
+                                                        <span style="width: 100%;" class="progress-bar progress-bar-success blue">
+                                                            <span class="sr-only">100% progress</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <br><br>
+                                                <div class="progress-info">
+                                                    <div class="number">
+                                                        <small style="display: inline-block;width: 200px;">CUOTA</small>
+                                                        <small class="font-green-sharp">$</small>
+                                                        <span data-counter="counterup" data-value="600000">600000</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 10px;">
+                                                        <span style="width: 50%;" class="progress-bar progress-bar-success blue">
+                                                            <span class="sr-only">60% progress</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
 
-                        <!--fin propuesta de negocio-->
 
                         <!--calugas con otros datos-->
                         <div class="row">
@@ -547,7 +522,11 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">INFORMACION PREVISIONAL</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> INFORMACION PREVISIONAL </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -572,7 +551,11 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">PODER JUDICIAL</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> PODER JUDICIAL </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -597,7 +580,11 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">SANCTIONS OFAC</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> SANCTIONS OFAC </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -622,7 +609,11 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">SANCTIONS OFAC</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> SANCTIONS OFAC </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -652,7 +643,11 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">SUPERINTENDENCIA DE QUIEBRAS</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> SUPERINTENDENCIA DE QUIEBRAS </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -678,7 +673,11 @@
                                                 <span data-counter="counterup" data-value="7800">7800</span>
                                                 <small class="font-green-sharp">$</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">ACTIVIDAD COMERCIAL</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> ACTIVIDAD COMERCIAL </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="progress-info">
@@ -703,7 +702,11 @@
                                                 <span data-counter="counterup" data-value="4">4</span>
                                                 <small class="font-green-sharp">°</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">Sociedades</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> SOCIEDADES </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <img src="images/empresas.png" style="width: 15%;">
 
@@ -728,7 +731,11 @@
                                                 <span data-counter="counterup" data-value="4">4</span>
                                                 <small class="font-green-sharp">°</small>
                                             </h3>
-                                            <small style="display: inline-block;width: 220px;">Sociedades</small>
+                                            <div class="progress-info">
+                                                <div class="status">
+                                                    <div class="status-title"> SOCIEDADES </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <img src="images/empresas.png" style="width: 15%;">
 

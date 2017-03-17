@@ -38,7 +38,7 @@ $('#contenedor').highcharts({
         minorTickLength: 10,
         minorTickPosition: 'inside',
         minorTickColor: '#666',
-        tickPixelInterval: 30,
+        tickPixelInterval: 50, //aqui se la la cantidad de franjas
         tickWidth: 2,
         tickPosition: 'inside',
         tickLength: 10,
@@ -52,7 +52,7 @@ $('#contenedor').highcharts({
         },
         plotBands: [
             {
-                thickness: 30,
+                thickness: 25,//aqui se le da el tamaño a la franja
 //                    thickness: 15,
                 from: 0,
                 to: 300,
@@ -60,14 +60,14 @@ $('#contenedor').highcharts({
                 color: '#DD4B39' // red
             },
             {
-                thickness: 30,
+                thickness: 25,
 //                    thickness: 15,
                 from: 300,
                 to: 700,
                 color: '#F39C12' // yellow
             },
             {
-                thickness: 30,
+                thickness: 25,
 //                    thickness: 15,
                 from: 700,
                 to: 1000,
