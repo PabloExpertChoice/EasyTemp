@@ -34,17 +34,17 @@ $('#contenedor').highcharts({
         min: 0,
         max: 1000,
         minorTickInterval: 'auto',
-        minorTickWidth: 1,
-        minorTickLength: 10,
+        minorTickWidth: 1,//grosor de las lineas biceladas,
+        minorTickLength: 5, //largo de las lineas biceladas
         minorTickPosition: 'inside',
         minorTickColor: '#666',
-        tickPixelInterval: 50, //aqui se la la cantidad de franjas
+        tickPixelInterval: 50, //aqui se la la cantidad de lineas biceladas
         tickWidth: 2,
         tickPosition: 'inside',
         tickLength: 10,
         tickColor: '#666',
         labels: {
-            step: 2,
+            step: 1,
             rotation: 'auto'
         },
         title: {
@@ -52,27 +52,27 @@ $('#contenedor').highcharts({
         },
         plotBands: [
             {
-                thickness: 25,//aqui se le da el tamaño a la franja
+                thickness: 15,//aqui se le da el tamaño a la franja
 //                    thickness: 15,
                 from: 0,
                 to: 300,
 //                    color: '#DF5353' // red
-                color: '#DD4B39' // red
+                color: '#f3565d' // red
             },
             {
-                thickness: 25,
+                thickness: 15,
 //                    thickness: 15,
                 from: 300,
                 to: 700,
-                color: '#F39C12' // yellow
+                color: '#f8cb00' // yellow
             },
             {
-                thickness: 25,
+                thickness: 15,
 //                    thickness: 15,
                 from: 700,
                 to: 1000,
 //                    color: '#55BF3B' // green
-                color: '#00A65A' // green
+                color: '#1bbc9b' // green
             }
         ]
     },
