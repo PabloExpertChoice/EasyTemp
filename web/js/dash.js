@@ -38,10 +38,10 @@ $('#contenedor').highcharts({
         minorTickLength: 5, //largo de las lineas biceladas
         minorTickPosition: 'inside',
         minorTickColor: '#666',
-        tickPixelInterval: 50, //aqui se la la cantidad de lineas biceladas
-        tickWidth: 2,
+        tickPixelInterval: 80, //aqui se la la cantidad de lineas biceladas
+        tickWidth: 2, //grosor de las lineas principales
         tickPosition: 'inside',
-        tickLength: 10,
+        tickLength: 10, //largo de las lineas principales
         tickColor: '#666',
         labels: {
             step: 1,

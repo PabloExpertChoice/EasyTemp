@@ -154,7 +154,7 @@
                         <div class="row">
 
                             <div class="col-lg-7 col-xs-12 col-sm-12">
-                                <div class="portlet box blue">
+                                <div class="portlet box blue" style="border: none;">
                                     <div class="portlet-title">
                                         <div class="caption">
 <!--                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
@@ -174,13 +174,14 @@
                                     </div>
                                     <!--grafico de barras-->
                                     <div class="portlet-body">
-                                    <jsp:include page="seccion/grafico_risktier.jsp"></jsp:include>
+                                    <%--<jsp:include page="seccion/grafico_risktier.jsp"></jsp:include>--%>
+                                    <div id="dashboard_amchart_1" class="CSSAnimationChart" style="height: 375px"></div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12">
-                                <div class="portlet box blue">
+                            <div class="col-lg-5 col-md-12 col-xs-12 col-sm-12">
+                                <div class="portlet box blue" style="border: none;" >
                                     <div class="portlet-title">
                                         <div class="caption"><i class="fa fa-gift"></i>Score</div>
                                         <div class="tools">
@@ -191,8 +192,17 @@
                                         </div>
                                     </div>
                                     <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5">
+                                            <p>datos del grafico y de la informacion de score</p>
+                                            <p>Nota: Este estimador o clasificador cumple con la Ley Nº 20.521 (que modifica la ley Nº 19.628), el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>
+                                        </div>
+                                    <div class="col-md-7 col-lg-7 col-xs-7 col-sm-7">
                                         <div id="contenedor" style="width: 235px; height: 235px; margin: 0 auto"></div>
                                     </div>
+                                        
+                                        </div>
+                                        </div>
                                     <!--fin grafico de score-->
 <!--                                    <div class="portlet-title">
                                         <div class="caption">
@@ -300,7 +310,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-xs-12 col-sm-12">
 
-                                <div class="portlet light bordered" style="height: 250px">
+                                <div class="portlet light bordered" style="height: 200px">
 
                                     <div class="portlet-title">
                                         <div class="caption">
@@ -338,8 +348,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered" style="height: 250px">
+                            <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
+                                <div class="portlet light bordered" >
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="icon-settings font-dark"></i>
@@ -350,14 +360,13 @@
                                             <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body" style="display: block;">
+                                    <div class="portlet-body" style="display: block; margin: 0;">
                                         <div class="portlet-body">
                                             <div class="row">
-                                                <div class="col-md-6 col-xs-6 col-lg-6" style="height: 200px">
-
+                                                <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
                                                     <div class="progress-info">
                                                         <div class="number">
-                                                            <small style="display: inline-block;width: 200px;">MONTO</small>
+                                                            <small style="display: inline-block;width: 180px;">MONTO</small>
                                                             <small class="font-green-sharp">$</small>
                                                             <span data-counter="counterup" data-value="40000000">40000000</span>
                                                         </div>
@@ -367,10 +376,9 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <br><br>
                                                     <div class="progress-info">
                                                         <div class="number">
-                                                            <small style="display: inline-block;width: 220px;">TASA</small>
+                                                            <small style="display: inline-block;width: 180px;">TASA</small>
                                                             <span data-counter="counterup" data-value="0.80">0.80</span>
                                                             <small class="font-green-sharp">%</small>
                                                         </div>
@@ -382,11 +390,11 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="margin-bottom-10 visible-sm"> </div>
-                                                <div class="col-md-6 col-xs-6 col-lg-6">
+                                                <!--<div class="margin-bottom-10 visible-sm"> </div>-->
+                                                <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
                                                     <div class="progress-info">             
                                                         <div class="number">
-                                                            <small style="display: inline-block;width: 220px;">PLAZO</small>
+                                                            <small style="display: inline-block; width: 220px;">PLAZO</small>
                                                             <span data-counter="counterup" data-value="72">72</span>
                                                         </div>
                                                         <div class="progress" style="height: 10px;">
@@ -395,7 +403,6 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <br><br>
                                                     <div class="progress-info">
                                                         <div class="number">
                                                             <small style="display: inline-block;width: 200px;">CUOTA</small>
@@ -422,7 +429,7 @@
                         <!--informacion de bureaos-->
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="portlet light bordered">
+                                <div class="portlet light bordered" style="height: 320px;">
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="icon-anchor"></i>
@@ -472,7 +479,7 @@
                                                         <div class="col-lg-6" style="">
                                                             <div class="hpanel filter-item">
                                                                 <a href="#">
-                                                                    <div class="portlet light bordered">
+                                                                    <div class="portlet light bordered" style="height: 70px;">
                                                                         <div class="pull-right text-right">
                                                                             <small class="stat-label">Valor</small>
                                                                             <h4>250 <i class="fa fa-level-down text-danger"></i></h4>
@@ -483,7 +490,7 @@
                                                             </div>
                                                             <div class="hpanel filter-item">
                                                                 <a href="#">
-                                                                    <div class="portlet light bordered">
+                                                                    <div class="portlet light bordered" style="height: 70px;">
                                                                         <div class="pull-right text-right">
                                                                             <small class="stat-label">Valor</small>
                                                                             <h4>511 <i class="fa fa-level-up text-warning"></i></h4>
@@ -496,7 +503,7 @@
                                                         <div class="col-lg-6" style="">
                                                             <div class="hpanel filter-item">
                                                                 <a href="#">
-                                                                    <div class="portlet light bordered">
+                                                                    <div class="portlet light bordered" style="height: 70px;">
                                                                         <div class="pull-right text-right">
                                                                             <small class="stat-label">Valor</small>
                                                                             <h4>882 <i class="fa fa-level-up text-success"></i></h4>
@@ -507,7 +514,7 @@
                                                             </div>
                                                             <div class="hpanel filter-item">
                                                                 <a href="#">
-                                                                    <div class="portlet light bordered">
+                                                                    <div class="portlet light bordered" style="height: 70px;">
                                                                         <div class="pull-right text-right">
                                                                             <small class="stat-label">Valor</small>
                                                                             <h4>420 <i class="fa fa-level-up text-warning"></i></h4>
@@ -547,11 +554,6 @@
                                                                 <tr>
                                                                     <th>Edad</th>
                                                                     <td> 32</td>
-
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Consulta cedula</th>
-                                                                    <td>SI</td>
 
                                                                 </tr>
                                                             </table>
@@ -948,6 +950,7 @@
         <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
+        <script src="https://www.amcharts.com/lib/3/lang/es.js"></script>
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->

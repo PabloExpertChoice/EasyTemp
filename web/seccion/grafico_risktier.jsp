@@ -168,7 +168,7 @@
             <tspan y="6" x="0">650</tspan>
             </text>
             <text y="7" fill="#6c7b88" font-family="Open Sans" font-size="13px" opacity="1" font-weight="bold" text-anchor="middle" class="amcharts-axis-title" transform="translate(-52,170) rotate(-90)">
-            <tspan y="7" x="0">distance</tspan>
+            <tspan y="7" x="0">Score</tspan>
             </text>
             </g>
             <g class="amcharts-value-axis value-axis-a2" transform="translate(74,20)" visibility="visible"></g>
@@ -195,11 +195,11 @@
             <tspan y="6" x="0">13h 20min</tspan>
             </text>
             <text y="7" fill="#6c7b88" font-family="Open Sans" font-size="13px" opacity="1" font-weight="bold" text-anchor="middle" class="amcharts-axis-title" transform="translate(490,170) rotate(-90)">
-            <tspan y="7" x="0">duration</tspan>
+            <tspan y="7" x="0">Número de solicitud</tspan>
             </text>
             </g></g><g><g></g></g><g></g><g></g><g></g>
             </svg>
-            <a href="http://www.amcharts.com/javascript-charts/" title="JavaScript charts" style="position: absolute; text-decoration: none; color: rgb(108, 123, 136); font-family: Open Sans; font-size: 12px; opacity: 0.7; display: block; left: 79px; top: 25px;">JS chart by amCharts</a>
+            <a href="#" title="JavaScript charts" style="position: absolute; text-decoration: none; color: rgb(108, 123, 136); font-family: Open Sans; font-size: 12px; opacity: 0.7; display: block; left: 79px; top: 25px;">JS chart by amCharts</a>
         </div>
         <div style="overflow: hidden; position: relative; text-align: left; width: 588px; height: 107px; cursor: default;" class="amChartsLegend amcharts-legend-div">
             <svg version="1.1" style="position: absolute; width: 588px; height: 107px;">
