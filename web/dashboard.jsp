@@ -154,11 +154,18 @@
                         <div class="row">
 
                             <div class="col-lg-7 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
+                                <div class="portlet box blue">
                                     <div class="portlet-title">
                                         <div class="caption">
-                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
-                                            <span class="caption-helper">distance stats...</span>
+<!--                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
+                                            <span class="caption-helper">distance stats...</span>-->
+                                            <div class="caption"><i class="fa fa-gift"></i>RISK TIER</div>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
                                         </div>
                                         <div class="actions">
 
@@ -172,17 +179,75 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered">
+                            <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12">
+                                <div class="portlet box blue">
+                                    <div class="portlet-title">
+                                        <div class="caption"><i class="fa fa-gift"></i>Score</div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div id="contenedor" style="width: 235px; height: 235px; margin: 0 auto"></div>
+                                    </div>
+                                    <!--fin grafico de score-->
+<!--                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-cursor font-dark hide"></i>
+                                            <span class="small">Detalle ultimos 3 meses pagados</span>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
+                                                <i class="fa fa-repeat"></i> Reload </a>
+                                        </div>
+                                    </div>-->
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div class="col-md-4 col-xs-4 col-lg-4" style="height: 50px;">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number transactions" data-percent="55">
+                                                        <span>+55</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <a class="title" href="javascript:;"> Mes 3
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-4 col-xs-4 col-lg-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number visits" data-percent="85">
+                                                        <span>+85</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <a class="title" href="javascript:;"> Mes 2
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-4 col-xs-4 col-lg-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number bounce" data-percent="46">
+                                                        <span>-46</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <a class="title" href="javascript:;"> Mes 1
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                <div class="portlet light bordered">
 
-                                    <!--grafico de score-->
+                                    grafico de score
                                     <div class="panel-body">
                                         <div class="caption">
                                             <span class="caption-subject bold uppercase font-dark">Score</span>
                                         </div>
                                         <div id="contenedor" style="width: 235px; height: 235px; margin: 0 auto"></div>
                                     </div>
-                                    <!--fin grafico de score-->
+                                    fin grafico de score
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="icon-cursor font-dark hide"></i>
@@ -226,10 +291,133 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <!--fin de los graficos-->
+
+                        <!--datos para aprobar-->
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-12 col-sm-12">
+
+                                <div class="portlet light bordered" style="height: 250px">
+
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-speech"></i>
+                                            <span class="caption-subject bold uppercase"> BLACK LIST</span>
+                                            <span class="caption-helper">fetch clicked menu item</span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="#" class="collapse" data-original-title="" title=""> </a>
+                                        </div>
+                                        <div class="actions">
+                                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                <!--                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
+                                                                                                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                                                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                                                                                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
+
+                                                <div class="btn-toolbar">
+                                                    <div class="btn-group">
+                                                        <button class="btn small active" style="background: #009900; color: rgb(255, 255, 255);"><i class="fa fa-plus"></i></button>
+                                                        <button class="btn small" style="background: #ff0000; color: rgb(255, 255, 255);"><i class="fa fa-remove"> </i></button> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="input-group input-group-lg">
+                                            <input type="text" class="form-control" placeholder="Agregar comentario...">
+                                            <span class="input-group-btn">
+                                                <button class="btn green-haze"  type="button"><i class="fa fa-plus"></i></button>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xs-12 col-sm-12">
+                                <div class="portlet light bordered" style="height: 250px">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-settings font-dark"></i>
+                                            <span class="caption-subject font-dark sbold uppercase">PROPUESTA DE NEGOCIO A</span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body" style="display: block;">
+                                        <div class="portlet-body">
+                                            <div class="row">
+                                                <div class="col-md-6 col-xs-6 col-lg-6" style="height: 200px">
+
+                                                    <div class="progress-info">
+                                                        <div class="number">
+                                                            <small style="display: inline-block;width: 200px;">MONTO</small>
+                                                            <small class="font-green-sharp">$</small>
+                                                            <span data-counter="counterup" data-value="40000000">40000000</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <span style="width: 70%;" class="progress-bar progress-bar-success blue">
+                                                                <span class="sr-only">70% progress</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="progress-info">
+                                                        <div class="number">
+                                                            <small style="display: inline-block;width: 220px;">TASA</small>
+                                                            <span data-counter="counterup" data-value="0.80">0.80</span>
+                                                            <small class="font-green-sharp">%</small>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <span style="width: 50%;" class="progress-bar progress-bar-success blue">
+                                                                <span class="sr-only">50% progress</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="margin-bottom-10 visible-sm"> </div>
+                                                <div class="col-md-6 col-xs-6 col-lg-6">
+                                                    <div class="progress-info">             
+                                                        <div class="number">
+                                                            <small style="display: inline-block;width: 220px;">PLAZO</small>
+                                                            <span data-counter="counterup" data-value="72">72</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <span style="width: 100%;" class="progress-bar progress-bar-success blue">
+                                                                <span class="sr-only">100% progress</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="progress-info">
+                                                        <div class="number">
+                                                            <small style="display: inline-block;width: 200px;">CUOTA</small>
+                                                            <small class="font-green-sharp">$</small>
+                                                            <span data-counter="counterup" data-value="600000">600000</span>
+                                                        </div>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <span style="width: 50%;" class="progress-bar progress-bar-success blue">
+                                                                <span class="sr-only">60% progress</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--fin de datos para aprovar-->
+
 
                         <!--informacion de bureaos-->
                         <div class="row">
@@ -381,129 +569,6 @@
                             </div>
                         </div>
                         <!--fin informacion de bureaos-->
-
-                        <!--datos para aprobar-->
-                        <div class="row">
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-
-                                <div class="portlet light bordered" style="height: 250px">
-
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="icon-speech"></i>
-                                            <span class="caption-subject bold uppercase"> BLACK LIST</span>
-                                            <span class="caption-helper">fetch clicked menu item</span>
-                                        </div>
-                                        <div class="tools">
-                                            <a href="#" class="collapse" data-original-title="" title=""> </a>
-                                        </div>
-                                        <div class="actions">
-                                            <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                                <!--                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                                                                                                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                                                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                                                                                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
-
-                                                <div class="btn-toolbar">
-                                                    <div class="btn-group">
-                                                        <button class="btn small active" style="background: #009900; color: rgb(255, 255, 255);"><i class="fa fa-plus"></i></button>
-                                                        <button class="btn small" style="background: #ff0000; color: rgb(255, 255, 255);"><i class="fa fa-remove"> </i></button> 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="input-group input-group-lg">
-                                            <input type="text" class="form-control" placeholder="Agregar comentario...">
-                                            <span class="input-group-btn">
-                                                <button class="btn green-haze"  type="button"><i class="fa fa-plus"></i></button>
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-12 col-sm-12">
-                                <div class="portlet light bordered" style="height: 250px">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="icon-settings font-dark"></i>
-                                            <span class="caption-subject font-dark sbold uppercase">PROPUESTA DE NEGOCIO A</span>
-                                        </div>
-                                        <div class="tools">
-                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body" style="display: block;">
-                                        <div class="portlet-body">
-                                            <div class="row">
-                                                <div class="col-md-6 col-xs-6 col-lg-6" style="height: 200px">
-
-                                                    <div class="progress-info">
-                                                        <div class="number">
-                                                            <small style="display: inline-block;width: 200px;">MONTO</small>
-                                                            <small class="font-green-sharp">$</small>
-                                                            <span data-counter="counterup" data-value="40000000">40000000</span>
-                                                        </div>
-                                                        <div class="progress" style="height: 10px;">
-                                                            <span style="width: 70%;" class="progress-bar progress-bar-success blue">
-                                                                <span class="sr-only">70% progress</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <br><br>
-                                                    <div class="progress-info">
-                                                        <div class="number">
-                                                            <small style="display: inline-block;width: 220px;">TASA</small>
-                                                            <span data-counter="counterup" data-value="0.80">0.80</span>
-                                                            <small class="font-green-sharp">%</small>
-                                                        </div>
-                                                        <div class="progress" style="height: 10px;">
-                                                            <span style="width: 50%;" class="progress-bar progress-bar-success blue">
-                                                                <span class="sr-only">50% progress</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="margin-bottom-10 visible-sm"> </div>
-                                                <div class="col-md-6 col-xs-6 col-lg-6">
-                                                    <div class="progress-info">             
-                                                        <div class="number">
-                                                            <small style="display: inline-block;width: 220px;">PLAZO</small>
-                                                            <span data-counter="counterup" data-value="72">72</span>
-                                                        </div>
-                                                        <div class="progress" style="height: 10px;">
-                                                            <span style="width: 100%;" class="progress-bar progress-bar-success blue">
-                                                                <span class="sr-only">100% progress</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <br><br>
-                                                    <div class="progress-info">
-                                                        <div class="number">
-                                                            <small style="display: inline-block;width: 200px;">CUOTA</small>
-                                                            <small class="font-green-sharp">$</small>
-                                                            <span data-counter="counterup" data-value="600000">600000</span>
-                                                        </div>
-                                                        <div class="progress" style="height: 10px;">
-                                                            <span style="width: 50%;" class="progress-bar progress-bar-success blue">
-                                                                <span class="sr-only">60% progress</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--fin de datos para aprovar-->
 
                         <!--calugas con otros datos-->
                         <div class="row">
