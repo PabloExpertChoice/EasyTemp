@@ -429,8 +429,27 @@
                         </div>
                     </div>
                     <!--fin de datos para aprovar-->
+<!--                    <div class="modal fade in" id="full" tabindex="-1" role="dialog" aria-hidden="true" style="display: block; padding-right: 15px;">
+                                        <div class="modal-dialog modal-full">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title">Modal Title</h4>
+                                                </div>
+                                                <div class="modal-body"> Modal body goes here </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn green">Save changes</button>
+                                                </div>
+                                            </div>
+                                             /.modal-content 
+                                        </div>
+                                         /.modal-dialog 
+                                    </div>-->
+                    
+                    
                     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog modal-full">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
@@ -511,7 +530,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="hpanel filter-item">
-                                                            <a href="transunion.jsp">
+                                                            <a href="Svl_Informacion">
                                                                 <div class="portlet light bordered" style="height: 70px;">
                                                                     <div class="pull-right text-right">
                                                                         <small class="stat-label">Valor</small>

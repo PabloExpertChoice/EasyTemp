@@ -1,51 +1,56 @@
 <%-- 
-    Document   : answer
-    Created on : 14-03-2017, 18:01:51
-    Author     : erick
+    Document   : index
+    Created on : 13-03-2017, 15:22:02
+    Author     : ignacio
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en"><!--<![endif]--><!-- BEGIN HEAD --><!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:40:53 GMT --><!-- Added by HTTrack --><head><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
-    
-        <meta charset="utf-8">
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:40:53 GMT -->
+    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <head>
+        <meta charset="utf-8" />
         <title>Metronic Admin Theme #4 | Admin Dashboard 2</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport">
-        <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description">
-        <meta content="" name="author">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
+        <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css">
-        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
-        <link href="assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css">
+        <link href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css">
-        <link href="assets/global/css/plugins.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="assets/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color">
-        <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico"> 
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+        <link rel="shortcut icon" href="favicon.ico" /> 
+    </head>
     <!-- END HEAD -->
 
-        <!-- BEGIN HEADER -->
-        <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
         <jsp:include page="seccion/head.jsp"></jsp:include>
 
@@ -54,26 +59,11 @@
             <div class="page-container">
                 <!-- BEGIN SIDEBAR -->
             <jsp:include page="seccion/sidebar.jsp"></jsp:include>
-
-
-<!-- BEGIN HEADER -->
-            <!-- BEGIN CONTAINER -->
-            <div class="page-container">
-                <!-- BEGIN SIDEBAR -->
                 <!-- BEGIN CONTENT -->
                 <div class="page-content-wrapper">
                     <!-- BEGIN CONTENT BODY -->
-                    <div class="page-content" style="min-height: 716px;">
+                    <div class="page-content">
                         <!-- BEGIN PAGE HEAD-->
-                        <div class="page-head">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>Answer Tree Business</h1>
-                            </div>
-                            <!-- END PAGE TITLE -->
-                        </div>
-                        <!-- END PAGE HEAD-->
-
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
@@ -81,170 +71,49 @@
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                Answer Tree Business
+                                Home
                             </li>
                         </ul>
                         <!-- Fin ruta -->
-                        <!--INICIO DEL CUERPO DE LA PAGINA-->
-                        <div class="portlet light portlet-fit portlet-datatable bordered">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class="icon-settings font-green"></i>
-                                    <span class="caption-subject font-green sbold uppercase"> Order Listing </span>
-                                </div>
-                                <div class="actions">
-                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                        <label class="btn btn-transparent green btn-outline btn-outline btn-circle btn-sm active">
-                                            <input name="options" class="toggle" id="option1" type="radio">Actions
-                                        </label>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <div class="table-container" style="">
-
-                                    <div id="datatable_orders_wrapper" class="dataTables_wrapper dataTables_extended_wrapper no-footer">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <span class="seperator">Tipo</span>
-                                                <select class="form-control" name="datatable_orders_length" aria-controls="datatable_orders">
-                                                    <option value="10">Natural</option>
-                                                    <option value="10">Juridico</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <span class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="15%"> Nombre </span>
-                                                <input class="form-control form-filter input-sm" name="order_customer_name" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8 col-sm-12">
-                                                <div>
-                                                </div>
-                                                <div class="dataTables_length" id="datatable_orders_length">
-
-                                                </div>
-                                                <div class="dataTables_info" id="datatable_orders_info" role="status" aria-live="polite">
-
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">
-                                                <div class="table-group-actions pull-right">
-                                                    <span> </span>
-                                                    <select class="table-group-action-input form-control input-inline input-small input-sm">
-                                                        <option value="">Select...</option>
-                                                        <option value="Cancel">Cancel</option>
-                                                        <option value="Cancel">Hold</option>
-                                                        <option value="Cancel">On Hold</option>
-                                                        <option value="Close">Close</option>
-                                                    </select>
-                                                    <button class="btn btn-sm btn-default table-group-action-submit">
-                                                        <i class="fa fa-check"></i> Submit</button>
-                                                </div></div></div><div class="table-responsive"><table class="table table-striped table-bordered table-hover table-checkable dataTable no-footer" id="datatable_orders" aria-describedby="datatable_orders_info" role="grid">
-                                                <thead>
-                                                    <tr role="row" class="heading">
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1" width="2%">
-                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                                <input class="group-checkable" data-set="#sample_2 .checkboxes" type="checkbox">
-                                                                <span></span>
-                                                            </label>
-                                                        </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="5%"> Order&nbsp;# </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="15%"> Purchased&nbsp;On </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="15%"> Customer </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="10%"> Ship&nbsp;To </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="10%"> Base&nbsp;Price </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="10%"> Purchased&nbsp;Price </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="10%"> Status </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatable_orders" rowspan="1" colspan="1" width="10%"> Actions </th>
-                                                    </tr>
-                                                    <tr role="row" class="filter"><td rowspan="1" colspan="1"> </td>
-                                                        <td rowspan="1" colspan="1">
-                                                            <input class="form-control form-filter input-sm" name="order_id" type="text"> </td>
-                                                        <td rowspan="1" colspan="1">
-                                                            <div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
-                                                                <input class="form-control form-filter input-sm" readonly="" name="order_date_from" placeholder="From" type="text">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-sm default" type="button">
-                                                                        <i class="fa fa-calendar"></i>
-                                                                    </button>
-                                                                </span>
-                                                            </div>
-                                                            <div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
-                                                                <input class="form-control form-filter input-sm" readonly="" name="order_date_to" placeholder="To" type="text">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-sm default" type="button">
-                                                                        <i class="fa fa-calendar"></i>
-                                                                    </button>
-                                                                </span>
-                                                            </div>
-                                                        </td><td rowspan="1" colspan="1">
-                                                            <input class="form-control form-filter input-sm" name="order_customer_name" type="text"> </td><td rowspan="1" colspan="1">
-                                                            <input class="form-control form-filter input-sm" name="order_ship_to" type="text"> </td><td rowspan="1" colspan="1">
-                                                            <div class="margin-bottom-5">
-                                                                <input class="form-control form-filter input-sm" name="order_base_price_from" placeholder="From" type="text"> </div>
-                                                            <input class="form-control form-filter input-sm" name="order_base_price_to" placeholder="To" type="text"> </td><td rowspan="1" colspan="1">
-                                                            <div class="margin-bottom-5">
-                                                                <input class="form-control form-filter input-sm margin-bottom-5 clearfix" name="order_purchase_price_from" placeholder="From" type="text"> </div>
-                                                            <input class="form-control form-filter input-sm" name="order_purchase_price_to" placeholder="To" type="text"> </td><td rowspan="1" colspan="1">
-                                                            <select name="order_status" class="form-control form-filter input-sm">
-                                                                <option value="">Select...</option>
-                                                                <option value="pending">Pending</option>
-                                                                <option value="closed">Closed</option>
-                                                                <option value="hold">On Hold</option>
-                                                                <option value="fraud">Fraud</option>
-                                                            </select>
-                                                        </td><td rowspan="1" colspan="1">
-                                                            <div class="margin-bottom-5">
-                                                                <button class="btn btn-sm btn-success filter-submit margin-bottom">
-                                                                    <i class="fa fa-search"></i> Search</button>
-                                                            </div>
-                                                            <button class="btn btn-sm btn-default filter-cancel">
-                                                                <i class="fa fa-times"></i> Reset</button>
-                                                        </td></tr>
-                                                </thead>
-                                                <tbody> </tbody>
-                                            </table>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <!-- END PAGE HEAD-->
+                        <div class="page-head">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1>Bootstrap Confirmation
+                                <small>metronic popover confirmation demos using bootstrap confirmation plugin</small>
+                            </h1>
                         </div>
-                        <!--FIN DEL CUERPO DE LA PAGINA-->
-
+                        <!-- END PAGE TITLE -->
+                        <!-- BEGIN PAGE TOOLBAR -->
+                        <div class="page-toolbar">
+                            <!-- BEGIN THEME PANEL -->
+                            <a href="#" style="color: #000"><i class="fa fa-home"> </i> Home </a>
+                            <a href="#" style="color: #000"><i class="fa fa-cogs"> </i> Configuracion </a>
+                            <a href="#" style="color: #000"><i class="fa fa-list"> </i> Tree </a>
+                            <!-- END THEME PANEL -->
+                        </div>
+                        <!-- END PAGE TOOLBAR -->
                     </div>
-                    <!-- END CONTENT BODY -->
+
                 </div>
-                <!-- END CONTENT -->
+                <!--fin del contenido de la pagina-->
             </div>
-            <!-- END CONTAINER -->
-
-            <!-- BEGIN FOOTER -->
-            <div class="page-footer">
-            
-
-
-<div class="page-footer-inner"> 2016 © Metronic Theme By
-    <a target="_blank" href="#">Keenthemes</a> &nbsp;|&nbsp;
-    <a href="#" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
-</div>
-<div class="scroll-to-top">
-    <i class="icon-arrow-up"></i>
-</div>
-
+            <!-- END CONTENT -->
         </div>
-        <!-- END FOOTER -->
+        <!-- END CONTAINER -->
+
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <jsp:include page="seccion/footer.jsp"></jsp:include>
+            </div>
+            <!-- END FOOTER -->
+
+            <!--boton flotante-->
+        <jsp:include page="seccion/flotante.jsp"></jsp:include>
 
         <!-- BEGIN CORE PLUGINS -->
-        <script async="" src="../../../../../www.googletagmanager.com/gtm5445.html?id=GTM-W276BJ"></script><script async="" src="../../../../../www.google-analytics.com/analytics.js"></script><script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -283,6 +152,7 @@
         <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
+        <script src="https://www.amcharts.com/lib/3/lang/es.js"></script>
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
@@ -334,9 +204,9 @@
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
         <!-- End -->
-    
+    </body>
 
 
 
-    
-</body><!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:44:48 GMT --></html>
+    <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:44:48 GMT -->
+</html>
