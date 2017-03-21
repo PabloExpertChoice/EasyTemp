@@ -33,6 +33,14 @@
     </ul>
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
+            <a href="#" class="nav-link ">
+                <i class="fa fa-align-justify"></i>
+                <span class="title">Politicas</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+        <li class="nav-item">
             <a href="contrato.jsp" class="nav-link ">
                 <i class="fa fa-file-text"></i>
                 <span class="title">Contrato</span>
@@ -68,6 +76,12 @@
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="icon-bar-chart"></i> Configuraci&#243;n </a>
+        </li>
+    </ul>
+    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+        <li class="nav-item">
+            <a href="../dashboard_2.jsp" class="nav-link">
+                <i class="icon-bar-chart"></i> pagina principal anterior </a>
         </li>
     </ul>
 

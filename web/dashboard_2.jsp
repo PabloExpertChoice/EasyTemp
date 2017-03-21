@@ -103,8 +103,9 @@
                                         <i class="fa fa-comments"></i>
                                     </div>
                                     <div class="details">
-                                            <div class="number"> +
-                                            <span data-counter="counterup" data-value="89">89</span>% </div>
+                                        <div class="number">
+                                            <span data-counter="counterup" data-value="1349">1349</span>
+                                        </div>
                                         <div class="desc"> Estimacion de Leverage </div>
                                     </div>
                                 </a>
@@ -128,7 +129,8 @@
                                     </div>
                                     <div class="details">
                                         <div class="number">
-                                            <span data-counter="counterup" data-value="8,5">8,5</span>M$ </div>
+                                            <span data-counter="counterup" data-value="549">549</span>
+                                        </div>
                                         <div class="desc"> Estimacion de Deuda </div>
                                     </div>
                                 </a>
@@ -139,8 +141,8 @@
                                         <i class="fa fa-globe"></i>
                                     </div>
                                     <div class="details">
-                                        <div class="number">
-                                            <span data-counter="counterup" data-value="4,5">4,5</span>M$ </div>
+                                        <div class="number"> +
+                                            <span data-counter="counterup" data-value="89">89</span>% </div>
                                         <div class="desc"> Estimacion de mora </div>
                                     </div>
                                 </a>
@@ -466,7 +468,7 @@
                                     </div>
                                     <!-- /.modal -->
                     <!--informacion de bureaos-->
-<!--                    <div class="row">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="portlet light bordered" style="height: 320px;">
                                 <div class="portlet-title">
@@ -510,8 +512,8 @@
                                                 <a href="#tab3" data-toggle="tab">Otros datos</a>
                                             </li>
                                         </ul>
-                                        cuerpo de los tab
-                                        tab 1
+                                        <!--cuerpo de los tab-->
+                                        <!--tab 1-->
                                         <div class="tab-content" style="height: 200px;">
                                             <div class="tab-pane active" id="tab1">
                                                 <div class="row">
@@ -608,7 +610,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                     <!--fin informacion de bureaos-->
 
                     <!--calugas con otros datos-->
