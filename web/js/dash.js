@@ -52,7 +52,7 @@ $('#contenedor').highcharts({
         },
         plotBands: [
             {
-                thickness: 15,//aqui se le da el tamaño a la franja
+                thickness: 26,//aqui se le da el tamaño a la franja
 //                    thickness: 15,
                 from: 0,
                 to: 300,
@@ -60,14 +60,14 @@ $('#contenedor').highcharts({
                 color: '#f3565d' // red
             },
             {
-                thickness: 15,
+                thickness: 26,
 //                    thickness: 15,
                 from: 300,
                 to: 700,
                 color: '#f8cb00' // yellow
             },
             {
-                thickness: 15,
+                thickness: 26,
 //                    thickness: 15,
                 from: 700,
                 to: 1000,

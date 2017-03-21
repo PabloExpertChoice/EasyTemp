@@ -16,6 +16,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Metronic Admin Theme #4 | Admin Dashboard 2</title>
+        <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
@@ -63,24 +64,6 @@
                     <!-- BEGIN CONTENT BODY -->
                     <div class="page-content">
                         <!-- BEGIN PAGE HEAD-->
-                            <div class="portlet light bordered">
-                        <div class="page-head">
-                            <!-- BEGIN PAGE TITLE -->
-                            <div class="page-title">
-                                <h1>Informacion de Cliente
-                                    <small>para evaluacion</small>
-                                </h1>
-                                <br>
-                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>: Pedro Pablo Perez</small></h1>
-                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small>: 10.898.953-2</small></h1>
-<!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
-                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
-                            </div>
-                            </div>
-                            <!-- END PAGE TITLE -->
-                        </div>
-                        <!-- END PAGE HEAD-->
-
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
@@ -92,6 +75,25 @@
                             </li>
                         </ul>
                         <!-- Fin ruta -->
+                        <div class="portlet light bordered">
+                            <div class="page-head">
+                                <!-- BEGIN PAGE TITLE -->
+                                <div class="page-title">
+                                    <h1>Informacion de Cliente
+                                        <small>para evaluacion</small>
+                                    </h1>
+                                    <br>
+                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>: Pedro Pablo Perez</small></h1>
+                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small>: 10.898.953-2</small></h1>
+                                    <!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
+                                                                                <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
+                                </div>
+                            </div>
+                            <!-- END PAGE TITLE -->
+                        </div>
+                        <!-- END PAGE HEAD-->
+
+
 
                         <!--indicadores principales-->
                         <div class="row">
@@ -157,7 +159,7 @@
                                         <div class="caption">
                                             <!--                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
                                                                                         <span class="caption-helper">distance stats...</span>-->
-                                            <div class="caption"><i class="fa fa-gift"></i> ANSWER TREE BUSINESS</div>
+                                            <div class="caption"><i class="fa fa-database"></i> ANSWER TREE BUSINESS</div>
                                         </div>
                                         <div class="tools">
                                             <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
@@ -181,7 +183,7 @@
                         <div class="col-lg-5 col-md-12 col-xs-12 col-sm-12">
                             <div class="portlet box blue" style="border: none;" >
                                 <div class="portlet-title">
-                                    <div class="caption"><i class="fa fa-gift"></i>Score</div>
+                                    <div class="caption"><i class="fa fa-info"></i>Score Financiero</div>
                                     <div class="tools">
                                         <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
                                         <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
@@ -191,11 +193,13 @@
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
-                                        <div class="col-md-5 col-lg-5 col-xs-5 col-sm-5">
-                                            <p>datos del grafico y de la informacion de score</p>
-                                            <p>Nota: Este estimador o clasificador cumple con la Ley Nº 20.521 (que modifica la ley Nº 19.628), el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>
+                                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                                            <font size=2 style="color: #6980a5;">
+                                            <p>DATOS: Cliente con una probabilidad de pago dentro de los próximos 90 días mayor al 80% con un KS > 40%, AUC > 70% y ROC > 75%</p>
+                                            <p>NOTA Este estimador o clasificador cumple con la Ley Nº 20.521 (que modifica la ley Nº 19.628), el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>
+                                            </font>
                                         </div>
-                                        <div class="col-md-7 col-lg-7 col-xs-7 col-sm-7">
+                                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
                                             <div id="contenedor" style="width: 235px; height: 235px; margin: 0 auto"></div>
                                         </div>
 
@@ -213,39 +217,39 @@
                                                                         </div>
                                                                     </div>-->
                                 <div class="portlet light bordered">
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-4 col-lg-4" style="height: 50px;">
-                                            <div class="easy-pie-chart">
-                                                <div class="number transactions" data-percent="55">
-                                                    <span>+55</span>% <canvas height="75" width="75"></canvas></div>
-                                                <a class="title" href="javascript:;"> Mes 3
-                                                    <i class="icon-arrow-right"></i>
-                                                </a>
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div class="col-md-4 col-xs-4 col-lg-4" style="height: 50px;">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number transactions" data-percent="55">
+                                                        <span>+55</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <a class="title" href="javascript:;"> Mes 3
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="margin-bottom-10 visible-sm"> </div>
-                                        <div class="col-md-4 col-xs-4 col-lg-4">
-                                            <div class="easy-pie-chart">
-                                                <div class="number visits" data-percent="85">
-                                                    <span>+85</span>% <canvas height="75" width="75"></canvas></div>
-                                                <a class="title" href="javascript:;"> Mes 2
-                                                    <i class="icon-arrow-right"></i>
-                                                </a>
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-4 col-xs-4 col-lg-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number visits" data-percent="85">
+                                                        <span>+85</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <a class="title" href="javascript:;"> Mes 2
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="margin-bottom-10 visible-sm"> </div>
-                                        <div class="col-md-4 col-xs-4 col-lg-4">
-                                            <div class="easy-pie-chart">
-                                                <div class="number bounce" data-percent="46">
-                                                    <span>-46</span>% <canvas height="75" width="75"></canvas></div>
-                                                <a class="title" href="javascript:;"> Mes 1
-                                                    <i class="icon-arrow-right"></i>
-                                                </a>
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-4 col-xs-4 col-lg-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number bounce" data-percent="46">
+                                                        <span>-46</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <a class="title" href="javascript:;"> Mes 1
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                             <!--                                <div class="portlet light bordered">
@@ -348,11 +352,12 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
                             <div class="portlet light bordered" >
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="icon-settings font-dark"></i>
+                                        <a data-toggle="modal" href="#basic"><i class="icon-settings font-dark"></i></a>
                                         <span class="caption-subject font-dark sbold uppercase">PROPUESTA DE NEGOCIO A</span>
                                     </div>
                                     <div class="tools">
@@ -424,8 +429,25 @@
                         </div>
                     </div>
                     <!--fin de datos para aprovar-->
-
-
+                    <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title">Modal Title</h4>
+                                                </div>
+                                                <div class="modal-body"> Modal body goes here </div>
+                                                <img src="images/risktier.png">
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn green">Save changes</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
                     <!--informacion de bureaos-->
                     <div class="row">
                         <div class="col-md-12">
@@ -489,7 +511,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="hpanel filter-item">
-                                                            <a href="#">
+                                                            <a href="transunion.jsp">
                                                                 <div class="portlet light bordered" style="height: 70px;">
                                                                     <div class="pull-right text-right">
                                                                         <small class="stat-label">Valor</small>
