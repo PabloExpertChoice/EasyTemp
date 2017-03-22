@@ -93,16 +93,7 @@
                         <div class="normalheader transition animated fadeIn">
                             <div class="hpanel">
                                 <div class="panel-body">
-                                    <a class="small-header-action" href="">
-                                        <div class="clip-header">
-                                            <i class="fa fa-arrow-up"></i>
-                                        </div>
-                                    </a>
-
                                     
-                                    <h2 class="font-light m-b-xs">
-                                        Informaci&#243;n de Persona Bureau
-                                    </h2>
                                     <small>
                                         <div>
                                             Rut: <%= datos.get("rut") + "-" + datos.get("dv")%>

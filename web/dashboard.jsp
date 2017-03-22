@@ -103,7 +103,7 @@
                                         <i class="fa fa-comments"></i>
                                     </div>
                                     <div class="details">
-                                            <div class="number"> +
+                                        <div class="number"> +
                                             <span data-counter="counterup" data-value="89">89</span>% </div>
                                         <div class="desc"> Estimacion de Leverage </div>
                                     </div>
@@ -166,7 +166,6 @@
                                             <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
                                         </div>
                                         <div class="actions">
-
                                             <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
@@ -355,12 +354,16 @@
                             <div class="portlet light bordered" >
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <a data-toggle="modal" href="#basic"><i class="icon-settings font-dark"></i></a>
+                                        <i class="icon-settings font-dark"></i>
                                         <span class="caption-subject font-dark sbold uppercase">PROPUESTA DE NEGOCIO A</span>
                                     </div>
                                     <div class="tools">
                                         <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
                                         <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                    </div>
+                                    <div class="actions">
+                                        <!--<a class="btn btn-circle btn-icon-only btn-default fullscreen fa fa-circle" data-toggle="modal" href="#basic"> </a>-->
+                                        <a data-toggle="modal" href="#basic"> <i style="color: #b1b1b1"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
                                     </div>
                                 </div>
                                 <div class="portlet-body" style="display: block; margin: 0;">
@@ -427,188 +430,188 @@
                         </div>
                     </div>
                     <!--fin de datos para aprovar-->
-<!--                    <div class="modal fade in" id="full" tabindex="-1" role="dialog" aria-hidden="true" style="display: block; padding-right: 15px;">
-                                        <div class="modal-dialog modal-full">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                    <h4 class="modal-title">Modal Title</h4>
-                                                </div>
-                                                <div class="modal-body"> Modal body goes here </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn green">Save changes</button>
-                                                </div>
-                                            </div>
-                                             /.modal-content 
-                                        </div>
-                                         /.modal-dialog 
-                                    </div>-->
-                    
-                    
+                    <!--                    <div class="modal fade in" id="full" tabindex="-1" role="dialog" aria-hidden="true" style="display: block; padding-right: 15px;">
+                                                            <div class="modal-dialog modal-full">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                        <h4 class="modal-title">Modal Title</h4>
+                                                                    </div>
+                                                                    <div class="modal-body"> Modal body goes here </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn green">Save changes</button>
+                                                                    </div>
+                                                                </div>
+                                                                 /.modal-content 
+                                                            </div>
+                                                             /.modal-dialog 
+                                                        </div>-->
+
+
                     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
-                                        <div class="modal-dialog modal-full">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                    <h4 class="modal-title">Modal Title</h4>
-                                                </div>
-                                                <div class="modal-body"> Modal body goes here </div>
-                                                <img src="images/risktier.png">
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn green">Save changes</button>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.modal -->
-                    <!--informacion de bureaos-->
-<!--                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="portlet light bordered" style="height: 320px;">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-anchor"></i>
-                                        <span class="caption-subject bold uppercase">Indicadores generales</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Option 1</a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 4</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                        <div class="modal-dialog modal-full">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                    <h4 class="modal-title">Configuracion Risk Tier</h4>
                                 </div>
-                                <div class="portlet-body">
-                                    <div class="tabbable tabbable-tabdrop">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a href="#tab1" data-toggle="tab">Detalle valoracion</a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab2" data-toggle="tab">Informacion Resumida</a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab3" data-toggle="tab">Otros datos</a>
-                                            </li>
-                                        </ul>
-                                        cuerpo de los tab
-                                        tab 1
-                                        <div class="tab-content" style="height: 200px;">
-                                            <div class="tab-pane active" id="tab1">
-                                                <div class="row">
-                                                    <div class="col-lg-6" style="">
-                                                        <div class="hpanel filter-item">
-                                                            <a href="#">
-                                                                <div class="portlet light bordered" style="height: 70px;">
-                                                                    <div class="pull-right text-right">
-                                                                        <small class="stat-label">Valor</small>
-                                                                        <h4>250 <i class="fa fa-level-down text-danger"></i></h4>
-                                                                    </div>
-                                                                    <h4 class="m-b-xs">Sinacofi</h4>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="hpanel filter-item">
-                                                            <a href="Svl_informacion">
-                                                                <div class="portlet light bordered" style="height: 70px;">
-                                                                    <div class="pull-right text-right">
-                                                                        <small class="stat-label">Valor</small>
-                                                                        <h4>511 <i class="fa fa-level-up text-warning"></i></h4>
-                                                                    </div>
-                                                                    <h4 class="m-b-xs">Transunion</h4>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6" style="">
-                                                        <div class="hpanel filter-item">
-                                                            <a href="#">
-                                                                <div class="portlet light bordered" style="height: 70px;">
-                                                                    <div class="pull-right text-right">
-                                                                        <small class="stat-label">Valor</small>
-                                                                        <h4>882 <i class="fa fa-level-up text-success"></i></h4>
-                                                                    </div>
-                                                                    <h4 class="m-b-xs">Equifax</h4>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="hpanel filter-item">
-                                                            <a href="#">
-                                                                <div class="portlet light bordered" style="height: 70px;">
-                                                                    <div class="pull-right text-right">
-                                                                        <small class="stat-label">Valor</small>
-                                                                        <h4>420 <i class="fa fa-level-up text-warning"></i></h4>
-                                                                    </div>
-                                                                    <h4 class="m-b-xs">Otros</h4>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="tab-pane" id="tab2">
-                                                <div class="portlet-body">
-                                                    <div class="table-scrollable">
-                                                        <table class="table table-striped table-hover font-dark">
-                                                            <tr>
-                                                                <th> Status </th>
-                                                                <td>
-                                                                    <span class="label label-sm label-success"> Approved </span>
-                                                                    <span class="label label-sm label-info"> Pending </span>
-                                                                    <span class="label label-sm label-warning"> Suspended </span>
-                                                                    <span class="label label-sm label-danger"> Blocked </span>
-                                                                </td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Score</th>
-                                                                <td> 750 </td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Fecha nacimiento</th>
-                                                                <td> 21-07-1678 </td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Edad</th>
-                                                                <td> 32</td>
-
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="tab-pane" id="tab3">
-                                                <p> Howdy, I'm in Section 3. </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="modal-body"> Reglas de negocio del Risk Tier</div>
+                                <img src="images/risktier.png">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn green">Save changes</button>
                                 </div>
                             </div>
+                            <!-- /.modal-content -->
                         </div>
-                    </div>-->
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                    <!--informacion de bureaos-->
+                    <!--                    <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet light bordered" style="height: 320px;">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="icon-anchor"></i>
+                                                            <span class="caption-subject bold uppercase">Indicadores generales</span>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="btn-group">
+                                                                <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-menu pull-right">
+                                                                    <li>
+                                                                        <a href="javascript:;"> Option 1</a>
+                                                                    </li>
+                                                                    <li class="divider"> </li>
+                                                                    <li>
+                                                                        <a href="javascript:;">Option 2</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:;">Option 3</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:;">Option 4</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="tabbable tabbable-tabdrop">
+                                                            <ul class="nav nav-tabs">
+                                                                <li class="active">
+                                                                    <a href="#tab1" data-toggle="tab">Detalle valoracion</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#tab2" data-toggle="tab">Informacion Resumida</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#tab3" data-toggle="tab">Otros datos</a>
+                                                                </li>
+                                                            </ul>
+                                                            cuerpo de los tab
+                                                            tab 1
+                                                            <div class="tab-content" style="height: 200px;">
+                                                                <div class="tab-pane active" id="tab1">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6" style="">
+                                                                            <div class="hpanel filter-item">
+                                                                                <a href="#">
+                                                                                    <div class="portlet light bordered" style="height: 70px;">
+                                                                                        <div class="pull-right text-right">
+                                                                                            <small class="stat-label">Valor</small>
+                                                                                            <h4>250 <i class="fa fa-level-down text-danger"></i></h4>
+                                                                                        </div>
+                                                                                        <h4 class="m-b-xs">Sinacofi</h4>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="hpanel filter-item">
+                                                                                <a href="Svl_informacion">
+                                                                                    <div class="portlet light bordered" style="height: 70px;">
+                                                                                        <div class="pull-right text-right">
+                                                                                            <small class="stat-label">Valor</small>
+                                                                                            <h4>511 <i class="fa fa-level-up text-warning"></i></h4>
+                                                                                        </div>
+                                                                                        <h4 class="m-b-xs">Transunion</h4>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6" style="">
+                                                                            <div class="hpanel filter-item">
+                                                                                <a href="#">
+                                                                                    <div class="portlet light bordered" style="height: 70px;">
+                                                                                        <div class="pull-right text-right">
+                                                                                            <small class="stat-label">Valor</small>
+                                                                                            <h4>882 <i class="fa fa-level-up text-success"></i></h4>
+                                                                                        </div>
+                                                                                        <h4 class="m-b-xs">Equifax</h4>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="hpanel filter-item">
+                                                                                <a href="#">
+                                                                                    <div class="portlet light bordered" style="height: 70px;">
+                                                                                        <div class="pull-right text-right">
+                                                                                            <small class="stat-label">Valor</small>
+                                                                                            <h4>420 <i class="fa fa-level-up text-warning"></i></h4>
+                                                                                        </div>
+                                                                                        <h4 class="m-b-xs">Otros</h4>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                </div>
+                                                                <div class="tab-pane" id="tab2">
+                                                                    <div class="portlet-body">
+                                                                        <div class="table-scrollable">
+                                                                            <table class="table table-striped table-hover font-dark">
+                                                                                <tr>
+                                                                                    <th> Status </th>
+                                                                                    <td>
+                                                                                        <span class="label label-sm label-success"> Approved </span>
+                                                                                        <span class="label label-sm label-info"> Pending </span>
+                                                                                        <span class="label label-sm label-warning"> Suspended </span>
+                                                                                        <span class="label label-sm label-danger"> Blocked </span>
+                                                                                    </td>
+                    
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Score</th>
+                                                                                    <td> 750 </td>
+                    
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Fecha nacimiento</th>
+                                                                                    <td> 21-07-1678 </td>
+                    
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Edad</th>
+                                                                                    <td> 32</td>
+                    
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                </div>
+                                                                <div class="tab-pane" id="tab3">
+                                                                    <p> Howdy, I'm in Section 3. </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
                     <!--fin informacion de bureaos-->
 
                     <!--calugas con otros datos-->

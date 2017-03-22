@@ -133,8 +133,7 @@
                 </div>
                 <!-- END FOOTER -->
 
-                <!--boton flotante-->
-            <jsp:include page="seccion/flotante.jsp"></jsp:include>
+              
             <!-- BEGIN CORE PLUGINS -->
             <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
