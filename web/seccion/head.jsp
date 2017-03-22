@@ -12,7 +12,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="index.jsp">
-                <img src="assets/layouts/layout4/img/logo2.png" alt="logo" class="logo-default" style="margin:0px;margin-top: 10px;height: 60px"/> </a>
+                <img src="assets/layouts/layout4/img/logo4.png" alt="logo" class="logo-default" style="margin:0px;margin-top: 10px;height: 60px"/> </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
             </div>
