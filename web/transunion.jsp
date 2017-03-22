@@ -73,7 +73,11 @@
                                 </li>
                                 <i class="fa fa-circle"></i>
                                 <li>
-                                    Home
+                                    <a href="dashboard.jsp">Home</a>
+                                </li>
+                                <i class="fa fa-circle"></i>
+                                <li>
+                                    Transunion
                                 </li>
                             </ul>
                         </div>
@@ -81,7 +85,7 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Informacion detallada Trans Union
+                                <h1>Informacion detallada Transunion
                                 </h1>
                             </div>
                         </div>
@@ -106,8 +110,8 @@
                                             <div>
                                                 <span style="display: inline-block;width: 100px; color: #697882;">Nombre</span> :<%= datos.get("nombre")%>  
                                             </div>
-                                            <br>
-                                            <button onclick="generarPdf()" class="btn btn-primary">Exportar</button>
+                                            <!--                                            <br>
+                                                                                        <button onclick="generarPdf()" class="btn btn-primary">Exportar</button>-->
                                         </small>
                                     </div>
 
@@ -132,44 +136,106 @@
                                             </li>
                                         </ul>
 
-                                        <div class="tab-content">
+                                        <div class="tab-content" style="height: 800px">
                                             <div class="tab-pane active" id="tab1">
                                                 <div class="col-md-12" style="border: 0; margin: 0;">
-                                                    <!-- BEGIN SAMPLE TABLE PORTLET-->
-                                                    <div class="portlet light">
-                                                        <div class="portlet-title" style="border: 0; margin: 0;">
-                                                            <div class="caption">
-                                                                <i class="fa fa-comments"></i>Contextual Rows 
+                                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
+<!--                                                        <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="portlet-body" style="border: 0; margin: 0;">
-                                                            <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                                <table class="table" style="border: 0; margin: 0;">
-                                                                    <thead>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+                                                                                <th> # </th>
+                                                                                <th> Class Name </th>
+                                                                                <th> Column </th>
+                                                                                <th> Column </th>
+                                                                                <th> Column </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="active">
+                                                                                <td> 1 </td>
+                                                                                <td> active </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                            </tr>
+                                                                            <tr class="success">
+                                                                                <td> 2 </td>
+                                                                                <td> success </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                            </tr>
+                                                                            <tr class="warning">
+                                                                                <td> 3 </td>
+                                                                                <td> warning </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                            </tr>
+                                                                            <tr class="danger">
+                                                                                <td> 4 </td>
+                                                                                <td> danger </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                                <td> Column heading </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
+                                                        <!-- END SAMPLE TABLE PORTLET-->
+                                                    <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                                    <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase"></tr>
 
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <th>Score</th>
+                                                                        <tr class="success">
+                                                                            <td>Score</td>
                                                                             <td><%= datos.get("score")%></td>
                                                                         </tr>
-                                                                        <tr>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Estado C&eacute;dula</th>
+                                                                        <tr class="success">
+                                                                            <td>Estado C&eacute;dula</td>
                                                                             <td><%= datos.get("estado_cedula")%></td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <th>N&uacute;m Serie</th>
+                                                                        <tr class="success">
+                                                                            <td>N&uacute;m Serie</td>
                                                                             <td><%= datos.get("numero_serie")%></td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <th>Defunci&oacute;n</th>
+                                                                        <tr class="success">
+                                                                            <td>Defunci&oacute;n</td>
                                                                             <td><%= datos.get("defuncion")%></td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <th>Consultas al RUT (&uacute;lt. 6 meses)</th>
+                                                                        <tr class="success">
+                                                                            <td>Consultas al RUT (&uacute;lt. 6 meses)</td>
                                                                             <td><%= datos.get("num_consultas6Meses")%></td>
                                                                         </tr>
                                                                     </tbody>
@@ -180,32 +246,37 @@
                                                     <!-- END SAMPLE TABLE PORTLET-->
 
                                                     <!-- BEGIN SAMPLE TABLE PORTLET-->
-                                                    <div class="portlet light">
-                                                        <!--                                                        <div class="portlet-title" style="border: 0; margin: 0;">
-                                                                                                                    <div class="caption">
-                                                                                                                        <i class="fa fa-comments"></i>Contextual Rows 
-                                                                                                                    </div>
-                                                                                                                </div>-->
-                                                        <div class="portlet-body" style="border: 0; margin: 0;">
-                                                            <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                                <table class="table" style="border: 0; margin: 0;">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Producto</th>
-                                                                            <th>Total Documentos</th>
-                                                                            <th>Acreedores</th>
-                                                                            <th>Fecha M&aacute;s Reciente</th>
+                                                    <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+                                                                            <td>Producto</td>
+                                                                            <td>Total Documentos</td>
+                                                                            <td>Acreedores</td>
+                                                                            <td>Fecha M&aacute;s Reciente</td>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <th>Anotaciones vigentes</th>
+                                                                            <td>Anotaciones vigentes</td>
                                                                             <td><%= datos.get("dct_resumen_anotacion_vigente/nro_documentos")%></td>
                                                                             <td><%= datos.get("dct_resumen_anotacion_vigente/nro_acreedores")%></td>
                                                                             <td><%= datos.get("dct_resumen_anotacion_vigente/fecha_mas_reciente")%></td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>Bolet&iacute;n Impagos Laboral y Previsional</th>
+                                                                            <td>Bolet&iacute;n Impagos Laboral y Previsional</td>
                                                                             <td><%= datos.get("dct_resumen_boletin_laboral/total_documentos")%></td>
                                                                             <td><%= datos.get("dct_resumen_boletin_laboral/acreedores")%></td>
                                                                             <td><%= datos.get("dct_resumen_boletin_laboral/fecha_mas_reciente")%></td>
@@ -217,32 +288,38 @@
                                                     </div>
                                                     <!-- END SAMPLE TABLE PORTLET-->
                                                     <!-- BEGIN SAMPLE TABLE PORTLET-->
-                                                    <div class="portlet light">
-                                                        <div class="portlet-title" style="border: 0; margin: 0;">
-                                                            <div class="caption">
-                                                                <i class="fa fa-comments"></i>Antecedentes Protestos y Morosidades (Informaci&oacute;n para Evaluaci&oacute;n)
+                                                    <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="portlet-body" style="border: 0; margin: 0;">
-                                                            <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                                <table class="table" style="border: 0; margin: 0;">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Producto</th>
-                                                                            <th>Total Documentos</th>
-                                                                            <th>Acreedores</th>
-                                                                            <th>Fecha M&aacute;s Reciente</th>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+
+                                                                            <td>Producto</td>
+                                                                            <td>Total Documentos</td>
+                                                                            <td>Acreedores</td>
+                                                                            <td>Fecha M&aacute;s Reciente</td>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <th>Protestos vigentes</th>
+                                                                            <td>Protestos vigentes</td>
                                                                             <td><%= datos.get("protestos_vigentes/nro_documentos")%></td>
                                                                             <td><%= datos.get("protestos_vigentes/nro_acreedores")%></td>
                                                                             <td><%= datos.get("protestos_vigentes/fecha_mas_reciente")%></td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>Morosidad Consolidada</th>
+                                                                            <td>Morosidad Consolidada</td>
                                                                             <td><%= datos.get("morosidad_consolidada/nro_documentos")%></td>
                                                                             <td><%= datos.get("morosidad_consolidada/nro_acreedores")%></td>
                                                                             <td><%= datos.get("morosidad_consolidada/fecha_mas_reciente")%></td>
@@ -257,49 +334,57 @@
 
                                             </div>
                                             <div class="tab-pane" id="tab2">
-                                                <div class="portlet light">
-                                                    <div class="portlet-title" style="border: 0; margin: 0;">
-                                                        <div class="caption">
-                                                            <i class="fa fa-comments"></i>Contextual Rows 
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet-body" style="border: 0; margin: 0;">
-                                                        <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                            <table class="table" style="border: 0; margin: 0;">
-                                                                <thead>
+                                                <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+
+                                                                    </tr>
 
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <th>Fecha Nacimiento</th>
+                                                                        <td>Fecha Nacimiento</td>
                                                                         <td><%= datos.get("fecha_de_nacimiento")%></td>
-                                                                        <th>Edad</th>
+                                                                        <td>Edad</td>
                                                                         <td><%= datos.get("edad")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Sexo</th>
+                                                                        <td>Sexo</td>
                                                                         <td><%= datos.get("sexo")%></td>
-                                                                        <th>Nacionalidad</th>
+                                                                        <td>Nacionalidad</td>
                                                                         <td><%= datos.get("nacionalidad")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Estado Civil</th>
+                                                                        <td>Estado Civil</td>
                                                                         <td><%= datos.get("estado_civil")%></td>
-                                                                        <th>Fecha Matrimonio</th>
+                                                                        <td>Fecha Matrimonio</td>
                                                                         <td><%= datos.get("fecha_civil")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Direcci&oacute;n</th>
+                                                                        <td>Direcci&oacute;n</td>
                                                                         <td><%= datos.get("direccion")%></td>
-                                                                        <th>Informadas</th>
+                                                                        <td>Informadas</td>
                                                                         <td><%= datos.get("nro_direcciones_informadas")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Tel&eacute;fono(s)</th>
+                                                                        <td>Tel&eacute;fono(s)</td>
                                                                         <td colspan="3"><%= datos.get("telefono")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>E-mail</th>
+                                                                        <td>E-mail</td>
                                                                         <td colspan="3"><%= datos.get("email")%></td>
                                                                     </tr>
                                                                 </tbody>
@@ -309,64 +394,72 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab3">
-                                                <div class="portlet light">
-                                                    <div class="portlet-title" style="border: 0; margin: 0;">
-                                                        <div class="caption">
-                                                            <i class="fa fa-comments"></i>Contextual Rows 
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet-body" style="border: 0; margin: 0;">
-                                                        <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                            <table class="table" style="border: 0; margin: 0;">
-                                                                <thead>
-
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Actividad o Profesi&oacute;n</th>
+                                                <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+                                                                        <td>Actividad o Profesi&oacute;n</td>
                                                                         <td><%= datos.get("actividad_profesion")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Actividad Econ&oacute;mica</th>
-                                                                            <%
-                                                                                int largo = datos.getJSONArray("dct_detalle_antecedentes_laborales").length();
-                                                                                if (largo == 0) {
-                                                                                    out.write("<td> No se registra informaci&oacute;n</td>");
-                                                                                } else {
-                                                                                    for (int i = 0; i < largo; i++) {
-                                                                                        JSONObject consulta = datos.getJSONArray("dct_detalle_antecedentes_laborales").getJSONObject(i);
-                                                                                        out.write("<td>" + consulta.get("glosa") + "</td>");
-                                                                                    }
+                                                                        <td>Actividad Econ&oacute;mica</td>
+                                                                        <%
+                                                                            int largo = datos.getJSONArray("dct_detalle_antecedentes_laborales").length();
+                                                                            if (largo == 0) {
+                                                                                out.write("<td> No se registra informaci&oacute;n</td>");
+                                                                            } else {
+                                                                                for (int i = 0; i < largo; i++) {
+                                                                                    JSONObject consulta = datos.getJSONArray("dct_detalle_antecedentes_laborales").getJSONObject(i);
+                                                                                    out.write("<td>" + consulta.get("glosa") + "</td>");
                                                                                 }
-                                                                            %>
+                                                                            }
+                                                                        %>
                                                                     </tr>
-                                                                </tbody>
+                                                                    </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab4">
-                                                <div class="portlet light">
-                                                    <div class="portlet-title" style="border: 0; margin: 0;">
-                                                        <div class="caption">
-                                                            <i class="fa fa-comments"></i>Contextual Rows 
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet-body" style="border: 0; margin: 0;">
-                                                        <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                            <table class="table" style="border: 0; margin: 0;">
-                                                                <thead>
+                                                <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase"></tr>
 
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <th>Movimientos en bancos</th>
+                                                                        <td>Movimientos en bancos</td>
                                                                         <td><%= datos.get("movimientos_de_bancos").toString()%></td>
                                                                         <td>Esto no significa que la cuenta corriente est&eacute; vigente</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Cantidad de Veh&iacute;culos</th>
+                                                                        <td>Cantidad de Veh&iacute;culos</td>
                                                                         <td><%= datos.get("numero_vehiculos").toString()%></td>
                                                                         <td></td>
                                                                     </tr>
@@ -375,48 +468,53 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="portlet light">
-                                                    <div class="portlet-title" style="border: 0; margin: 0;">
-                                                        <div class="caption">
-                                                            <i class="fa fa-comments"></i>Protestos
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet-body" style="border: 0; margin: 0;">
-                                                        <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                            <table class="table" style="border: 0; margin: 0;">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>&nbsp;</th>
-                                                                        <th>N° Documentos</th>
-                                                                        <th>N° Acreedores</th>
-                                                                        <th>Fecha m&aacute;s reciente</th>
-                                                                        <th>Monto Total</th>
+                                                <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+                                                                        <td>&nbsp;</td>
+                                                                        <td>N° Documentos</td>
+                                                                        <td>N° Acreedores</td>
+                                                                        <td>Fecha m&aacute;s reciente</td>
+                                                                        <td>Monto Total</td>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <th>Protestos</th>
+                                                                        <td>Protestos</td>
                                                                         <td><%= datos.get("protestos_vigentes/nro_documentos")%></td>
                                                                         <td><%= datos.get("protestos_vigentes/nro_acreedores")%></td>
                                                                         <td><%= datos.get("protestos_vigentes/fecha_mas_reciente")%></td>
                                                                         <td><%= datos.get("protestos_vigentes/monto_total")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Morosidad</th>
+                                                                        <td>Morosidad</td>
                                                                         <td><%= datos.get("morosidad_consolidada/nro_documentos")%></td>
                                                                         <td><%= datos.get("morosidad_consolidada/nro_acreedores")%></td>
                                                                         <td><%= datos.get("morosidad_consolidada/fecha_mas_reciente")%></td>
                                                                         <td><%= datos.get("morosidad_consolidada/monto_total")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Bolet&iacute;n Laboral</th>
+                                                                        <td>Bolet&iacute;n Laboral</td>
                                                                         <td><%= datos.get("boletin_laboral/nro_documentos")%></td>
                                                                         <td><%= datos.get("boletin_laboral/nro_acreedores")%></td>
                                                                         <td><%= datos.get("boletin_laboral/fecha_mas_reciente")%></td>
                                                                         <td><%= datos.get("boletin_laboral/monto_total")%></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th>Totales</th>
+                                                                        <td>Totales</td>
                                                                         <td><%= datos.get("totales/nro_documentos")%></td>
                                                                         <td><%= datos.get("totales/nro_acreedores")%></td>
                                                                         <td>-</td>
@@ -427,27 +525,33 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="portlet light">
-                                                    <div class="portlet-title" style="border: 0; margin: 0;">
-                                                        <div class="caption">
-                                                            <i class="fa fa-comments"></i>Antecedentes de Protestos y Morosidades (Informaci&oacute;n para Evaluaci&oacute;n)
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet-body" style="border: 0; margin: 0;">
-                                                        <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                            <table class="table" style="border: 0; margin: 0;">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Fecha Venc.</th>
-                                                                        <th>Tipo Documento</th>
-                                                                        <th>Librador</th>
-                                                                        <th>Localidad</th>
-                                                                        <th>Tipo de Deuda</th>
-                                                                        <th>Moneda</th>
-                                                                        <th>Monto</th>
-                                                                        <th>Motivo</th>
-                                                                        <th>Fecha Prot.</th>
-                                                                        <th>Tipo Cr&eacute;dito</th>
+                                                <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+                                                                    <tr class="uppercase">
+                                                                        <td>Fecha Venc.</td>
+                                                                        <td>Tipo Documento</td>
+                                                                        <td>Librador</td>
+                                                                        <td>Localidad</td>
+                                                                        <td>Tipo de Deuda</td>
+                                                                        <td>Moneda</td>
+                                                                        <td>Monto</td>
+                                                                        <td>Motivo</td>
+                                                                        <td>Fecha Prot.</td>
+                                                                        <td>Tipo Cr&eacute;dito</td>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -489,20 +593,25 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab5">
-                                                <div class="portlet light">
-<!--                                                    <div class="portlet-title" style="border: 0; margin: 0;">
-                                                        <div class="caption">
-                                                            <i class="fa fa-comments"></i>Antecedentes de Protestos y Morosidades (Informaci&oacute;n para Evaluaci&oacute;n)
-                                                        </div>
-                                                    </div>-->
-                                                    <div class="portlet-body" style="border: 0; margin: 0;">
-                                                        <div class="table-scrollable" style="border: 0; margin: 0;">
-                                                            <table class="table" style="border: 0; margin: 0;">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Fecha</th>
-                                                                        <th>Empresa</th>
-                                                                        <th>Tipo de informe</th>
+                                                <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase">
+                                                                        <td>Fecha</td>
+                                                                        <td>Empresa</td>
+                                                                        <td>Tipo de informe</td>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -618,19 +727,19 @@
         <!-- END THEME LAYOUT SCRIPTS -->
         <!-- Google Code for Universal Analytics -->
         <script>
-                                                (function (i, s, o, g, r, a, m) {
-                                                    i['GoogleAnalyticsObject'] = r;
-                                                    i[r] = i[r] || function () {
-                                                        (i[r].q = i[r].q || []).push(arguments)
-                                                    }, i[r].l = 1 * new Date();
-                                                    a = s.createElement(o),
-                                                            m = s.getElementsByTagName(o)[0];
-                                                    a.async = 1;
-                                                    a.src = g;
-                                                    m.parentNode.insertBefore(a, m)
-                                                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                                                ga('create', 'UA-37564768-1', 'auto');
-                                                ga('send', 'pageview');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-37564768-1', 'auto');
+            ga('send', 'pageview');
         </script>
         <!-- End -->
 

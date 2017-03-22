@@ -13,7 +13,7 @@
     </a>
     <ul>
         <li>
-            <a href="Svl_Informacion" target="_blank" class="active">
+            <a href="Svl_Informacion" class="active">
                 <span>Trans Union</span>
                 <i class="icon-basket"></i>
             </a>

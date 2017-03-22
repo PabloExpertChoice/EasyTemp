@@ -11,11 +11,10 @@
 <html lang="en">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
-    <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:40:53 GMT -->
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="utf-8" />
-        <title>Metronic Admin Theme #4 | Admin Dashboard 2</title>
+        <title>Dashboard</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -324,15 +323,10 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <!--                                                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm">
-                                                                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                                                                            <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
-                                                                                                <input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
-
                                             <div class="btn-toolbar">
                                                 <div class="btn-group">
-                                                    <button class="btn small active" style="background: #009900; color: rgb(255, 255, 255);"><i class="fa fa-plus"></i></button>
-                                                    <button class="btn small" style="background: #ff0000; color: rgb(255, 255, 255);"><i class="fa fa-remove"> </i></button> 
+                                                    <button class="btn small active" style="background: #1bbc9b; color: rgb(255, 255, 255);"><i class="fa fa-plus"></i></button>
+                                                    <button class="btn small" style="background: #f3565d; color: rgb(255, 255, 255);"><i class="fa fa-remove"> </i></button> 
                                                 </div>
                                             </div>
                                         </div>
