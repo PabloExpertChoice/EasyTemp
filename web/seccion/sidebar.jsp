@@ -50,7 +50,7 @@
     
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="mis.jsp" class="nav-link">
                 <i class="icon-bar-chart"></i> MIS Riesgo de Cr&#233;dito </a>
         </li>
     </ul>

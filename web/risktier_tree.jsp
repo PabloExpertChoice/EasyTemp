@@ -71,7 +71,7 @@
                                 <!-- BEGIN THEME PANEL -->
                                 <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
                                 <i class="fa fa-angle-left"></i>
-                                <a href="#"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
+                                <a href="risktier_config.jsp"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
                                 <i class="fa fa-angle-left"></i>
                                 <i class="fa fa-reorder" style="color: #69788c;"> Tree</i>
                                 <!-- END THEME PANEL -->
