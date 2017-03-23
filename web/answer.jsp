@@ -15,7 +15,7 @@
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="utf-8" />
-        <title>Metronic Admin Theme #4 | Admin Dashboard 2</title>
+        <title>Answer</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -71,46 +71,43 @@
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                Home
+                                Risk Tier
                             </li>
                         </ul>
                         <!-- Fin ruta -->
-                        
+
                         <!-- END PAGE HEAD-->
                         <div class="page-head">
-                        <!-- BEGIN PAGE TITLE -->
-                        <div class="page-title">
-                            <h1>Bootstrap Confirmation
-                                <small>metronic popover confirmation demos using bootstrap confirmation plugin</small>
-                            </h1>
+                            <!-- BEGIN PAGE TITLE -->
+                            <div class="page-title">
+                                <h1>Bootstrap Confirmation
+                                    <small>metronic popover confirmation demos using bootstrap confirmation plugin</small>
+                                </h1>
+                            </div>
+                            <!-- END PAGE TITLE -->
+                            <!-- BEGIN PAGE TOOLBAR -->
+                            <div class="page-toolbar">
+                                <!-- BEGIN THEME PANEL -->
+                                <a href="#" style="color: #000"><i class="fa fa-home"> </i> Home </a>
+                                <a href="#" style="color: #000"><i class="fa fa-cogs"> </i> Configuracion </a>
+                                <a href="#" style="color: #000"><i class="fa fa-list"> </i> Tree </a>
+                                <!-- END THEME PANEL -->
+                            </div>
+                            <!-- END PAGE TOOLBAR -->
                         </div>
-                        <!-- END PAGE TITLE -->
-                        <!-- BEGIN PAGE TOOLBAR -->
-                        <div class="page-toolbar">
-                            <!-- BEGIN THEME PANEL -->
-                            <a href="#" style="color: #000"><i class="fa fa-home"> </i> Home </a>
-                            <a href="#" style="color: #000"><i class="fa fa-cogs"> </i> Configuracion </a>
-                            <a href="#" style="color: #000"><i class="fa fa-list"> </i> Tree </a>
-                            <!-- END THEME PANEL -->
-                        </div>
-                        <!-- END PAGE TOOLBAR -->
+
                     </div>
-
+                    <!--fin del contenido de la pagina-->
                 </div>
-                <!--fin del contenido de la pagina-->
+                <!-- END CONTENT -->
             </div>
-            <!-- END CONTENT -->
-        </div>
-        <!-- END CONTAINER -->
+            <!-- END CONTAINER -->
 
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
+            <!-- BEGIN FOOTER -->
+            <div class="page-footer">
             <jsp:include page="seccion/footer.jsp"></jsp:include>
             </div>
             <!-- END FOOTER -->
-
-            <!--boton flotante-->
-        <jsp:include page="seccion/flotante.jsp"></jsp:include>
 
         <!-- BEGIN CORE PLUGINS -->
         <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>

@@ -14,7 +14,7 @@
     <ul>
         <li>
             <a href="Svl_Informacion" class="active">
-                <span>Trans Union</span>
+                <span>Transunion</span>
                 <i class="icon-basket"></i>
             </a>
         </li>

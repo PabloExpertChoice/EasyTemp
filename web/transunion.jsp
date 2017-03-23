@@ -139,65 +139,6 @@
                                         <div class="tab-content" style="height: 800px">
                                             <div class="tab-pane active" id="tab1">
                                                 <div class="col-md-12" style="border: 0; margin: 0;">
-                                                    <!--BEGIN SAMPLE TABLE PORTLET-->
-                                                    <!--                                                        <div class="portlet box blue">
-                                                                                                                <div class="portlet-title">
-                                                                                                                    <div class="caption">
-                                                                                                                        <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                                                                    <div class="tools">
-                                                                                                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                                                                        
-                                                                                                                        
-                                                                                                                        <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                                <div class="portlet-body">
-                                                                                                                    <div class="table-scrollable">
-                                                                                                                        <table class="table table-bordered table-hover">
-                                                                                                                            <thead>
-                                                                                                                                <tr class="uppercase">
-                                                                                                                                    <th> # </th>
-                                                                                                                                    <th> Class Name </th>
-                                                                                                                                    <th> Column </th>
-                                                                                                                                    <th> Column </th>
-                                                                                                                                    <th> Column </th>
-                                                                                                                                </tr>
-                                                                                                                            </thead>
-                                                                                                                            <tbody>
-                                                                                                                                <tr class="active">
-                                                                                                                                    <td> 1 </td>
-                                                                                                                                    <td> active </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                </tr>
-                                                                                                                                <tr class="success">
-                                                                                                                                    <td> 2 </td>
-                                                                                                                                    <td> success </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                </tr>
-                                                                                                                                <tr class="warning">
-                                                                                                                                    <td> 3 </td>
-                                                                                                                                    <td> warning </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                </tr>
-                                                                                                                                <tr class="danger">
-                                                                                                                                    <td> 4 </td>
-                                                                                                                                    <td> danger </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                    <td> Column heading </td>
-                                                                                                                                </tr>
-                                                                                                                            </tbody>
-                                                                                                                        </table>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>-->
-                                                    <!-- END SAMPLE TABLE PORTLET-->
                                                     <!-- BEGIN SAMPLE TABLE PORTLET-->
                                                     <div class="portlet box blue">
                                                         <div class="portlet-title">

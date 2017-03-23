@@ -20,7 +20,7 @@
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
             <a href="risktier.jsp" class="nav-link">
-                <i class="icon-bar-chart"></i> Risk Tier </a>
+                <i class="fa fa-reorder"></i> Risk Tier </a>
         </li>
     </ul>
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
