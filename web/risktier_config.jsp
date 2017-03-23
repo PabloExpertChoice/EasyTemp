@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 13-03-2017, 15:22:02
+    Document   : risktier
+    Created on : 22-03-2017, 16:56:49
     Author     : ignacio
 --%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="utf-8" />
-        <title>Inicio</title>
+        <title>APPLICANT SCORE</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -63,61 +63,104 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Informacion de Cliente
-                                    <small>para evaluacion</small>
-                                </h1>
+                                <h1>Administracion Risk Tier</h1>
                             </div>
                             <!-- END PAGE TITLE -->
+                            <!-- BEGIN PAGE TOOLBAR -->
+                            <div class="page-toolbar" style="font-size: 13px;">
+                                <!-- BEGIN THEME PANEL -->
+                                <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
+                                <i class="fa fa-angle-left"></i>
+                                <i class="fa fa-cogs" style="color: #69788c;"> Configuraci&#243;n</i>
+                                <i class="fa fa-angle-left"></i>
+                                <a href="risktier_tree.jsp.jsp"><i class="fa fa-reorder"> Tree</i></a>
+                                <!-- END THEME PANEL -->
+                            </div>
+                            <!-- END PAGE TOOLBAR -->
                         </div>
                         <!-- END PAGE HEAD-->
 
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
-                                Inicio
+                                <a href="index.jsp">Inicio</a>
+                            </li>
+                            <i class="fa fa-circle"></i>
+                            <li>
+                                <a href="risktier.jsp">Administracion Risk Tier</a>
+                            </li>
+                            <i class="fa fa-circle"></i>
+                            <li>
+                                Configuraci&#243;n
                             </li>
                         </ul>
                         <!-- Fin ruta -->
 
+
                         <!-- BEGIN PAGE BASE CONTENT -->
-                        <div class="col-md-6 ">
-                            <div class="portlet box blue">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-database"></i> Buscar Informacion Personal </div>
-                                    <div class="tools">
-                                        <a href="#" class="collapse" data-original-title="" title=""> </a>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <div class="portlet light">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-database"></i> APPLICANT SCORE
+                                        </div>
+                                        <div class="tools">
+                                            <a href="#" class="collapse" data-original-title="" title=""> </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="portlet-body form">
-                                    <form action="dashboard.jsp" class="form-horizontal">
-                                        <div class="form-body">
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label">RUT</label>
-                                                <div class="col-md-8">
-                                                    <div class="input-icon right">
-                                                        <i class="fa fa-info-circle tooltips" data-original-title="Rut" data-container="body"></i>
-                                                        <input type="text" class="form-control"> </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label">Renta</label>
-                                                <div class="col-md-8">
-                                                    <div class="input-icon right">
-                                                        <i class="fa fa-dollar" data-original-title="Ingreso de renta" data-container="body"></i>
-                                                        <input type="text" class="form-control"> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
+                                    <div class="portlet-body">
+                                        <div class="portlet light">
                                             <div class="row">
-                                                <div class="col-md-offset-4 col-md-8">
-                                                    <button type="button" class="btn default">Cancel</button>
-                                                    <button type="submit" class="btn blue">Submit</button>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="label-control">Tipo</label>
+                                                        <select class="form-control">
+                                                            <option value="1">Natural</option>
+                                                            <option value="2">Jurídico</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="label-control">Variable eje X</label>
+                                                        <select class="form-control">
+                                                            <option value="">Seleccionar...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label class="label-control">Nº de columnas</label>
+                                                        <input class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="label-control">Variable eje Y</label>
+                                                        <select class="form-control">
+                                                            <option value="">Seleccionar...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label class="label-control">Nº de filas</label>
+                                                        <input class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button type="button" class="btn btn-info mt-ladda-btn ladda-button btn-circle" data-style="expand-down">
+                                                        <span class="ladda-label">
+                                                            <i class="fa fa-plus-square"> </i> Crear</span>
+                                                    </button>
                                                 </div>
                                             </div>
+                                            <div class="pull-right">
+                                                <button type="button" class="btn blue mt-ladda-btn ladda-button btn-outline" data-style="slide-up" data-spinner-color="#333">
+                                                    <span class="ladda-label">
+                                                        <i class="icon-arrow-right"></i> Siguiente </span>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,10 +173,10 @@
                 <!-- BEGIN FOOTER -->
                 <div class="page-footer">
                 <jsp:include page="seccion/footer.jsp"></jsp:include>
-                </div>
-                <!-- END FOOTER -->
+            </div>
+            <!-- END FOOTER -->
 
-              
+
             <!-- BEGIN CORE PLUGINS -->
             <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

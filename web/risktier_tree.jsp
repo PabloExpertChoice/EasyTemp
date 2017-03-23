@@ -69,11 +69,11 @@
                             <!-- BEGIN PAGE TOOLBAR -->
                             <div class="page-toolbar" style="font-size: 13px;">
                                 <!-- BEGIN THEME PANEL -->
-                                <a href="#" style="color: #3b3f51;"><i class="fa fa-home" style="color: #3b3f51;"> </i> Home </a>
-                                <i class="fa fa-angle-left" style="color: #3b3f51"></i>
-                                <a href="#" style="color: #3b3f51"><i class="fa fa-cogs" style="color: #3b3f51"> </i> Configuracion </a>
-                                <i class="fa fa-angle-left" style="color: #3b3f51"></i>
-                                <i class="fa fa-reorder" style="color: #3b3f51;"> </i> Tree
+                                <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
+                                <i class="fa fa-angle-left"></i>
+                                <a href="#"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
+                                <i class="fa fa-angle-left"></i>
+                                <i class="fa fa-reorder" style="color: #69788c;"> Tree</i>
                                 <!-- END THEME PANEL -->
                             </div>
                             <!-- END PAGE TOOLBAR -->
@@ -87,7 +87,7 @@
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                Administracion Risk Tier
+                                <a href="risktier.jsp">Administracion Risk Tier</a>
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
@@ -102,8 +102,8 @@
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-database"></i> Tree 
-                                        <br><br>
+<!--                                        <i class="fa fa-database"></i> Tree 
+                                        <br><br>-->
                                         <select name="order_status" class="form-control form-filter input-sm" style="width: 300px;">
                                             <option value="">Natural</option>
                                             <option value="pending">Juridico</option>
@@ -115,7 +115,6 @@
                                 </div>
                                 <div class="portlet-body form">
                                     <div class="table-scrollable">
-
                                         <img src="images/risktier.png">
                                     </div>
                                 </div>
