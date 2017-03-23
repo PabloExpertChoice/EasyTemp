@@ -139,102 +139,104 @@
                                         <div class="tab-content" style="height: 800px">
                                             <div class="tab-pane active" id="tab1">
                                                 <div class="col-md-12" style="border: 0; margin: 0;">
-                                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
-<!--                                                        <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
-                                                                                <th> # </th>
-                                                                                <th> Class Name </th>
-                                                                                <th> Column </th>
-                                                                                <th> Column </th>
-                                                                                <th> Column </th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr class="active">
-                                                                                <td> 1 </td>
-                                                                                <td> active </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                            </tr>
-                                                                            <tr class="success">
-                                                                                <td> 2 </td>
-                                                                                <td> success </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                            </tr>
-                                                                            <tr class="warning">
-                                                                                <td> 3 </td>
-                                                                                <td> warning </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                            </tr>
-                                                                            <tr class="danger">
-                                                                                <td> 4 </td>
-                                                                                <td> danger </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                                <td> Column heading </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>-->
-                                                        <!-- END SAMPLE TABLE PORTLET-->
+                                                    <!--BEGIN SAMPLE TABLE PORTLET-->
+                                                    <!--                                                        <div class="portlet box blue">
+                                                                                                                <div class="portlet-title">
+                                                                                                                    <div class="caption">
+                                                                                                                        <i class="fa fa-comments"></i>Contextual Rows </div>
+                                                                                                                    <div class="tools">
+                                                                                                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="portlet-body">
+                                                                                                                    <div class="table-scrollable">
+                                                                                                                        <table class="table table-bordered table-hover">
+                                                                                                                            <thead>
+                                                                                                                                <tr class="uppercase">
+                                                                                                                                    <th> # </th>
+                                                                                                                                    <th> Class Name </th>
+                                                                                                                                    <th> Column </th>
+                                                                                                                                    <th> Column </th>
+                                                                                                                                    <th> Column </th>
+                                                                                                                                </tr>
+                                                                                                                            </thead>
+                                                                                                                            <tbody>
+                                                                                                                                <tr class="active">
+                                                                                                                                    <td> 1 </td>
+                                                                                                                                    <td> active </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr class="success">
+                                                                                                                                    <td> 2 </td>
+                                                                                                                                    <td> success </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr class="warning">
+                                                                                                                                    <td> 3 </td>
+                                                                                                                                    <td> warning </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr class="danger">
+                                                                                                                                    <td> 4 </td>
+                                                                                                                                    <td> danger </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                    <td> Column heading </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>-->
+                                                    <!-- END SAMPLE TABLE PORTLET-->
                                                     <!-- BEGIN SAMPLE TABLE PORTLET-->
                                                     <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption">
+                                                                <i class="fa fa-comments"></i>
+                                                                <!--Contextual Rows--> 
                                                             </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase"></tr>
+                                                            <div class="tools">
+                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                                <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body">
+                                                            <div class="table-scrollable">
+                                                                <table class="table table-bordered table-hover">
+                                                                    <thead>
+                                                                        <tr class="uppercase"></tr>
 
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr class="success">
+                                                                        <tr>
                                                                             <td>Score</td>
                                                                             <td><%= datos.get("score")%></td>
                                                                         </tr>
-                                                                        <tr class="success">
+                                                                        <tr>
                                                                             <td>Estado C&eacute;dula</td>
                                                                             <td><%= datos.get("estado_cedula")%></td>
                                                                         </tr>
-                                                                        <tr class="success">
+                                                                        <tr>
                                                                             <td>N&uacute;m Serie</td>
                                                                             <td><%= datos.get("numero_serie")%></td>
                                                                         </tr>
-                                                                        <tr class="success">
+                                                                        <tr>
                                                                             <td>Defunci&oacute;n</td>
                                                                             <td><%= datos.get("defuncion")%></td>
                                                                         </tr>
-                                                                        <tr class="success">
+                                                                        <tr>
                                                                             <td>Consultas al RUT (&uacute;lt. 6 meses)</td>
                                                                             <td><%= datos.get("num_consultas6Meses")%></td>
                                                                         </tr>
@@ -247,21 +249,23 @@
 
                                                     <!-- BEGIN SAMPLE TABLE PORTLET-->
                                                     <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption">
+                                                                <i class="fa fa-comments"></i>
+                                                                <!--Contextual Rows--> 
                                                             </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                            <div class="tools">
+                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                                <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body">
+                                                            <div class="table-scrollable">
+                                                                <table class="table table-bordered table-hover">
+                                                                    <thead>
+                                                                        <tr class="uppercase">
                                                                             <td>Producto</td>
                                                                             <td>Total Documentos</td>
                                                                             <td>Acreedores</td>
@@ -289,21 +293,23 @@
                                                     <!-- END SAMPLE TABLE PORTLET-->
                                                     <!-- BEGIN SAMPLE TABLE PORTLET-->
                                                     <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption">
+                                                                <i class="fa fa-comments"></i>
+                                                                Antecedentes Protestos y Morosidades (Informaci&oacute;n para Evaluaci&oacute;n)
                                                             </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                            <div class="tools">
+                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                                <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body">
+                                                            <div class="table-scrollable">
+                                                                <table class="table table-bordered table-hover">
+                                                                    <thead>
+                                                                        <tr class="uppercase">
 
                                                                             <td>Producto</td>
                                                                             <td>Total Documentos</td>
@@ -335,47 +341,55 @@
                                             </div>
                                             <div class="tab-pane" id="tab2">
                                                 <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-comments"></i>
+                                                            <!--Contextual Rows--> 
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-bordered table-striped">
+                                                                <thead>
+                                                                    <tr class="uppercase">
 
                                                                     </tr>
-
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
                                                                         <td>Fecha Nacimiento</td>
                                                                         <td><%= datos.get("fecha_de_nacimiento")%></td>
+                                                                    </tr>
+                                                                    <tr>
                                                                         <td>Edad</td>
                                                                         <td><%= datos.get("edad")%></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Sexo</td>
                                                                         <td><%= datos.get("sexo")%></td>
+                                                                    <tr>
                                                                         <td>Nacionalidad</td>
                                                                         <td><%= datos.get("nacionalidad")%></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Estado Civil</td>
                                                                         <td><%= datos.get("estado_civil")%></td>
+                                                                    </tr>
+                                                                    <tr>
                                                                         <td>Fecha Matrimonio</td>
                                                                         <td><%= datos.get("fecha_civil")%></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Direcci&oacute;n</td>
                                                                         <td><%= datos.get("direccion")%></td>
+                                                                    </tr>
+                                                                    <tr>
                                                                         <td>Informadas</td>
                                                                         <td><%= datos.get("nro_direcciones_informadas")%></td>
                                                                     </tr>
@@ -395,21 +409,26 @@
                                             </div>
                                             <div class="tab-pane" id="tab3">
                                                 <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-comments"></i>
+                                                            <!--Contextual Rows--> 
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-bordered table-hover">
+                                                                <thead>
+
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
                                                                         <td>Actividad o Profesi&oacute;n</td>
                                                                         <td><%= datos.get("actividad_profesion")%></td>
                                                                     </tr>
@@ -427,7 +446,7 @@
                                                                             }
                                                                         %>
                                                                     </tr>
-                                                                    </tbody>
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -435,21 +454,23 @@
                                             </div>
                                             <div class="tab-pane" id="tab4">
                                                 <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase"></tr>
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-comments"></i>
+                                                            <!--Contextual Rows--> 
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr class="uppercase"></tr>
 
                                                                 </thead>
                                                                 <tbody>
@@ -469,21 +490,23 @@
                                                     </div>
                                                 </div>
                                                 <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-comments"></i>
+                                                            Protestos
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr class="uppercase">
                                                                         <td>&nbsp;</td>
                                                                         <td>N° Documentos</td>
                                                                         <td>N° Acreedores</td>
@@ -526,21 +549,23 @@
                                                     </div>
                                                 </div>
                                                 <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-comments"></i>
+                                                            Antecedentes Protestos y Morosidades (Informaci&oacute;n para Evaluaci&oacute;n)
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr class="uppercase">
                                                                     <tr class="uppercase">
                                                                         <td>Fecha Venc.</td>
                                                                         <td>Tipo Documento</td>
@@ -594,21 +619,22 @@
                                             </div>
                                             <div class="tab-pane" id="tab5">
                                                 <div class="portlet box blue">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-comments"></i>Contextual Rows </div>
-                                                                <div class="tools">
-                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="table-scrollable">
-                                                                    <table class="table table-bordered table-hover">
-                                                                        <thead>
-                                                                            <tr class="uppercase">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-comments"></i>
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <div class="table-scrollable">
+                                                            <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr class="uppercase">
                                                                         <td>Fecha</td>
                                                                         <td>Empresa</td>
                                                                         <td>Tipo de informe</td>
