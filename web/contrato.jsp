@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
@@ -1672,55 +1671,73 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="row">
                         <div class="col-lg-12">
                             <!-- BEGIN PORTLET-->
-                            <div class="portlet light">
-                                <div class="hpanel filter-item">
-                                    <div class="panel-body">
-                                        <div class="pull-right text-right">
-                                            <div class="portlet">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" data-toggle="toggle">
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <h4 class="m-b-xs">Sinacofi</h4>
+                            <div class="portlet box blue">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-database"></i> APPLICANT SCORE
+                                    </div>
+                                    <div class="tools">
+                                        <a href="#" class="collapse" data-original-title="" title=""> </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="portlet light">
-                                <div class="hpanel filter-item">
-                                    <div class="panel-body">
-                                        <div class="pull-right text-right">
-                                            <div class="portlet">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" data-toggle="toggle">
-                                                    </label>
-                                                </div>
-
+                                <div class="portlet-body">
+                                    <div class="pull-right text-right">
+                                        <div class="portlet">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" data-toggle="toggle">
+                                                </label>
                                             </div>
+
                                         </div>
-                                        <h4 class="m-b-xs">Equifax</h4>
                                     </div>
+                                    <h4 class="m-b-xs">Sinacofi</h4>
                                 </div>
                             </div>
-                            <div class="portlet light">
-                                <div class="hpanel filter-item">
-                                    <div class="panel-body">
-                                        <div class="pull-right text-right">
-                                            <div class="portlet">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" data-toggle="toggle">
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <h4 class="m-b-xs">Transunion</h4>
+                            <div class="portlet box blue">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-database"></i> APPLICANT SCORE
                                     </div>
+                                    <div class="tools">
+                                        <a href="#" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="pull-right text-right">
+                                        <div class="portlet">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" data-toggle="toggle">
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <h4 class="m-b-xs">Equifax</h4>
+                                </div>
+                            </div>
+                            <div class="portlet box blue">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-database"></i> APPLICANT SCORE
+                                    </div>
+                                    <div class="tools">
+                                        <a href="#" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="pull-right text-right">
+                                        <div class="portlet">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" data-toggle="toggle">
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <h4 class="m-b-xs">Transunion</h4>
                                 </div>
                             </div>
                             <!-- END PORTLET-->
