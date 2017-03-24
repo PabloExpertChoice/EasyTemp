@@ -223,7 +223,7 @@
                             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Evoluci&#243;n mensual Roll Rates </h3>
+                                        <h3 class="panel-title">Forzajes de Pol&#237;ticas</h3>
                                     </div>
                                     <div class="panel-body"> 
                                         <div id="container8" style="width: 100%; margin: 0 auto"></div>

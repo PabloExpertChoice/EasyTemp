@@ -1,6 +1,6 @@
 <%-- 
-    Document   : risktier
-    Created on : 22-03-2017, 16:56:49
+    Document   : index
+    Created on : 13-03-2017, 15:22:02
     Author     : ignacio
 --%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="utf-8" />
-        <title>APPLICANT SCORE</title>
+        <title>Usuarios</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -63,20 +63,9 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Administracion Risk Tier</h1>
+                                <h1>Usuarios</h1>
                             </div>
                             <!-- END PAGE TITLE -->
-                            <!-- BEGIN PAGE TOOLBAR -->
-                            <div class="page-toolbar" style="font-size: 13px;">
-                                <!-- BEGIN THEME PANEL -->
-                                <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
-                                <i class="fa fa-angle-left"></i>
-                                <i class="fa fa-cogs" style="color: #69788c;"> Configuraci&#243;n</i>
-                                <i class="fa fa-angle-left"></i>
-                                <a href="risktier_tree.jsp"><i class="fa fa-reorder"> Tree</i></a>
-                                <!-- END THEME PANEL -->
-                            </div>
-                            <!-- END PAGE TOOLBAR -->
                         </div>
                         <!-- END PAGE HEAD-->
 
@@ -87,78 +76,33 @@
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                <a href="risktier.jsp">Administracion Risk Tier</a>
-                            </li>
-                            <i class="fa fa-circle"></i>
-                            <li>
-                                Configuraci&#243;n
+                                Usuarios
                             </li>
                         </ul>
                         <!-- Fin ruta -->
 
-
                         <!-- BEGIN PAGE BASE CONTENT -->
                         <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                <div class="portlet light">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fa fa-database"></i> APPLICANT SCORE
-                                        </div>
-                                        <div class="tools">
-                                            <a href="#" class="collapse" data-original-title="" title=""> </a>
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body">
-                                        <div class="portlet light">
-                                            <div class="row">
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Tipo</label>
-                                                        <select class="form-control">
-                                                            <option value="1">Natural</option>
-                                                            <option value="2">Jurídico</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Variable eje X</label>
-                                                        <select class="form-control">
-                                                            <option value="">Seleccionar...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-3">
-                                                        <label class="label-control">Nº de columnas</label>
-                                                        <input class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Variable eje Y</label>
-                                                        <select class="form-control">
-                                                            <option value="">Seleccionar...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-3">
-                                                        <label class="label-control">Nº de filas</label>
-                                                        <input class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-info mt-ladda-btn ladda-button btn-circle" data-style="expand-down">
-                                                        <span class="ladda-label">
-                                                            <i class="fa fa-plus-square"> </i> Crear</span>
-                                                    </button>
-                                                </div>
+                            <div class="col-lg-12">
+                                <div class="col-lg-12">
+                                    <div class="portlet light">
+                                        <div class="panel-title">
+                                            <div class="panel-tools">
+                                                <!--<a class="showhide"><i class="fa fa-chevron-up"></i></a>-->
                                             </div>
-                                            <div class="pull-right">
-                                                <button type="button" class="btn blue mt-ladda-btn ladda-button btn-outline" data-style="slide-up" data-spinner-color="#333">
-                                                    <span class="ladda-label">
-                                                        <i class="icon-arrow-right"></i> Siguiente </span>
-                                                </button>
+                                            Perfiles del sistema
+                                        </div>
+                                        <div class="panel-body">
+                                            <div style="margin-bottom: 0.1cm;">
+                                                <a id="ing_usu" class="btn btn-default next" onclick="dlgAgregarPerfil();" style="background: #3498DB;color:#FFF"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo perfil</a><br>
                                             </div>
+                                            <div id="tblPerfiles_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="tblPerfiles_length"><label>Mostrar <select name="tblPerfiles_length" aria-controls="tblPerfiles" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros</label></div></div><div class="col-sm-6"><div id="tblPerfiles_filter" class="dataTables_filter"><label>Buscar:<input class="form-control input-sm" placeholder="" aria-controls="tblPerfiles" type="search"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered table-hover dataTable no-footer" id="tblPerfiles" style="width: 100%; text-align: center;" role="grid" aria-describedby="tblPerfiles_info">
+                                                            <thead>
+                                                                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="tblPerfiles" rowspan="1" colspan="1" style="width: 797px;" aria-sort="ascending" aria-label="Nombre: Activar para ordenar la columna de manera descendente">Nombre</th><th class="sorting" tabindex="0" aria-controls="tblPerfiles" rowspan="1" colspan="1" style="width: 401px;" aria-label=": Activar para ordenar la columna de manera ascendente"></th></tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr role="row" class="odd"><td class="sorting_1">ADMINISTRADOR</td><td><button class="btn btn-sm btn-default icono" title="Menu" onclick="dlgMenu(2)"><i class="fa fa-list"></i></button> <button class="btn btn-sm btn-default icono" title="Menu" onclick="dlgEliminarPerfil(this)"><i class="fa fa-times-circle"></i></button></td></tr><tr role="row" class="even"><td class="sorting_1">SUPER ADMINISTRADOR</td><td><button class="btn btn-sm btn-default icono" title="Menu" onclick="dlgMenu(1)"><i class="fa fa-list"></i></button> <button class="btn btn-sm btn-default icono" title="Menu" onclick="dlgEliminarPerfil(this)"><i class="fa fa-times-circle"></i></button></td></tr><tr role="row" class="odd"><td class="sorting_1">VIZUALIZADOR</td><td><button class="btn btn-sm btn-default icono" title="Menu" onclick="dlgMenu(3)"><i class="fa fa-list"></i></button> <button class="btn btn-sm btn-default icono" title="Menu" onclick="dlgEliminarPerfil(this)"><i class="fa fa-times-circle"></i></button></td></tr></tbody>
+                                                        </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="tblPerfiles_info" role="status" aria-live="polite">Mostrando registros del 1 al 3 de un total de 3 registros</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="tblPerfiles_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="tblPerfiles_previous"><a href="#" aria-controls="tblPerfiles" data-dt-idx="0" tabindex="0">Anterior</a></li><li class="paginate_button active"><a href="#" aria-controls="tblPerfiles" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="tblPerfiles_next"><a href="#" aria-controls="tblPerfiles" data-dt-idx="2" tabindex="0">Siguiente</a></li></ul></div></div></div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -231,19 +175,19 @@
             <!-- END THEME LAYOUT SCRIPTS -->
             <!-- Google Code for Universal Analytics -->
             <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r;
-                    i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                    a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                    a.async = 1;
-                    a.src = g;
-                    m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                ga('create', 'UA-37564768-1', 'auto');
-                ga('send', 'pageview');
+                                            (function (i, s, o, g, r, a, m) {
+                                                i['GoogleAnalyticsObject'] = r;
+                                                i[r] = i[r] || function () {
+                                                    (i[r].q = i[r].q || []).push(arguments)
+                                                }, i[r].l = 1 * new Date();
+                                                a = s.createElement(o),
+                                                        m = s.getElementsByTagName(o)[0];
+                                                a.async = 1;
+                                                a.src = g;
+                                                m.parentNode.insertBefore(a, m)
+                                            })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+                                            ga('create', 'UA-37564768-1', 'auto');
+                                            ga('send', 'pageview');
             </script>
             <!-- End -->
 

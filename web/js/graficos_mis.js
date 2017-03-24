@@ -422,7 +422,7 @@ Highcharts.chart('container8', {
         type: 'column'
     },
     title: {
-        text: 'Forzaje de Políticas'
+        text: 'Forzaje de Politicas'
     },
     yAxis: {
         title: {

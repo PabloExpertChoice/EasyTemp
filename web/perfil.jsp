@@ -1,6 +1,6 @@
 <%-- 
-    Document   : risktier
-    Created on : 22-03-2017, 16:56:49
+    Document   : index
+    Created on : 13-03-2017, 15:22:02
     Author     : ignacio
 --%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="utf-8" />
-        <title>APPLICANT SCORE</title>
+        <title>Perfiles</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -63,20 +63,9 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Administracion Risk Tier</h1>
+                                <h1>Perfiles</h1>
                             </div>
                             <!-- END PAGE TITLE -->
-                            <!-- BEGIN PAGE TOOLBAR -->
-                            <div class="page-toolbar" style="font-size: 13px;">
-                                <!-- BEGIN THEME PANEL -->
-                                <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
-                                <i class="fa fa-angle-left"></i>
-                                <i class="fa fa-cogs" style="color: #69788c;"> Configuraci&#243;n</i>
-                                <i class="fa fa-angle-left"></i>
-                                <a href="risktier_tree.jsp"><i class="fa fa-reorder"> Tree</i></a>
-                                <!-- END THEME PANEL -->
-                            </div>
-                            <!-- END PAGE TOOLBAR -->
                         </div>
                         <!-- END PAGE HEAD-->
 
@@ -87,77 +76,34 @@
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                <a href="risktier.jsp">Administracion Risk Tier</a>
-                            </li>
-                            <i class="fa fa-circle"></i>
-                            <li>
-                                Configuraci&#243;n
+                                Perfiles
                             </li>
                         </ul>
                         <!-- Fin ruta -->
 
-
                         <!-- BEGIN PAGE BASE CONTENT -->
                         <div class="row">
-                            <div class="col-md-12 col-lg-12">
+                            <div class="col-lg-12">
                                 <div class="portlet light">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fa fa-database"></i> APPLICANT SCORE
+                                    <div class="panel-title">
+                                        <div class="panel-tools">
+                                            <!--<a class="showhide" id="showInfoCliente"><i class="fa fa-chevron-up"></i></a>-->
                                         </div>
-                                        <div class="tools">
-                                            <a href="#" class="collapse" data-original-title="" title=""> </a>
-                                        </div>
+                                        <label> Usuarios</label>
                                     </div>
-                                    <div class="portlet-body">
-                                        <div class="portlet light">
-                                            <div class="row">
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Tipo</label>
-                                                        <select class="form-control">
-                                                            <option value="1">Natural</option>
-                                                            <option value="2">Jurídico</option>
-                                                        </select>
-                                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div style="margin-bottom: 0.1cm;">
+                                                    <button class="btn btn-info" onclick="dlgModalUsuario(undefined)"><i class="fa fa-plus"></i> Nuevo Usuario</button>
                                                 </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Variable eje X</label>
-                                                        <select class="form-control">
-                                                            <option value="">Seleccionar...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-3">
-                                                        <label class="label-control">Nº de columnas</label>
-                                                        <input class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Variable eje Y</label>
-                                                        <select class="form-control">
-                                                            <option value="">Seleccionar...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-3">
-                                                        <label class="label-control">Nº de filas</label>
-                                                        <input class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-info mt-ladda-btn ladda-button btn-circle" data-style="expand-down">
-                                                        <span class="ladda-label">
-                                                            <i class="fa fa-plus-square"> </i> Crear</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="pull-right">
-                                                <button type="button" class="btn blue mt-ladda-btn ladda-button btn-outline" data-style="slide-up" data-spinner-color="#333">
-                                                    <span class="ladda-label">
-                                                        <i class="icon-arrow-right"></i> Siguiente </span>
-                                                </button>
+                                                <div id="tblUsuarios_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="tblUsuarios_length"><label>Mostrar <select name="tblUsuarios_length" aria-controls="tblUsuarios" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros</label></div></div><div class="col-sm-6"><div id="tblUsuarios_filter" class="dataTables_filter"><label>Buscar:<input class="form-control input-sm" placeholder="" aria-controls="tblUsuarios" type="search"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="tblUsuarios" class="table table-bordered dataTable no-footer" role="grid" aria-describedby="tblUsuarios_info" style="width: 1281px;">
+                                                                <thead>
+                                                                    <tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 317px;">Usuario</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 106px;">Nombre</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 114px;">Apellido</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 309px;">Perfil</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 106px;">Estado</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 228px;">Opción</th></tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr role="row" class="odd"><td>ralvarez</td><td>rodrigo</td><td>alvarez</td><td>SUPER ADMINISTRADOR</td><td>ACTIVO</td><td><div><button class="btn btn-default" onclick="dlgModalUsuario(this)"><i class="fa fa-pencil-square-o icono"></i></button><button class="btn btn-default" onclick="fillResetPassword(1, this)"><i class="fa fa-undo icono"></i></button><button class="btn btn-default" onclick="fillBloquearUsuario(1, this)"><i class="fa fa-lock"></i></button></div></td></tr><tr role="row" class="even"><td>mgutierrez@expertchoice.cl</td><td>Mabel</td><td>Gutierrez </td><td>SUPER ADMINISTRADOR</td><td>ACTIVO</td><td><div><button class="btn btn-default" onclick="dlgModalUsuario(this)"><i class="fa fa-pencil-square-o icono"></i></button><button class="btn btn-default" onclick="fillResetPassword(5, this)"><i class="fa fa-undo icono"></i></button><button class="btn btn-default" onclick="fillBloquearUsuario(5, this)"><i class="fa fa-lock"></i></button></div></td></tr><tr role="row" class="odd"><td>pablo</td><td>Pablo </td><td>Cespedes</td><td>VIZUALIZADOR</td><td>ACTIVO</td><td><div><button class="btn btn-default" onclick="dlgModalUsuario(this)"><i class="fa fa-pencil-square-o icono"></i></button><button class="btn btn-default" onclick="fillResetPassword(3, this)"><i class="fa fa-undo icono"></i></button><button class="btn btn-default" onclick="fillBloquearUsuario(3, this)"><i class="fa fa-lock"></i></button></div></td></tr><tr role="row" class="even"><td>juan</td><td>Juan </td><td>Soto</td><td>VIZUALIZADOR</td><td>ACTIVO</td><td><div><button class="btn btn-default" onclick="dlgModalUsuario(this)"><i class="fa fa-pencil-square-o icono"></i></button><button class="btn btn-default" onclick="fillResetPassword(4, this)"><i class="fa fa-undo icono"></i></button><button class="btn btn-default" onclick="fillBloquearUsuario(4, this)"><i class="fa fa-lock"></i></button></div></td></tr></tbody>
+                                                            </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="tblUsuarios_info" role="status" aria-live="polite">Mostrando registros del 1 al 4 de un total de 4 registros</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="tblUsuarios_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="tblUsuarios_previous"><a href="#" aria-controls="tblUsuarios" data-dt-idx="0" tabindex="0">Anterior</a></li><li class="paginate_button active"><a href="#" aria-controls="tblUsuarios" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="tblUsuarios_next"><a href="#" aria-controls="tblUsuarios" data-dt-idx="2" tabindex="0">Siguiente</a></li></ul></div></div></div></div>
                                             </div>
                                         </div>
                                     </div>
@@ -231,19 +177,19 @@
             <!-- END THEME LAYOUT SCRIPTS -->
             <!-- Google Code for Universal Analytics -->
             <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r;
-                    i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                    a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                    a.async = 1;
-                    a.src = g;
-                    m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                ga('create', 'UA-37564768-1', 'auto');
-                ga('send', 'pageview');
+                                                                        (function (i, s, o, g, r, a, m) {
+                                                                            i['GoogleAnalyticsObject'] = r;
+                                                                            i[r] = i[r] || function () {
+                                                                                (i[r].q = i[r].q || []).push(arguments)
+                                                                            }, i[r].l = 1 * new Date();
+                                                                            a = s.createElement(o),
+                                                                                    m = s.getElementsByTagName(o)[0];
+                                                                            a.async = 1;
+                                                                            a.src = g;
+                                                                            m.parentNode.insertBefore(a, m)
+                                                                        })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+                                                                        ga('create', 'UA-37564768-1', 'auto');
+                                                                        ga('send', 'pageview');
             </script>
             <!-- End -->
 

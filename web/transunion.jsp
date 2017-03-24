@@ -18,7 +18,7 @@
     <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
     <head>
         <meta charset="utf-8" />
-        <title>Metronic Admin Theme #4 | Admin Dashboard 2</title>
+        <title>Transunion</title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -85,8 +85,7 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Informacion detallada Transunion
-                                </h1>
+                                <h1>Informacion detallada Transunion</h1>
                             </div>
                         </div>
                         <!-- END PAGE TITLE -->
@@ -98,72 +97,72 @@
                                 <!-- BEGIN TAB PORTLET-->
                                 <div class="portlet light bordered">
                                     <div class="portlet-title">
+
                                         <div class="caption">
                                             <i class="icon-anchor"></i>
-                                            <span class="caption-subject bold uppercase">Tab drop</span>
-                                            <br>
-                                            <br>
-                                            <small>
-                                                <div>
-                                                    <span style="display: inline-block;width: 100px; color: #697882;">Rut </span> :<%= datos.get("rut") + "-" + datos.get("dv")%>
-                                            </div>
-                                            <div>
-                                                <span style="display: inline-block;width: 100px; color: #697882;">Nombre</span> :<%= datos.get("nombre")%>  
-                                            </div>
-                                            <!--                                            <br>
-                                                                                        <button onclick="generarPdf()" class="btn btn-primary">Exportar</button>-->
-                                        </small>
+                                            <span class="caption-subject bold uppercase">Informacion detallada del Cliente</span>
+                                        </div>
+
                                     </div>
+                                    <div class="page-head">
+                                        <!-- BEGIN PAGE TITLE -->
+                                        <div class="page-title">
+                                            <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>: <%= datos.get("nombre")%></small></h1>
+                                            <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small>: <%= datos.get("rut")%>-<%= datos.get("dv")%></small></h1>
+                                            <!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
+                                                                                        <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
+                                        </div>
+                                    </div>
+                                    <!-- END PAGE TITLE -->
 
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="tabbable tabbable-tabdrop">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a href="#tab1" data-toggle="tab" aria-expanded="true">Vista resumen</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab2" data-toggle="tab" aria-expanded="false">Antecedentes particulares</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab3" data-toggle="tab" aria-expanded="false">Antecedentes laborales</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab4" data-toggle="tab" aria-expanded="false">Antecedentes financieros</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="#tab5" data-toggle="tab" aria-expanded="false">Consultas al RUT</a>
-                                            </li>
-                                        </ul>
+                                    <div class="portlet-body">
+                                        <div class="tabbable tabbable-tabdrop">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#tab1" data-toggle="tab" aria-expanded="true">Vista resumen</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#tab2" data-toggle="tab" aria-expanded="false">Antecedentes particulares</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#tab3" data-toggle="tab" aria-expanded="false">Antecedentes laborales</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#tab4" data-toggle="tab" aria-expanded="false">Antecedentes financieros</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#tab5" data-toggle="tab" aria-expanded="false">Consultas al RUT</a>
+                                                </li>
+                                            </ul>
 
-                                        <div class="tab-content" style="height: 800px">
-                                            <div class="tab-pane active" id="tab1">
-                                                <div class="col-md-12" style="border: 0; margin: 0;">
-                                                    <!-- BEGIN SAMPLE TABLE PORTLET-->
-                                                    <div class="portlet box blue">
-                                                        <div class="portlet-title">
-                                                            <div class="caption">
-                                                                <i class="fa fa-comments"></i>
-                                                                <!--Contextual Rows--> 
+                                            <div class="tab-content" style="height: 800px">
+                                                <div class="tab-pane active" id="tab1">
+                                                    <div class="col-md-12" style="border: 0; margin: 0;">
+                                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                                        <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption">
+                                                                    <i class="fa fa-comments"></i>
+                                                                    <!--Contextual Rows--> 
+                                                                </div>
+                                                                <div class="tools">
+                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+
+
+                                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                                </div>
                                                             </div>
-                                                            <div class="tools">
-                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                            <div class="portlet-body">
+                                                                <div class="table-scrollable">
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr class="uppercase"></tr>
 
-
-                                                                <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="portlet-body">
-                                                            <div class="table-scrollable">
-                                                                <table class="table table-bordered table-hover">
-                                                                    <thead>
-                                                                        <tr class="uppercase"></tr>
-
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>Score</td>
-                                                                            <td><%= datos.get("score")%></td>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>Score</td>
+                                                                                <td><%= datos.get("score")%></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>Estado C&eacute;dula</td>

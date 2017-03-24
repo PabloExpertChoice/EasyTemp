@@ -189,14 +189,14 @@
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
-                                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                                        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
                                             <font size=2 style="color: #6980a5;">
                                             <p>DATOS: Cliente con una probabilidad de pago dentro de los próximos 90 días mayor al 80% con un KS > 40%, AUC > 70% y ROC > 75%</p>
                                             <p>NOTA Este estimador o clasificador cumple con la Ley Nº 20.521 (que modifica la ley Nº 19.628), el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>
                                             </font>
                                         </div>
-                                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
-                                            <div id="contenedor" style="width: 235px; height: 235px; margin: 0 auto"></div>
+                                        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                            <div id="contenedor" style="max-width: 235px; height: 235px; margin: 0 auto"></div>
                                         </div>
 
                                     </div>
