@@ -93,64 +93,159 @@
                         <!-- Fin ruta -->
 
                         <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                <div class="portlet light">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fa fa-database"></i> Risk Tier 
-                                            <br><br>
-                                            <div class="col-md-2 col-lg-2">
-                                                <select name="order_status" class="form-control form-filter input-sm" style="width: 300px;">
-                                                    <option value="">Natural</option>
-                                                    <option value="pending">Juridico</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="tools">
-                                            <!--<a href="#" class="collapse" data-original-title="" title=""> </a>-->
-                                            <br>
-                                            <button type="button" class="btn blue mt-ladda-btn ladda-button btn-circle btn-outline" data-style="slide-up" data-spinner-color="#333">
-                                                <span class="ladda-label"><i class="fa fa-wrench"></i> Configuraci&#243;n</span>
-                                            </button>
+                            <!-- BEGIN SAMPLE TABLE PORTLET-->
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary" style="border:  0;">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Perdida Esperada por Admisi&#243;n de Clientes </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container" style="width: 100%; margin: 0 auto"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Distribuci&#243;n de la Poblaci&#243;n </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container2" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Gr&#225;fico ROC </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container3" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Gr&#225;fico K-S </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container4" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Gr&#225;fico AUC </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container5" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Evaluaci&#243;n de Vintaje </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container6" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Cuotas en Mora</h3>
+
+                                    </div>
+                                    <div class="panel-body">   
+                                        <div style="overflow-x: auto;max-height: 485px">
+                                            <table id="container-11" class="table table-bordered" style="width: 100%;min-height: 380px;max-width: 485px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td rowspan="12"><br><br><br><br><br>W<br><br>a<br><br>s<br></td><td colspan="10" style="text-align: center;">is</td></tr><tr><td> </td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><td>0</td>
+                                                        <td style="background: orange;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                    </tr><tr><td>1</td>
+                                                        <td style="background: #1bbc9b;color:black">0</td>
+                                                        <td style="background: orange;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td>
+                                                        <td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">0</td></tr><tr><td>2</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: orange;color:black">0</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">2</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">1</td><td style="background: #f3565d;color:black">1</td><td style="background: #f3565d;color:black">1</td></tr><tr><td>3</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">1</td><td style="background: orange;color:black">0</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">2</td><td style="background: #f3565d;color:black">3</td><td style="background: #f3565d;color:black">7</td><td style="background: #f3565d;color:black">1</td></tr><tr><td>4</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: orange;color:black">1</td><td style="background: #f3565d;color:black">4</td><td style="background: #f3565d;color:black">2</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">2</td></tr><tr><td>5</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: orange;color:black">1</td><td style="background: #f3565d;color:black">2</td><td style="background: #f3565d;color:black">1</td><td style="background: #f3565d;color:black">2</td></tr><tr><td>6</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">1</td><td style="background: #1bbc9b;color:black">1</td><td style="background: #1bbc9b;color:black">2</td><td style="background: #1bbc9b;color:black">1</td><td style="background: orange;color:black">2</td><td style="background: #f3565d;color:black">0</td><td style="background: #f3565d;color:black">4</td></tr><tr><td>7</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">1</td><td style="background: #1bbc9b;color:black">3</td><td style="background: #1bbc9b;color:black">1</td><td style="background: #1bbc9b;color:black">2</td><td style="background: #1bbc9b;color:black">4</td><td style="background: orange;color:black">1</td><td style="background: #f3565d;color:black">2</td></tr><tr><td>8</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">2</td><td style="background: #1bbc9b;color:black">3</td><td style="background: #1bbc9b;color:black">1</td><td style="background: #1bbc9b;color:black">2</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: orange;color:black">1</td></tr><tr><td>9</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">1</td><td style="background: #1bbc9b;color:black">6</td><td style="background: #1bbc9b;color:black">0</td><td style="background: #1bbc9b;color:black">3</td><td style="background: #1bbc9b;color:black">2</td><td style="background: #1bbc9b;color:black">4</td><td style="background: #1bbc9b;color:black">1</td></tr></tbody></table>
+                                            <table id="container-11b" class="table table-bordered" style="width: 100%"><thead><tr><th>Neutras</th><th>Positivas</th><th>Negativas</th><th>Total</th></tr></thead><tbody><tr><td>6</td><td>42</td><td>37</td><td>85</td></tr><tr><td>7.06%</td><td>49.41%</td><td>43.53%</td><td>100.00%</td></tr></tbody></table>
                                         </div>
                                     </div>
-                                    <div class="portlet-body">
-                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
-                                        <div class="portlet light bordered">
-                                            <div class="portlet-title">
-                                                <div class="caption">
-                                                    <i class="fa fa-comments"></i>
-                                                    Contextual Rows
-                                                </div>
-                                                <div class="tools">
-                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                    <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                                </div>
-                                            </div>
-                                            <div class="portlet-body">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                                                        <div id="container" style="width: 100%; margin: 0 auto"></div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                                                        <div id="container2" style="width: 100%; margin: 0 auto"></div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                                                        <div id="container3" style="width: 100%; margin: 0 auto"></div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                                                        <div id="container4" style="width: 100%; margin: 0 auto"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"> An&#225;lisis Roll Rates </h3>
+
+                                    </div>
+                                    <div class="panel-body">   
+
+                                        <div style="overflow-x: auto;max-height: 485px;;height: 485px">
+                                            <table id="tblRollRates" class="table table-bordered" style="width: 100%;min-height: 380px">
+                                                <thead><tr><th></th><th>12-2016</th><th>11-2016</th><th>10-2016</th><th>09-2016</th><th>08-2016</th><th>06-2016</th><th>02-2016</th><th>01-2016</th></tr></thead>
+                                                <tbody><tr><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>1</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>2</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>3</td><td></td><td>0.00</td><td>0.00</td><td>1.72</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>4</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>1.21</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>5</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.97</td><td>0.00</td><td>0.00</td></tr><tr><td>6</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>7</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>8</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>9</td><td></td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>10</td><td></td><td>0.51</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr></tbody>
+                                            </table>
                                         </div>
-                                        <!-- END SAMPLE TABLE PORTLET-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Evoluci&#243;n mensual Roll Rates </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container7" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Evoluci&#243;n mensual Roll Rates </h3>
+                                    </div>
+                                    <div class="panel-body"> 
+                                        <div id="container8" style="width: 100%; margin: 0 auto"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Evolución taza de Vintage </h3>
+                                    </div>
+                                    <div class="panel-body">  
+                                        <div style="overflow-x: auto;width:100%">
+                                            <table id="tblVintage" class="table table-bordered" style="width: 100%">
+                                                <thead><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th></tr></thead><tbody><tr><td>01-01-2015</td><td>0%</td><td>66%</td><td>32%</td><td>50%</td><td>20%</td><td>22%</td><td>30%</td><td>0%</td><td>43%</td><td>37%</td><td>0%</td><td>21%</td><td>45%</td><td>0%</td><td>0%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">15%</td></tr><tr><td>01-02-2015</td><td>0%</td><td>53%</td><td>79%</td><td>12%</td><td>51%</td><td>6%</td><td>14%</td><td>22%</td><td>42%</td><td>68%</td><td>39%</td><td>14%</td><td>0%</td><td>30%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">12%</td><td></td></tr><tr><td>01-03-2015</td><td>0%</td><td>10%</td><td>40%</td><td>22%</td><td>37%</td><td>19%</td><td>14%</td><td>49%</td><td>0%</td><td>54%</td><td>8%</td><td>0%</td><td>20%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">11%</td><td></td><td></td></tr><tr><td>01-04-2015</td><td>0%</td><td>0%</td><td>19%</td><td>32%</td><td>20%</td><td>6%</td><td>49%</td><td>23%</td><td>22%</td><td>15%</td><td>0%</td><td>29%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">7%</td><td></td><td></td><td></td></tr><tr><td>01-05-2015</td><td>0%</td><td>26%</td><td>31%</td><td>32%</td><td>60%</td><td>5%</td><td>73%</td><td>13%</td><td>33%</td><td>45%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">39%</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-06-2015</td><td>0%</td><td>28%</td><td>21%</td><td>11%</td><td>11%</td><td>14%</td><td>22%</td><td>15%</td><td>18%</td><td>58%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">68%</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-07-2015</td><td>0%</td><td>48%</td><td>11%</td><td>34%</td><td>23%</td><td>27%</td><td>16%</td><td>0%</td><td>13%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">30%</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-08-2015</td><td>0%</td><td>31%</td><td>15%</td><td>23%</td><td>23%</td><td>15%</td><td>16%</td><td>23%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">21%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-09-2015</td><td>0%</td><td>16%</td><td>11%</td><td>10%</td><td>79%</td><td>54%</td><td>49%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">65%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-10-2015</td><td>0%</td><td>44%</td><td>0%</td><td>9%</td><td>54%</td><td>41%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">21%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-11-2015</td><td>27%</td><td>20%</td><td>15%</td><td>11%</td><td>8%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">20%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-12-2015</td><td>33%</td><td>0%</td><td>0%</td><td>0%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">57%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-01-2016</td><td>0%</td><td>4%</td><td>0%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">16%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-02-2016</td><td>1%</td><td>21%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">3%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>01-03-2016</td><td>37%</td><td style="background: rgb(1, 170, 221) none repeat scroll 0% 0%;">16%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- END SAMPLE TABLE PORTLET-->
                     </div>
                 </div>
                 <!-- END CONTENT -->
