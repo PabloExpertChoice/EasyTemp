@@ -33,14 +33,6 @@
     </ul>
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="#" class="nav-link ">
-                <i class="fa fa-align-justify"></i>
-                <span class="title">Politicas</span>
-            </a>
-        </li>
-    </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-        <li class="nav-item">
             <a href="contrato.jsp" class="nav-link ">
                 <i class="fa fa-file-text"></i>
                 <span class="title">Contrato</span>
@@ -56,7 +48,7 @@
     </ul>
     <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="estadisticas.jsp" class="nav-link">
                 <i class="icon-bar-chart"></i> Estad&#237;sticas de uso </a>
         </li>
     </ul>
