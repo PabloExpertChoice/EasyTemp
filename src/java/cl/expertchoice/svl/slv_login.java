@@ -1,55 +1,78 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cl.expertchoice.svl;
 
-import cl.expertchoice.xml.bnsInformacion;
+import cl.expertchoice.clases.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
  *
  * @author erick
  */
-public class Svl_Informacion extends HttpServlet {
+@WebServlet(name = "slv_login", urlPatterns = {"/slv_login"})
+public class slv_login extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession sesion = request.getSession();
             String code = request.getParameter("code");
-            String rut = "1";
-            String dv = "1";
-            bnsInformacion bn = new bnsInformacion();
-            JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv);
+            HttpSession session = request.getSession();
 
             switch (code) {
-                case "dashboard":
-                    toPage("/dashboard.jsp", request, response);
-                    break;
+                case "login": {
+                    String user = request.getParameter("txtUser");
+                    String clave = request.getParameter("txtPass");
+//                    bnsLogin bsn = new bnsLogin();
+//                    Usuario usuario = bsn.iniciarSesion(user, clave);
+                    Usuario usuario = new Usuario(user, clave, "", "");
 
-                case "transunion":
-                    response.sendRedirect("cmd");
-                    if (jsonInformacion != null) {
-                        int rutP = Integer.parseInt(rut);
-                        request.setAttribute("datos", jsonInformacion);
-//                if (rutP > 50000000) {
-//                    toPage("/InformacionJuridico.jsp", request, response);
-//                } else {
-//                    toPage("/InformacionNatural.jsp", request, response);
-//                }
-                        toPage("/transunion.jsp", request, response);
-                    } else {
-                        request.setAttribute("msg", "No se encuentran datos");
-                        toPage("/index.jsp", request, response);
+                    JSONObject json = new JSONObject();
+                    try {
+                        if (usuario != null) {
+                            session.setAttribute("sesion", usuario);
+                            json.put("estado", "200");
+
+                        } else {
+                            json.put("estado", "405");
+                        }
+                        out.print(json);
+                        break;
+                    } catch (JSONException ex) {
+                        Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    break;
-            }
+                }
 
+                case "logout": {
+                    session.invalidate();
+                    response.sendRedirect("cmd");
+                    break;
+                }
+            }
         }
     }
 
@@ -91,13 +114,5 @@ public class Svl_Informacion extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private void toPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {
-            getServletContext().getRequestDispatcher(page).forward(request, response);
-        } catch (IOException ioe) {
-            ioe.printStackTrace(System.err);
-        }
-    }
 
 }

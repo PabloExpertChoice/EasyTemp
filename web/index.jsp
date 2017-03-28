@@ -3,6 +3,14 @@
     Created on : 13-03-2017, 15:22:02
     Author     : ignacio
 --%>
+<%@page import="cl.expertchoice.clases.Usuario"%>
+<%
+    Usuario user = (Usuario) session.getAttribute("sesion");
+    if (user == null) {
+        response.sendRedirect("cmd");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -97,7 +105,11 @@
                                                 <div class="col-md-8">
                                                     <div class="input-icon right">
                                                         <i class="fa fa-info-circle tooltips" data-original-title="Rut" data-container="body"></i>
-                                                        <input type="text" class="form-control"> </div>
+                                                        <input type="text" class="form-control" id="txtRut"> <input type="text" class="form-control" id="txtDv">
+                                                        
+                                                         <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtRutDv').val()}], undefined, 'Svl_Informacion')">
+                                                             <button class="btn btn-primary " type="button"><i class="fa fa-check"></i> BUSCAR</button></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -105,15 +117,15 @@
                                                 <div class="col-md-8">
                                                     <div class="input-icon right">
                                                         <i class="fa fa-dollar" data-original-title="Ingreso de renta" data-container="body"></i>
-                                                        <input type="text" class="form-control"> </div>
+                                                        <input type="text" class="form-control" id="txtRenta"> </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-4 col-md-8">
-                                                    <button type="button" class="btn default">Cancel</button>
-                                                    <button type="submit" class="btn blue">Submit</button>
+                                                    <!--<button type="button" class="btn default">Limpiar</button>-->
+                                                    <button type="submit" class="btn blue">Consultar rut</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,6 +198,9 @@
             <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
+            
+            <!--libreria redirigir-->
+            <script src="js/funciones.js"></script>
             <!-- Google Code for Universal Analytics -->
             <script>
                 (function (i, s, o, g, r, a, m) {

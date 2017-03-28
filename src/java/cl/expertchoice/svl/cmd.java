@@ -1,55 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cl.expertchoice.svl;
 
-import cl.expertchoice.xml.bnsInformacion;
+import cl.expertchoice.clases.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.json.JSONObject;
 
-/**
- *
- * @author erick
- */
-public class Svl_Informacion extends HttpServlet {
+@WebServlet(name = "cmd", urlPatterns = {"/cmd"})
+public class cmd extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            HttpSession sesion = request.getSession();
-            String code = request.getParameter("code");
-            String rut = "1";
-            String dv = "1";
-            bnsInformacion bn = new bnsInformacion();
-            JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv);
+        Usuario usu_session = (Usuario) request.getSession().getAttribute("sesion");
+        if (usu_session != null) {
+            if (request.getParameter("code") != null) {
 
-            switch (code) {
-                case "dashboard":
-                    toPage("/dashboard.jsp", request, response);
-                    break;
+                String in_code = request.getParameter("code");
 
-                case "transunion":
-                    response.sendRedirect("cmd");
-                    if (jsonInformacion != null) {
-                        int rutP = Integer.parseInt(rut);
-                        request.setAttribute("datos", jsonInformacion);
-//                if (rutP > 50000000) {
-//                    toPage("/InformacionJuridico.jsp", request, response);
-//                } else {
-//                    toPage("/InformacionNatural.jsp", request, response);
-//                }
-                        toPage("/transunion.jsp", request, response);
-                    } else {
-                        request.setAttribute("msg", "No se encuentran datos");
+                switch (in_code) {
+                    case "inicio": {
                         toPage("/index.jsp", request, response);
+                        break;
                     }
-                    break;
-            }
+                    default: {
+                        toPage("/index.jsp", request, response);
+                        break;
+                    }
+                }
 
+            } else {
+                toPage("/index.jsp", request, response);
+            }
+        } else {
+            toPage("/login.jsp", request, response);
         }
     }
 
@@ -92,6 +83,15 @@ public class Svl_Informacion extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    /**
+     * Realiza el redirect a la página del contexto indicada. Ésta debe tener el
+     * formato <code>/pagina</code>.
+     *
+     * @param page
+     * @param request
+     * @param response
+     * @throws ServletException
+     */
     private void toPage(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             getServletContext().getRequestDispatcher(page).forward(request, response);

@@ -15,24 +15,24 @@
         <li>
             <a href="Svl_Informacion" class="active">
                 <span>Transunion</span>
-                <i class="icon-basket"></i>
+                <i class="fa fa-file-text"></i>
             </a>
         </li>
         <li>
             <a href="#" target="_blank">
-                <span>Customer Reviews</span>
+                <span>Equifax</span>
                 <i class="icon-users"></i>
             </a>
         </li>
         <li>
             <a href="#" target="_blank">
-                <span>Showcase</span>
+                <span>Siisa</span>
                 <i class="icon-user"></i>
             </a>
         </li>
         <li>
             <a href="#" target="_blank">
-                <span>Changelog</span>
+                <span>Sinacofi</span>
                 <i class="icon-graph"></i>
             </a>
         </li>
