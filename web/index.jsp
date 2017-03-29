@@ -101,23 +101,31 @@
                                     <form action="dashboard.jsp" class="form-horizontal">
                                         <div class="form-body">
                                             <div class="form-group">
-                                                <label class="col-md-4 control-label">RUT</label>
-                                                <div class="col-md-8">
+                                                <label class="col-md-4 col-xs-1 control-label">RUT</label>
+                                                <div class="col-md-6 col-xs-10">
                                                     <div class="input-icon right">
-                                                        <i class="fa fa-info-circle tooltips" data-original-title="Rut" data-container="body"></i>
-                                                        <input type="text" class="form-control" id="txtRut"> <input type="text" class="form-control" id="txtDv">
-                                                        
-                                                         <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtRutDv').val()}], undefined, 'Svl_Informacion')">
-                                                             <button class="btn btn-primary " type="button"><i class="fa fa-check"></i> BUSCAR</button></a>
+                                                        <!--<input type="text" class="form-control" id="txtRut">-->
+                                                        <input type="text" name="rut" id="txtRut" class="form-control" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');">
+                                                    </div>
+                                                </div>
+<!--                                                <div class="col-md-1 col-xs-1">
+                                                        -
+                                                </div>-->
+                                                <div class="col-md-1 col-xs-1">
+                                                    <div class="input-icon right">
+                                                        <!--<input type="text" class="form-control" id="txtDv">-->
+                                                <input type="text" name="dv" id="txtDv" style="padding: 0px;width: 40px; text-align: center;" class="form-control"  size="1" maxlength="1" disabled="">
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="form-group">
-                                                <label class="col-md-4 control-label">Renta</label>
-                                                <div class="col-md-8">
+                                                <label class="col-md-4 col-xs-1 control-label">Renta</label>
+                                                <div class="col-md-8 col-xs-11">
                                                     <div class="input-icon right">
                                                         <i class="fa fa-dollar" data-original-title="Ingreso de renta" data-container="body"></i>
-                                                        <input type="text" class="form-control" id="txtRenta"> </div>
+                                                        <input type="text" class="form-control" id="txtRenta">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,6 +134,8 @@
                                                 <div class="col-md-offset-4 col-md-8">
                                                     <!--<button type="button" class="btn default">Limpiar</button>-->
                                                     <button type="submit" class="btn blue">Consultar rut</button>
+<!--                                                    <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtRutDv').val()}], undefined, 'Svl_Informacion')">
+                                                <button class="btn btn-primary " type="button"><i class="fa fa-check"></i> BUSCAR</button></a>-->
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +210,9 @@
             <!-- END THEME LAYOUT SCRIPTS -->
             
             <!--libreria redirigir-->
-            <script src="js/funciones.js"></script>
+                    <script src="js/jquery.Rut.js"></script>
+        <script src="js/number_format.js"></script>
+        <script src="js/funciones.js"></script>
             <!-- Google Code for Universal Analytics -->
             <script>
                 (function (i, s, o, g, r, a, m) {

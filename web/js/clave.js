@@ -10,6 +10,7 @@ $(function () {
     }
 });
 
+//esta funcion comprueba que los campos posean datos y se le envian al servlet svl_login
 function login() {
     $('#msgLogin').html('');
     var usuario = $('#username').val();
@@ -35,22 +36,7 @@ function login() {
                 success: function (data, textStatus, jqXHR) {
                     $('#btnEntrar').html(html);
                     $('#btnEntrar').prop('disabled', false);
-                    try {
-                        if ($('#chboxRecordarme').is(':checked')) {
-                            var username = $('#username').val();
-                            var password = $('#password').val();
-                            $.cookie('username_mvec', username, {expires: 14});
-                            $.cookie('password_mvec', password, {expires: 14});
-                            $.cookie('remember_mvec', true, {expires: 14});
-                        } else {
-                            $.cookie('username_mvec', null);
-                            $.cookie('password_mvec', null);
-                            $.cookie('remember_mvec', null);
-                        }
-                    } catch (ex) {
-                        console.log(ex);
-                    }
-
+                    
                     if (data['estado'] == 200) {
                         location.href = 'cmd';
                     } else {

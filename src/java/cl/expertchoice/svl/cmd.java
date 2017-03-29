@@ -20,10 +20,15 @@ public class cmd extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Usuario usu_session = (Usuario) request.getSession().getAttribute("sesion");
+        System.out.println("entro al cmd");
+        System.out.println("validando si hay sesion" + request.getSession().getAttribute("sesion"));
         if (usu_session != null) {
+            System.out.println("encontro sesion");
+            System.out.println(request.getParameter("code"));
             if (request.getParameter("code") != null) {
 
                 String in_code = request.getParameter("code");
+                System.out.println(in_code);
 
                 switch (in_code) {
                     case "inicio": {

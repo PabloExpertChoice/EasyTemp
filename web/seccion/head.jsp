@@ -57,8 +57,7 @@
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="login.jsp">
-                                    <i class="icon-key"></i> Log Out </a>
+                                <a href="slv_login?code=logout"><i class="icon-key"></i>Cerrar sesion</a>
                             </li>
                         </ul>
                     </li>

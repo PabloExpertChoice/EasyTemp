@@ -4,7 +4,14 @@
     Author     : erick
 --%>
 
+<%@page import="cl.expertchoice.clases.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Usuario user = (Usuario) session.getAttribute("sesion");
+    if (user != null) {
+        response.sendRedirect("cmd");
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
     <!--<![endif]-->
@@ -23,7 +30,7 @@
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
-        <script src="font-awesome-4.7.0/css/font-awesome.min.css" type="text/javascript"></script>
+        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
@@ -74,15 +81,17 @@
                         <i class="fa fa-lock"></i>
                         <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" id="password"/> </div>
                 </div>
-
+                <!--mensaje de error-->
+                <div>
+                    <span style="color: #D8322F;" id="msgLogin"></span>
+                </div>
                 <div class="form-actions">
                     <label class="rememberme mt-checkbox mt-checkbox-outline">
                         <input type="checkbox" name="remember" value="1" /> Recordar contrase&ntilde;a
                         <span></span>
                     </label>
-                    <!--<button type="submit" class="btn green pull-right"> Iniciar sesion </button>-->
-                    <span style="color: #D8322F;" id="msgLogin"></span>
-                    <button class="btn btn-default2" id="btnEntrar" onclick="return login()">
+                    <!--al hacer clic los datos se envian a clave.js para validar la sesion-->
+                    <button class="btn green pull-right" id="btnEntrar" onclick="return login()">
                         Iniciar sesión <i class="fa fa-sign-in"></i>
                     </button>
                 </div>
@@ -95,10 +104,7 @@
             <!-- END LOGIN FORM -->
         </div>
         <!-- END LOGIN -->
-        <!--[if lt IE 9]>
-<script src="assets/global/plugins/respond.min.js"></script>
-<script src="assets/global/plugins/excanvas.min.js"></script> 
-<script src="assets/global/plugins/ie8.fix.min.js"></script> 
+        <!--[if lt IE 9]> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -107,6 +113,7 @@
         <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
@@ -122,42 +129,8 @@
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
         <!--scrip para validar inicio de sesion-->
+        <!--<script src="js/clave.js" type="text/javascript"></script>-->
         <script src="js/clave.js" type="text/javascript"></script>
-        <!-- Google Code for Universal Analytics -->
-        <script>
-                    (function (i, s, o, g, r, a, m) {
-                        i['GoogleAnalyticsObject'] = r;
-                        i[r] = i[r] || function () {
-                            (i[r].q = i[r].q || []).push(arguments)
-                        }, i[r].l = 1 * new Date();
-                        a = s.createElement(o),
-                                m = s.getElementsByTagName(o)[0];
-                        a.async = 1;
-                        a.src = g;
-                        m.parentNode.insertBefore(a, m)
-                    })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                    ga('create', 'UA-37564768-1', 'auto');
-                    ga('send', 'pageview');
-        </script>
-        <!-- End -->
-
-        <!-- Google Tag Manager -->
-        <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
         <!-- End -->
     </body>
-
-
-
-    <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/page_user_login_3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:56:06 GMT -->
 </html>

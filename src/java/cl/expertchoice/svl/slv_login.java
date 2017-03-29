@@ -5,6 +5,7 @@
  */
 package cl.expertchoice.svl;
 
+import cl.expertchoice.beans.bnsLogin;
 import cl.expertchoice.clases.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -42,36 +43,39 @@ public class slv_login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String code = request.getParameter("code");
             HttpSession session = request.getSession();
+            try {
+                switch (code) {
+                    case "login": {
+                        String user = request.getParameter("txtUser");
+                        String clave = request.getParameter("txtPass");
+                        bnsLogin bsn = new bnsLogin();
+                        Usuario usuario;
+                        usuario = bsn.iniciarSesion(user, clave);
+                        JSONObject json = new JSONObject();
+                        
+                        try {
+                            if (usuario != null) {
+                                session.setAttribute("sesion", usuario);
+                                json.put("estado", "200");
 
-            switch (code) {
-                case "login": {
-                    String user = request.getParameter("txtUser");
-                    String clave = request.getParameter("txtPass");
-//                    bnsLogin bsn = new bnsLogin();
-//                    Usuario usuario = bsn.iniciarSesion(user, clave);
-                    Usuario usuario = new Usuario(user, clave, "", "");
-
-                    JSONObject json = new JSONObject();
-                    try {
-                        if (usuario != null) {
-                            session.setAttribute("sesion", usuario);
-                            json.put("estado", "200");
-
-                        } else {
-                            json.put("estado", "405");
+                            } else {
+                                json.put("estado", "405");
+                            }
+                        } catch (JSONException ex) {
+                            Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        out.print(json);
+                        
+                       out.print(json);
+                            break;
+                    }
+                    case "logout": {
+                        session.invalidate();
+                        response.sendRedirect("cmd");
                         break;
-                    } catch (JSONException ex) {
-                        Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
-                case "logout": {
-                    session.invalidate();
-                    response.sendRedirect("cmd");
-                    break;
-                }
+            } catch (SQLException ex) {
+                Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
