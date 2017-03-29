@@ -3,8 +3,15 @@
     Created on : 13-03-2017, 15:22:02
     Author     : ignacio
 --%>
+<%@page import="cl.expertchoice.clases.Usuario"%>
 <%@page import="org.json.JSONObject"%>
 <%
+    Usuario user = (Usuario) session.getAttribute("sesion");
+    if (user == null) {
+        response.sendRedirect("cmd");
+        return;
+    }
+
     JSONObject datos = (JSONObject) request.getAttribute("datos");
 %>
 <!DOCTYPE html>

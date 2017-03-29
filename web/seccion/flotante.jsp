@@ -4,6 +4,7 @@
     Author     : erick
 --%>
 
+<%@page import="org.json.JSONObject"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--boton flotante-->
@@ -13,7 +14,8 @@
     </a>
     <ul>
         <li>
-            <a href="Svl_Informacion" class="active">
+            <!--<a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'transunion'}], undefined, 'Svl_Informacion')">-->
+            <a href="javascript:;" onclick="goTransunion()">
                 <span>Transunion</span>
                 <i class="fa fa-file-text"></i>
             </a>

@@ -3,7 +3,17 @@
     Created on : 13-03-2017, 15:22:02
     Author     : ignacio
 --%>
+<%@page import="cl.expertchoice.clases.Usuario"%>
+<%@page import="org.json.JSONObject"%>
+<%
+    Usuario user = (Usuario) session.getAttribute("sesion");
+    if (user == null) {
+        response.sendRedirect("cmd");
+        return;
+    }
 
+    JSONObject datos = (JSONObject) request.getAttribute("datos");
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -82,94 +92,94 @@
                                         <small>para evaluacion</small>
                                     </h1>
                                     <br>
-                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>: Pedro Pablo Perez</small></h1>
-                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small>: 10.898.953-2</small></h1>
-                                    <!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
-                                                                                <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
+                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>:  <%= datos.get("nombre")%></small></h1>
+                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small>: <%= datos.get("rut")%>-<%= datos.get("dv")%></small></h1>
+                                <!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
+                                                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
+                            </div>
+                        </div>
+                        <!-- END PAGE TITLE -->
+                    </div>
+                    <!-- END PAGE HEAD-->
+
+
+
+                    <!--indicadores principales-->
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-comments"></i>
                                 </div>
-                            </div>
-                            <!-- END PAGE TITLE -->
+                                <div class="details">
+                                    <div class="number"> +
+                                        <span data-counter="counterup" data-value="89">89</span>% </div>
+                                    <div class="desc"> Estimacion de Leverage </div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- END PAGE HEAD-->
-
-
-
-                        <!--indicadores principales-->
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
-                                    <div class="visual">
-                                        <i class="fa fa-comments"></i>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number"> +
-                                            <span data-counter="counterup" data-value="89">89</span>% </div>
-                                        <div class="desc"> Estimacion de Leverage </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a class="dashboard-stat dashboard-stat-v2 red" href="#">
-                                    <div class="visual">
-                                        <i class="fa fa-bar-chart-o"></i>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">
-                                            <span data-counter="counterup" data-value="12,5">12,5</span>M$ </div>
-                                        <div class="desc"> Estimacion de Activos </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a class="dashboard-stat dashboard-stat-v2 green" href="#">
-                                    <div class="visual">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">
-                                            <span data-counter="counterup" data-value="8,5">8,5</span>M$ </div>
-                                        <div class="desc"> Estimacion de Deuda </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
-                                    <div class="visual">
-                                        <i class="fa fa-globe"></i>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">
-                                            <span data-counter="counterup" data-value="4,5">4,5</span>M$ </div>
-                                        <div class="desc"> Estimacion de mora </div>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="12,5">12,5</span>M$ </div>
+                                    <div class="desc"> Estimacion de Activos </div>
+                                </div>
+                            </a>
                         </div>
-                        <!--fin indicadores principales-->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="8,5">8,5</span>M$ </div>
+                                    <div class="desc"> Estimacion de Deuda </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-globe"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="4,5">4,5</span>M$ </div>
+                                    <div class="desc"> Estimacion de mora </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!--fin indicadores principales-->
 
-                        <!--seccion de graficos-->
-                        <div class="row">
+                    <!--seccion de graficos-->
+                    <div class="row">
 
-                            <div class="col-lg-7 col-xs-12 col-sm-12">
-                                <div class="portlet box blue" style="border: none;">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <!--                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
-                                                                                        <span class="caption-helper">distance stats...</span>-->
-                                            <div class="caption"><i class="fa fa-database"></i> ANSWER TREE BUSINESS</div>
-                                        </div>
-                                        <div class="tools">
-                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                            <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
-                                        </div>
-                                        <div class="actions">
-                                            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
-                                        </div>
+                        <div class="col-lg-7 col-xs-12 col-sm-12">
+                            <div class="portlet box blue" style="border: none;">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <!--                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
+                                                                                    <span class="caption-helper">distance stats...</span>-->
+                                        <div class="caption"><i class="fa fa-database"></i> ANSWER TREE BUSINESS</div>
                                     </div>
-                                    <!--grafico de barras-->
-                                    <div class="portlet-body">
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                        <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                        <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                        <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                <!--grafico de barras-->
+                                <div class="portlet-body">
                                     <%--<jsp:include page="seccion/grafico_risktier.jsp"></jsp:include>--%>
                                     <div id="dashboard_amchart_1" class="CSSAnimationChart" style="height: 380px"></div>
                                 </div>
@@ -945,97 +955,105 @@
             <!--boton flotante-->
         <jsp:include page="seccion/flotante.jsp"></jsp:include>
 
-        <!-- BEGIN CORE PLUGINS -->
-        <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-        <!-- END CORE PLUGINS -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="assets/global/plugins/moment.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
-        <!-- END PAGE LEVEL PLUGINS -->
-        <script src="https://www.amcharts.com/lib/3/lang/es.js"></script>
-        <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
-        <!-- END THEME GLOBAL SCRIPTS -->
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
-        <!-- END PAGE LEVEL SCRIPTS -->
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
-        <script src="assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
-        <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-        <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+            <!-- BEGIN CORE PLUGINS -->
+            <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+            <!-- END CORE PLUGINS -->
+            <!-- BEGIN PAGE LEVEL PLUGINS -->
+            <script src="assets/global/plugins/moment.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+            <!-- END PAGE LEVEL PLUGINS -->
+            <script src="https://www.amcharts.com/lib/3/lang/es.js"></script>
+            <!-- BEGIN THEME GLOBAL SCRIPTS -->
+            <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
+            <!-- END THEME GLOBAL SCRIPTS -->
+            <!-- BEGIN PAGE LEVEL SCRIPTS -->
+            <script src="assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
+            <!-- END PAGE LEVEL SCRIPTS -->
+            <!-- BEGIN THEME LAYOUT SCRIPTS -->
+            <script src="assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
+            <script src="assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
+            <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+            <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 
-        <!--librerias para grafico highcharts-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/highcharts-more.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="js/dash.js" type="text/javascript"></script>
-        <!-- END THEME LAYOUT SCRIPTS -->
-        <!-- Google Code for Universal Analytics -->
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-37564768-1', 'auto');
-            ga('send', 'pageview');
+            <!--librerias para grafico highcharts-->
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-more.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <script src="js/dash.js" type="text/javascript"></script>
+            <script src="js/funciones.js"></script>
+            <!-- END THEME LAYOUT SCRIPTS -->
+            <!-- Google Code for Universal Analytics -->
+            <script>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-37564768-1', 'auto');
+                ga('send', 'pageview');
+            </script>
+            <!-- End -->
+
+            <!-- Google Tag Manager -->
+            <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
+                              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <script>(function (w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({'gtm.start':
+                                new Date().getTime(), event: 'gtm.js'});
+                    var f = d.getElementsByTagName(s)[0],
+                            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src =
+                            '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');
+            </script>
+            <script>
+                function goTransunion() {
+                var datos = <%= datos%>;
+                go('Svl_Informacion', [{id: 'code', val: 'transunion'},{id: 'obDatos', val: JSON.stringify(datos)}],undefined,'Svl_Informacion');
+            }
         </script>
-        <!-- End -->
-
-        <!-- Google Tag Manager -->
-        <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
         <!-- End -->
     </body>
 

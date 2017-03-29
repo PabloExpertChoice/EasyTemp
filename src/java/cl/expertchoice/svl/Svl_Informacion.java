@@ -1,13 +1,17 @@
 package cl.expertchoice.svl;
 
+import cl.expertchoice.clases.Usuario;
 import cl.expertchoice.xml.bnsInformacion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -20,36 +24,56 @@ public class Svl_Informacion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession sesion = request.getSession();
-            String code = request.getParameter("code");
-            String rut = "1";
-            String dv = "1";
-            bnsInformacion bn = new bnsInformacion();
-            JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv);
+            try {
+                HttpSession sesion = request.getSession();
+                Usuario usuario = (Usuario) sesion.getAttribute("sesion");
+                String code = request.getParameter("code");
+                JSONObject datos;
 
-            switch (code) {
-                case "dashboard":
-                    toPage("/dashboard.jsp", request, response);
-                    break;
+                switch (code) {
+                    case "dashboard":
+                        String rut = request.getParameter("rut");
+                        String dv = request.getParameter("dv");
+                        bnsInformacion bn = new bnsInformacion();
+                        JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv, usuario);
 
-                case "transunion":
-                    response.sendRedirect("cmd");
-                    if (jsonInformacion != null) {
-                        int rutP = Integer.parseInt(rut);
-                        request.setAttribute("datos", jsonInformacion);
-//                if (rutP > 50000000) {
-//                    toPage("/InformacionJuridico.jsp", request, response);
-//                } else {
-//                    toPage("/InformacionNatural.jsp", request, response);
-//                }
+                        if (jsonInformacion != null) {
+//                        int rutP = Integer.parseInt(rut);
+                            request.setAttribute("datos", jsonInformacion);
+
+                            toPage("/dashboard.jsp", request, response);
+                        } else {
+                            request.setAttribute("msg", "No se encuentran datos");
+                            toPage("/index.jsp", request, response);
+                        }
+                        break;
+
+                    case "transunion": {
+
+                        datos = new JSONObject(request.getParameter("obDatos"));
+                        request.setAttribute("datos", datos);
                         toPage("/transunion.jsp", request, response);
-                    } else {
-                        request.setAttribute("msg", "No se encuentran datos");
-                        toPage("/index.jsp", request, response);
                     }
-                    break;
-            }
 
+//                    if (jsonInformacion != null) {
+////                        int rutP = Integer.parseInt(rut);
+//                        request.setAttribute("datos", jsonInformacion);
+////                if (rutP > 50000000) {
+////                    toPage("/InformacionJuridico.jsp", request, response);
+////                } else {
+////                    toPage("/InformacionNatural.jsp", request, response);
+////                }
+//                        toPage("/transunion.jsp", request, response);
+//                        request.setAttribute("datos", jsonInformacion);
+//                    } else {
+//                        request.setAttribute("msg", "No se encuentran datos");
+//                        toPage("/index.jsp", request, response);
+//                    }
+                    break;
+                }
+            } catch (JSONException ex) {
+                Logger.getLogger(Svl_Informacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

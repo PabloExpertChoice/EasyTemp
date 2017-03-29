@@ -89,7 +89,7 @@
 
                         <!-- BEGIN PAGE BASE CONTENT -->
                         <div class="col-md-6 ">
-                            <div class="portlet box blue">
+                            <div class="portlet box blue" style="border: none">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="fa fa-database"></i> Buscar Informacion Personal </div>
@@ -108,17 +108,17 @@
                                                         <input type="text" name="rut" id="txtRut" class="form-control" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');">
                                                     </div>
                                                 </div>
-<!--                                                <div class="col-md-1 col-xs-1">
-                                                        -
-                                                </div>-->
+                                                <!--                                                <div class="col-md-1 col-xs-1">
+                                                                                                        -
+                                                                                                </div>-->
                                                 <div class="col-md-1 col-xs-1">
                                                     <div class="input-icon right">
                                                         <!--<input type="text" class="form-control" id="txtDv">-->
-                                                <input type="text" name="dv" id="txtDv" style="padding: 0px;width: 40px; text-align: center;" class="form-control"  size="1" maxlength="1" disabled="">
+                                                        <input type="text" name="dv" id="txtDv" style="padding: 0px;width: 40px; text-align: center;" class="form-control"  size="1" maxlength="1" disabled="">
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label class="col-md-4 col-xs-1 control-label">Renta</label>
                                                 <div class="col-md-8 col-xs-11">
@@ -133,9 +133,10 @@
                                             <div class="row">
                                                 <div class="col-md-offset-4 col-md-8">
                                                     <!--<button type="button" class="btn default">Limpiar</button>-->
-                                                    <button type="submit" class="btn blue">Consultar rut</button>
-<!--                                                    <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtRutDv').val()}], undefined, 'Svl_Informacion')">
-                                                <button class="btn btn-primary " type="button"><i class="fa fa-check"></i> BUSCAR</button></a>-->
+                                                    <!--<button type="submit" class="btn blue">Consultar rut</button>-->
+                                                    <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Svl_Informacion')">
+                                                        <button class="btn btn-primary " type="button"><i class="fa fa-check"></i> Consultar Rut</button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -152,10 +153,10 @@
                 <!-- BEGIN FOOTER -->
                 <div class="page-footer">
                 <jsp:include page="seccion/footer.jsp"></jsp:include>
-                </div>
-                <!-- END FOOTER -->
+            </div>
+            <!-- END FOOTER -->
 
-              
+
             <!-- BEGIN CORE PLUGINS -->
             <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -208,26 +209,26 @@
             <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
-            
+
             <!--libreria redirigir-->
-                    <script src="js/jquery.Rut.js"></script>
-        <script src="js/number_format.js"></script>
-        <script src="js/funciones.js"></script>
+            <script src="js/jquery.Rut.js"></script>
+            <script src="js/number_format.js"></script>
+            <script src="js/funciones.js"></script>
             <!-- Google Code for Universal Analytics -->
             <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r;
-                    i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                    a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                    a.async = 1;
-                    a.src = g;
-                    m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                ga('create', 'UA-37564768-1', 'auto');
-                ga('send', 'pageview');
+                                                        (function (i, s, o, g, r, a, m) {
+                                                            i['GoogleAnalyticsObject'] = r;
+                                                            i[r] = i[r] || function () {
+                                                                (i[r].q = i[r].q || []).push(arguments)
+                                                            }, i[r].l = 1 * new Date();
+                                                            a = s.createElement(o),
+                                                                    m = s.getElementsByTagName(o)[0];
+                                                            a.async = 1;
+                                                            a.src = g;
+                                                            m.parentNode.insertBefore(a, m)
+                                                        })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+                                                        ga('create', 'UA-37564768-1', 'auto');
+                                                        ga('send', 'pageview');
             </script>
             <!-- End -->
 
