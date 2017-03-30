@@ -3,7 +3,14 @@
     Created on : 13-03-2017, 15:22:02
     Author     : ignacio
 --%>
-
+<%@page import="cl.expertchoice.clases.Usuario"%>
+<%
+    Usuario user = (Usuario) session.getAttribute("sesion");
+    if (user == null) {
+        response.sendRedirect("cmd");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -146,12 +153,17 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <div id="contVariables"><div class="row contVariable"><div class="col-md-4">    <label>Variable</label>    <select class="form-control cmboxVariable" id="sl_variable_1_0"><option value="0">Seleccione</option><option value="1">deuda_direct_vig</option><option value="2">deuda_morosa_30_90</option><option value="3">deuda_direct_venc</option><option value="4">deuda_dir_venc_180d_3years</option><option value="5">deuda_inv_financieras</option><option value="6">deuda_ope_pacto</option><option value="7">deuda_indirec_vig</option><option value="8">deuda_indirec_vencida</option><option value="9">deuda_comercial</option><option value="10">deuda_credito_consumo</option><option value="11">nro_inst_cred_consumo</option><option value="12">deuda_cred_hipotecario</option><option value="13">saldo_deud_CAST_direct</option><option value="14">saldo_deud_CAST_indirect</option><option value="15">mto_linea_disponible</option><option value="16">deuda_leasing</option><option value="17">deuda_morosa_leasing</option><option value="18">deuda_com_vig_mex</option><option value="19">deuda_com_venc_mex</option><option value="20">deuda_x_cred_contingentes</option><option value="21">score</option><option value="22">renta</option></select></div><div class="col-md-4">    <div class="row">        <div class="col-xs-4">            <label>Operador</label>            <select class="form-control cmboxOperador" id="sel2_0"><option value="0">Seleccione</option><option value="28">&gt;</option><option value="29">&lt;</option><option value="30">=</option><option value="31">&gt;=</option><option value="32">&lt;=</option></select>        </div>        <div class="col-xs-5">            <label>Valor</label>            <input type="text" class="form-control txtValor" id="txtMonto_0" onkeyup="return formatoNumero(this)">        </div>        <div class="col-md-3">            <label>&nbsp;</label>            <select class="form-control cmboxCondicion" visibilidad="false" id="sel4_0" style="display: none;">                <option value="0">Seleccione</option>                <option value="33">Y</option>                <option value="34">O</option>            </select>        </div>    </div></div><div class="col-md-4"></div></div></div>
+                                            <div id="contVariables">
+                                                <!--<div class="row contVariable"><div class="col-md-4">    <label>Variable</label>    <select class="form-control cmboxVariable" id="sl_variable_1_0"><option value="0">Seleccione</option><option value="1">deuda_direct_vig</option><option value="2">deuda_morosa_30_90</option><option value="3">deuda_direct_venc</option><option value="4">deuda_dir_venc_180d_3years</option><option value="5">deuda_inv_financieras</option><option value="6">deuda_ope_pacto</option><option value="7">deuda_indirec_vig</option><option value="8">deuda_indirec_vencida</option><option value="9">deuda_comercial</option><option value="10">deuda_credito_consumo</option><option value="11">nro_inst_cred_consumo</option><option value="12">deuda_cred_hipotecario</option><option value="13">saldo_deud_CAST_direct</option><option value="14">saldo_deud_CAST_indirect</option><option value="15">mto_linea_disponible</option><option value="16">deuda_leasing</option><option value="17">deuda_morosa_leasing</option><option value="18">deuda_com_vig_mex</option><option value="19">deuda_com_venc_mex</option><option value="20">deuda_x_cred_contingentes</option><option value="21">score</option><option value="22">renta</option></select></div><div class="col-md-4">    <div class="row">        <div class="col-xs-4">            <label>Operador</label>            <select class="form-control cmboxOperador" id="sel2_0"><option value="0">Seleccione</option><option value="28">&gt;</option><option value="29">&lt;</option><option value="30">=</option><option value="31">&gt;=</option><option value="32">&lt;=</option></select>        </div>        <div class="col-xs-5">            <label>Valor</label>            <input type="text" class="form-control txtValor" id="txtMonto_0" onkeyup="return formatoNumero(this)">        </div>        <div class="col-md-3">            <label>&nbsp;</label>            <select class="form-control cmboxCondicion" visibilidad="false" id="sel4_0" style="display: none;">                <option value="0">Seleccione</option>                <option value="33">Y</option>                <option value="34">O</option>            </select>        </div>    </div></div><div class="col-md-4"></div>-->
+
+                                                </div>
+
+                                            </div>
                                         </form>
                                         <br>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <button class="btn btn-primary" id="btnAgregarVariable"><i class="fa fa-plus"></i> Agregar variable</button>
+                                                <button class="btn btn-primary" id="btnAgregarVariable" disabled="" onclick="agregarCampos()"><i class="fa fa-plus"></i> Agregar variable</button>
                                             </div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-3"></div>
@@ -195,16 +207,6 @@
         <script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
         <script src="assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
         <script src="assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
@@ -220,7 +222,6 @@
         <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
-        <script src="https://www.amcharts.com/lib/3/lang/es.js"></script>
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
@@ -232,46 +233,10 @@
         <script src="assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
         <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
-
-        <!--librerias para grafico highcharts-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/highcharts-more.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="js/dash.js" type="text/javascript"></script>
+        <!--<script src="plugins/datatables/jquery.dataTables.min.js"></script>-->
+        <script src="assets/global/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="js/tree.js"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
-        <!-- Google Code for Universal Analytics -->
-        <script>
-                                                (function (i, s, o, g, r, a, m) {
-                                                    i['GoogleAnalyticsObject'] = r;
-                                                    i[r] = i[r] || function () {
-                                                        (i[r].q = i[r].q || []).push(arguments)
-                                                    }, i[r].l = 1 * new Date();
-                                                    a = s.createElement(o),
-                                                            m = s.getElementsByTagName(o)[0];
-                                                    a.async = 1;
-                                                    a.src = g;
-                                                    m.parentNode.insertBefore(a, m)
-                                                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                                                ga('create', 'UA-37564768-1', 'auto');
-                                                ga('send', 'pageview');
-        </script>
-        <!-- End -->
-
-        <!-- Google Tag Manager -->
-        <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
-        <!-- End -->
     </body>
 
 
