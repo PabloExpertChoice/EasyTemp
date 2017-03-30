@@ -54,6 +54,18 @@ public class Svl_Informacion extends HttpServlet {
                         request.setAttribute("datos", datos);
                         toPage("/transunion.jsp", request, response);
                     }
+                    case "home": {
+
+                        datos = new JSONObject(request.getParameter("obDatos"));
+                        request.setAttribute("datos", datos);
+                        toPage("/dashboard.jsp", request, response);
+                    }
+                    case "jur": {
+
+                        datos = new JSONObject(request.getParameter("obDatos"));
+                        request.setAttribute("datos", datos);
+                        toPage("/InformacionJuridico.jsp", request, response);
+                    }
 
 //                    if (jsonInformacion != null) {
 ////                        int rutP = Integer.parseInt(rut);

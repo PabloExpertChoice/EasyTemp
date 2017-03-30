@@ -15,9 +15,10 @@ public class Conexion {
         Connection conexion = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String servidor = "jdbc:mysql://192.168.100.2/southcone";
+//            String servidor = "jdbc:mysql://192.168.100.2/southcone";
+            String servidor = "jdbc:mysql://54.202.128.106/CacheTransunion";
             String usuario = "desarrollo";
-            String password = "clavetemporal";
+            String password = "+2017desarrollo";
             conexion = DriverManager.getConnection(servidor, usuario, password);
             conexion.setAutoCommit(true);
         } catch (ClassNotFoundException ex) {
@@ -58,4 +59,7 @@ public class Conexion {
 
         return flag;
     }
+//    public static void main(String[] args) {
+//        System.out.println(Conexion.getConexion());
+//    }
 }

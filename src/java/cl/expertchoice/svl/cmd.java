@@ -21,6 +21,7 @@ public class cmd extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Usuario usu_session = (Usuario) request.getSession().getAttribute("sesion");
         if (usu_session != null) {
+            System.out.println(request.getParameter("code"));
             if (request.getParameter("code") != null) {
                 String in_code = request.getParameter("code");
                 switch (in_code) {

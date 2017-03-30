@@ -49,18 +49,19 @@ public class bnsLogin {
             usuario.setNom_user(rs.getString("nom_user"));
             usuario.setUser_emp(user);
             usuario.setPass_emp(pass);
+            System.out.println(usuario.toString());
         }
         Conexion.Desconectar(conn);
         return usuario;
     }
 
     //metodo main para probar si el login debuelve datos    
-//    public static void main(String[] args) {
-//        bnsLogin log = new bnsLogin();
-//        try {
-//            log.iniciarSesion("ws.user", "ws.123456");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(bnsLogin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    public static void main(String[] args) {
+        bnsLogin log = new bnsLogin();
+        try {
+            log.iniciarSesion("ws.user", "ws.123456");
+        } catch (SQLException ex) {
+            Logger.getLogger(bnsLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -373,12 +373,12 @@
                                 <div class="portlet-body" style="display: block; margin: 0;">
                                     <div class="portlet-body">
                                         <div class="row">
-                                            <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
+                                            <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
                                                 <div class="progress-info">
                                                     <div class="number">
-                                                        <small style="display: inline-block;width: 180px;">MONTO</small>
-                                                        <small class="font-green-sharp">$</small>
-                                                        <span data-counter="counterup" data-value="40000000">40000000</span>
+                                                        <small>MONTO</small>
+                                                        <span class="pull-right" data-counter="counterup" data-value="40000000">40000000</span>
+                                                        <small class="font-green-sharp pull-right">$</small>
                                                     </div>
                                                     <div class="progress" style="height: 10px;">
                                                         <span style="width: 70%;" class="progress-bar progress-bar-success blue">
@@ -388,9 +388,9 @@
                                                 </div>
                                                 <div class="progress-info">
                                                     <div class="number">
-                                                        <small style="display: inline-block;width: 180px;">TASA</small>
-                                                        <span data-counter="counterup" data-value="0.80">0.80</span>
-                                                        <small class="font-green-sharp">%</small>
+                                                        <small>TASA</small>
+                                                        <small class="font-green-sharp pull-right">%</small>
+                                                        <span class="pull-right" data-counter="counterup" data-value="0.80">0.80</span>
                                                     </div>
                                                     <div class="progress" style="height: 10px;">
                                                         <span style="width: 50%;" class="progress-bar progress-bar-success blue">
@@ -401,11 +401,11 @@
                                             </div>
 
                                             <!--<div class="margin-bottom-10 visible-sm"> </div>-->
-                                            <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
+                                            <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
                                                 <div class="progress-info">             
                                                     <div class="number">
-                                                        <small style="display: inline-block; width: 220px;">PLAZO</small>
-                                                        <span data-counter="counterup" data-value="72">72</span>
+                                                        <small>PLAZO</small>
+                                                        <span class="pull-right" data-counter="counterup" data-value="72">72</span>
                                                     </div>
                                                     <div class="progress" style="height: 10px;">
                                                         <span style="width: 100%;" class="progress-bar progress-bar-success blue">
@@ -415,9 +415,9 @@
                                                 </div>
                                                 <div class="progress-info">
                                                     <div class="number">
-                                                        <small style="display: inline-block;width: 200px;">CUOTA</small>
-                                                        <small class="font-green-sharp">$</small>
-                                                        <span data-counter="counterup" data-value="600000">600000</span>
+                                                        <small>CUOTA</small>
+                                                        <small class="font-green-sharp pull-right">$</small>
+                                                        <span class="pull-right" data-counter="counterup" data-value="600000">600000</span>
                                                     </div>
                                                     <div class="progress" style="height: 10px;">
                                                         <span style="width: 50%;" class="progress-bar progress-bar-success blue">
@@ -433,26 +433,8 @@
                             </div>
                         </div>
                     </div>
-                    <!--fin de datos para aprovar-->
-                    <!--                    <div class="modal fade in" id="full" tabindex="-1" role="dialog" aria-hidden="true" style="display: block; padding-right: 15px;">
-                                                            <div class="modal-dialog modal-full">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                                        <h4 class="modal-title">Modal Title</h4>
-                                                                    </div>
-                                                                    <div class="modal-body"> Modal body goes here </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn green">Save changes</button>
-                                                                    </div>
-                                                                </div>
-                                                                 /.modal-content 
-                                                            </div>
-                                                             /.modal-dialog 
-                                                        </div>-->
 
-
+                    <!--//////////////////modal configuracion risktier///////////////////-->
                     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
                         <div class="modal-dialog modal-full">
                             <div class="modal-content">
@@ -463,8 +445,8 @@
                                 <div class="modal-body"> Reglas de negocio del Risk Tier</div>
                                 <img src="images/risktier.png">
                                 <div class="modal-footer">
-                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn green">Save changes</button>
+                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Volver</button>
+                                    <button type="button" class="btn green">Ir a configuracion Risk Tier</button>
                                 </div>
                             </div>
                             <!-- /.modal-content -->
@@ -472,160 +454,13 @@
                         <!-- /.modal-dialog -->
                     </div>
                     <!-- /.modal -->
-                    <!--informacion de bureaos-->
-                    <!--                    <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="portlet light bordered" style="height: 320px;">
-                                                    <div class="portlet-title">
-                                                        <div class="caption">
-                                                            <i class="icon-anchor"></i>
-                                                            <span class="caption-subject bold uppercase">Indicadores generales</span>
-                                                        </div>
-                                                        <div class="actions">
-                                                            <div class="btn-group">
-                                                                <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                                                    <i class="fa fa-angle-down"></i>
-                                                                </a>
-                                                                <ul class="dropdown-menu pull-right">
-                                                                    <li>
-                                                                        <a href="javascript:;"> Option 1</a>
-                                                                    </li>
-                                                                    <li class="divider"> </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">Option 2</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">Option 3</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:;">Option 4</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet-body">
-                                                        <div class="tabbable tabbable-tabdrop">
-                                                            <ul class="nav nav-tabs">
-                                                                <li class="active">
-                                                                    <a href="#tab1" data-toggle="tab">Detalle valoracion</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#tab2" data-toggle="tab">Informacion Resumida</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#tab3" data-toggle="tab">Otros datos</a>
-                                                                </li>
-                                                            </ul>
-                                                            cuerpo de los tab
-                                                            tab 1
-                                                            <div class="tab-content" style="height: 200px;">
-                                                                <div class="tab-pane active" id="tab1">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-6" style="">
-                                                                            <div class="hpanel filter-item">
-                                                                                <a href="#">
-                                                                                    <div class="portlet light bordered" style="height: 70px;">
-                                                                                        <div class="pull-right text-right">
-                                                                                            <small class="stat-label">Valor</small>
-                                                                                            <h4>250 <i class="fa fa-level-down text-danger"></i></h4>
-                                                                                        </div>
-                                                                                        <h4 class="m-b-xs">Sinacofi</h4>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="hpanel filter-item">
-                                                                                <a href="Svl_informacion">
-                                                                                    <div class="portlet light bordered" style="height: 70px;">
-                                                                                        <div class="pull-right text-right">
-                                                                                            <small class="stat-label">Valor</small>
-                                                                                            <h4>511 <i class="fa fa-level-up text-warning"></i></h4>
-                                                                                        </div>
-                                                                                        <h4 class="m-b-xs">Transunion</h4>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-6" style="">
-                                                                            <div class="hpanel filter-item">
-                                                                                <a href="#">
-                                                                                    <div class="portlet light bordered" style="height: 70px;">
-                                                                                        <div class="pull-right text-right">
-                                                                                            <small class="stat-label">Valor</small>
-                                                                                            <h4>882 <i class="fa fa-level-up text-success"></i></h4>
-                                                                                        </div>
-                                                                                        <h4 class="m-b-xs">Equifax</h4>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="hpanel filter-item">
-                                                                                <a href="#">
-                                                                                    <div class="portlet light bordered" style="height: 70px;">
-                                                                                        <div class="pull-right text-right">
-                                                                                            <small class="stat-label">Valor</small>
-                                                                                            <h4>420 <i class="fa fa-level-up text-warning"></i></h4>
-                                                                                        </div>
-                                                                                        <h4 class="m-b-xs">Otros</h4>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                    
-                                                                </div>
-                                                                <div class="tab-pane" id="tab2">
-                                                                    <div class="portlet-body">
-                                                                        <div class="table-scrollable">
-                                                                            <table class="table table-striped table-hover font-dark">
-                                                                                <tr>
-                                                                                    <th> Status </th>
-                                                                                    <td>
-                                                                                        <span class="label label-sm label-success"> Approved </span>
-                                                                                        <span class="label label-sm label-info"> Pending </span>
-                                                                                        <span class="label label-sm label-warning"> Suspended </span>
-                                                                                        <span class="label label-sm label-danger"> Blocked </span>
-                                                                                    </td>
-                    
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Score</th>
-                                                                                    <td> 750 </td>
-                    
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Fecha nacimiento</th>
-                                                                                    <td> 21-07-1678 </td>
-                    
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Edad</th>
-                                                                                    <td> 32</td>
-                    
-                                                                                </tr>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                    
-                                                                </div>
-                                                                <div class="tab-pane" id="tab3">
-                                                                    <p> Howdy, I'm in Section 3. </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>-->
-                    <!--fin informacion de bureaos-->
-
                     <!--calugas con otros datos-->
                     <div class="row">
                         <!--datos de informacion previsional-->
-
-                        <div class="col-md-3">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/info_previsional-icon.png" style="width: 15%;">
+                                    <img src="images/info_previsional-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -651,10 +486,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/poder_judicial-icon.png" style="width: 15%;">
+                                    <img src="images/poder_judicial-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -680,10 +515,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/sanctions_search-icon.png" style="width: 15%;">
+                                    <img src="images/sanctions_search-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -709,10 +544,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/sanctions_search-icon.png" style="width: 15%;">
+                                    <img src="images/sanctions_search-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -744,9 +579,9 @@
 
                         <!--INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
                         <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/superintendencia-icon.png" style="width: 15%;">
+                                    <img src="images/superintendencia-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -754,7 +589,7 @@
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
-                                                <div class="status-title"> SUPERINTENDENCIA DE QUIEBRAS </div>
+                                                <div class="status-title">SUPERINTENDENCIA QUIEBRAS</div>
                                             </div>
                                         </div>
                                     </div>
@@ -765,18 +600,18 @@
                                             <span class="sr-only">76% progress</span>
                                         </span>
                                     </div>
-                                    <!--                                        <div class="status">
-                                                                                <div class="status-title"> progress </div>
-                                                                                <div class="status-number"> 76% </div>
-                                                                            </div>-->
+                                    <!--                                                                            <div class="status">
+                                                                                                                    <div class="status-title"> progress </div>
+                                                                                                                    <div class="status-number"> 76% </div>
+                                                                                                                </div>-->
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/sii-icon.png" style="width: 15%;">
+                                    <img src="images/sii-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -804,7 +639,7 @@
                         </div>
                         <!--informacion de sociedades-->
                         <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
@@ -817,7 +652,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="images/empresas.png" style="width: 15%;">
+                                    <img src="images/empresas.png" style="width: 15%;" class="pull-right">
 
                                 </div>
                                 <div class="progress-info">
@@ -833,7 +668,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered" style="height: 110px">
+                            <div class="dashboard-stat2 bordered">
                                 <div class="display">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
@@ -846,7 +681,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="images/empresas.png" style="width: 15%;">
+                                    <img src="images/empresas.png" style="width: 15%;" class="pull-right">
                                 </div>
                                 <div class="progress-info">
                                     <div class="progress">
@@ -863,83 +698,6 @@
                     </div>
                     <!--fin de calugas con otros datos-->
                 </div>
-
-
-
-
-                <!--                    <div class="row widget-row">
-                                        <div class="col-md-3">
-                                             BEGIN WIDGET THUMB 
-                                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                                <h4 class="widget-thumb-heading">Actividad comercial</h4>
-                                                <div class="widget-thumb-wrap">
-                                                    <img src="images/sii-icon.png" style="width: 20%;">
-                                                    <div class="widget-thumb-body">
-                                                        <span class="widget-thumb-subtitle">$</span>
-                                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="7,644">7,644</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             END WIDGET THUMB 
-                                        </div>
-                                        <div class="col-md-3">
-                                             BEGIN WIDGET THUMB 
-                                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                                <h4 class="widget-thumb-heading">Superintendencia de Quiebras</h4>
-                                                <div class="widget-thumb-wrap">
-                                                    <img src="images/superintendencia-icon.png" style="width: 20%;">
-                
-                                                    <div class="widget-thumb-body">
-                                                        <span class="widget-thumb-subtitle">USD</span>
-                                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">1,293</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             END WIDGET THUMB 
-                                        </div>
-                                        <div class="col-md-3">
-                                             BEGIN WIDGET THUMB 
-                                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                                <h4 class="widget-thumb-heading">Sancion Search OFAC Treas </h4>
-                                                <div class="widget-thumb-wrap">
-                                                    <img src="images/sanctions_search-icon.png" style="width: 20%;">
-                                                    <div class="widget-thumb-body">
-                                                        <span class="widget-thumb-subtitle">USD</span>
-                                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="815">815</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             END WIDGET THUMB 
-                                        </div>
-                                        <div class="col-md-3">
-                                             BEGIN WIDGET THUMB 
-                                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                                <h4 class="widget-thumb-heading">Poder judicial </h4>
-                                                <div class="widget-thumb-wrap">
-                                                    <img src="images/info_previsional-icon.png" style="width: 15%;">
-                                                    <div class="widget-thumb-body">
-                                                        <span class="widget-thumb-subtitle">USD</span>
-                                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="5,071">5,071</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             END WIDGET THUMB 
-                                        </div>
-                                        <div class="col-md-3">
-                                             BEGIN WIDGET THUMB 
-                                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                                <h4 class="widget-thumb-heading">Informacion Previsional  </h4>
-                                                <div class="widget-thumb-wrap">
-                                                    <img src="images/info_previsional-icon.png" style="width: 15%;">
-                                                    <div class="widget-thumb-body">
-                                                        <span class="widget-thumb-subtitle">USD</span>
-                                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="5,071">5,071</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             END WIDGET THUMB 
-                                        </div>
-                                    </div>-->
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
@@ -1050,9 +808,9 @@
             </script>
             <script>
                 function goTransunion() {
-                var datos = <%= datos%>;
-                go('Svl_Informacion', [{id: 'code', val: 'transunion'},{id: 'obDatos', val: JSON.stringify(datos)}],undefined,'Svl_Informacion');
-            }
+                    var datos = <%= datos%>;
+                    go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
+                }
         </script>
         <!-- End -->
     </body>
