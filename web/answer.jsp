@@ -144,21 +144,16 @@
                                                     <input name="nomb_regla" id="nomb_regla" type="text" class="form-control text" required="" aria-required="true">
                                                 </div>
                                                 <div class="col-md-4 col-xs-12" style="padding: 10px;padding-top: 30px;">
-                                                    <label><input type="radio" name="product[images][1][image_type]" value="1"> <span> MM </span> </label>
-                                                    <label><input type="radio" name="product[images][1][image_type]" value="1"> <span> M </span></label>
-                                                    <label><input type="radio" name="product[images][1][image_type]" value="1"> <span> R </span></label>
-                                                    <label><input type="radio" name="product[images][1][image_type]" value="2"> <span> B </span></label>
-                                                    <label><input type="radio" name="product[images][1][image_type]" value="3" checked=""> <span> BM </span></label>
+                                                    <label><input type="radio" name="optionsRadios" id="optionsRadios1" class="radioBtn" value="MM" > <span> MM </span> </label>
+                                                    <label><input type="radio" name="optionsRadios" id="optionsRadios2" class="radioBtn" value="M"> <span> M </span></label>
+                                                    <label><input type="radio" name="optionsRadios" id="optionsRadios3" class="radioBtn" value="R"> <span> R </span></label>
+                                                    <label><input type="radio" name="optionsRadios" id="optionsRadios4" class="radioBtn" value="B"> <span> B </span></label>
+                                                    <label><input type="radio" name="optionsRadios" id="optionsRadios5" class="radioBtn" value="MB"> <span> BM </span></label>
 
                                                 </div>
                                             </div>
                                             <br>
-                                            <div id="contVariables">
-                                                <!--<div class="row contVariable"><div class="col-md-4">    <label>Variable</label>    <select class="form-control cmboxVariable" id="sl_variable_1_0"><option value="0">Seleccione</option><option value="1">deuda_direct_vig</option><option value="2">deuda_morosa_30_90</option><option value="3">deuda_direct_venc</option><option value="4">deuda_dir_venc_180d_3years</option><option value="5">deuda_inv_financieras</option><option value="6">deuda_ope_pacto</option><option value="7">deuda_indirec_vig</option><option value="8">deuda_indirec_vencida</option><option value="9">deuda_comercial</option><option value="10">deuda_credito_consumo</option><option value="11">nro_inst_cred_consumo</option><option value="12">deuda_cred_hipotecario</option><option value="13">saldo_deud_CAST_direct</option><option value="14">saldo_deud_CAST_indirect</option><option value="15">mto_linea_disponible</option><option value="16">deuda_leasing</option><option value="17">deuda_morosa_leasing</option><option value="18">deuda_com_vig_mex</option><option value="19">deuda_com_venc_mex</option><option value="20">deuda_x_cred_contingentes</option><option value="21">score</option><option value="22">renta</option></select></div><div class="col-md-4">    <div class="row">        <div class="col-xs-4">            <label>Operador</label>            <select class="form-control cmboxOperador" id="sel2_0"><option value="0">Seleccione</option><option value="28">&gt;</option><option value="29">&lt;</option><option value="30">=</option><option value="31">&gt;=</option><option value="32">&lt;=</option></select>        </div>        <div class="col-xs-5">            <label>Valor</label>            <input type="text" class="form-control txtValor" id="txtMonto_0" onkeyup="return formatoNumero(this)">        </div>        <div class="col-md-3">            <label>&nbsp;</label>            <select class="form-control cmboxCondicion" visibilidad="false" id="sel4_0" style="display: none;">                <option value="0">Seleccione</option>                <option value="33">Y</option>                <option value="34">O</option>            </select>        </div>    </div></div><div class="col-md-4"></div>-->
-
-                                                </div>
-
-                                            </div>
+                                            <div id="contVariables"></div>
                                         </form>
                                         <br>
                                         <div class="row">
@@ -193,7 +188,8 @@
         <!-- END FOOTER -->
 
         <!-- BEGIN CORE PLUGINS -->
-        <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!--<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>-->
         <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -207,24 +203,15 @@
         <script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/horizontal-timeline/horizontal-timeline.js" type="text/javascript"></script>
         <script src="assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
-        <!-- END THEME GLOBAL SCRIPTS -->
+        <script src="assets/global/scripts/app.min.js" type="text/javascript"></script><!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
@@ -235,8 +222,25 @@
         <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
         <!--<script src="plugins/datatables/jquery.dataTables.min.js"></script>-->
         <script src="assets/global/plugins/datatables/jquery.dataTables.min.js"></script>
+        <!--<script src="assets/global/plugins/jQuery/jquery-2.2.3.min.js"></script>-->
+        <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <script src="js/funciones.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/messages_es.min.js"></script>
+        <script src="js/number_format.js"></script>
+        <script src="dist/js/demo.js"></script>
         <script src="js/tree.js"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+        
+<!--        <script src="assets/global/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <script src="js/funciones.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/messages_es.min.js"></script>
+        <script src="js/number_format.js"></script>
+        <script src="dist/js/demo.js"></script>-->
     </body>
 
 

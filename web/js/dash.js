@@ -1,3 +1,7 @@
+score = 0;
+$(function (){
+    getSore()
+});
 /**
  * Grafico para scoring
  * @param {type} param1
@@ -95,7 +99,26 @@ $('#contenedor').highcharts({
     }
 });
 
-
-
-
-
+function getSore() {
+    $.ajax({
+        url: 'Svl_Scoring',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            accion: 'scoring',
+        },
+        beforeSend: function (xhr) {
+//            $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+        },
+        success: function (data, textStatus, jqXHR) {
+//            $('#boxPjud .info-box-content .info-box-number').html('No registra datos asociados');
+////            if (data.estado === 200) {
+//                arrPjud = data.causasJudiciales;
+//                $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
+//                $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
+//            } else {
+//                $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
+//            }
+        }
+    });
+}

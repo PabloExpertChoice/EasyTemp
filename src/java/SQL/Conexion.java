@@ -33,6 +33,27 @@ public class Conexion {
         }
         return conexion;
     }
+    public static Connection getConexionEasy() {
+        Connection conexion = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String servidor = "jdbc:mysql://test.ecloudapp.cl/easy";
+            String usuario = "desarrollo";
+            String password = "+2017desarrollo";
+            conexion = DriverManager.getConnection(servidor, usuario, password);
+            conexion.setAutoCommit(true);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.toString());
+            conexion = null;
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+            conexion = null;
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            conexion = null;
+        }
+        return conexion;
+    }
 
     public static boolean Desconectar(Connection conn) {
         boolean flag = false;
@@ -60,6 +81,7 @@ public class Conexion {
         return flag;
     }
 //    public static void main(String[] args) {
+//        System.out.println(Conexion.getConexionEasy());
 //        System.out.println(Conexion.getConexion());
 //    }
 }

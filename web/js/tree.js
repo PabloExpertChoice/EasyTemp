@@ -14,7 +14,7 @@ $(function () {
 
     initReglas();
     getVariables();
-    getReglas();
+//    getReglas();
     $('#formTree').validate({
         errorPlacement: function (label, element) {
             if ($(element).find('.select').length > 0) {
@@ -231,77 +231,67 @@ function guardarRegla() {
 
 
 function getVariables() {
-    VARIABLE = {
-        1: {detalle: 'deuda_direct_vig'},
-        2: {detalle: 'score'},
-        3: {detalle: 'renta'},
-        4: {detalle: 'morosidades'},
-        5: {detalle: 'deuda_morosa_30_90'}
-    };
-    agregarCampos();
-    $('#btnAgregarVariable').prop('disabled', false);
-    $('#btnGuardarRegla').prop('disabled', false);
-
-//    $.ajax({
-//        url: 'Svl_Variable',
-//        type: 'POST',
-//        dataType: 'json',
-//        data: {
-//            accion: 'listar-atb'
-//        }, 
-//        success: function (data, textStatus, jqXHR) {
-//    $('#btnAgregarVariable').prop('disabled', false);
-//    $('#btnGuardarRegla').prop('disabled', false);
-
-//            if (data.estado === 200) {
-//                for (var i in data.datos) {
-//                    VARIABLE[data.datos[i].id] = new Object();
-//                    VARIABLE[data.datos[i].id].detalle = data.datos[i].nombre;
-//                }
-//            }
-//    agregarCampos();
-//        }
-//    });
-}
-
-function getReglas() {
+    VARIABLE = {};
+    
     $.ajax({
-        url: 'Svl_AnswerTreeBusiness',
+        url: 'Svl_Variable',
         type: 'POST',
         dataType: 'json',
         data: {
-            accion: 'listar-reglas'
-        }, success: function (data) {
-            if (data.estado == 200) {
-                var datos = data.datos;
-                for (var i in datos) {
-                    var regla = '';
-                    var reglas = datos[i].detalles;
-                    var cont = 0;
-                    for (var j = 0; j < reglas.length; j++) {
-                        if (cont > 0) {
-                            regla += ' ' + reglas[(j - 1)].condicion + ' ';
-                        }
-
-                        regla += 'SI ( ' + reglas[j].variable.nombre + ' ' + reglas[j].operador + ' ' + reglas[j].valor + ')';
-                        cont++;
-                    }
-
-                    $('#tblAnswerTreeBusiness').DataTable().row.add({
-                        "id": datos[i].id,
-                        "numero": datos[i].id,
-                        "respuesta": datos[i].calificacion,
-                        "regla": regla,
-                        "nombre": datos[i].nombre,
-                        "fecha": datos[i].fechaCreacion,
-                        "usuario": datos[i].usuario.nombre + ' ' + datos[i].usuario.apellidoPaterno,
-                        "tipo": (datos[i].tipo === 'N' ? 'Natural' : 'Jurídico')
-                    }).draw(false);
+            accion: 'listar-atb'
+        }, 
+        success: function (data, textStatus, jqXHR) {
+    $('#btnAgregarVariable').prop('disabled', false);
+    $('#btnGuardarRegla').prop('disabled', false);
+            if (data.estado === 200) {
+                for (var i in data.datos) {
+                    VARIABLE[data.datos[i].id] = new Object();
+                    VARIABLE[data.datos[i].id].detalle = data.datos[i].nombre;
                 }
             }
+    agregarCampos();
         }
     });
 }
+
+//function getReglas() {
+//    $.ajax({
+//        url: 'Svl_AnswerTreeBusiness',
+//        type: 'POST',
+//        dataType: 'json',
+//        data: {
+//            accion: 'listar-reglas'
+//        }, success: function (data) {
+//            if (data.estado == 200) {
+//                var datos = data.datos;
+//                for (var i in datos) {
+//                    var regla = '';
+//                    var reglas = datos[i].detalles;
+//                    var cont = 0;
+//                    for (var j = 0; j < reglas.length; j++) {
+//                        if (cont > 0) {
+//                            regla += ' ' + reglas[(j - 1)].condicion + ' ';
+//                        }
+//
+//                        regla += 'SI ( ' + reglas[j].variable.nombre + ' ' + reglas[j].operador + ' ' + reglas[j].valor + ')';
+//                        cont++;
+//                    }
+//
+//                    $('#tblAnswerTreeBusiness').DataTable().row.add({
+//                        "id": datos[i].id,
+//                        "numero": datos[i].id,
+//                        "respuesta": datos[i].calificacion,
+//                        "regla": regla,
+//                        "nombre": datos[i].nombre,
+//                        "fecha": datos[i].fechaCreacion,
+//                        "usuario": datos[i].usuario.nombre + ' ' + datos[i].usuario.apellidoPaterno,
+//                        "tipo": (datos[i].tipo === 'N' ? 'Natural' : 'Jurídico')
+//                    }).draw(false);
+//                }
+//            }
+//        }
+//    });
+//}
 
 function eliminarRegla(button) {
     var index = $(button).parents('tr').index();

@@ -55,7 +55,6 @@
         <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
     </head>
     <!-- END HEAD -->
 
@@ -92,8 +91,9 @@
                                         <small>para evaluacion</small>
                                     </h1>
                                     <br>
-                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>:  <%= datos.get("nombre")%></small></h1>
-                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small>: <%= datos.get("rut")%>-<%= datos.get("dv")%></small></h1>
+                                    <!--<h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>:  <%//= datos.get("nombre")%></small></h1>-->
+                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small id="razonSocial"> </small></h1>
+                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small id="rut"></small></h1>
                                 <!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
                                                                             <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
                             </div>
@@ -485,9 +485,9 @@
                                                                             </div>-->
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered">
+                        </div>                        
+                        <div class="col-md-3 col-sm-6 col-xs-12" onclick="return verModalPJUD()">
+                            <div class="dashboard-stat2 bordered" id="boxPjud">
                                 <div class="display">
                                     <img src="images/poder_judicial-icon.png" style="width: 15%;" class="pull-right">
                                     <div class="number">
@@ -576,7 +576,6 @@
                     </div>
                     <div class="row">
                         <!--datos de informacion previsional-->
-
                         <!--INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
@@ -695,8 +694,60 @@
                                 </div>
                             </div>
                         </div>
+                        <!--                        <div class="col-md-3" onclick="return verModalPJUD()" style="cursor: pointer;">
+                                                    <div class="info-box bg-orange" id="boxPjud">
+                                                        <span class="info-box-icon">
+                                                            <i class="ion ion-ios-pricetag-outline"></i>
+                                                            <img src="images/poder_judicial-icon.png" style="width: 60%;" >
+                                                        </span>
+                                                        <div class="info-box-content" >
+                                                            <span class="info-box-text">Poder Judicial</span>
+                                                            <span class="pull-right"><i class="fa fa-plus-circle"></i></span>
+                                                            <span class="info-box-number">-</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar" style="width: 50%"></div>
+                                                            </div>
+                                                            <span class="progress-description pull-left">
+                                                                Número de demandas
+                                                            </span>
+                                                            <span class="progress-description pull-right"><i style="cursor: pointer;" class="fa fa-warning"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
                     </div>
                     <!--fin de calugas con otros datos-->
+                    <div class="modal fade" id="modalPJUD" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="tblPjudCont">
+                                        <table id="tblPJUD" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>ROL</th>
+                                                    <th>FECHA</th>
+                                                    <th>CARATULADO</th>
+                                                    <th>TRIBUNAL</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
@@ -766,51 +817,97 @@
             <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 
+            <script src="assets/global/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+            <script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <script src="js/funciones.js"></script>
+            <script src="js/jquery.validate.min.js"></script>
+            <script src="js/messages_es.min.js"></script>
+            <script src="js/number_format.js"></script>
+
             <!--librerias para grafico highcharts-->
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/highcharts-more.js"></script>
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             <script src="js/dash.js" type="text/javascript"></script>
             <script src="js/funciones.js"></script>
+            <script src="js/dashboard.js"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
-            <!-- Google Code for Universal Analytics -->
             <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r;
-                    i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                    a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                    a.async = 1;
-                    a.src = g;
-                    m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                ga('create', 'UA-37564768-1', 'auto');
-                ga('send', 'pageview');
-            </script>
-            <!-- End -->
+                            function goTransunion() {
+                                var datos = <%= datos%>;
+                                go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
+                            }
+        </script>
+        <script>
+            $(function () {
+                $('#menuBarRut').show();
+                $('#menuBarPrint').show();
+                $('#menuBarCampana').show();
+                $('#menuBarFlag').show();
 
-            <!-- Google Tag Manager -->
-            <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
-                              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <script>(function (w, d, s, l, i) {
-                    w[l] = w[l] || [];
-                    w[l].push({'gtm.start':
-                                new Date().getTime(), event: 'gtm.js'});
-                    var f = d.getElementsByTagName(s)[0],
-                            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                    j.async = true;
-                    j.src =
-                            '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-                    f.parentNode.insertBefore(j, f);
-                })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');
-            </script>
-            <script>
-                function goTransunion() {
-                    var datos = <%= datos%>;
-                    go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
-                }
+
+            <%
+                String nom_completo = datos.get("nombre").toString();
+                String[] arrNom_completo = nom_completo.split(" ");
+                String nom = arrNom_completo[0] + arrNom_completo[1];
+                String apellPat = arrNom_completo[2];
+                String apellMat = arrNom_completo[3];
+            %>;
+                nomCompleto = '<%= nom_completo%>';
+                nombre = '<%= nom%>';
+                apePaterno = '<%= apellPat%>';
+                apeMaterno = '<%= apellMat%>';
+
+                rut = '<%= datos.get("rut").toString()%>';
+                dv = '<%= datos.get("dv").toString()%>';
+
+                $('#razonSocial').html(': ' + (nombre + " " + apePaterno + " " + apeMaterno));
+                $('#rut').html(': ' + rut + "-" + dv);
+//                $('#rut').html(': ' + number_format(rut, 0, ',', '.') + '-' + dv);
+
+//                buscarBl(idCliente);
+
+//                validarQuiebra(rut, dv);
+//                buscarPosicionCliente(rut, dv);
+//                buscarCalificacion(rut, dv);
+//                cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, idCliente);
+//                buscarDatosOfac(nombre, apePaterno, apeMaterno);
+//                buscarActividadComercial(rut, dv);
+//                buscarBlackList(idUsuario, idCliente);
+                getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
+//                getSociedades(idCliente, nombre, apePaterno, apeMaterno);
+//                propuestaNegocio(rut, dv, rentaDepurada);
+//                consultas(rut);
+//
+                tblPjud = $("#tblPJUD").DataTable({
+                    language: {
+                        url: 'json/Spanish.json'
+                    },
+                    "aoColumns": [
+                        {
+                            "className": 'details-control',
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": ''
+                        },
+                        {"mData": "",
+                            "mRender": function (data, type, full) {
+                                if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
+                                    return '<i class="fa fa-file-o"></i>';
+                                } else {
+                                    return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
+                                }
+                            }
+                        },
+                        {"mData": "rol"},
+                        {"mData": "fecha"},
+                        {"mData": "caratulado"},
+                        {"mData": "tribunal.nombre"}
+                    ]
+                });
+//                reglasAtb();
+            });
         </script>
         <!-- End -->
     </body>

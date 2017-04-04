@@ -4,9 +4,33 @@
         <servlet-name>Svl_Informacion</servlet-name>
         <servlet-class>cl.expertchoice.svl.Svl_Informacion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Svl_Variable</servlet-name>
+        <servlet-class>cl.expertchoice.svl.Svl_Variable</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Svl_Cliente</servlet-name>
+        <servlet-class>cl.expertchoice.svl.Svl_Cliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Svl_Scoring</servlet-name>
+        <servlet-class>cl.expertchoice.svl.Svl_Scoring</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Svl_Informacion</servlet-name>
         <url-pattern>/Svl_Informacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Svl_Variable</servlet-name>
+        <url-pattern>/Svl_Variable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Svl_Cliente</servlet-name>
+        <url-pattern>/Svl_Cliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Svl_Scoring</servlet-name>
+        <url-pattern>/Svl_Scoring</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

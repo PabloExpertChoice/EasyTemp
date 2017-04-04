@@ -31,7 +31,7 @@ public class Svl_Informacion extends HttpServlet {
                 JSONObject datos;
 
                 switch (code) {
-                    case "dashboard":
+                    case "dashboard":{
                         String rut = request.getParameter("rut");
                         String dv = request.getParameter("dv");
                         bnsInformacion bn = new bnsInformacion();
@@ -47,24 +47,27 @@ public class Svl_Informacion extends HttpServlet {
                             toPage("/index.jsp", request, response);
                         }
                         break;
-
+                    }
                     case "transunion": {
 
                         datos = new JSONObject(request.getParameter("obDatos"));
                         request.setAttribute("datos", datos);
                         toPage("/transunion.jsp", request, response);
+                        break;
                     }
                     case "home": {
 
                         datos = new JSONObject(request.getParameter("obDatos"));
                         request.setAttribute("datos", datos);
                         toPage("/dashboard.jsp", request, response);
+                        break;
                     }
                     case "jur": {
 
                         datos = new JSONObject(request.getParameter("obDatos"));
                         request.setAttribute("datos", datos);
                         toPage("/InformacionJuridico.jsp", request, response);
+                        break;
                     }
 
 //                    if (jsonInformacion != null) {
@@ -81,7 +84,6 @@ public class Svl_Informacion extends HttpServlet {
 //                        request.setAttribute("msg", "No se encuentran datos");
 //                        toPage("/index.jsp", request, response);
 //                    }
-                    break;
                 }
             } catch (JSONException ex) {
                 Logger.getLogger(Svl_Informacion.class.getName()).log(Level.SEVERE, null, ex);
