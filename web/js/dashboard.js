@@ -126,3 +126,37 @@ function getScore(_rut, _dv) {
         }
     });
 }
+
+/**
+ * Va al servlert Svl_Cliente y se traen los datos de SANCTION SEARCH OFACT TREAS
+ * 
+ * @param {type} _nombre
+ * @param {type} _apePaterno
+ * @param {type} _apeMaterno
+ * @returns {undefined}
+ */
+function buscarDatosOfac(_nombre, _apePaterno, _apeMaterno) {
+    $.ajax({
+        url: 'Svl_Cliente',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            accion: 'getDatosOfac',
+            nombre: _nombre + ' ' + _apePaterno + ' ' + _apeMaterno,
+        },
+        beforeSend: function (xhr) {
+            $('#boxOfac .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+        },
+        success: function (data, textStatus, jqXHR) {
+            if (data.estado === 200) {
+                var datos = data.datos;
+                if (datos.length > 0) {
+                    $('#boxOfac .info-box-content .info-box-number').html('Yes');
+                } else {
+                    $('#boxOfac .info-box-content .info-box-number').html('No');
+                }
+                $('#tblResultadosOfac').DataTable().rows.add(datos).draw(false);
+            }
+        }
+    });
+}

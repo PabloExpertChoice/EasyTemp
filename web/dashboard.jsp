@@ -18,6 +18,9 @@
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
+
+<!--rut con ofac 5224937-6-->
+
 <html lang="en">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
@@ -212,16 +215,16 @@
                                     </div>
                                 </div>
                                 <!--fin grafico de score-->
-                                <!--                                    <div class="portlet-title">
-                                                                        <div class="caption">
-                                                                            <i class="icon-cursor font-dark hide"></i>
-                                                                            <span class="small">Detalle ultimos 3 meses pagados</span>
-                                                                        </div>
-                                                                        <div class="actions">
-                                                                            <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
-                                                                                <i class="fa fa-repeat"></i> Reload </a>
-                                                                        </div>
-                                                                    </div>-->
+                                <!--                                <div class="portlet-title">
+                                                                    <div class="caption">
+                                                                        <i class="icon-cursor font-dark hide"></i>
+                                                                        <span class="small">Detalle ultimos 3 meses pagados</span>
+                                                                    </div>
+                                                                    <div class="actions">
+                                                                        <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
+                                                                            <i class="fa fa-repeat"></i> Reload </a>
+                                                                    </div>
+                                                                </div>-->
                                 <div class="portlet light bordered">
                                     <div class="portlet-body">
                                         <div class="row">
@@ -229,7 +232,7 @@
                                                 <div class="easy-pie-chart">
                                                     <div class="number transactions" data-percent="55">
                                                         <span id="gauge3"></span> <canvas height="75" width="75"></canvas></div>
-                                                    <a class="title" href="javascript:;"> Mes 3
+                                                    <a class="title" href="javascript:;"> Mes t - 3
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -239,7 +242,7 @@
                                                 <div class="easy-pie-chart">
                                                     <div class="number visits" data-percent="67">
                                                         <span id="gauge2"></span> <canvas height="75" width="75"></canvas></div>
-                                                    <a class="title" href="javascript:;"> Mes 2
+                                                    <a class="title" href="javascript:;"> Mes t - 2
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -249,7 +252,7 @@
                                                 <div class="easy-pie-chart">
                                                     <div class="number bounce" data-percent="87">
                                                         <span id="gauge1"></span></div>
-                                                    <a class="title" href="javascript:;"> Mes 1
+                                                    <a class="title" href="javascript:;"> Mes - 1
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -460,7 +463,7 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/info_previsional-icon.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/info_previsional-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -485,11 +488,11 @@
                                                                             </div>-->
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                         <div class="col-md-3 col-sm-6 col-xs-12" onclick="return verModalPJUD()">
                             <div class="dashboard-stat2 bordered" id="boxPjud">
                                 <div class="display">
-                                    <img src="images/poder_judicial-icon.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/poder_judicial-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -515,10 +518,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered">
+                        <div class="col-md-3 col-sm-6 col-xs-12" onclick="return verModalOfac()">
+
+                            <!--                    <div class="col-md-4" onclick="return verModalOfac()" style="cursor: pointer;">
+                                                                            <div class="info-box bg-blue" id="boxOfac">
+                                                                                <span class="info-box-icon">
+                                                                                    <i class="ion ion-ios-pricetag-outline"></i>
+                                                                                    <img src="images/sanctions_search-icon.png" style="width: 80%;"  >
+                                                                                </span>
+                                                                                <div class="info-box-content">
+                                                                                    <span class="info-box-text">Sanctions Search Ofac Treas</span>
+                                                                                    <span class="pull-right"><i class="fa fa-plus-circle"></i></span>
+                                                                                    <span class="info-box-number">-</span>
+                                                                                    <div class="progress">
+                                                                                        <div class="progress-bar" style="width: 50%"></div>
+                                                                                    </div>
+                                                                                    <span class="progress-description pull-left">
+                                                                                        Exíste búsqueda internacional
+                                                                                    </span>
+                                                                                    <span class="progress-description pull-right"><i style="cursor: pointer;" class="fa fa-warning"></i></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>-->
+
+
+
+                            <div class="dashboard-stat2 bordered" id="boxOfac">
                                 <div class="display">
-                                    <img src="images/sanctions_search-icon.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/sanctions_search-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -547,7 +574,7 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/sanctions_search-icon.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/sanctions_search-icon.png" style="width: 40px" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -575,12 +602,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!--datos de informacion previsional-->
-                        <!--INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
+                        <!--                        datos de informacion previsional
+                                                INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/superintendencia-icon.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/superintendencia-icon.png" style="width: 40px" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -599,18 +626,17 @@
                                             <span class="sr-only">76% progress</span>
                                         </span>
                                     </div>
-                                    <!--                                                                            <div class="status">
-                                                                                                                    <div class="status-title"> progress </div>
-                                                                                                                    <div class="status-number"> 76% </div>
-                                                                                                                </div>-->
+                                    <div class="status">
+                                        <div class="status-title"> progress </div>
+                                        <div class="status-number"> 76% </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
-                                    <img src="images/sii-icon.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/sii-icon.png" style="width: 40px" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
                                             <span data-counter="counterup" data-value="7800">7800</span>
@@ -629,10 +655,10 @@
                                             <span class="sr-only">76% progress</span>
                                         </span>
                                     </div>
-                                    <!--                                        <div class="status">
-                                                                                <div class="status-title"> progress </div>
-                                                                                <div class="status-number"> 76% </div>
-                                                                            </div>-->
+                                    <div class="status">
+                                        <div class="status-title"> progress </div>
+                                        <div class="status-number"> 76% </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -651,7 +677,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="images/empresas.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/empresas.png" style="width: 40px" class="pull-right">
 
                                 </div>
                                 <div class="progress-info">
@@ -659,10 +685,10 @@
                                         <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
                                         </span>
                                     </div>
-                                    <!--                                        <div class="status">
-                                                                                <div class="status-title"> numero de sociedades </div>
-                                                                                <div class="status-number"> </div>
-                                                                            </div>-->
+                                    <div class="status">
+                                        <div class="status-title"> numero de sociedades </div>
+                                        <div class="status-number"> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -680,40 +706,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="images/empresas.png" style="width: 15%;" class="pull-right">
+                                    <img src="images/empresas.png" style="width: 40px" class="pull-right">
                                 </div>
                                 <div class="progress-info">
                                     <div class="progress">
                                         <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
                                         </span>
                                     </div>
-                                    <!--                                        <div class="status">
-                                                                                <div class="status-title"> numero de sociedades </div>
-                                                                                <div class="status-number"> </div>
-                                                                            </div>-->
+                                    <div class="status">
+                                        <div class="status-title"> numero de sociedades </div>
+                                        <div class="status-number"> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!--                        <div class="col-md-3" onclick="return verModalPJUD()" style="cursor: pointer;">
-                                                    <div class="info-box bg-orange" id="boxPjud">
-                                                        <span class="info-box-icon">
-                                                            <i class="ion ion-ios-pricetag-outline"></i>
-                                                            <img src="images/poder_judicial-icon.png" style="width: 60%;" >
-                                                        </span>
-                                                        <div class="info-box-content" >
-                                                            <span class="info-box-text">Poder Judicial</span>
-                                                            <span class="pull-right"><i class="fa fa-plus-circle"></i></span>
-                                                            <span class="info-box-number">-</span>
-                                                            <div class="progress">
-                                                                <div class="progress-bar" style="width: 50%"></div>
-                                                            </div>
-                                                            <span class="progress-description pull-left">
-                                                                Número de demandas
-                                                            </span>
-                                                            <span class="progress-description pull-right"><i style="cursor: pointer;" class="fa fa-warning"></i></span>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
                     </div>
                     <!--fin de calugas con otros datos-->
                     <div class="modal fade" id="modalPJUD" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -741,6 +747,33 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalOfac" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table id="tblResultadosOfac" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Direccion</th>
+                                                <th>Tipo</th>
+                                                <th>Programa</th>
+                                                <th>Lista</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -868,8 +901,28 @@
 
 
                 getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
+                buscarDatosOfac(nombre, apePaterno, apeMaterno);
                 getScore(rut, dv);
-//
+
+                $("#tblResultadosOfac").DataTable({
+                    language: {
+                        url: 'json/Spanish.json'
+                    },
+                    "aoColumns": [
+                        {"mData": "nombre"},
+                        {"mData": "direccion"},
+                        {"mData": "tipo"},
+                        {"mData": "programa"},
+                        {"mData": "lista"},
+                        {"mData": "score"},
+//                                            {"mData": "",
+//                                                "mRender": function (data, type, full) {
+//                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
+//                                                }
+//                                            }
+                    ]
+                });
+
                 tblPjud = $("#tblPJUD").DataTable({
                     language: {
                         url: 'json/Spanish.json'
@@ -901,8 +954,4 @@
         </script>
         <!-- End -->
     </body>
-
-
-
-    <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:44:48 GMT -->
 </html>

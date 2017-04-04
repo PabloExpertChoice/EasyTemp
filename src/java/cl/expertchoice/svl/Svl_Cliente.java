@@ -1,9 +1,10 @@
 package cl.expertchoice.svl;
 
+import HtmlUnit.HtmlUnit_ofac;
 import HtmlUnit.HtmlUnit_pjud2;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.io.IOException;
-import java.math.BigInteger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +43,16 @@ public class Svl_Cliente extends HttpServlet {
                     pjud.setApePaterno(apePaterno.trim().toUpperCase());
                     pjud.setApeMaterno(apeMaterno.trim().toUpperCase());
                     json = pjud.buscarCausas();
+                    response.getWriter().print(json);
+                    break;
+                }
+                
+                case "getDatosOfac": {
+                    String nombre = request.getParameter("nombre");
+                    HtmlUnit_ofac p = new HtmlUnit_ofac(nombre);
+                    JsonArray resp = p.listarCoincidencias();
+                    json.addProperty("estado", 200);
+                    json.add("datos", resp);
                     response.getWriter().print(json);
                     break;
                 }
