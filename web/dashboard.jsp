@@ -228,7 +228,7 @@
                                             <div class="col-md-4 col-xs-4 col-lg-4" style="height: 50px;">
                                                 <div class="easy-pie-chart">
                                                     <div class="number transactions" data-percent="55">
-                                                        <span>+55</span>% <canvas height="75" width="75"></canvas></div>
+                                                        <span id="gauge3"></span> <canvas height="75" width="75"></canvas></div>
                                                     <a class="title" href="javascript:;"> Mes 3
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
@@ -237,8 +237,8 @@
                                             <div class="margin-bottom-10 visible-sm"> </div>
                                             <div class="col-md-4 col-xs-4 col-lg-4">
                                                 <div class="easy-pie-chart">
-                                                    <div class="number visits" data-percent="85">
-                                                        <span>+85</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <div class="number visits" data-percent="67">
+                                                        <span id="gauge2"></span> <canvas height="75" width="75"></canvas></div>
                                                     <a class="title" href="javascript:;"> Mes 2
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
@@ -247,8 +247,8 @@
                                             <div class="margin-bottom-10 visible-sm"> </div>
                                             <div class="col-md-4 col-xs-4 col-lg-4">
                                                 <div class="easy-pie-chart">
-                                                    <div class="number bounce" data-percent="46">
-                                                        <span>-46</span>% <canvas height="75" width="75"></canvas></div>
+                                                    <div class="number bounce" data-percent="87">
+                                                        <span id="gauge1"></span></div>
                                                     <a class="title" href="javascript:;"> Mes 1
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
@@ -819,7 +819,7 @@
 
             <script src="assets/global/plugins/datatables/jquery.dataTables.min.js"></script>
             <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
-            <script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <!--<script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>-->
             <script src="js/funciones.js"></script>
             <script src="js/jquery.validate.min.js"></script>
             <script src="js/messages_es.min.js"></script>
@@ -866,19 +866,9 @@
                 $('#rut').html(': ' + rut + "-" + dv);
 //                $('#rut').html(': ' + number_format(rut, 0, ',', '.') + '-' + dv);
 
-//                buscarBl(idCliente);
 
-//                validarQuiebra(rut, dv);
-//                buscarPosicionCliente(rut, dv);
-//                buscarCalificacion(rut, dv);
-//                cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, idCliente);
-//                buscarDatosOfac(nombre, apePaterno, apeMaterno);
-//                buscarActividadComercial(rut, dv);
-//                buscarBlackList(idUsuario, idCliente);
                 getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
-//                getSociedades(idCliente, nombre, apePaterno, apeMaterno);
-//                propuestaNegocio(rut, dv, rentaDepurada);
-//                consultas(rut);
+                getScore(rut, dv);
 //
                 tblPjud = $("#tblPJUD").DataTable({
                     language: {

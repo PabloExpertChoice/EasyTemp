@@ -6,6 +6,8 @@
 package cl.expertchoice.svl;
 
 import HtmlUnit.HtmlUnit_pjud2;
+import cl.expertchoice.beans.BnScore;
+import cl.expertchoice.clases.ConsultaScore;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -34,23 +36,25 @@ public class Svl_Scoring extends HttpServlet {
         try {
             String accion = request.getParameter("accion");
             JsonObject json = new JsonObject();
-            System.out.println(accion);
             switch (accion) {
                 case "scoring": {
-//                    int rut = Integer.parseInt(request.getParameter("rut"));
-//                    String dv = request.getParameter("dv");
-//                    String nombre = request.getParameter("nombre") != null ? request.getParameter("nombre") : "";
-//                    String apePaterno = request.getParameter("apePaterno") != null ? request.getParameter("apePaterno") : "";
-//                    String apeMaterno = request.getParameter("apeMaterno") != null ? request.getParameter("apeMaterno") : "";
-//
-//                    HtmlUnit_pjud2 pjud = new HtmlUnit_pjud2();
-//                    pjud.setRut(rut);
-//                    pjud.setDv(dv);
-//                    pjud.setNombre(nombre.trim().toUpperCase());
-//                    pjud.setApePaterno(apePaterno.trim().toUpperCase());
-//                    pjud.setApeMaterno(apeMaterno.trim().toUpperCase());
-//                    json = pjud.buscarCausas();
-//                    response.getWriter().print(json);
+                    int rut = Integer.parseInt(request.getParameter("rut"));
+                    String dv = request.getParameter("dv");
+                    JsonObject jsonCalculos = new JsonObject();
+                    
+                    int mesActual = BnScore.obtenerScoring(rut, dv, 0);
+                    int mes2 = BnScore.obtenerScoring(rut, dv, 1);
+                    int mes3 = BnScore.obtenerScoring(rut, dv, 2);
+                    int mes4 = BnScore.obtenerScoring(rut, dv, 3);
+                    
+                    jsonCalculos.addProperty("mes1", mesActual);
+                    jsonCalculos.addProperty("mes2", mes2);
+                    jsonCalculos.addProperty("mes3", mes3);
+                    jsonCalculos.addProperty("mes4", mes4);
+                    
+                    json.addProperty("estado", 200);
+                    json.add("datos", jsonCalculos);
+                    response.getWriter().print(json);
                     break;
                 }
             }

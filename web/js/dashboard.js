@@ -28,7 +28,7 @@ function verModalPJUD() {
  * @param {type} _apeMaterno
  * @returns {undefined}
  */
-function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno, _idCliente) {
+function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
     $.ajax({
         url: 'Svl_Cliente',
         type: 'POST',
@@ -45,14 +45,16 @@ function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno, _idCliente) 
             $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
         },
         success: function (data, textStatus, jqXHR) {
+
+
             $('#boxPjud .info-box-content .info-box-number').html('No registra datos asociados');
-//            if (data.estado === 200) {
+            if (data.estado === 200) {
                 arrPjud = data.causasJudiciales;
                 $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
                 $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
-//            } else {
-//                $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
-//            }
+            } else {
+                $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
+            }
         }
     });
 }
@@ -93,3 +95,34 @@ $('#tblPJUD tbody').on('click', 'td.details-control', function () {
         tr.addClass('shown');
     }
 });
+
+
+/**
+ * 
+ * @param {type} _rut
+ * @param {type} _dv
+ * @returns {undefined}
+ */
+function getScore(_rut, _dv) {
+    $.ajax({
+        url: 'Svl_Scoring',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            accion: 'scoring',
+            rut: _rut,
+            dv: _dv
+        },
+        success: function (data, textStatus, jqXHR) {
+            if (data.estado === 200) {
+                var point = $('#contenedor').highcharts().series[0].points[0];
+                var new_value = data.datos.mes1;
+                point.update(new_value);
+                console.log(point);
+                $('#gauge1').html(parseInt(data.datos.mes2));
+                $('#gauge2').html((data.datos.mes3));
+                $('#gauge3').html((data.datos.mes4));
+            }
+        }
+    });
+}
