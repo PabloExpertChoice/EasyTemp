@@ -250,9 +250,9 @@
                                             <div class="margin-bottom-10 visible-sm"> </div>
                                             <div class="col-md-4 col-xs-4 col-lg-4">
                                                 <div class="easy-pie-chart">
-                                                    <div class="number bounce" data-percent="87">
+                                                    <div class="number bounce" data-percent="87" id="grafico1">
                                                         <span id="gauge1"></span></div>
-                                                    <a class="title" href="javascript:;"> Mes - 1
+                                                    <a class="title" href="javascript:;"> Mes t - 1
                                                         <i class="icon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -495,8 +495,8 @@
                                     <img src="images/poder_judicial-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">7800</span>
-                                            <small class="font-green-sharp">$</small>
+                                            <span data-counter="counterup" data-value="0" id="nroDemandas">7800</span>
+                                            <small class="font-green-sharp"></small>
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
@@ -519,37 +519,13 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12" onclick="return verModalOfac()">
-
-                            <!--                    <div class="col-md-4" onclick="return verModalOfac()" style="cursor: pointer;">
-                                                                            <div class="info-box bg-blue" id="boxOfac">
-                                                                                <span class="info-box-icon">
-                                                                                    <i class="ion ion-ios-pricetag-outline"></i>
-                                                                                    <img src="images/sanctions_search-icon.png" style="width: 80%;"  >
-                                                                                </span>
-                                                                                <div class="info-box-content">
-                                                                                    <span class="info-box-text">Sanctions Search Ofac Treas</span>
-                                                                                    <span class="pull-right"><i class="fa fa-plus-circle"></i></span>
-                                                                                    <span class="info-box-number">-</span>
-                                                                                    <div class="progress">
-                                                                                        <div class="progress-bar" style="width: 50%"></div>
-                                                                                    </div>
-                                                                                    <span class="progress-description pull-left">
-                                                                                        Exíste búsqueda internacional
-                                                                                    </span>
-                                                                                    <span class="progress-description pull-right"><i style="cursor: pointer;" class="fa fa-warning"></i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>-->
-
-
-
                             <div class="dashboard-stat2 bordered" id="boxOfac">
                                 <div class="display">
                                     <img src="images/sanctions_search-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">7800</span>
-                                            <small class="font-green-sharp">$</small>
+                                            <span data-counter="counterup" data-value="0" id="nroDemandas"></span>
+                                            <small class="font-green-sharp"></small>
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
@@ -571,39 +547,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered">
-                                <div class="display">
-                                    <img src="images/sanctions_search-icon.png" style="width: 40px" class="pull-right">
-                                    <div class="number">
-                                        <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">7800</span>
-                                            <small class="font-green-sharp">$</small>
-                                        </h3>
-                                        <div class="progress-info">
-                                            <div class="status">
-                                                <div class="status-title"> SANCTIONS OFAC </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
-                                            <span class="sr-only">76% progress</span>
-                                        </span>
-                                    </div>
-                                    <!--                                        <div class="status">
-                                                                                <div class="status-title"> progress </div>
-                                                                                <div class="status-number"> 76% </div>
-                                                                            </div>-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <!--                        datos de informacion previsional
-                                                INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
+                        INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
@@ -633,6 +578,9 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
@@ -689,6 +637,35 @@
                                         <div class="status-title"> numero de sociedades </div>
                                         <div class="status-number"> </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
+                                <div class="display">
+                                    <img src="images/sanctions_search-icon.png" style="width: 40px" class="pull-right">
+                                    <div class="number">
+                                        <h3 class="font-green-sharp">
+                                            <span data-counter="counterup" data-value="7800">7800</span>
+                                            <small class="font-green-sharp">$</small>
+                                        </h3>
+                                        <div class="progress-info">
+                                            <div class="status">
+                                                <div class="status-title"> SANCTIONS OFAC </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="progress">
+                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
+                                            <span class="sr-only">76% progress</span>
+                                        </span>
+                                    </div>
+                                    <!--                                        <div class="status">
+                                                                                <div class="status-title"> progress </div>
+                                                                                <div class="status-number"> 76% </div>
+                                                                            </div>-->
                                 </div>
                             </div>
                         </div>

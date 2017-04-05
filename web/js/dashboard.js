@@ -52,6 +52,8 @@ function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
                 arrPjud = data.causasJudiciales;
                 $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
                 $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
+                var nro = (arrPjud.length);
+                $('#nroDemandas').attr('data-value', nro)
             } else {
                 $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
             }
@@ -118,7 +120,12 @@ function getScore(_rut, _dv) {
                 var point = $('#contenedor').highcharts().series[0].points[0];
                 var new_value = data.datos.mes1;
                 point.update(new_value);
-                console.log(point);
+                var _mes1 = parseInt(data.datos.mes2);
+                if (_mes1 < 999 & _mes1 > 500) {
+                }
+
+                $('#grafico1').data('easyPieChart').update(40);
+
                 $('#gauge1').html(parseInt(data.datos.mes2));
                 $('#gauge2').html((data.datos.mes3));
                 $('#gauge3').html((data.datos.mes4));
@@ -159,4 +166,8 @@ function buscarDatosOfac(_nombre, _apePaterno, _apeMaterno) {
             }
         }
     });
+}
+function verModalOfac() {
+    $('#modalOfac').modal({backdrop: 'static'});
+    $('#modalOfac .modal-dialog .modal-content .modal-header .modal-title').html(nombre + ' ' + apePaterno + ' ' + apeMaterno);
 }
