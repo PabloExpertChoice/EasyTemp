@@ -171,3 +171,49 @@ function verModalOfac() {
     $('#modalOfac').modal({backdrop: 'static'});
     $('#modalOfac .modal-dialog .modal-content .modal-header .modal-title').html(nombre + ' ' + apePaterno + ' ' + apeMaterno);
 }
+
+/**
+ * Carga las acticidades comerciales del cliente (si los tiene)
+ * 
+ * @param {type} _rut
+ * @param {type} _dv
+ * @returns {undefined}
+ */
+function buscarActividadComercial(_rut, _dv) {
+    $.ajax({
+        url: 'Svl_Cliente',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            accion: 'getActividadComercial',
+            rut: _rut,
+            dv: _dv,
+        },
+        beforeSend: function (xhr) {
+            $('#boxActividadComercial .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+        },
+        success: function (data, textStatus, jqXHR) {
+            $('#boxActividadComercial .info-box-content .info-box-number').html('-');
+            if (data.estado === 200) {
+                var datos = data.datos;
+                $('#boxActividadComercial .info-box-content .info-box-number').html(datos.inicioActividades);
+                $('#tblActComercial').DataTable().rows.add(datos.actividadEconomica).draw(false);
+                $('#tblActComercial1 tr:eq(0) td').html(new Date().toLocaleDateString());
+                $('#tblActComercial1 tr:eq(1) td').html(datos.inicioActividades);
+                $('#tblActComercial1 tr:eq(2) td').html(datos.autorizadoPagarMonedaExtrangera);
+                $('#tblActComercial1 tr:eq(3) td').html(datos.empresaMenorTamano);
+                $('#tblActComercial1 tr:eq(4) td').html(datos.numDocTimbrados);
+                $('#tblActComercial1 tr:eq(5) td').html(datos.numObs);
+            }
+        }
+    });
+}
+
+/**
+ * Ver modal actividad comercial
+ * @returns {undefined}
+ */
+function verModalAC() {
+    $('#modalActividadComercial').modal({backdrop: 'static'});
+    $('#modalActividadComercial .modal-dialog .modal-content .modal-header .modal-title').html(nombre + ' ' + apePaterno + ' ' + apeMaterno);
+}

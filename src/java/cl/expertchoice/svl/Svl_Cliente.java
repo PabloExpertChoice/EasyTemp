@@ -2,6 +2,8 @@ package cl.expertchoice.svl;
 
 import HtmlUnit.HtmlUnit_ofac;
 import HtmlUnit.HtmlUnit_pjud2;
+import SII.WebServiceConsultas;
+import cl.expertchoice.clases.Cliente;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.io.IOException;
@@ -53,6 +55,23 @@ public class Svl_Cliente extends HttpServlet {
                     JsonArray resp = p.listarCoincidencias();
                     json.addProperty("estado", 200);
                     json.add("datos", resp);
+                    response.getWriter().print(json);
+                    break;
+                }
+                
+                case "getActividadComercial": {
+                    String rut = request.getParameter("rut");
+                    String dv = request.getParameter("dv");
+
+                    Cliente cli = new WebServiceConsultas().consultarActividadComercial(Integer.parseInt(rut), dv);
+                    if (cli != null) {
+                        json.addProperty("estado", 200);
+                        json.add("datos", cli.toJson());
+                    } else {
+                        json.addProperty("estado", 405);
+                        json.addProperty("descripcion", "Sin datos para el rut " + rut + "-" + dv);
+                    }
+
                     response.getWriter().print(json);
                     break;
                 }

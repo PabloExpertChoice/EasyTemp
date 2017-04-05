@@ -357,7 +357,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
+                        <div class="col-lg-6 col-xs-12 col-sm-12 col-md-12">
                             <div class="portlet light bordered" >
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -571,18 +571,18 @@
                                             <span class="sr-only">76% progress</span>
                                         </span>
                                     </div>
-                                    <div class="status">
-                                        <div class="status-title"> progress </div>
-                                        <div class="status-number"> 76% </div>
-                                    </div>
+                                    <!--                                    <div class="status">
+                                                                            <div class="status-title"> progress </div>
+                                                                            <div class="status-number"> 76% </div>
+                                                                        </div>-->
                                 </div>
                             </div>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered">
+                        <div class="col-md-3 col-sm-6 col-xs-12" onclick="verModalAC()">
+                            <div class="dashboard-stat2 bordered" id="boxActividadComercial">
                                 <div class="display">
                                     <img src="images/sii-icon.png" style="width: 40px" class="pull-right">
                                     <div class="number">
@@ -602,10 +602,6 @@
                                         <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
                                             <span class="sr-only">76% progress</span>
                                         </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> progress </div>
-                                        <div class="status-number"> 76% </div>
                                     </div>
                                 </div>
                             </div>
@@ -699,6 +695,66 @@
                         </div>
                     </div>
                     <!--fin de calugas con otros datos-->
+                    <!--///////////////MODAL//////////////////-->
+                    <div class="modal fade" id="modalActividadComercial" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table" id="tblActComercial1">
+                                                <tr>
+                                                    <th>Fecha de consulta</th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Inicio de actividades</th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Impuestos en moneda extranjera</th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Empresa de menor tamaño PRO-PYME</th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Documentos tibrados</th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Observaciones</th>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <table id="tblActComercial" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Actividad</th>
+                                                <th>Codigo</th>
+                                                <th>Categoria</th>
+                                                <th>Afecta IVA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="modal fade" id="modalPJUD" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -880,6 +936,7 @@
                 getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
                 buscarDatosOfac(nombre, apePaterno, apeMaterno);
                 getScore(rut, dv);
+                buscarActividadComercial(rut, dv);
 
                 $("#tblResultadosOfac").DataTable({
                     language: {
@@ -897,6 +954,18 @@
 //                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
 //                                                }
 //                                            }
+                    ]
+                });
+
+                $("#tblActComercial").DataTable({
+                    language: {
+                        url: 'json/Spanish.json'
+                    },
+                    "aoColumns": [
+                        {"mData": "actividad"},
+                        {"mData": "codigo"},
+                        {"mData": "categoria"},
+                        {"mData": "AfctaIVA"}
                     ]
                 });
 
