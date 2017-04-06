@@ -63,7 +63,7 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Administracion Risk Tier</h1>
+                                <h1>Administraci&#243;n Risk Tier</h1>
                             </div>
                             <!-- END PAGE TITLE -->
                             <!-- BEGIN PAGE TOOLBAR -->
@@ -87,7 +87,7 @@
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                Administracion Risk Tier
+                                Administraci&#243;n Risk Tier
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
@@ -106,7 +106,7 @@
                                             <div class="col-md-2 col-lg-2">
                                                 <select name="order_status" class="form-control form-filter input-sm" style="width: 300px;">
                                                     <option value="">Natural</option>
-                                                    <option value="pending">Juridico</option>
+                                                    <option value="pending">Jur&#237;dico</option>
                                                 </select>
                                             </div>
                                         </div>

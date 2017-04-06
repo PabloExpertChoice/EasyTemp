@@ -7,7 +7,7 @@
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html>
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
     <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:40:53 GMT -->
@@ -63,7 +63,7 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Administracion Risk Tier</h1>
+                                <h1>Administraci&#243;n Risk Tier</h1>
                             </div>
                             <!-- END PAGE TITLE -->
                             <!-- BEGIN PAGE TOOLBAR -->
@@ -97,7 +97,7 @@
                             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
                                 <div class="panel panel-primary" style="border:  0;">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Perdida Esperada por Admisi&#243;n de Clientes </h3>
+                                        <h3 class="panel-title">P&#233;rdida Esperada por Admisi&#243;n de Clientes </h3>
                                     </div>
                                     <div class="panel-body"> 
                                         <div id="container" style="width: 100%; margin: 0 auto"></div>
@@ -151,7 +151,7 @@
                             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Evaluaci&#243;n de Vintaje </h3>
+                                        <h3 class="panel-title">Evaluaci&#243;n de Vintage </h3>
                                     </div>
                                     <div class="panel-body"> 
                                         <div id="container6" style="width: 100%; margin: 0 auto"></div>

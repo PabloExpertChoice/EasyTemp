@@ -22,7 +22,7 @@ Highcharts.chart('container1', {
     tooltip: {
         valueSuffix: '%',
         formatter: function () {
-            return '  <b>' + this.series.name + ' Días de mora</b>: ' + this.y;
+            return '  <b>' + this.series.name + ' D\u00edas de mora</b>: ' + this.y;
         }
     },
     legend: {
@@ -70,7 +70,7 @@ Highcharts.chart('container2', {
     tooltip: {
         valueSuffix: '%',
         formatter: function () {
-            return '  <b>' + this.series.name + ' Días de mora</b>: ' + this.y;
+            return '  <b>' + this.series.name + ' D\u00edas de mora</b>: ' + this.y;
         }
     },
     legend: {

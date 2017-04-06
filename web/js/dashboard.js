@@ -57,6 +57,11 @@ function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
             } else {
                 $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
             }
+            
+//            $('.counter').counterUp({
+//    delay: 10,
+//    time: 1000
+//});
         }
     });
 }
@@ -196,6 +201,8 @@ function buscarActividadComercial(_rut, _dv) {
             $('#boxActividadComercial .info-box-content .info-box-number').html('-');
             if (data.estado === 200) {
                 var datos = data.datos;
+                $('#siiNroDoc').attr('data-value', datos.numDocTimbrados); //cantidad de documentos tibrados
+                
                 $('#boxActividadComercial .info-box-content .info-box-number').html(datos.inicioActividades);
                 $('#tblActComercial').DataTable().rows.add(datos.actividadEconomica).draw(false);
                 $('#tblActComercial1 tr:eq(0) td').html(new Date().toLocaleDateString());

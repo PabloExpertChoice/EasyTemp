@@ -495,7 +495,7 @@
                                     <img src="images/poder_judicial-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="0" id="nroDemandas">7800</span>
+                                            <span data-counter="counterup" data-value="0" id="nroDemandas">0</span>
                                             <small class="font-green-sharp"></small>
                                         </h3>
                                         <div class="progress-info">
@@ -587,8 +587,8 @@
                                     <img src="images/sii-icon.png" style="width: 40px" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">7800</span>
-                                            <small class="font-green-sharp">$</small>
+                                            <span data-counter="counterup" data-value="0" id="siiNroDoc"></span>
+                                            <small class="font-green-sharp"></small>
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
@@ -696,6 +696,75 @@
                     </div>
                     <!--fin de calugas con otros datos-->
                     <!--///////////////MODAL//////////////////-->
+                    <!--                    <div class="modal fade" id="modalActividadComercial" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title">Modal Title</h4>
+                                                </div>
+                                                <div class="modal-body"> 
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="portlet light">
+                                                                <div class="portlet-body">
+                                                                    <table class="table table-hover" id="tblActComercial1">
+                                                                        <tr>
+                                                                            <th>Fecha de consulta</th>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Inicio de actividades</th>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Impuestos en moneda extranjera</th>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Empresa de menor tamaño PRO-PYME</th>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Documentos tibrados</th>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Observaciones</th>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet light bordered">
+                                                        <div class="portlet-body">
+                                                            <table id="tblActComercial" class="table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Actividad</th>
+                                                                        <th>Codigo</th>
+                                                                        <th>Categoria</th>
+                                                                        <th>Afecta IVA</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                    
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn green">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+
+
+
                     <div class="modal fade" id="modalActividadComercial" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -755,6 +824,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="modal fade" id="modalPJUD" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -896,7 +966,6 @@
             <script src="https://code.highcharts.com/highcharts-more.js"></script>
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             <script src="js/dash.js" type="text/javascript"></script>
-            <script src="js/funciones.js"></script>
             <script src="js/dashboard.js"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
             <script>

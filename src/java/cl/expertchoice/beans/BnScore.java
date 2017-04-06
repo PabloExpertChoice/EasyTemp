@@ -3,10 +3,11 @@ package cl.expertchoice.beans;
 public class BnScore {
 
 //    public static void main(String[] args) {
-//        System.out.println(obtenerScore(13300593, "5", 0));
-//        System.out.println(obtenerScore(13300593, "5", 1));
-//        System.out.println(obtenerScore(13300593, "5", 2));
-//        System.out.println(obtenerScore(13300593, "5", 3));
+////        System.out.println(obtenerScoring(13300593 , "5", 0));
+//        System.out.println(obtenerScoring(13300593, "5", 0));
+//        System.out.println(obtenerScoring(13300593, "5", 1));
+//        System.out.println(obtenerScoring(13300593, "5", 2));
+//        System.out.println(obtenerScoring(13300593, "5", 3));
 //    }
 
     public static int obtenerScoring(int rut, String dv, int mes) {

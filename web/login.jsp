@@ -62,7 +62,7 @@
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
             <form class="login-form" action="" method="post">
-                <h3 class="form-title">Iniciar sesion   
+                <h3 class="form-title">Iniciar sesi&#243;n   
                     <img src="assets/layouts/layout4/img/logo4.png" alt="logo" class="logo-default" style="margin:0px;margin-top: 10px;height: 60px"/></h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
@@ -92,13 +92,13 @@
                     </label>
                     <!--al hacer clic los datos se envian a clave.js para validar la sesion-->
                     <button class="btn green pull-right" id="btnEntrar" onclick="return login()">
-                        Iniciar sesión <i class="fa fa-sign-in"></i>
+                        Iniciar sesi&#243n <i class="fa fa-sign-in"></i>
                     </button>
                 </div>
                 <div class="forget-password">
                     <h4>Olvidaste tu contrase&ntilde;a ?</h4>
                     <p> No te preocupes, click
-                        <a href="javascript:;" id="forget-password"> aqui</a> para restablecer la contraseña. </p>
+                        <a href="javascript:;" id="forget-password"> aqu&#237</a> para restablecer la contraseña. </p>
                 </div>
             </form>
             <!-- END LOGIN FORM -->

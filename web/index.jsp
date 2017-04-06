@@ -71,8 +71,8 @@
                         <div class="page-head">
                             <!-- BEGIN PAGE TITLE -->
                             <div class="page-title">
-                                <h1>Informacion de Cliente
-                                    <small>para evaluacion</small>
+                                <h1>Buscar informaci&#243;n de Cliente
+                                    <!--<small>para evaluaci&#243;n</small>-->
                                 </h1>
                             </div>
                             <!-- END PAGE TITLE -->
@@ -92,7 +92,7 @@
                             <div class="portlet box blue" style="border: none">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-database"></i> Buscar Informacion Personal </div>
+                                        <i class="fa fa-database"></i> Buscar Informaci&#243;n Personal </div>
                                     <div class="tools">
                                         <a href="#" class="collapse" data-original-title="" title=""> </a>
                                     </div>
@@ -101,17 +101,14 @@
                                     <form action="dashboard.jsp" class="form-horizontal">
                                         <div class="form-body">
                                             <div class="form-group">
-                                                <label class="col-md-4 col-xs-1 control-label">RUT</label>
-                                                <div class="col-md-6 col-xs-10">
+                                                <label class="col-md-4 col-xs-4 control-label">RUT</label>
+                                                <div class="col-md-6 col-xs-6">
                                                     <div class="input-icon right">
                                                         <!--<input type="text" class="form-control" id="txtRut">-->
                                                         <input type="text" name="rut" id="txtRut" class="form-control" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');">
                                                     </div>
                                                 </div>
-                                                <!--                                                <div class="col-md-1 col-xs-1">
-                                                                                                        -
-                                                                                                </div>-->
-                                                <div class="col-md-1 col-xs-1">
+                                                <div class="col-md-1 right">
                                                     <div class="input-icon right">
                                                         <!--<input type="text" class="form-control" id="txtDv">-->
                                                         <input type="text" name="dv" id="txtDv" style="padding: 0px;width: 40px; text-align: center;" class="form-control"  size="1" maxlength="1" disabled="">
@@ -120,22 +117,22 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-md-4 col-xs-1 control-label">Renta</label>
-                                                <div class="col-md-8 col-xs-11">
+                                                <label class="col-md-4 col-xs-4 control-label">Renta (PN) o Ingreso (PJ)</label>
+                                                <div class="col-md-6 col-xs-6">
                                                     <div class="input-icon right">
                                                         <i class="fa fa-dollar" data-original-title="Ingreso de renta" data-container="body"></i>
-                                                        <input type="text" class="form-control" id="txtRenta">
+                                                        <input type="text" class="form-control" id="txtRenta" onkeyup="formatoNumero(this);" autocomplete="off" >
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-actions">
                                             <div class="row">
-                                                <div class="col-md-offset-4 col-md-8">
+                                                <div class="col-md-offset-4 col-md-8 col-xs-offset-4 col-xs-8">
                                                     <!--<button type="button" class="btn default">Limpiar</button>-->
                                                     <!--<button type="submit" class="btn blue">Consultar rut</button>-->
                                                     <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Svl_Informacion')">
-                                                        <button class="btn btn-primary " type="button"><i class="fa fa-check"></i> Consultar Rut</button>
+                                                        <button class="btn btn-primary " type="button"><i class="fa fa-search"></i> Consultar Rut</button>
                                                     </a>
                                                 </div>
                                             </div>
@@ -144,6 +141,36 @@
                                 </div>
                             </div>
                         </div>
+                        
+<!--                        <div class="box-body">
+                            <form role="form" action="javascript:;">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-9">
+                                            <div class="form-group">
+                                                <label for="txtRut">RUT</label>
+                                                <input type="text" class="form-control" id="txtRut" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtRutDv');" autocomplete="off" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-xs-3">
+                                            <label for="txtRut">&nbsp;</label>
+                                            <input type="text" class="form-control" id="txtRutDv" disabled="" style="width: 40%; text-align: center;padding: 0px;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="txtRenta">Renta (PN) o Ingreso (PJ)</label>
+                                                <input type="text" class="form-control" id="txtRenta" onkeyup="formatoNumero(this);" autocomplete="off" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary" onclick="getInfoCliente(this)">Buscar</button>
+                                </div>
+                            </form>
+                        </div>-->
                         <!-- END CONTENT BODY -->
                     </div>
                     <!-- END CONTENT -->
@@ -214,6 +241,34 @@
             <script src="js/jquery.Rut.js"></script>
             <script src="js/number_format.js"></script>
             <script src="js/funciones.js"></script>
+            <script type="text/javascript" charset="utf-8">
+                                        function sendConsulta() {
+                                            if ($("input[name='radTipInf']:checked").val() === undefined) {
+                                                alert('Seleccionar Informe');
+                                                return false;
+                                            }
+                                            if ($('#txtRenta').attr('visible') == 'true') {
+                                                if ($('#txtRenta').val().trim().length == 0 || $('#txtRenta').val().trim() == '0') {
+                                                    alert('Ingrese renta');
+                                                    return false;
+                                                }
+                                            }
+
+                                            if ($.Rut.validar($('#tx_rut').val() + '-' + $('#tx_dv').val()) === true) {
+                                                go('cmd', [
+                                                    {id: 'drut', val: $('#tx_rut').val()},
+                                                    {id: 'ddv', val: $('#tx_dv').val()},
+                                                    {id: 'renta', val: $('#txtRenta').val().trim().replace(/\./g, '')},
+                                                    {id: 'code', val: 'usrResponse'},
+                                                    {id: 'resp', val: $("input[name='radTipInf']:checked").val()},
+                                                    {id: 'idApplication', val: $("input[name='radTipInf']:checked").attr('idApplication')},
+                                                    {id: 'codApplication', val: $("input[name='radTipInf']:checked").attr('codApplication')}
+                                                ], undefined, 'cmd');
+                                            } else {
+                                                alert('Rut incorrecto');
+                                            }
+                                        }
+            </script>
     </body>
 
 

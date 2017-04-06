@@ -4,7 +4,7 @@ Highcharts.chart('container', {
     },
     credits: false, //esta propiedad desactiva el link de Highcharts
     title: {
-        text: 'Distribucion % Clientes por Calidad de Perfil'
+        text: 'Distribuci\u00f3n % Clientes por Calidad de Perfil'
     },
     xAxis: {
         categories: ['Modelo', 'Cartera', 'Fecha Actual']
@@ -100,7 +100,7 @@ Highcharts.chart('container2', {
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
         }, {
-            name: 'Solicitudes Aprovadas',
+            name: 'Solicitudes Aprobadas',
             data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
 
         }]
@@ -111,7 +111,7 @@ Highcharts.chart('container3', {
     },
     credits: false,
     title: {
-        text: 'Grafico ROC'
+        text: 'Gr\u00e1fico ROC'
     },
     subtitle: {
         text: ''
@@ -164,7 +164,7 @@ Highcharts.chart('container4', {
     },
     credits: false,
     title: {
-        text: 'Grafico KS'
+        text: 'Gr\u00e1fico KS'
     },
     subtitle: {
         text: ''
@@ -205,7 +205,7 @@ Highcharts.chart('container5', {
     },
     credits: false,
     title: {
-        text: 'Grafico AUC'
+        text: 'Gr\u00e1fico AUC'
     },
     xAxis: {
         min: 0,
@@ -233,7 +233,7 @@ Highcharts.chart('container5', {
     },
     tooltip: {
         headerFormat: '<b>{series.name}</b><br/>',
-        pointFormat: 'Porcentaje: {point.y}°%'
+        pointFormat: 'Porcentaje: {point.y}%'
     },
     plotOptions: {
         areaspline: {
@@ -394,13 +394,13 @@ Highcharts.chart('container7', {
     tooltip: {
         valueSuffix: '%',
         formatter: function () {
-            return '  <b>' + this.series.name + ' Días de mora</b>: ' + this.y;
+            return '  <b>' + this.series.name + ' D\u00edas de mora</b>: ' + this.y;
         }
     },
     legend: {
         title: {
             style: '{"fontWeight":"bold"}',
-            text: 'Dias de Moras'
+            text: 'D\u00edas de Moras'
         },
         backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
         borderColor: '#CCC',
@@ -422,7 +422,7 @@ Highcharts.chart('container8', {
         type: 'column'
     },
     title: {
-        text: 'Forzaje de Politicas'
+        text: 'Forzaje de Pol\u00edticas'
     },
     yAxis: {
         title: {
