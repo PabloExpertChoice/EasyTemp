@@ -1,5 +1,6 @@
 package cl.expertchoice.svl;
 
+import HtmlUnit.HtmlUnit_afp;
 import HtmlUnit.HtmlUnit_ofac;
 import HtmlUnit.HtmlUnit_pjud2;
 import SII.WebServiceConsultas;
@@ -7,6 +8,7 @@ import cl.expertchoice.clases.Cliente;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.io.IOException;
+import java.math.BigInteger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -72,6 +74,43 @@ public class Svl_Cliente extends HttpServlet {
                         json.addProperty("descripcion", "Sin datos para el rut " + rut + "-" + dv);
                     }
 
+                    response.getWriter().print(json);
+                    break;
+                }
+                
+                case "cargaIframe": {
+                    String rut = request.getParameter("rut");
+                    String dv = request.getParameter("dv");
+                    String apePat = request.getParameter("apePat");
+                    String idCliente = request.getParameter("idCliente");
+                    HtmlUnit_afp p = new HtmlUnit_afp();
+                    p.setRut(Integer.parseInt(rut));
+                    p.setDv(dv);
+                    p.setApePat(apePat);
+                    p.setIdCliente(new BigInteger(idCliente));
+
+                    if (!p.buscarInformacion()) {
+                        p.crearFormulario();
+                    } else {
+                        p.setEnCache(true);
+                    }
+
+                    request.getSession().setAttribute("hu_consultaAfp", p);
+                    json.addProperty("estado", 200);
+                    json.add("datos", p.toJson());
+                    response.getWriter().print(json);
+                    break;
+                }
+                
+                case "enviarFormulario": {
+                    String imagen = request.getParameter("imagen");
+                    String apellido = request.getParameter("apePat");
+                    HtmlUnit_afp p = (HtmlUnit_afp) request.getSession().getAttribute("hu_consultaAfp");
+                    p.setImagen(imagen);
+                    p.setApePat(apellido);
+                    p.submitForm2();
+                    json.addProperty("estado", 200);
+                    json.add("datos", p.toJson());
                     response.getWriter().print(json);
                     break;
                 }

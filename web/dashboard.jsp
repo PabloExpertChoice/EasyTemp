@@ -91,7 +91,7 @@
                                 <!-- BEGIN PAGE TITLE -->
                                 <div class="page-title">
                                     <h1>Informacion de Cliente
-                                        <small>para evaluacion</small>
+                                        <!--<small>para evaluacion</small>-->
                                     </h1>
                                     <br>
                                     <!--<h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>:  <%//= datos.get("nombre")%></small></h1>-->
@@ -261,60 +261,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--                                <div class="portlet light bordered">
-                            
-                                                                grafico de score
-                                                                <div class="panel-body">
-                                                                    <div class="caption">
-                                                                        <span class="caption-subject bold uppercase font-dark">Score</span>
-                                                                    </div>
-                                                                    <div id="contenedor" style="width: 235px; height: 235px; margin: 0 auto"></div>
-                                                                </div>
-                                                                fin grafico de score
-                                                                <div class="portlet-title">
-                                                                    <div class="caption">
-                                                                        <i class="icon-cursor font-dark hide"></i>
-                                                                        <span class="small">Detalle ultimos 3 meses pagados</span>
-                                                                    </div>
-                                                                    <div class="actions">
-                                                                        <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
-                                                                            <i class="fa fa-repeat"></i> Reload </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="portlet-body">
-                                                                    <div class="row">
-                                                                        <div class="col-md-4 col-xs-4 col-lg-4" style="height: 50px;">
-                                                                            <div class="easy-pie-chart">
-                                                                                <div class="number transactions" data-percent="55">
-                                                                                    <span>+55</span>% <canvas height="75" width="75"></canvas></div>
-                                                                                <a class="title" href="javascript:;"> Mes 3
-                                                                                    <i class="icon-arrow-right"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin-bottom-10 visible-sm"> </div>
-                                                                        <div class="col-md-4 col-xs-4 col-lg-4">
-                                                                            <div class="easy-pie-chart">
-                                                                                <div class="number visits" data-percent="85">
-                                                                                    <span>+85</span>% <canvas height="75" width="75"></canvas></div>
-                                                                                <a class="title" href="javascript:;"> Mes 2
-                                                                                    <i class="icon-arrow-right"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin-bottom-10 visible-sm"> </div>
-                                                                        <div class="col-md-4 col-xs-4 col-lg-4">
-                                                                            <div class="easy-pie-chart">
-                                                                                <div class="number bounce" data-percent="46">
-                                                                                    <span>-46</span>% <canvas height="75" width="75"></canvas></div>
-                                                                                <a class="title" href="javascript:;"> Mes 1
-                                                                                    <i class="icon-arrow-right"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>-->
                         </div>
                     </div>
                     <!--fin de los graficos-->
@@ -460,8 +406,8 @@
                     <!--calugas con otros datos-->
                     <div class="row">
                         <!--datos de informacion previsional-->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered">
+                        <div class="col-md-3 col-sm-6 col-xs-12" onclick="return verInfoPrevisional()">
+                            <div class="dashboard-stat2 bordered" id="boxAfp">
                                 <div class="display">
                                     <img src="images/info_previsional-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
@@ -547,8 +493,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                        datos de informacion previsional
-                        INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
+                        <!--INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
@@ -696,194 +641,7 @@
                     </div>
                     <!--fin de calugas con otros datos-->
                     <!--///////////////MODAL//////////////////-->
-                    <!--                    <div class="modal fade" id="modalActividadComercial" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                    <h4 class="modal-title">Modal Title</h4>
-                                                </div>
-                                                <div class="modal-body"> 
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="portlet light">
-                                                                <div class="portlet-body">
-                                                                    <table class="table table-hover" id="tblActComercial1">
-                                                                        <tr>
-                                                                            <th>Fecha de consulta</th>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Inicio de actividades</th>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Impuestos en moneda extranjera</th>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Empresa de menor tamaño PRO-PYME</th>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Documentos tibrados</th>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Observaciones</th>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="portlet light bordered">
-                                                        <div class="portlet-body">
-                                                            <table id="tblActComercial" class="table table-hover">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Actividad</th>
-                                                                        <th>Codigo</th>
-                                                                        <th>Categoria</th>
-                                                                        <th>Afecta IVA</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                    
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn green">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>-->
-
-
-
-
-                    <div class="modal fade" id="modalActividadComercial" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <table class="table" id="tblActComercial1">
-                                                <tr>
-                                                    <th>Fecha de consulta</th>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Inicio de actividades</th>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Impuestos en moneda extranjera</th>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Empresa de menor tamaño PRO-PYME</th>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Documentos tibrados</th>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Observaciones</th>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    <table id="tblActComercial" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Actividad</th>
-                                                <th>Codigo</th>
-                                                <th>Categoria</th>
-                                                <th>Afecta IVA</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="modalPJUD" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="tblPjudCont">
-                                        <table id="tblPJUD" class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th>ROL</th>
-                                                    <th>FECHA</th>
-                                                    <th>CARATULADO</th>
-                                                    <th>TRIBUNAL</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="modalOfac" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <table id="tblResultadosOfac" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Direccion</th>
-                                                <th>Tipo</th>
-                                                <th>Programa</th>
-                                                <th>Lista</th>
-                                                <th>Score</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <jsp:include page="seccion/modal.jsp"></jsp:include>
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
@@ -901,7 +659,8 @@
         <jsp:include page="seccion/flotante.jsp"></jsp:include>
 
             <!-- BEGIN CORE PLUGINS -->
-            <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+            <!--<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>-->
+            <script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -933,11 +692,6 @@
             <script src="assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-            <script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
             <script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
             <!-- END PAGE LEVEL PLUGINS -->
             <script src="https://www.amcharts.com/lib/3/lang/es.js"></script>
@@ -955,11 +709,11 @@
 
             <script src="assets/global/plugins/datatables/jquery.dataTables.min.js"></script>
             <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
-            <!--<script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>-->
-            <script src="js/funciones.js"></script>
+            <script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
             <script src="js/jquery.validate.min.js"></script>
             <script src="js/messages_es.min.js"></script>
             <script src="js/number_format.js"></script>
+            <script src="js/funciones.js"></script>
 
             <!--librerias para grafico highcharts-->
             <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -969,10 +723,10 @@
             <script src="js/dashboard.js"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
             <script>
-                            function goTransunion() {
-                                var datos = <%= datos%>;
-                                go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
-                            }
+                                        function goTransunion() {
+                                            var datos = <%= datos%>;
+                                            go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
+                                        }
         </script>
         <script>
             $(function () {
@@ -1006,6 +760,7 @@
                 buscarDatosOfac(nombre, apePaterno, apeMaterno);
                 getScore(rut, dv);
                 buscarActividadComercial(rut, dv);
+                cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
 
                 $("#tblResultadosOfac").DataTable({
                     language: {

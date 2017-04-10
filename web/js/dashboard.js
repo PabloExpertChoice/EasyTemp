@@ -201,7 +201,7 @@ function buscarActividadComercial(_rut, _dv) {
             $('#boxActividadComercial .info-box-content .info-box-number').html('-');
             if (data.estado === 200) {
                 var datos = data.datos;
-                $('#siiNroDoc').attr('data-value', datos.numDocTimbrados); //cantidad de documentos tibrados
+                $('#siiNroDoc').attr('data-value', datos.numDocTimbrados);
                 
                 $('#boxActividadComercial .info-box-content .info-box-number').html(datos.inicioActividades);
                 $('#tblActComercial').DataTable().rows.add(datos.actividadEconomica).draw(false);
@@ -223,4 +223,166 @@ function buscarActividadComercial(_rut, _dv) {
 function verModalAC() {
     $('#modalActividadComercial').modal({backdrop: 'static'});
     $('#modalActividadComercial .modal-dialog .modal-content .modal-header .modal-title').html(nombre + ' ' + apePaterno + ' ' + apeMaterno);
+}
+
+//////////////////////////////Informacion previsional(AFP)/////////////////////////////////
+function cargaIframe(_rut, _dv, _nombre, _apePaterno, _apeMaterno, _idCliente) {
+    $('#modalAfp .modal-dialog .modal-content .modal-header .modal-title').html(_nombre + ' ' + _apePaterno + ' ' + _apeMaterno);
+    $('#modalAfp .modal-dialog .modal-content .modal-footer .btn-primary').show();
+    if (!iframeCargado) {
+        $.ajax({
+            url: 'Svl_Cliente',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                accion: 'cargaIframe',
+                rut: _rut,
+                dv: _dv,
+                apePat: _apePaterno,
+                idCliente: _idCliente
+            }, beforeSend: function (xhr) {
+                $('#boxAfp .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+                $('#modalAfp .modal-dialog .modal-content .modal-body').html('Cargando datos<i class="fa fa-spinner fa-spin"></i>');
+            }, success: function (data, textStatus, jqXHR) {
+                $('#boxAfp .info-box-content .info-box-number').html('&nbsp;');
+                if (data.estado == 200) {
+                    datosFormCaptcha = data.datos;
+                    iframeCargado = true;
+                    if (data.datos.enCache) {
+                        var objbuilder = '';
+                        objbuilder += ('<object width="100%" height="500px" data="data:application/pdf;base64,');
+                        objbuilder += (data.datos.basePdf);
+                        objbuilder += ('" type="application/pdf" class="internal">');
+                        objbuilder += ('<embed src="data:application/pdf;base64,');
+                        objbuilder += (data.datos.basePdf);
+                        objbuilder += ('" type="application/pdf" />');
+                        objbuilder += ('</object>');
+
+                        $('#modalAfp .modal-dialog .modal-content .modal-body').html(objbuilder);
+                        $('#modalAfp .modal-dialog .modal-content .modal-footer .btn-primary').hide();
+                    } else {
+                        var form = '<form role="form">' +
+                                '    <div class="row">' +
+                                '        <div class="form-group col-xs-10 col-md-3">' +
+                                '            <label>RUT:</label>' +
+                                '            <input type="text" class="form-control" disabled value="' + datosFormCaptcha.rut + '">' +
+                                '        </div>' +
+                                '        <div class="form-group col-xs-2 col-md-1">' +
+                                '            <label>&nbsp;</label>' +
+                                '            <input style="padding: 0px; text-align: center;" type="text" class="form-control" disabled value="' + datosFormCaptcha.dv + '">' +
+                                '        </div>' +
+                                '    </div>' +
+                                '    <div class="row">' +
+                                '        <div class="form-group col-md-4">' +
+                                '            <label>Apellido Paterno</label>' +
+                                '            <input type="text" class="form-control" value="' + datosFormCaptcha.apePat + '" id="apePat" >' +
+                                '        </div>' +
+                                '    </div>' +
+                                '    <div class="row">' +
+                                '        <div class="form-group col-md-4">' +
+                                '            <label>Resolver Captcha</label><br/>' +
+                                '            <div id="imgimg"></div><br/>' +
+                                '            <input type="text" class="form-control" id="imagenCaptcha">' +
+                                '        </div>' +
+                                '    </div>' +
+                                '</form>';
+                        $('#modalAfp .modal-dialog .modal-content .modal-body').html(form);
+
+
+                        var img = document.createElement("img");
+                        img.src = "data:image/png;base64," + datosFormCaptcha.base;
+                        document.getElementById('imgimg').appendChild(img);
+                    }
+                }
+            }
+        });
+    } else {
+        if (datosFormCaptcha.datos.enCache) {
+            var objbuilder = '';
+            objbuilder += ('<object width="100%" height="500px" data="data:application/pdf;base64,');
+            objbuilder += (data.datos.basePdf);
+            objbuilder += ('" type="application/pdf" class="internal">');
+            objbuilder += ('<embed src="data:application/pdf;base64,');
+            objbuilder += (data.datos.basePdf);
+            objbuilder += ('" type="application/pdf" />');
+            objbuilder += ('</object>');
+
+            $('#modalAfp .modal-dialog .modal-content .modal-body').html(objbuilder);
+            $('#modalAfp .modal-dialog .modal-content .modal-footer .btn-primary').hide();
+        } else {
+            var form = '<form role="form">' +
+                    '    <div class="row">' +
+                    '        <div class="form-group col-xs-10 col-md-3">' +
+                    '            <label>RUT:</label>' +
+                    '            <input type="text" class="form-control" disabled value="' + datosFormCaptcha.rut + '">' +
+                    '        </div>' +
+                    '        <div class="form-group col-xs-2 col-md-1">' +
+                    '            <label>&nbsp;</label>' +
+                    '            <input style="padding: 0px; text-align: center;" type="text" class="form-control" disabled value="' + datosFormCaptcha.dv + '">' +
+                    '        </div>' +
+                    '    </div>' +
+                    '    <div class="row">' +
+                    '        <div class="form-group col-md-4">' +
+                    '            <label>Apellido Paterno</label>' +
+                    '            <input type="text" class="form-control" value="' + datosFormCaptcha.apePat + '" id="apePat" >' +
+                    '        </div>' +
+                    '    </div>' +
+                    '    <div class="row">' +
+                    '        <div class="form-group col-md-4">' +
+                    '            <label>Resolver Captcha</label><br/>' +
+                    '            <img id="imgimg" src="' + datosFormCaptcha.urlImagen.replace('http:/', 'https:/') + '&fecha=1asdasdasd"/><br/>' +
+                    '            <input type="text" class="form-control" id="imagenCaptcha">' +
+                    '        </div>' +
+                    '    </div>' +
+                    '</form>';
+            $('#modalAfp .modal-dialog .modal-content .modal-body').html(form);
+            var img = document.createElement("img");
+            img.src = "data:image/png;base64," + datosFormCaptcha.base;
+            document.getElementById('imgimg').appendChild(img);
+        }
+    }
+}
+
+
+
+
+function enviarDatosAfp(button) {
+    var htmlButton = $(button).html();
+    $.ajax({
+        url: 'Svl_Cliente',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            accion: 'enviarFormulario',
+            imagen: $('#imagenCaptcha').val(),
+            apePat: $('#apePat').val()
+        },
+        beforeSend: function (xhr) {
+            $(button).prop('disabled', true);
+            $(button).html('Cargando datos... <i class="fa fa-spinner fa-spin"></i>');
+        }, success: function (data) {
+            $(button).prop('disabled', false);
+            $(button).html(htmlButton);
+            if (data.estado == 200) {
+                var objbuilder = '';
+                objbuilder += ('<object width="100%" height="500px" data="data:application/pdf;base64,');
+                objbuilder += (data.datos.basePdf);
+                objbuilder += ('" type="application/pdf" class="internal">');
+                objbuilder += ('<embed src="data:application/pdf;base64,');
+                objbuilder += (data.datos.basePdf);
+                objbuilder += ('" type="application/pdf" />');
+                objbuilder += ('</object>');
+
+                $('#modalAfp .modal-dialog .modal-content .modal-body').html(objbuilder);
+                $('#modalAfp .modal-dialog .modal-content .modal-footer .btn-primary').hide();
+            } else {
+                $('#modalAfp .modal-dialog .modal-content .modal-body').html('No registra datos asociados');
+            }
+        }
+    });
+    return false;
+}
+
+function verInfoPrevisional() {
+    $('#modalAfp').modal({backdrop: 'static'});
 }
