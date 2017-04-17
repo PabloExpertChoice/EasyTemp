@@ -412,8 +412,8 @@
                                     <img src="images/info_previsional-icon.png" style="width: 40px;" class="pull-right">
                                     <div class="number">
                                         <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">7800</span>
-                                            <small class="font-green-sharp">$</small>
+                                            <span data-counter="counterup" data-value="0"></span>
+                                            <!--<small class="font-green-sharp">$</small>-->
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
@@ -626,7 +626,7 @@
                                     </div>
                                     <img src="images/empresas.png" style="width: 40px" class="pull-right">
                                 </div>
-                                <div class="progress-info">
+<!--                                <div class="progress-info">
                                     <div class="progress">
                                         <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
                                         </span>
@@ -635,7 +635,7 @@
                                         <div class="status-title"> numero de sociedades </div>
                                         <div class="status-number"> </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -739,7 +739,7 @@
             <%
                 String nom_completo = datos.get("nombre").toString();
                 String[] arrNom_completo = nom_completo.split(" ");
-                String nom = arrNom_completo[0] + arrNom_completo[1];
+                String nom = arrNom_completo[0] +" "+ arrNom_completo[1];
                 String apellPat = arrNom_completo[2];
                 String apellMat = arrNom_completo[3];
             %>;

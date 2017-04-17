@@ -31,14 +31,13 @@ public class Svl_Informacion extends HttpServlet {
                 JSONObject datos;
 
                 switch (code) {
-                    case "dashboard":{
+                    case "dashboard": {
                         String rut = request.getParameter("rut");
                         String dv = request.getParameter("dv");
                         bnsInformacion bn = new bnsInformacion();
-                        JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv, usuario);
+                        JSONObject jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
 
                         if (jsonInformacion != null) {
-//                        int rutP = Integer.parseInt(rut);
                             request.setAttribute("datos", jsonInformacion);
 
                             toPage("/dashboard.jsp", request, response);
@@ -48,10 +47,13 @@ public class Svl_Informacion extends HttpServlet {
                         }
                         break;
                     }
-                    case "transunion": {
 
-                        datos = new JSONObject(request.getParameter("obDatos"));
-                        request.setAttribute("datos", datos);
+                    case "transunion": {
+                        bnsInformacion bn = new bnsInformacion();
+                        String rut = request.getParameter("rut");
+                        String dv = request.getParameter("dv");
+                        JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv, usuario);
+                        request.setAttribute("datos", jsonInformacion);
                         toPage("/transunion.jsp", request, response);
                         break;
                     }

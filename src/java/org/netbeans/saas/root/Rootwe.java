@@ -48,5 +48,29 @@ public class Rootwe {
         sleep(1000);
         return conn.get(null);
     }
-
+    
+    
+    
+    public static RestResponse getXmlSII(String rut, String user, String pass) throws IOException {
+        String[][] pathParams = new String[][]{};
+        String[][] queryParams = new String[][]{{"rut", rut}, {"user", user}, {"pass", pass}};
+        RestConnection conn = new RestConnection("http://54.202.128.106:8080/WS_SII/webresources/generic", pathParams, queryParams);
+        sleep(1000);
+        return conn.get(null);
+    }
+    /**
+     * Web Servuce IDENTIFICACION
+     *
+     * @param rut
+     * @param user
+     * @param pass
+     * @return an instance of RestResponse
+     */
+    public static RestResponse getXmlIdentificacion(String rut, String user, String pass) throws IOException {
+        String[][] pathParams = new String[][]{};
+        String[][] queryParams = new String[][]{{"RUT", rut}, {"USER", user}, {"PASS", pass}};
+        RestConnection conn = new RestConnection("http://54.202.128.106:8080/WS_Identificacion/Metod/getXML", pathParams, queryParams);
+        sleep(1000);
+        return conn.get(null);
+    }
 }
