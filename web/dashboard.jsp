@@ -90,7 +90,7 @@
                             <div class="page-head">
                                 <!-- BEGIN PAGE TITLE -->
                                 <div class="page-title">
-                                    <h1>Informacion de Cliente
+                                    <h1>Informaci&#243n de Cliente
                                         <!--<small>para evaluacion</small>-->
                                     </h1>
                                     <br>
@@ -417,7 +417,7 @@
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
-                                                <div class="status-title"> INFORMACION PREVISIONAL </div>
+                                                <div class="status-title"> INFORMACI&#211N PREVISIONAL </div>
                                             </div>
                                         </div>
                                     </div>
@@ -626,31 +626,31 @@
                                     </div>
                                     <img src="images/empresas.png" style="width: 40px" class="pull-right">
                                 </div>
-<!--                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
-                                        </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> numero de sociedades </div>
-                                        <div class="status-number"> </div>
-                                    </div>
-                                </div>-->
+                                <!--                                <div class="progress-info">
+                                                                    <div class="progress">
+                                                                        <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="status">
+                                                                        <div class="status-title"> numero de sociedades </div>
+                                                                        <div class="status-number"> </div>
+                                                                    </div>
+                                                                </div>-->
                             </div>
                         </div>
                     </div>
                     <!--fin de calugas con otros datos-->
                     <!--///////////////MODAL//////////////////-->
                     <jsp:include page="seccion/modal.jsp"></jsp:include>
+                    </div>
+                    <!-- END CONTENT BODY -->
                 </div>
-                <!-- END CONTENT BODY -->
+                <!-- END CONTENT -->
             </div>
-            <!-- END CONTENT -->
-        </div>
-        <!-- END CONTAINER -->
+            <!-- END CONTAINER -->
 
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
+            <!-- BEGIN FOOTER -->
+            <div class="page-footer">
             <jsp:include page="seccion/footer.jsp"></jsp:include>
             </div>
             <!-- END FOOTER -->
@@ -723,10 +723,12 @@
             <script src="js/dashboard.js"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
             <script>
-                                        function goTransunion() {
-                                            var datos = <%= datos%>;
-                                            go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
-                                        }
+                            rut = '<%= datos.get("rut").toString()%>';
+                            dv = '<%= datos.get("dv").toString()%>';
+                            function goTransunion() {
+                                var datos = <%= datos%>;
+                                go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
+                            }
         </script>
         <script>
             $(function () {
@@ -739,7 +741,7 @@
             <%
                 String nom_completo = datos.get("nombre").toString();
                 String[] arrNom_completo = nom_completo.split(" ");
-                String nom = arrNom_completo[0] +" "+ arrNom_completo[1];
+                String nom = arrNom_completo[0] + " " + arrNom_completo[1];
                 String apellPat = arrNom_completo[2];
                 String apellMat = arrNom_completo[3];
             %>;
@@ -747,9 +749,6 @@
                 nombre = '<%= nom%>';
                 apePaterno = '<%= apellPat%>';
                 apeMaterno = '<%= apellMat%>';
-
-                rut = '<%= datos.get("rut").toString()%>';
-                dv = '<%= datos.get("dv").toString()%>';
 
                 $('#razonSocial').html(': ' + (nombre + " " + apePaterno + " " + apeMaterno));
                 $('#rut').html(': ' + rut + "-" + dv);
