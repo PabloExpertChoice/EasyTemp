@@ -494,14 +494,13 @@
                             </div>
                         </div>
                         <!--INFORMACION DE SUPERINTENDENCIA DE QUIEBRES-->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 bordered">
+                        <div class="col-md-3 col-sm-6 col-xs-12" onclick="return verListadoQuiebras()">
+                            <div class="dashboard-stat2 bordered" id="boxQuiebras">
                                 <div class="display">
                                     <img src="images/superintendencia-icon.png" style="width: 40px" class="pull-right">
-                                    <div class="number">
+                                    <div class="number" >
                                         <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">7800</span>
-                                            <small class="font-green-sharp">$</small>
+                                            <span data-counter="counterup" data-value="0">0</span>
                                         </h3>
                                         <div class="progress-info">
                                             <div class="status">
@@ -510,17 +509,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="progress-info">
+<!--                                <div class="progress-info">
                                     <div class="progress">
                                         <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
                                             <span class="sr-only">76% progress</span>
                                         </span>
                                     </div>
-                                    <!--                                    <div class="status">
+                                                                        <div class="status">
                                                                             <div class="status-title"> progress </div>
                                                                             <div class="status-number"> 76% </div>
-                                                                        </div>-->
-                                </div>
+                                                                        </div>
+                                </div>-->
                             </div>
                         </div>
 
@@ -760,6 +759,7 @@
                 getScore(rut, dv);
                 buscarActividadComercial(rut, dv);
                 cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
+                validarQuiebra(rut, dv);
 
                 $("#tblResultadosOfac").DataTable({
                     language: {

@@ -4,7 +4,9 @@ import HtmlUnit.HtmlUnit_afp;
 import HtmlUnit.HtmlUnit_ofac;
 import HtmlUnit.HtmlUnit_pjud2;
 import SII.WebServiceConsultas;
+import cl.expertchoice.beans.BnCliente;
 import cl.expertchoice.clases.Cliente;
+import cl.expertchoice.clases.Quiebra;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.io.IOException;
@@ -13,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import soporte.D;
 
 public class Svl_Cliente extends HttpServlet {
 
@@ -111,6 +114,23 @@ public class Svl_Cliente extends HttpServlet {
                     p.submitForm2();
                     json.addProperty("estado", 200);
                     json.add("datos", p.toJson());
+                    response.getWriter().print(json);
+                    break;
+                }
+                
+                case "validarQuiebra": {
+                    String rut = request.getParameter("rut");
+                    String dv = request.getParameter("dv");
+
+                    Quiebra q = new BnCliente().consultarQuiebra(Integer.parseInt(rut));
+                    if (q != null) {
+                        json.addProperty("estado", D.EST_OK);
+                        json.add("datos", q.toJson());
+                    } else {
+                        json.addProperty("estado", D.EST_NORESULTADO);
+                        json.addProperty("descripcion", "Sin datos para el rut " + rut + "-" + dv);
+                    }
+
                     response.getWriter().print(json);
                     break;
                 }

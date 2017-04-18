@@ -386,3 +386,54 @@ function enviarDatosAfp(button) {
 function verInfoPrevisional() {
     $('#modalAfp').modal({backdrop: 'static'});
 }
+
+/**
+ * 
+ * @param {type} _rut
+ * @param {type} _dv
+ * @returns {undefined}
+ */
+function validarQuiebra(_rut, _dv) {
+    $.ajax({
+        url: 'Svl_Cliente',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            accion: 'validarQuiebra',
+            rut: _rut,
+            dv: _dv
+        }, beforeSend: function (xhr) {
+            $('#boxQuiebras .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+        }, success: function (data, textStatus, jqXHR) {
+            if (data.estado == 200) {
+                QUIEBRA = data.datos;
+                $('#boxQuiebras .progress .progress-bar').css({width: '50%'});
+                $('#boxQuiebras .info-box-number').html(data.datos.fechaPublicacion);
+            } else {
+                $('#boxQuiebras .info-box-number').css({'font-size': '15px'});
+                $('#boxQuiebras .info-box-number').html('No registra datos asociados');
+            }
+        }
+    });
+}
+
+function verListadoQuiebras() {
+    $('#modalQuiebras .modal-dialog .modal-content .modal-header .modal-title').html(nombre + ' ' + apePaterno + ' ' + apeMaterno);
+    $('#modalQuiebras .modal-dialog .modal-content .msgTbl').html('');
+    $('#modalQuiebras .modal-dialog .modal-content table').hide();
+
+    if (QUIEBRA != undefined) {
+        $('#modalQuiebras .modal-dialog .modal-content table').show();
+//        $('#tdDomicilio').html();
+//        $('#tdRegion').html();
+        $('#tdFechaDeclaratoria').html(QUIEBRA.fechaDeclaratoria);
+        $('#tdFechaPublicacion').html(QUIEBRA.fechaPublicacion);
+        $('#tdTribunal').html(QUIEBRA.tribunal);
+        $('#tdRolCausa').html(QUIEBRA.rolCausa);
+        $('#tdSindico').html(QUIEBRA.sindico);
+    } else {
+        $('#modalQuiebras .modal-dialog .modal-content .msgTbl').html('No registra datos asociados');
+    }
+
+    $('#modalQuiebras').modal();
+}

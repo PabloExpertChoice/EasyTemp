@@ -6,6 +6,55 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<div class="modal fade" id="modalQuiebras" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <span class="msgTbl"></span>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+<!--                                            <th>Domicilio</th>
+                                            <th>Región</th>-->
+                                            <th>Fecha declaratoria</th>
+                                            <th>Fecha publicación diario oficial</th>
+                                            <th>Tribunal</th>
+                                            <th>Rol Causa</th>
+                                            <th>Síndico</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+<!--                                            <td id="tdDomicilio"</td>
+                                            <td id="tdRegion"></td>-->
+                                            <td id="tdFechaDeclaratoria"></td>
+                                            <td id="tdFechaPublicacion"></td>
+                                            <td id="tdTribunal"></td>
+                                            <td id="tdRolCausa"></td>
+                                            <td id="tdSindico"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modalActividadComercial" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
