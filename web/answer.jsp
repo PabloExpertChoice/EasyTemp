@@ -232,15 +232,6 @@
         <script src="dist/js/demo.js"></script>
         <script src="js/tree.js"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
-        
-<!--        <script src="assets/global/plugins/jQuery/jquery-2.2.3.min.js"></script>
-        <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
-        <script src="assets/global/plugins/datatables/dataTables.bootstrap.min.js"></script>
-        <script src="js/funciones.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/messages_es.min.js"></script>
-        <script src="js/number_format.js"></script>
-        <script src="dist/js/demo.js"></script>-->
     </body>
 
 

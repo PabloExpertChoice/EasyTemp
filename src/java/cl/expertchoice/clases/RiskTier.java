@@ -1,25 +1,27 @@
 package cl.expertchoice.clases;
 
 import com.google.gson.JsonObject;
+import java.math.BigInteger;
 
-public class Variable {
+public class RiskTier {
 
-    private int id;
+    private BigInteger id;
     private String nombre;
+    private boolean activo;
 
-    public Variable() {
+    public RiskTier() {
     }
 
-    public Variable(int id, String detalle) {
+    public RiskTier(BigInteger id, String nombre) {
         this.id = id;
-        this.nombre = detalle;
+        this.nombre = nombre;
     }
 
-    public int getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
@@ -31,10 +33,19 @@ public class Variable {
         this.nombre = nombre;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     public JsonObject toJson() {
         JsonObject json = new JsonObject();
         json.addProperty("id", this.id);
         json.addProperty("nombre", this.nombre);
+        json.addProperty("activo", this.activo);
         return json;
     }
 }

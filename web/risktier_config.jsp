@@ -21,7 +21,6 @@
         <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -123,27 +122,79 @@
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Variable eje X</label>
-                                                        <select class="form-control">
-                                                            <option value="">Seleccionar...</option>
-                                                        </select>
+                                                    <div class="col-lg-12" id="id-panel-body-1">
+                                                        <div class="row">
+                                                            <div class="form-group col-md-3">
+                                                                <label class="label-control">Variable Eje X</label>
+                                                                <select class="form-control" id="cmboxEjeX">
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label class="label-control">Nº de columnas</label>
+                                                                <input class="form-control" id="inpColumn" onkeyup="formatoNumero(this);">
+                                                            </div>
+                                                        </div> 
+                                                        <div class="row">
+                                                            <div class="form-group col-md-3">
+                                                                <label class="label-control">Variable Eje Y</label>
+                                                                <!--<input placeholder="elegir numero" type="number" min="0" max="20" class="form-control cmboxNumber" id="cmboxEjeY-2" >-->
+                                                                <select class="form-control" id="cmboxEjeY">
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label class="label-control">Nº de filas</label>
+                                                                <input class="form-control"  id="inpRow" onkeyup="formatoNumero(this);">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" id="btnHidden">
+                                                            <div class="form-group col-md-12" id="btnCrear">
+                                                                <button class="btn btn-primary" onclick="fillValidarDatos()"><i class="fa fa-plus-circle"></i> Crear</button>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row" id="btnHidden">
+                                                            <div class="form-group col-md-12" id="btnCrear">
+                                                                <button class="btn btn-primary" onclick="fillValidarDatos()"><i class="fa fa-plus-circle"></i> Crear</button>
+                                                                <button class="btn btn-primary mt-ladda-btn ladda-button btn-circle" data-style="expand-down">
+                                                                        <i class="fa fa-plus-square"></i> Crear</button>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div id="divInformacion" class="alert alert-danger hidden">
+                                                            <strong>Atencion! </strong><label id="lblInformacion" class="label-control"></label>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-12" style="overflow-x: auto">
+                                                                <table id="tblPresupuesto" class="table table-bordered" style="width:100%">
+                                                                    <thead></thead>
+                                                                    <tbody></tbody>
+                                                                </table>
+                                                                <div class="pull-right">
+                                                                    <button class="btn btn-default2" onclick="fillValidarTableColumnRow();">Siguiente </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group col-md-3">
-                                                        <label class="label-control">Nº de columnas</label>
-                                                        <input class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="label-control">Variable eje Y</label>
-                                                        <select class="form-control">
-                                                            <option value="">Seleccionar...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-md-3">
-                                                        <label class="label-control">Nº de filas</label>
-                                                        <input class="form-control">
+                                                    <div class="col-lg-12 hidden" id="id-panel-body-2">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <table class="table table-bordered" id="tblCoordenadasPresupuesto">
+                                                                    <thead></thead>
+                                                                    <tbody></tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="pull-right">
+                                                                    <button class="btn btn-default2" onclick="fillPreviusfollowing()"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Atras</button>
+                                                                    <button class="btn btn-default2" onclick="fillGuardarPresupuesto(this);">Guardar&nbsp;&nbsp;<i class="fa fa-save"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -162,6 +213,99 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
+                                <section class="content">
+                                    <div class="row">
+                                        <div class="col-md-12 connectedSortable">
+                                            <div class="box box-primary">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">APPLICANT SCORE</h3>
+                                                    <div class="box-tools pull-right">
+                                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-3">
+                                                            <label class="label-control">Tipo</label>
+                                                            <select class="form-control" id="cmboxTipoRiskTier">
+                                                                <option value="1">Natural</option>
+                                                                <option value="2">Jurídico</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12" id="id-panel-body-1">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-3">
+                                                                    <label class="label-control">Variable Eje X</label>
+                                                                    <select class="form-control" id="cmboxEjeX">
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-md-3">
+                                                                    <label class="label-control">Nº de columnas</label>
+                                                                    <input class="form-control" id="inpColumn" onkeyup="formatoNumero(this);">
+                                                                </div>
+                                                            </div> 
+                                                            <div class="row">
+                                                                <div class="form-group col-md-3">
+                                                                    <label class="label-control">Variable Eje Y</label>
+                                                                    <!--<input placeholder="elegir numero" type="number" min="0" max="20" class="form-control cmboxNumber" id="cmboxEjeY-2" >-->
+                                                                    <select class="form-control" id="cmboxEjeY">
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-md-3">
+                                                                    <label class="label-control">Nº de filas</label>
+                                                                    <input class="form-control"  id="inpRow" onkeyup="formatoNumero(this);">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" id="btnHidden">
+                                                                <div class="form-group col-md-12" id="btnCrear">
+                                                                    <button class="btn btn-primary" onclick="fillValidarDatos()"><i class="fa fa-plus-circle"></i> Crear</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="divInformacion" class="alert alert-danger hidden">
+                                                                <strong>Atencion! </strong><label id="lblInformacion" class="label-control"></label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12" style="overflow-x: auto">
+                                                                    <table id="tblPresupuesto" class="table table-bordered" style="width:100%">
+                                                                        <thead></thead>
+                                                                        <tbody></tbody>
+                                                                    </table>
+                                                                    <div class="pull-right">
+                                                                        <button class="btn btn-default2" onclick="fillValidarTableColumnRow();">Siguiente </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 hidden" id="id-panel-body-2">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <table class="table table-bordered" id="tblCoordenadasPresupuesto">
+                                                                        <thead></thead>
+                                                                        <tbody></tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="pull-right">
+                                                                        <button class="btn btn-default2" onclick="fillPreviusfollowing()"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Atras</button>
+                                                                        <button class="btn btn-default2" onclick="fillGuardarPresupuesto(this);">Guardar&nbsp;&nbsp;<i class="fa fa-save"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
                         </div>
                         <!-- END CONTENT BODY -->
@@ -178,7 +322,8 @@
 
 
             <!-- BEGIN CORE PLUGINS -->
-            <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+            <script src="assets/global/plugins/jQuery/jquery-2.2.3.min.js"></script>
+            <!--<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>-->
             <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
             <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -228,40 +373,16 @@
             <script src="assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
-            <!-- END THEME LAYOUT SCRIPTS -->
-            <!-- Google Code for Universal Analytics -->
-            <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r;
-                    i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                    a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                    a.async = 1;
-                    a.src = g;
-                    m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                ga('create', 'UA-37564768-1', 'auto');
-                ga('send', 'pageview');
-            </script>
-            <!-- End -->
 
-            <!-- Google Tag Manager -->
-            <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
-                              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <script>(function (w, d, s, l, i) {
-                    w[l] = w[l] || [];
-                    w[l].push({'gtm.start':
-                                new Date().getTime(), event: 'gtm.js'});
-                    var f = d.getElementsByTagName(s)[0],
-                            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                    j.async = true;
-                    j.src =
-                            '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-                    f.parentNode.insertBefore(j, f);
-                })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
-            <!-- End -->
+            <script src="js/funciones.js"></script>
+            <script src="js/mod_crear_indicador.js"></script>
+            <script>
+                                                                            $(function () {
+                                                                                buscarVariables();
+                                                                                buscarRiskTier();
+                                                                            });
+            </script>
+            <!-- END THEME LAYOUT SCRIPTS -->
     </body>
 
 

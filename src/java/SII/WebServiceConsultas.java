@@ -10,7 +10,7 @@ import javax.xml.xpath.XPathFactory;
 import org.netbeans.saas.RestResponse;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
-import org.netbeans.saas.root.RootweSii;
+import org.netbeans.saas.root.Rootwe;
 import soporte.DescomponerNombre;
 
 public class WebServiceConsultas {
@@ -55,7 +55,7 @@ public class WebServiceConsultas {
         String pass = "test5678";
         Cliente resp = null;
         try {
-            RestResponse result = RootweSii.getXml(rut + "-" + dv, user, pass);
+            RestResponse result = Rootwe.getXmlSII(rut + "-" + dv, user, pass);
             String xml = result.getDataAsString();
             DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             InputSource is = new InputSource();

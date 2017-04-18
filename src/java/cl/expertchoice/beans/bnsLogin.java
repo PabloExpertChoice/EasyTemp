@@ -7,7 +7,7 @@ package cl.expertchoice.beans;
 
 import SQL.Conexion;
 import cl.expertchoice.clases.Usuario;
-import cl.expertchoice.soporte.ENCR;
+import soporte.ENCR;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

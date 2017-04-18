@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
+import soporte.D;
 
 public class Svl_Variable extends HttpServlet {
 
@@ -24,12 +25,13 @@ public class Svl_Variable extends HttpServlet {
             JSONObject json = new JSONObject();
             switch (accion) {
                 case "listar": {
-                    ArrayList<Variable> arr = new BnVariable().listar();
+                    ArrayList<Variable> arr = new BnVariable().listarATB();
+                    System.out.println(arr.toString());
                     if (arr.size() > 0) {
-                        json.put("estado", 200);
+                        json.put("estado", D.EST_OK);
                         json.put("datos", arr);
                     } else {
-                        json.put("estado", 405);
+                        json.put("estado", D.EST_NORESULTADO);
                         json.put("descripcion", "Sin datos");
                     }
 

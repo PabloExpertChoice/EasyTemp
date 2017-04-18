@@ -2,17 +2,17 @@ package cl.expertchoice.clases;
 
 import com.google.gson.JsonObject;
 
-public class Variable {
+public class TipoAdminRiskTier {
 
     private int id;
     private String nombre;
 
-    public Variable() {
+    public TipoAdminRiskTier() {
     }
 
-    public Variable(int id, String detalle) {
+    public TipoAdminRiskTier(int id, String nombre) {
         this.id = id;
-        this.nombre = detalle;
+        this.nombre = nombre;
     }
 
     public int getId() {
