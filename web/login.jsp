@@ -61,7 +61,8 @@
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="" method="post">
+            <form class="login-form" action="cmd" method="post" onsubmit="login()">
+                <input type="hidden" name="code" value="login">
                 <h3 class="form-title">Iniciar sesi&#243;n   
                     <img src="assets/layouts/layout4/img/logo4.png" alt="logo" class="logo-default" style="margin:0px;margin-top: 10px;height: 60px"/></h3>
                 <div class="alert alert-danger display-hide">
@@ -83,7 +84,13 @@
                 </div>
                 <!--mensaje de error-->
                 <div>
-                    <span style="color: #D8322F;" id="msgLogin"></span>
+                    
+                        <%if (request.getAttribute("valido") == "no") {%>
+                            <span style="color: #D8322F;" id="msgLogin"> 
+                                "!Error de usuario o contraseña¡"
+                            </span>
+                        <% }%> 
+                    
                 </div>
                 <div class="form-actions">
                     <label class="rememberme mt-checkbox mt-checkbox-outline">
@@ -91,7 +98,7 @@
                         <span></span>
                     </label>
                     <!--al hacer clic los datos se envian a clave.js para validar la sesion-->
-                    <button class="btn green pull-right" id="btnEntrar" onclick="return login()">
+                    <button class="btn green pull-right" id="btnEntrar" >
                         Iniciar sesi&#243n <i class="fa fa-sign-in"></i>
                     </button>
                 </div>

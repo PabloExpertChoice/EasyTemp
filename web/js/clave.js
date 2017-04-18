@@ -13,8 +13,9 @@ $(function () {
 //esta funcion comprueba que los campos posean datos y se le envian al servlet svl_login
 function login() {
     $('#msgLogin').html('');
-    var usuario = $('#username').val();
+    var username = $('#username').val();
     var password = $('#password').val();
+    console.log(username,password);
 
     if (usuario.trim().length > 0 && password.trim().length > 0) {
         if (!logeando) {
@@ -27,8 +28,8 @@ function login() {
                 type: 'POST',
                 data: {
                     code: 'login',
-                    'txtUser': usuario,
-                    'txtPass': password
+                    'username': username,
+                    'password': password
                 },
                 beforeSend: function (xhr) {
                     $('#btnEntrar').html('Validando... <i class="fa fa-spinner fa-spin"></i>');
