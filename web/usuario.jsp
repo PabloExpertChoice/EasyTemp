@@ -206,6 +206,11 @@
                     f.parentNode.insertBefore(j, f);
                 })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
             <!-- End -->
+            
+            <!-- Codigo A.M.-->
+            <script src="js/funciones.js"></script>
+            <script src="js/sidebar.js"></script>
+            <script> menuSelected("<%=request.getParameter("code")%>");  </script>
     </body>
 
 

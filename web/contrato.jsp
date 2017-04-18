@@ -545,7 +545,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="portlet box blue">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-database"></i> APPLICANT SCORE
+                                        <i class="fa fa-database"></i> APPLICANT SC
                                     </div>
                                     <div class="tools">
                                         <a href="#" class="collapse" data-original-title="" title=""> </a>
@@ -663,6 +663,12 @@ License: You must have a valid license purchased only from themeforest(the above
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
         <!-- End -->
+        
+        <!-- Codigo A.M.-->
+        <script src="js/funciones.js"></script>
+        <script src="js/sidebar.js"></script>
+        <script> menuSelected("<%=request.getParameter("code")%>");  </script>
+        
     </body>
 
 

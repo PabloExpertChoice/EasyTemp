@@ -8,65 +8,67 @@
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar navbar-collapse collapse">
 
-    <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-        <li class="nav-item start active selected">
-            <a href="index.jsp" class="nav-link ">
+    <ul id="index" class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+        <li class="nav-item ">
+            <a href="javascript:;" class="nav-link " onclick="go('cmd', [{id: 'code', val: 'index'}], undefined, 'cmd');">
                 <i class="icon-home"></i>
                 <span class="title">Inicio</span>
                 <span class="selected"></span>
             </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="risktier" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="risktier.jsp" class="nav-link">
-                <i class="fa fa-reorder"></i> Risk Tier </a>
+            <a href="javascript:;" class="nav-link" onclick="go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd');"> 
+                <i class="fa fa-reorder"></i> 
+                <span class="title">Risk Tier </span>
+            </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="answer" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="answer.jsp" class="nav-link ">
+            <a href="javascript:;" class="nav-link " onclick="go('cmd', [{id: 'code', val: 'answer'}], undefined, 'cmd');">
                 <i class="fa fa-align-justify"></i>
                 <span class="title">Answer Tree Business</span>
             </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="contrato"  class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="contrato.jsp" class="nav-link ">
+            <a href="javascript:;" class="nav-link " onclick="go('cmd', [{id: 'code', val: 'contrato'}], undefined, 'cmd');">
                 <i class="fa fa-file-text"></i>
                 <span class="title">Contrato</span>
             </a>
         </li>
     </ul>
     
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="mis" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="mis.jsp" class="nav-link">
+            <a href="javascript:;" class="nav-link" onclick="go('cmd', [{id: 'code', val: 'mis'}], undefined, 'cmd');">
                 <i class="icon-bar-chart"></i> MIS Riesgo de Cr&#233;dito </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="estadisticas" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="estadisticas.jsp" class="nav-link">
+            <a href="javascript:;" class="nav-link" onclick="go('cmd', [{id: 'code', val: 'estadisticas'}], undefined, 'cmd');">
                 <i class="fa fa-bar-chart"></i> Estad&#237;sticas de uso </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="usuario" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="usuario.jsp" class="nav-link">
+            <a href="javascript:;" class="nav-link" onclick="go('cmd', [{id: 'code', val: 'usuario'}], undefined, 'cmd');">
                 <i class="fa fa-users"></i> Usuarios </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="perfil" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="perfil.jsp" class="nav-link">
+            <a href="javascript:;" class="nav-link" onclick="go('cmd', [{id: 'code', val: 'perfil'}], undefined, 'cmd');">
                 <i class="fa fa-user-plus"></i> Perfiles </a>
         </li>
     </ul>
-    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <ul id="configuracion" class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="javascript:;" class="nav-link" onclick="go('cmd', [{id: 'code', val: 'configuracion'}], undefined, 'cmd');">
                 <i class="fa fa-wrench"></i> Configuraci&#243;n </a>
         </li>
     </ul>

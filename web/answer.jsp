@@ -241,6 +241,10 @@
         <script src="js/messages_es.min.js"></script>
         <script src="js/number_format.js"></script>
         <script src="dist/js/demo.js"></script>-->
+
+        <!-- Codigo A.M.-->
+        <script src="js/sidebar.js"></script>
+        <script> menuSelected("<%=request.getParameter("code")%>");  </script>
     </body>
 
 

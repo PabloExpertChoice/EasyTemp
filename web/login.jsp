@@ -61,7 +61,7 @@
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="" method="post">
+            <form class="login-form" action="login.jsp" method="post">
                 <h3 class="form-title">Iniciar sesi&#243;n   
                     <img src="assets/layouts/layout4/img/logo4.png" alt="logo" class="logo-default" style="margin:0px;margin-top: 10px;height: 60px"/></h3>
                 <div class="alert alert-danger display-hide">

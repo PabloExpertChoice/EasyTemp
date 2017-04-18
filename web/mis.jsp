@@ -340,6 +340,13 @@
                         '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
+        
+        
+        <!-- Codigo A.M.-->
+        <script src="js/funciones.js"></script>
+        <script src="js/sidebar.js"></script>
+        <script> menuSelected("<%=request.getParameter("code")%>");  </script>
+            
         <!-- End -->
     </body>
 

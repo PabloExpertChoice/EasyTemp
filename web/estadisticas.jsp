@@ -215,6 +215,12 @@
         <script src="https://code.highcharts.com/highcharts-more.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="js/graficos_estadisticas.js" type="text/javascript"></script>
+        
+        <!-- Codigo A.M.-->
+        <script src="js/funciones.js"></script>
+        <script src="js/sidebar.js"></script>
+        <script> menuSelected("<%=request.getParameter("code")%>");  </script>
+            
     </body>
 
 

@@ -108,7 +108,7 @@
                                                         <input type="text" name="rut" id="txtRut" class="form-control" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-1 right">
+                                                <div class="col-md-1 col-xs-1 right">
                                                     <div class="input-icon right">
                                                         <!--<input type="text" class="form-control" id="txtDv">-->
                                                         <input type="text" name="dv" id="txtDv" style="padding: 0px;width: 40px; text-align: center;" class="form-control"  size="1" maxlength="1" disabled="">
@@ -269,6 +269,10 @@
                                             }
                                         }
             </script>
+            
+            <!-- Codigo A.M.-->
+            <script src="js/sidebar.js"></script>
+            <script> menuSelected("<%=request.getParameter("code")%>");  </script>
     </body>
 
 
