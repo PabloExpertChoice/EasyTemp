@@ -269,6 +269,10 @@
                                             }
                                         }
             </script>
+            
+            <!-- Codigo A.M.-->
+            <script src="js/sidebar.js"></script>
+            <script> menuSelected("<%=request.getParameter("code")%>");  </script>
     </body>
 
 

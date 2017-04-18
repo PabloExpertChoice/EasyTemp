@@ -42,7 +42,7 @@
         <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="shortcut icon" href="favicon.ico" />         
     </head>
     <!-- END HEAD -->
 
@@ -83,7 +83,7 @@
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
-                                <a href="index.jsp">Inicio</a>
+                               <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'index'}], undefined, 'cmd');">Inicio</a>
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
@@ -211,9 +211,14 @@
         <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+        <script src="js/funciones.js"></script>
+        <!-- End -->
+        
+        <!-- Codigo A.M.-->
+        <script src="js/sidebar.js"></script>
+        <script> menuSelected("<%=request.getParameter("code")%>");  </script>
+            
     </body>
-
-
-
+    
     <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:44:48 GMT -->
 </html>

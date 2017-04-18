@@ -23,10 +23,46 @@ public class cmd extends HttpServlet {
         if (usu_session != null) {
             System.out.println(request.getParameter("code"));
             if (request.getParameter("code") != null) {
-                String in_code = request.getParameter("code");
+                String in_code = request.getParameter("code");                               
                 switch (in_code) {
                     case "inicio": {
                         toPage("/index.jsp", request, response);
+                        break;
+                    }
+                    case "index": {
+                        toPage("/index.jsp", request, response);
+                        break;
+                    }
+                    case "risktier": {
+                        toPage("/risktier.jsp", request, response);
+                        break;
+                    }
+                    case "answer": {
+                        toPage("/answer.jsp", request, response);
+                        break;
+                    }
+                    case "contrato": {
+                        toPage("/contrato.jsp", request, response);
+                        break;
+                    }
+                    case "mis": {
+                        toPage("/mis.jsp", request, response);
+                        break;
+                    }
+                    case "estadisticas": {
+                        toPage("/estadisticas.jsp", request, response);
+                        break;
+                    }
+                    case "usuario": {
+                        toPage("/usuario.jsp", request, response);
+                        break;
+                    }
+                    case "perfil": {
+                        toPage("/perfil.jsp", request, response);
+                        break;
+                    }                    
+                    case "configuracion": {
+                        toPage("/configuracion.jsp", request, response);
                         break;
                     }
                     default: {
@@ -36,6 +72,7 @@ public class cmd extends HttpServlet {
                 }
             } else {
                 toPage("/index.jsp", request, response);
+                
             }
         } else {
             toPage("/login.jsp", request, response);
@@ -97,5 +134,7 @@ public class cmd extends HttpServlet {
             ioe.printStackTrace(System.err);
         }
     }
+    
+    
 
 }

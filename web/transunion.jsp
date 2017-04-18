@@ -1510,6 +1510,8 @@
                                             var datos = <%= datos%>;
                                             go('Svl_Informacion', [{id: 'code', val: 'home'}, {id: 'obDatos', val: JSON.stringify(datos)}], undefined, 'Svl_Informacion');
                                         }
-        </script>  
+            </script>  
+            
+                        
     </body>
 </html>
