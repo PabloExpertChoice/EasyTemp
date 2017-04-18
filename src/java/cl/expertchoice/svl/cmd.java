@@ -5,19 +5,28 @@
  */
 package cl.expertchoice.svl;
 
+import cl.expertchoice.beans.bnsLogin;
 import cl.expertchoice.clases.Usuario;
 import java.io.IOException;
+import static java.lang.System.out;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 @WebServlet(name = "cmd", urlPatterns = {"/cmd"})
 public class cmd extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         Usuario usu_session = (Usuario) request.getSession().getAttribute("sesion");
         if (usu_session != null) {
@@ -75,7 +84,52 @@ public class cmd extends HttpServlet {
                 
             }
         } else {
-            toPage("/login.jsp", request, response);
+            HttpSession session = request.getSession();
+            System.out.println(session);
+            if (session != null) {
+                if (request.getParameter("code") != null) {
+                    String code = request.getParameter("code");
+                    switch (code) {
+                        case "login": {
+                            String user = request.getParameter("username");
+                            String clave = request.getParameter("password");
+                            bnsLogin bsn = new bnsLogin();
+                            Usuario usuario;
+                            usuario = bsn.iniciarSesion(user, clave);
+                            JSONObject json = new JSONObject();
+
+                            try {
+                                if (usuario != null) {
+                                    session.setAttribute("sesion", usuario);
+                                    json.put("estado", "200");
+                                    System.out.println("Paso");
+                                    toPage("/index.jsp", request, response);
+
+                                } else {
+                                    request.setAttribute("valido","no");
+                                    toPage("/login.jsp", request, response);
+                                }
+                            } catch (JSONException ex) {
+                                Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            out.print(json);
+                            break;
+                        }
+                        case "logout": {
+                            session.invalidate();
+                            toPage("/login.jsp", request, response);
+                            break;
+                        }
+                    }
+                }else{
+                    toPage("/login.jsp", request, response);
+                }
+
+            } else {
+                toPage("/login.jsp", request, response);
+            }
+
         }
     }
 
@@ -91,7 +145,11 @@ public class cmd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(cmd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -105,7 +163,11 @@ public class cmd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(cmd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

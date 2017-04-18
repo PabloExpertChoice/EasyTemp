@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,8 +47,8 @@ public class slv_login extends HttpServlet {
             try {
                 switch (code) {
                     case "login": {
-                        String user = request.getParameter("txtUser");
-                        String clave = request.getParameter("txtPass");
+                        String user = request.getParameter("username");
+                        String clave = request.getParameter("password");
                         bnsLogin bsn = new bnsLogin();
                         Usuario usuario;
                         usuario = bsn.iniciarSesion(user, clave);
@@ -57,6 +58,9 @@ public class slv_login extends HttpServlet {
                             if (usuario != null) {
                                 session.setAttribute("sesion", usuario);
                                 json.put("estado", "200");
+                                System.out.println("Paso");
+                                RequestDispatcher d = request.getRequestDispatcher("cmd");
+                                d.forward(request, response);
 
                             } else {
                                 json.put("estado", "405");
@@ -93,6 +97,7 @@ public class slv_login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
     }
 
     /**
