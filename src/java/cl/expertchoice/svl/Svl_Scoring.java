@@ -8,6 +8,7 @@ package cl.expertchoice.svl;
 import HtmlUnit.HtmlUnit_pjud2;
 import cl.expertchoice.beans.BnScore;
 import cl.expertchoice.clases.ConsultaScore;
+import cl.expertchoice.metodo.Metodos;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -34,7 +35,7 @@ public class Svl_Scoring extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            String accion = request.getParameter("accion");
+            String accion = request.getParameter("accion");            
             JsonObject json = new JsonObject();
             switch (accion) {
                 case "scoring": {
@@ -55,6 +56,21 @@ public class Svl_Scoring extends HttpServlet {
                     json.addProperty("estado", 200);
                     json.add("datos", jsonCalculos);
                     response.getWriter().print(json);
+                    break;                
+                }
+                //Codigo A.M:
+                case "ObtenerScore": {
+                    
+                    int score = Integer.parseInt(request.getParameter("score"));
+                    JsonObject jsonCalculos = new JsonObject();
+                    Metodos metodo = new Metodos();
+                    String scoreText = metodo.ObtenerScore(score);
+                    
+                    jsonCalculos.addProperty("scoreText", scoreText);                    
+                    json.addProperty("estado", 200);
+                    json.add("datos", jsonCalculos);
+                    response.getWriter().print(json);
+                    
                     break;
                 }
             }

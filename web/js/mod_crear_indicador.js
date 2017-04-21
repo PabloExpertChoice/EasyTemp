@@ -66,7 +66,7 @@ function fillPreviusfollowing() {
     $('#id-panel-body-1').removeClass('hidden');
 }
 
-function fillValidarTableColumnRow() {
+function fillValidarTableColumnRow() { 
     guardarConfiguracion();
     var flag = false;
     if ($('#tblPresupuesto').find('tbody').find('tr').length == 0) {

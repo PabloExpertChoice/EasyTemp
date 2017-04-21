@@ -69,9 +69,9 @@
                             <!-- BEGIN PAGE TOOLBAR -->
                             <div class="page-toolbar" style="font-size: 13px;">
                                 <!-- BEGIN THEME PANEL -->
-                                <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd');"><i class="fa fa-home"> Home</i>  </a>
                                 <i class="fa fa-angle-left"></i>
-                                <a href="risktier_config.jsp"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier_config'}], undefined, 'cmd');"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
                                 <i class="fa fa-angle-left"></i>
                                 <i class="fa fa-reorder" style="color: #69788c;"> Tree</i>
                                 <!-- END THEME PANEL -->
@@ -83,11 +83,11 @@
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
-                                <a href="index.jsp">Inicio</a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'index'}], undefined, 'cmd');">Inicio</a>
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                <a href="risktier.jsp">Administracion Risk Tier</a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd');">Administracion Risk Tier</a>
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
@@ -218,6 +218,11 @@
                     f.parentNode.insertBefore(j, f);
                 })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
             <!-- End -->
+            
+            <!-- Codigo A.M.-->
+            <script src="js/funciones.js"></script>
+            <script src="js/sidebar.js"></script>
+            <script> menuSelected("<%=request.getParameter("code")%>");  </script>
     </body>
 
 

@@ -71,9 +71,9 @@
                                 <!-- BEGIN THEME PANEL -->
                                 <i class="fa fa-home" style="color: #69788c;"> Home</i> 
                                 <i class="fa fa-angle-left"></i>
-                                <a href="risktier_config.jsp"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier_config'}], undefined, 'cmd');"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
                                 <i class="fa fa-angle-left"></i>
-                                <a href="risktier_tree.jsp"><i class="fa fa-reorder"> Tree</i>  </a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier_tree'}], undefined, 'cmd');"><i class="fa fa-reorder"> Tree</i>  </a>
                                 <!-- END THEME PANEL -->
                             </div>
                             <!-- END PAGE TOOLBAR -->
