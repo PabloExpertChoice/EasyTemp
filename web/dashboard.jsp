@@ -129,7 +129,7 @@
                                 <div class="details">
                                     <div class="number">
                                         <span data-counter="counterup" data-value="12,5">12,5</span>M$ </div>
-                                    <div class="desc"> Estimacion de Activos </div>
+                                    <div class="desc"> Estimaci&oacute;n de Activos </div>
                                 </div>
                             </a>
                         </div>
