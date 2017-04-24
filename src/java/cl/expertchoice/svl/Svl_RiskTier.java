@@ -73,7 +73,7 @@ public class Svl_RiskTier extends HttpServlet {
                 case "listar-riskindicator": {
 //                    ArrayList<TablaRiskIndicator> arr = new BnTablaRiskIndicator().listar2();
 //                    ArrayList<ValorTablaCore> vtc = new BnValorTablaCore().listar();
-                    ArrayList<TablaRiskIndicator> arr = null;
+                     ArrayList<TablaRiskIndicator> arr = null;
                     ArrayList<ValorTablaCore> vtc = null;
                     if (arr != null) {
                         json.addProperty("estado", D.EST_OK);
