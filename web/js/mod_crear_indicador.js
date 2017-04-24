@@ -10,7 +10,7 @@ function fillCoordenadasPresupuesto(table) {
     $(table).find('thead').empty();
     var column = $('#inpColumn').val();
     var columna = $('<tr>');
-    $(columna).append('<td></td>');
+    $(columna).append('<td style="max-width: 20px; min-width: 10px;"><span style="color:blue;">'+obConfig.variableY.nombre+'</span><b> / </b>'+obConfig.variableX.nombre+'</td>');
     $('#tblPresupuesto tbody tr').each(function () {
         var column_id = $(this).find('td').eq(0).find('input').attr('id');
         var row_id = $(this).find('td').eq(1).find('input').attr('id');
@@ -66,7 +66,7 @@ function fillPreviusfollowing() {
     $('#id-panel-body-1').removeClass('hidden');
 }
 
-function fillValidarTableColumnRow() {
+function fillValidarTableColumnRow() { 
     guardarConfiguracion();
     var flag = false;
     if ($('#tblPresupuesto').find('tbody').find('tr').length == 0) {
@@ -186,10 +186,10 @@ function buscarVariables() {
         data: {
             accion: 'listar'
         }, success: function (data, textStatus, jqXHR) {
-            if (data.estado === 200) {
-                for (var i in data.datos) {
-                    $('#cmboxEjeX').append('<option value="' + data.datos[i].id + '">' + data.datos[i].nombre + '</option>');
-                    $('#cmboxEjeY').append('<option value="' + data.datos[i].id + '">' + data.datos[i].nombre + '</option>');
+            if (data.estado === 200) {                
+                for (var i in data.datos) {   
+                    $('#cmboxEjeX').append('<option value="' + data.datos[i].id + '">' + data.datos[i].variable + '</option>');                   
+                    $('#cmboxEjeY').append('<option value="' + data.datos[i].id + '">' + data.datos[i].variable + '</option>');
                 }
             }
         }
@@ -245,6 +245,7 @@ function buscarRiskTier() {
             accion: 'listar'
         }, success: function (data, textStatus, jqXHR) {
             if (data.estado === 200) {
+                console.log(data);
                 RISKTIER = data.datos;
             }
 
@@ -375,6 +376,7 @@ function guardarRiskTier(button) {
     var htmlBtn = $(button).html();
     $(button).html('Guardando... <i class="fa fa-spinner fa-spin"></i>');
     $(button).parent().find('button').prop('disabled', true);
+    console.log("paso por: guardarRiskTier");
     $.ajax({
         url: 'Svl_RiskTier',
         type: 'POST',

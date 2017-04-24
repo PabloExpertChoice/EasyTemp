@@ -46,6 +46,14 @@ public class cmd extends HttpServlet {
                         toPage("/risktier.jsp", request, response);
                         break;
                     }
+                    case "risktier_config": {
+                        toPage("/risktier_config.jsp", request, response);
+                        break;
+                    }
+                    case "risktier_tree": {
+                        toPage("/risktier_tree.jsp", request, response);
+                        break;
+                    }
                     case "answer": {
                         toPage("/answer.jsp", request, response);
                         break;

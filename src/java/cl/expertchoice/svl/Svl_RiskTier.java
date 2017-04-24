@@ -5,6 +5,7 @@
  */
 package cl.expertchoice.svl;
 
+import cl.expertchoice.beans.BnRiskTier;
 import cl.expertchoice.clases.AdminRiskTier;
 import cl.expertchoice.clases.RiskTier;
 import cl.expertchoice.clases.TablaRiskIndicator;
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +24,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import cl.expertchoice.beans.BnTablaRiskIndicator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +47,7 @@ public class Svl_RiskTier extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String accion = request.getParameter("accion");
@@ -52,8 +55,8 @@ public class Svl_RiskTier extends HttpServlet {
 
             switch (accion) {
                 case "listar": {
-//                    ArrayList<RiskTier> arr = new BnRiskTier().listar();
-                    ArrayList<RiskTier> arr = null;
+                    ArrayList<RiskTier> arr = new BnRiskTier().listar();
+                    //ArrayList<RiskTier> arr = null;
 
                     if (arr != null) {
                         json.addProperty("estado", D.EST_OK);
@@ -98,15 +101,16 @@ public class Svl_RiskTier extends HttpServlet {
                     JSONArray jsonClasificacion = jsonRiskTier.getJSONArray("datos");
                     TablaRiskIndicator riskIndicator = new TablaRiskIndicator(BigInteger.ZERO, new Variable(idOrigenX, null), new Variable(idOrigenY, null), numFilas, numCols);
                     json = new JsonObject();
-//                    if (new BnTablaRiskIndicator().guardarRiskInidcator(riskIndicator, origenX, origenY, jsonClasificacion, idTipoRiskTier)) {
-//                        json.addProperty("estado", D.EST_OK);
-//                        json.add("datos", new JsonObject());
-//                    } else {
-//                        json.addProperty("estado", D.EST_NORESULTADO);
-//                        json.addProperty("descripcion", "Error al guardar Risk Tier");
-//                    }
+                    if (new BnTablaRiskIndicator().guardarRiskInidcator(riskIndicator, origenX, origenY, jsonClasificacion, idTipoRiskTier)) {
+                        json.addProperty("estado", D.EST_OK);
+                        json.add("datos", new JsonObject());
+                    } else {
+                        json.addProperty("estado", D.EST_NORESULTADO);
+                        json.addProperty("descripcion", "Error al guardar Risk Tier");
+                    }
                     response.getWriter().print(json);
                     break;
+                    
                 }
 
                 case "listar-admin-risktier": {
@@ -141,7 +145,11 @@ public class Svl_RiskTier extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Svl_RiskTier.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -155,7 +163,11 @@ public class Svl_RiskTier extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Svl_RiskTier.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -100,7 +100,7 @@ function fillValidarTableColumnRow() {
         return false;
     }
     $('#tblPresupuesto tbody tr').each(function () {
-        if ($(this).find('td').eq(0).find('input').attr('id') != undefined) {
+        if ($(this).find('td').eq(0).find('input').attr('id') != undefined) {              
             var column_id = $(this).find('td').eq(0).find('input').attr('id');
             var row_id = $(this).find('td').eq(1).find('input').attr('id');
             if ($('#' + column_id).val().trim().length == 0 || $('#' + row_id).val() == 0) {

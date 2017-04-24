@@ -68,11 +68,11 @@
                             <!-- BEGIN PAGE TOOLBAR -->
                             <div class="page-toolbar" style="font-size: 13px;">
                                 <!-- BEGIN THEME PANEL -->
-                                <a href="risktier.jsp"><i class="fa fa-home"> Home</i> </a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd');"><i class="fa fa-home"> Home</i>  </a>
                                 <i class="fa fa-angle-left"></i>
                                 <i class="fa fa-cogs" style="color: #69788c;"> Configuraci&#243;n</i>
                                 <i class="fa fa-angle-left"></i>
-                                <a href="risktier_tree.jsp"><i class="fa fa-reorder"> Tree</i></a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier_tree'}], undefined, 'cmd');"><i class="fa fa-reorder"> Tree</i>  </a>
                                 <!-- END THEME PANEL -->
                             </div>
                             <!-- END PAGE TOOLBAR -->
@@ -82,11 +82,11 @@
                         <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
-                                <a href="index.jsp">Inicio</a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'index'}], undefined, 'cmd');">Inicio</a>
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
-                                <a href="risktier.jsp">Administracion Risk Tier</a>
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd');">Administracion Risk Tier</a>
                             </li>
                             <i class="fa fa-circle"></i>
                             <li>
@@ -153,16 +153,6 @@
                                                             </div>
                                                         </div>
 
-
-                                                        <div class="row" id="btnHidden">
-                                                            <div class="form-group col-md-12" id="btnCrear">
-                                                                <button class="btn btn-primary" onclick="fillValidarDatos()"><i class="fa fa-plus-circle"></i> Crear</button>
-                                                                <button class="btn btn-primary mt-ladda-btn ladda-button btn-circle" data-style="expand-down">
-                                                                        <i class="fa fa-plus-square"></i> Crear</button>
-                                                            </div>
-                                                        </div>
-
-
                                                         <div id="divInformacion" class="alert alert-danger hidden">
                                                             <strong>Atencion! </strong><label id="lblInformacion" class="label-control"></label>
                                                         </div>
@@ -197,18 +187,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-info mt-ladda-btn ladda-button btn-circle" data-style="expand-down">
-                                                        <span class="ladda-label">
-                                                            <i class="fa fa-plus-square"> </i> Crear</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="pull-right">
-                                                <button type="button" class="btn blue mt-ladda-btn ladda-button btn-outline" data-style="slide-up" data-spinner-color="#333">
-                                                    <span class="ladda-label">
-                                                        <i class="icon-arrow-right"></i> Siguiente </span>
-                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -216,96 +194,7 @@
 
 
 
-                                <section class="content">
-                                    <div class="row">
-                                        <div class="col-md-12 connectedSortable">
-                                            <div class="box box-primary">
-                                                <div class="box-header with-border">
-                                                    <h3 class="box-title">APPLICANT SCORE</h3>
-                                                    <div class="box-tools pull-right">
-                                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                                    </div>
-                                                </div>
-                                                <div class="box-body">
-                                                    <div class="row">
-                                                        <div class="form-group col-md-3">
-                                                            <label class="label-control">Tipo</label>
-                                                            <select class="form-control" id="cmboxTipoRiskTier">
-                                                                <option value="1">Natural</option>
-                                                                <option value="2">Jurídico</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12" id="id-panel-body-1">
-                                                            <div class="row">
-                                                                <div class="form-group col-md-3">
-                                                                    <label class="label-control">Variable Eje X</label>
-                                                                    <select class="form-control" id="cmboxEjeX">
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group col-md-3">
-                                                                    <label class="label-control">Nº de columnas</label>
-                                                                    <input class="form-control" id="inpColumn" onkeyup="formatoNumero(this);">
-                                                                </div>
-                                                            </div> 
-                                                            <div class="row">
-                                                                <div class="form-group col-md-3">
-                                                                    <label class="label-control">Variable Eje Y</label>
-                                                                    <!--<input placeholder="elegir numero" type="number" min="0" max="20" class="form-control cmboxNumber" id="cmboxEjeY-2" >-->
-                                                                    <select class="form-control" id="cmboxEjeY">
 
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group col-md-3">
-                                                                    <label class="label-control">Nº de filas</label>
-                                                                    <input class="form-control"  id="inpRow" onkeyup="formatoNumero(this);">
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" id="btnHidden">
-                                                                <div class="form-group col-md-12" id="btnCrear">
-                                                                    <button class="btn btn-primary" onclick="fillValidarDatos()"><i class="fa fa-plus-circle"></i> Crear</button>
-                                                                </div>
-                                                            </div>
-                                                            <div id="divInformacion" class="alert alert-danger hidden">
-                                                                <strong>Atencion! </strong><label id="lblInformacion" class="label-control"></label>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-12" style="overflow-x: auto">
-                                                                    <table id="tblPresupuesto" class="table table-bordered" style="width:100%">
-                                                                        <thead></thead>
-                                                                        <tbody></tbody>
-                                                                    </table>
-                                                                    <div class="pull-right">
-                                                                        <button class="btn btn-default2" onclick="fillValidarTableColumnRow();">Siguiente </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 hidden" id="id-panel-body-2">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <table class="table table-bordered" id="tblCoordenadasPresupuesto">
-                                                                        <thead></thead>
-                                                                        <tbody></tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="pull-right">
-                                                                        <button class="btn btn-default2" onclick="fillPreviusfollowing()"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Atras</button>
-                                                                        <button class="btn btn-default2" onclick="fillGuardarPresupuesto(this);">Guardar&nbsp;&nbsp;<i class="fa fa-save"></i></button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
                             </div>
                         </div>
                         <!-- END CONTENT BODY -->
@@ -375,14 +264,18 @@
             <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 
             <script src="js/funciones.js"></script>
+            <script src="js/number_format.js"></script>
             <script src="js/mod_crear_indicador.js"></script>
             <script>
-                                                                            $(function () {
-                                                                                buscarVariables();
-                                                                                buscarRiskTier();
-                                                                            });
+                    $(function () {
+                        buscarVariables();
+                        buscarRiskTier();
+                    });
             </script>
             <!-- END THEME LAYOUT SCRIPTS -->
+            <!-- Codigo A.M.-->
+            <script src="js/sidebar.js"></script>
+            <script> menuSelected("<%=request.getParameter("code")%>");  </script>
     </body>
 
 

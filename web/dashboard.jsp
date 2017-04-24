@@ -200,12 +200,17 @@
                                         <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
                                     </div>
                                 </div>
-                                <div class="portlet-body">
+                                <div class="portlet-body"> 
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                                            <font size=2 style="color: #6980a5;">
-                                            <p>DATOS: Cliente con una probabilidad de pago dentro de los próximos 90 días mayor al 80% con un KS > 40%, AUC > 70% y ROC > 75%</p>
-                                            <p>NOTA Este estimador o clasificador cumple con la Ley Nº 20.521 (que modifica la ley Nº 19.628), el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>
+                                            <font size=2 style="color: #6980a5;">                                                                                             
+                                            <p style="text-align: justify; font-size: 13px;  color: #777;">DATOS: <span id="scoreToRut" >null</span> con un 
+                                                <a href="javascript:;"  id="ksDescripcion"> KS </a> > 40%, 
+                                                <a href="javascript:;"  id="aucDescripcion"> AUC </a> > 70% y 
+                                                <a href="javascript:;" id="rocDescripcion"> ROC </a> > 75%
+                                            </p>
+                                            <p style="text-align: justify; font-size: 13px;  color: #777;">NOTA Este estimador o clasificador cumple con la Ley 
+                                                <a href="javascript:;"  id="Ley20521Descripcion"> Nº 20.521 </a></p>
                                             </font>
                                         </div>
                                         <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
@@ -214,7 +219,7 @@
 
                                     </div>
                                 </div>
-                                <!--fin grafico de score-->
+                                <!-- fin grafico de score-->
                                 <!--                                <div class="portlet-title">
                                                                     <div class="caption">
                                                                         <i class="icon-cursor font-dark hide"></i>
@@ -722,105 +727,153 @@
             <script src="js/dashboard.js"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
             <script>
-                            rut = '<%= datos.get("rut").toString()%>';
-                            dv = '<%= datos.get("dv").toString()%>';
-                            function goTransunion() {
-                                var datos = <%= datos%>;
-                                go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
-                            }
-        </script>
-        <script>
-            $(function () {
-                $('#menuBarRut').show();
-                $('#menuBarPrint').show();
-                $('#menuBarCampana').show();
-                $('#menuBarFlag').show();
+                rut = '<%= datos.get("rut").toString()%>';
+                dv = '<%= datos.get("dv").toString()%>';
+                function goTransunion() {
+                    var datos = <%= datos%>;
+                    go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
+                }
+            </script>
+            <script>
+                $(function () {
+                    $('#menuBarRut').show();
+                    $('#menuBarPrint').show();
+                    $('#menuBarCampana').show();
+                    $('#menuBarFlag').show();
 
 
-            <%
-                String nom_completo = datos.get("nombre").toString();
-                String[] arrNom_completo = nom_completo.split(" ");
-                String nom = arrNom_completo[0] + " " + arrNom_completo[1];
-                String apellPat = arrNom_completo[2];
-                String apellMat = arrNom_completo[3];
-            %>;
-                nomCompleto = '<%= nom_completo%>';
-                nombre = '<%= nom%>';
-                apePaterno = '<%= apellPat%>';
-                apeMaterno = '<%= apellMat%>';
+                <%
+                    String nom_completo = datos.get("nombre").toString();
+                    String[] arrNom_completo = nom_completo.split(" ");
+                    String nom = arrNom_completo[0] + " " + arrNom_completo[1];
+                    String apellPat = arrNom_completo[2];
+                    String apellMat = arrNom_completo[3];
+                %>;
+                    nomCompleto = '<%= nom_completo%>';
+                    nombre = '<%= nom%>';
+                    apePaterno = '<%= apellPat%>';
+                    apeMaterno = '<%= apellMat%>';
 
-                $('#razonSocial').html(': ' + (nombre + " " + apePaterno + " " + apeMaterno));
-                $('#rut').html(': ' + rut + "-" + dv);
-//                $('#rut').html(': ' + number_format(rut, 0, ',', '.') + '-' + dv);
+                    $('#razonSocial').html(': ' + (nombre + " " + apePaterno + " " + apeMaterno));
+                    $('#rut').html(': ' + rut + "-" + dv);
+    //                $('#rut').html(': ' + number_format(rut, 0, ',', '.') + '-' + dv);
 
 
-                getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
-                buscarDatosOfac(nombre, apePaterno, apeMaterno);
-                getScore(rut, dv);
-                buscarActividadComercial(rut, dv);
-                cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
-                validarQuiebra(rut, dv);
+                    getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
+                    buscarDatosOfac(nombre, apePaterno, apeMaterno);
+                    getScore(rut, dv);
+                    buscarActividadComercial(rut, dv);
+                    cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
+                    validarQuiebra(rut, dv);
 
-                $("#tblResultadosOfac").DataTable({
-                    language: {
-                        url: 'json/Spanish.json'
-                    },
-                    "aoColumns": [
-                        {"mData": "nombre"},
-                        {"mData": "direccion"},
-                        {"mData": "tipo"},
-                        {"mData": "programa"},
-                        {"mData": "lista"},
-                        {"mData": "score"},
-//                                            {"mData": "",
-//                                                "mRender": function (data, type, full) {
-//                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
-//                                                }
-//                                            }
-                    ]
-                });
-
-                $("#tblActComercial").DataTable({
-                    language: {
-                        url: 'json/Spanish.json'
-                    },
-                    "aoColumns": [
-                        {"mData": "actividad"},
-                        {"mData": "codigo"},
-                        {"mData": "categoria"},
-                        {"mData": "AfctaIVA"}
-                    ]
-                });
-
-                tblPjud = $("#tblPJUD").DataTable({
-                    language: {
-                        url: 'json/Spanish.json'
-                    },
-                    "aoColumns": [
-                        {
-                            "className": 'details-control',
-                            "orderable": false,
-                            "data": null,
-                            "defaultContent": ''
+                    $("#tblResultadosOfac").DataTable({
+                        language: {
+                            url: 'json/Spanish.json'
                         },
-                        {"mData": "",
-                            "mRender": function (data, type, full) {
-                                if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
-                                    return '<i class="fa fa-file-o"></i>';
-                                } else {
-                                    return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
+                        "aoColumns": [
+                            {"mData": "nombre"},
+                            {"mData": "direccion"},
+                            {"mData": "tipo"},
+                            {"mData": "programa"},
+                            {"mData": "lista"},
+                            {"mData": "score"},
+    //                                            {"mData": "",
+    //                                                "mRender": function (data, type, full) {
+    //                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
+    //                                                }
+    //                                            }
+                        ]
+                    });
+
+                    $("#tblActComercial").DataTable({
+                        language: {
+                            url: 'json/Spanish.json'
+                        },
+                        "aoColumns": [
+                            {"mData": "actividad"},
+                            {"mData": "codigo"},
+                            {"mData": "categoria"},
+                            {"mData": "AfctaIVA"}
+                        ]
+                    });
+
+                    tblPjud = $("#tblPJUD").DataTable({
+                        language: {
+                            url: 'json/Spanish.json'
+                        },
+                        "aoColumns": [
+                            {
+                                "className": 'details-control',
+                                "orderable": false,
+                                "data": null,
+                                "defaultContent": ''
+                            },
+                            {"mData": "",
+                                "mRender": function (data, type, full) {
+                                    if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
+                                        return '<i class="fa fa-file-o"></i>';
+                                    } else {
+                                        return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
+                                    }
                                 }
-                            }
-                        },
-                        {"mData": "rol"},
-                        {"mData": "fecha"},
-                        {"mData": "caratulado"},
-                        {"mData": "tribunal.nombre"}
-                    ]
+                            },
+                            {"mData": "rol"},
+                            {"mData": "fecha"},
+                            {"mData": "caratulado"},
+                            {"mData": "tribunal.nombre"}
+                        ]
+                    });
+    //                reglasAtb();
                 });
-//                reglasAtb();
-            });
-        </script>
+            </script>
+            <script> 
+                $(document).ready(function() {
+                      var rut = '<%= datos.get("rut").toString()%>';
+                      var dv  = '<%= datos.get("dv").toString()%>';
+                      var scoreRut = 0;
+                      scoreRut = parseInt( getScoreValue(rut, dv) );
+                      console.log(scoreRut);
+                      $.ajax({
+                          url:'Svl_Scoring',
+                          dataType: 'json',
+                          type: 'POST',
+                          data:{accion: 'ObtenerScore','score' : scoreRut },
+                          success: function(data){ 
+                                $('#scoreToRut').text(data.datos.scoreText);
+                                console.log(JSON.stringify(data));
+                            }
+                      });
+                });
+                
+                //popover:
+                $(function () {
+                    $('#ksDescripcion').popover({
+                        title: 'Prueba KS',
+                        content: '<p style="text-align: justify; color:gray;">La prueba de Kolmogórov-Smirnov (también prueba K-S) es una prueba no paramétrica que determina la bondad de ajuste de dos distribuciones de probabilidad entre sí.</p> <p> <a href="https://es.wikipedia.org/wiki/Prueba_de_Kolmog%C3%B3rov-Smirnov" target="_blank">leer mas</a></p>',
+                        placement: 'bottom',
+                        html : true
+                    });
+                    $('#aucDescripcion').popover({
+                        title: 'Curva AUC',
+                        content: '<p style="text-align: justify; color:gray;">Es el área bajo la curva ROC, llamada comúnmente AUC (Área Bajo la Curva). También se puede encontrar denominada A\' ("a-prima"), o el estadístico "c" (c-statistic).</p> <p> <a href="https://es.wikipedia.org/wiki/Curva_ROC#C.C3.B3mo_se_puede_interpretar_una_curva_ROC" target="_blank">leer mas</a></p>',
+                        placement: 'bottom',
+                        html : true
+                    });
+                    $('#rocDescripcion').popover({
+                        title: 'Curva ROC',
+                        content: '<p style="text-align: justify; color:gray;">Es una representación gráfica de la sensibilidad frente a la especificidad para un sistema clasificador binario según se varía el umbral de discriminación.</p><p> <a href="https://es.wikipedia.org/wiki/Curva_ROC\" target="_blank">leer mas</a></p>',
+                        placement: 'bottom',
+                        html : true
+                    });                    
+                    $('#Ley20521Descripcion').popover({
+                        title: 'Ley N° 20.521',
+                        content: '<p style="text-align: justify; color:gray;">Esta modifica la ley Nº 19.628, el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>',
+                        placement: 'bottom',
+                        html : true
+                    });
+                });
+                
+            </script>
         <!-- End -->
     </body>
 </html>

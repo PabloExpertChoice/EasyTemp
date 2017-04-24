@@ -25,7 +25,8 @@ public class Svl_Variable extends HttpServlet {
             JSONObject json = new JSONObject();
             switch (accion) {
                 case "listar": {
-                    ArrayList<Variable> arr = new BnVariable().listarATB();
+                    BnVariable bnVariable = new BnVariable();
+                    ArrayList<Variable> arr = bnVariable.listarATB();
                     System.out.println(arr.toString());
                     if (arr.size() > 0) {
                         json.put("estado", D.EST_OK);

@@ -140,6 +140,35 @@ function getScore(_rut, _dv) {
 }
 
 /**
+ * 
+ * @param {type} _rut
+ * @param {type} _dv
+ * @returns {undefined}
+ */
+function getScoreValue(_rut, _dv) {
+    
+    var resultado = 0;
+    $.ajax({
+        url: 'Svl_Scoring',
+        type: 'POST',
+        async: false,
+        dataType: 'json',
+        data: {
+            accion: 'scoring',
+            rut: _rut,
+            dv: _dv
+        },
+        success: function (data, textStatus, jqXHR) {
+            if (data.estado === 200) {                
+                resultado = data.datos.mes1;                      
+            }
+        }
+    });
+    
+    return resultado;
+}
+
+/**
  * Va al servlert Svl_Cliente y se traen los datos de SANCTION SEARCH OFACT TREAS
  * 
  * @param {type} _nombre
