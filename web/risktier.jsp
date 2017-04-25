@@ -103,10 +103,10 @@
                                         <div class="caption">
                                             <i class="fa fa-database"></i> Risk Tier 
                                             <br><br>
-                                            <div class="col-md-2 col-lg-2">
-                                                <select name="order_status" class="form-control form-filter input-sm" style="width: 300px;">
-                                                    <option value="">Natural</option>
-                                                    <option value="pending">Jur&#237;dico</option>
+                                            <div class="col-md-2 col-lg-2" style="padding-left: 0px;">
+                                                <select name="order_status" onchange="return cambiarTipoRiskTier(this.value)" class="form-control form-filter input-sm" style="width: 300px;">
+                                                    <option value="1">Natural</option>
+                                                    <option value="2">Jur&#237;dico</option>
                                                 </select>
                                             </div>
                                         </div>

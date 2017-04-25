@@ -298,16 +298,28 @@ function buscarRiskIndicator() {
                         }
                     }
                 }
-
+                
                 cambiarVista(1);
             }
         }
     });
 }
-
-function cambiarVista(idTipo) {
-    
+/*
+ * Esta funcion intermedia a cambiarVista(idTipo) se implemento para no afectar la experiencia del usuario a nivel de UI:
+ */
+function cambiarTipoRiskTier(idTipo)
+{    
     $('#tablaRiskTier').text('');
+    $('#tablaRiskTier').append('<thead> <tr class="uppercase"> <th style="text-align: center;"> Buscando datos para  RiskTier.. </th> </tr> </thead>');
+    bloquearUI('tablaRiskTier','black'); //bloquear UI
+    setTimeout(function(){
+      cambiarVista(idTipo);
+    }, 500);
+    
+}
+
+function cambiarVista(idTipo) {   
+    $('#tablaRiskTier').text('');//limpiar tabla
     if (idTipo == 1) {
         var cab = arrCab[0].tipoAdminRiskTier.id == 1 ? arrCab[0] : arrCab[1];
         var row = 0;
@@ -347,7 +359,7 @@ function cambiarVista(idTipo) {
         for (var i = 0; i < origenY_J.length; i++) {
             var fila = '<tr>'
             if (row == 0) {
-                fila += '<th style="text-align: center;">' + cab.origenY.nombre + ' &#92; ' + cab.origenX.nombre + '</th>';
+                fila += '<th style="text-align: center; font-size:13px; max-width: 100px;">' + cab.origenY.nombre + ' &#92; ' + cab.origenX.nombre + '</th>';
                 for (var j in origenX_J) {
                     fila += '<th style="text-align: center;">' + origenX_J[j].valor + '</th>';
                 }
@@ -356,7 +368,7 @@ function cambiarVista(idTipo) {
             } else {
                 fila += '<th style="text-align: center;">' + origenY_J[i].valor + '</th>';
                 for (var j in origenX_J) {
-                    fila += '<td id="' + origenY_J[i].id + '_' + origenX_J[j].id + '"></td>';
+                    fila += '<td id="' + origenY_J[i].id + '_' + origenX_J[j].id + '" style="text-align: center;"></td>';
                 }
             }
 
