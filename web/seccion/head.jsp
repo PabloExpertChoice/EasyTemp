@@ -63,7 +63,7 @@
                     </li>
                     <!-- END USER LOGIN DROPDOWN -->
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                    <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                    <li class="dropdown dropdown-extended quick-sidebar-toggler" onclick="logout()">
                         <span class="sr-only">Toggle Quick Sidebar</span>
                         <i class="icon-logout"></i>
                     </li>
@@ -78,3 +78,8 @@
 </div>
 <!-- END HEADER -->
 <!-- END HEADER & CONTENT DIVIDER -->
+<script>
+    function logout() {
+    window.location.href = 'slv_login?code=logout';
+    }
+</script>
