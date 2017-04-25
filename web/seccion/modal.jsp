@@ -191,3 +191,93 @@
         </div>
     </div>
 </div>
+
+<!--Modales para contratos bureaus-->
+<div class="modal fade" id="modalchkSinacofi" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Contrato Sinacofi</h4>
+            </div>
+            <div class="modal-body">
+                <iframe style="width: 100%;height: 500px" src="resource/contratos/ContratoSinacofi.pdf#zoom=100&amp;view=FitV">
+                    <p>Tu navegador no soporta el archivo</p>
+                </iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarContrato('chkSinacofi');">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmarContrato('chkSinacofi');" data-dismiss="modal" >Aceptar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalchkEquifax" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Contrato Equifax</h4>
+            </div>
+            <div class="modal-body">
+                <iframe style="width: 100%;height: 500px" src="resource/contratos/ContratoSinacofi.pdf#zoom=100&amp;view=FitV">
+                    <p>Tu navegador no soporta el archivo</p>
+                </iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarContrato('chkEquifax');">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmarContrato('chkEquifax');" data-dismiss="modal" >Aceptar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalchkTransunion" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Contrato Transunion</h4>
+            </div>
+            <div class="modal-body">
+                <iframe style="width: 100%;height: 500px" src="resource/contratos/ContratoSinacofi.pdf#zoom=100&amp;view=FitV">
+                    <p>Tu navegador no soporta el archivo</p>
+                </iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarContrato('chkTransunion');">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmarContrato('chkTransunion');" data-dismiss="modal" >Aceptar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalBlackList" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div id="tblBLCont">
+                    <table id="tblBL" style="text-align: center;" class="table table-bordered table-striped">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <th style="text-align: center;">ESTADO</th>
+                                <th style="text-align: center;">COMENTARIO</th>
+                                <th style="text-align: center;">FECHA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/contrato.js" type="text/javascript"></script>

@@ -105,7 +105,7 @@
                                                 <div class="col-md-6 col-xs-6">
                                                     <div class="input-icon right">
                                                         <!--<input type="text" class="form-control" id="txtRut">-->
-                                                        <input type="text" name="rut" id="txtRut" class="form-control" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');">
+                                                        <input type="text" name="rut" id="txtRut" class="form-control" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');" onchange="formatoNumero(this); cli_rut_dv(this, event, 'txtDv');">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1 col-xs-1 right">
@@ -141,36 +141,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-<!--                        <div class="box-body">
-                            <form role="form" action="javascript:;">
-                                <div class="box-body">
-                                    <div class="row">
-                                        <div class="col-md-2 col-xs-9">
-                                            <div class="form-group">
-                                                <label for="txtRut">RUT</label>
-                                                <input type="text" class="form-control" id="txtRut" maxlength="10" onkeyup="formatoNumero(this); cli_rut_dv(this, event, 'txtRutDv');" autocomplete="off" >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 col-xs-3">
-                                            <label for="txtRut">&nbsp;</label>
-                                            <input type="text" class="form-control" id="txtRutDv" disabled="" style="width: 40%; text-align: center;padding: 0px;">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="txtRenta">Renta (PN) o Ingreso (PJ)</label>
-                                                <input type="text" class="form-control" id="txtRenta" onkeyup="formatoNumero(this);" autocomplete="off" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary" onclick="getInfoCliente(this)">Buscar</button>
-                                </div>
-                            </form>
-                        </div>-->
                         <!-- END CONTENT BODY -->
                     </div>
                     <!-- END CONTENT -->
