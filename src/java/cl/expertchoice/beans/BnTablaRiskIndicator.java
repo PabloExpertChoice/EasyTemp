@@ -47,146 +47,146 @@ public class BnTablaRiskIndicator {
         return riskIndicator;
     }
 
-//    public ArrayList<TablaRiskIndicator> listar2() throws SQLException {
-//        ArrayList<TablaRiskIndicator> arr = new ArrayList<>();
-//        Connection conn = null;
-//        try {
-//            conn = Conexion.getConexionEasy();
-//            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.NOMBRE AS NOM_ORIGENX, C.ID_VARIABLE AS ID_ORIGENY, \n"
-//                    + "C.NOMBRE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
-//                    + "A.ID_TIPOADMINRISKTIER\n"
-//                    + "FROM ONE.TABLA_RISK_INDICATOR AS A\n"
-//                    + "INNER JOIN ONE.VARIABLE AS B\n"
-//                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
-//                    + "INNER JOIN ONE.VARIABLE AS C\n"
-//                    + "ON A.ORIGEN_Y = C.ID_VARIABLE";
-//
-//            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//            ResultSet rs = pst.executeQuery();
-//            while (rs.next()) {
-//                TablaRiskIndicator riskIndicator = new TablaRiskIndicator();
-//                riskIndicator.setId(new BigInteger(rs.getString("ID_TABLARISKINDICATOR")));
-//                riskIndicator.setOrigenX(new Variable(rs.getInt("ID_ORIGENX"), rs.getString("NOM_ORIGENX")));
-//                riskIndicator.setOrigenY(new Variable(rs.getInt("ID_ORIGENY"), rs.getString("NOM_ORIGENY")));
-//                riskIndicator.setNumFilas(rs.getInt("NUM_FILAS"));
-//                riskIndicator.setNumColumnas(rs.getInt("NUM_COLUMNAS"));
-//                riskIndicator.setTipoAdminRiskTier(new TipoAdminRiskTier(rs.getInt("A.ID_TIPOADMINRISKTIER"), ""));
-//                ArrayList<CabeceraTablaCore> arrCabeceras = new BnCabeceraTablaCore().listar(conn, riskIndicator);
-//                riskIndicator.setCaberasTablaCore(arrCabeceras);
-//                arr.add(riskIndicator);
-//
-//            }
-//        } finally {
-//            Conexion.Desconectar(conn, true);
-//        }
-//
-//        return arr;
-//    }
-//
-//    public TablaRiskIndicator listar() throws SQLException {
-//        TablaRiskIndicator riskIndicator = null;
-//        Connection conn = null;
-//        try {
-//            conn = Conexion.getConexionEasy();
-//            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.NOMBRE AS NOM_ORIGENX, C.ID_VARIABLE AS ID_ORIGENY, \n"
-//                    + "C.NOMBRE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
-//                    + "A.ID_TIPOADMINRISKTIER\n"
-//                    + "FROM ONE.TABLA_RISK_INDICATOR AS A\n"
-//                    + "INNER JOIN ONE.VARIABLE AS B\n"
-//                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
-//                    + "INNER JOIN .VARIABLE AS C\n"
-//                    + "ON A.ORIGEN_Y = C.ID_VARIABLE";
-//
-////            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.NOMBRE AS NOM_ORIGENX, \n"
-////                    + "C.ID_VARIABLE AS ID_ORIGENY, C.NOMBRE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
-////                    + "TIPO_ADMRT.ID_TIPOADMINRISKTIER , TIPO_ADMRT.NOMBRE\n"
-////                    + "FROM " + D.ESQUEMA_ONE + ".TABLA_RISK_INDICATOR AS A\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".VARIABLE AS B\n"
-////                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".VARIABLE AS C\n"
-////                    + "ON A.ORIGEN_Y = C.ID_VARIABLE\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".CABECERA_TABLA_CORE AS D\n"
-////                    + "ON D.ID_TABLARISKINDICATOR = A.ID_TABLARISKINDICATOR\n"
-////                    + "INNER  JOIN " + D.ESQUEMA_ONE + ".VALOR_TABLA_CORE AS E\n"
-////                    + "ON D.ID_TABLACORE = E.X\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".RISKTIER AS RT\n"
-////                    + "ON E.ID_RISKTIER = RT.ID_RISKTIER\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".DETALLE_ADMINRISKTIER AS DET_ADMINRT\n"
-////                    + "ON DET_ADMINRT.ID_RISKTIER = RT.ID_RISKTIER\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".ADMINRISKTIER AS ADMRT\n"
-////                    + "ON DET_ADMINRT.ID_ADMINRISKTIER = ADMRT.ID_ADMINRISKTIER\n"
-////                    + "INNER JOIN " + D.ESQUEMA_ONE + ".TIPO_ADMINRISKTIER AS TIPO_ADMRT\n"
-////                    + "ON ADMRT.ID_TIPOADMINRISKTIER = TIPO_ADMRT.ID_TIPOADMINRISKTIER\n"
-////                    + "GROUP BY TIPO_ADMRT.ID_TIPOADMINRISKTIER ";
-//////                    + "LIMIT 1";
-//            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//            ResultSet rs = pst.executeQuery();
-//            while (rs.next()) {
-//                riskIndicator = new TablaRiskIndicator();
-//                riskIndicator.setId(new BigInteger(rs.getString("ID_TABLARISKINDICATOR")));
-//                riskIndicator.setOrigenX(new Variable(rs.getInt("ID_ORIGENX"), rs.getString("NOM_ORIGENX")));
-//                riskIndicator.setOrigenY(new Variable(rs.getInt("ID_ORIGENY"), rs.getString("NOM_ORIGENY")));
-//                riskIndicator.setNumFilas(rs.getInt("NUM_FILAS"));
-//                riskIndicator.setNumColumnas(rs.getInt("NUM_COLUMNAS"));
-//                riskIndicator.setTipoAdminRiskTier(new TipoAdminRiskTier(rs.getInt("TIPO_ADMRT.ID_TIPOADMINRISKTIER"), rs.getString("TIPO_ADMRT.NOMBRE")));
-//                ArrayList<CabeceraTablaCore> arrCabeceras = new BnCabeceraTablaCore().listar(conn, riskIndicator);
-//                riskIndicator.setCaberasTablaCore(arrCabeceras);
-//
-//            }
-//        } finally {
-//            Conexion.Desconectar(conn, true);
-//        }
-//
-//        return riskIndicator;
-//    }
-//
-//    public TablaRiskIndicator listars() throws SQLException {
-//        TablaRiskIndicator riskIndicator = null;
-//        Connection conn = null;
-//        try {
-//            conn = Conexion.getConexionEasy();
-//
+    public ArrayList<TablaRiskIndicator> listar2() throws SQLException {
+        ArrayList<TablaRiskIndicator> arr = new ArrayList<>();
+        Connection conn = null;
+        try {
+            conn = Conexion.getConexionEasy();
+            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.VARIABLE AS NOM_ORIGENX, C.ID_VARIABLE AS ID_ORIGENY, \n"
+                    + "C.VARIABLE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
+                    + "A.ID_TIPOADMINRISKTIER\n"
+                    + "FROM " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS A\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS B\n"
+                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS C\n"
+                    + "ON A.ORIGEN_Y = C.ID_VARIABLE";
+
+            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                TablaRiskIndicator riskIndicator = new TablaRiskIndicator();
+                riskIndicator.setId(new BigInteger(rs.getString("ID_TABLARISKINDICATOR")));
+                riskIndicator.setOrigenX(new Variable(rs.getInt("ID_ORIGENX"), rs.getString("NOM_ORIGENX")));
+                riskIndicator.setOrigenY(new Variable(rs.getInt("ID_ORIGENY"), rs.getString("NOM_ORIGENY")));
+                riskIndicator.setNumFilas(rs.getInt("NUM_FILAS"));
+                riskIndicator.setNumColumnas(rs.getInt("NUM_COLUMNAS"));
+                riskIndicator.setTipoAdminRiskTier(new TipoAdminRiskTier(rs.getInt("A.ID_TIPOADMINRISKTIER"), ""));
+                ArrayList<CabeceraTablaCore> arrCabeceras = new BnCabeceraTablaCore().listar(conn, riskIndicator);
+                riskIndicator.setCaberasTablaCore(arrCabeceras);
+                arr.add(riskIndicator);
+
+            }
+        } finally {
+            Conexion.Desconectar(conn);
+        }
+
+        return arr;
+    }
+
+    public TablaRiskIndicator listar() throws SQLException {
+        TablaRiskIndicator riskIndicator = null;
+        Connection conn = null;
+        try {
+            conn = Conexion.getConexionEasy();
+            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.NOMBRE AS NOM_ORIGENX, C.ID_VARIABLE AS ID_ORIGENY, \n"
+                    + "C.NOMBRE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
+                    + "A.ID_TIPOADMINRISKTIER\n"
+                    + "FROM " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS A\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS B\n"
+                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
+                    + "INNER JOIN .VARIABLE AS C\n"
+                    + "ON A.ORIGEN_Y = C.ID_VARIABLE";
+
 //            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.NOMBRE AS NOM_ORIGENX, \n"
 //                    + "C.ID_VARIABLE AS ID_ORIGENY, C.NOMBRE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
-//                    + "TIPO_ADMRT.NOMBRE\n"
-//                    + "FROM " + D.ESQUEMA_ONE + ".TABLA_RISK_INDICATOR AS A\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".VARIABLE AS B\n"
+//                    + "TIPO_ADMRT.ID_TIPOADMINRISKTIER , TIPO_ADMRT.NOMBRE\n"
+//                    + "FROM " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS A\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS B\n"
 //                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".VARIABLE AS C\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS C\n"
 //                    + "ON A.ORIGEN_Y = C.ID_VARIABLE\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".CABECERA_TABLA_CORE AS D\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".CABECERA_TABLA_CORE AS D\n"
 //                    + "ON D.ID_TABLARISKINDICATOR = A.ID_TABLARISKINDICATOR\n"
-//                    + "INNER  JOIN " + D.ESQUEMA_ONE + ".VALOR_TABLA_CORE AS E\n"
+//                    + "INNER  JOIN " + D.ESQUEMA + ".VALOR_TABLA_CORE AS E\n"
 //                    + "ON D.ID_TABLACORE = E.X\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".RISKTIER AS RT\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".RISKTIER AS RT\n"
 //                    + "ON E.ID_RISKTIER = RT.ID_RISKTIER\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".DETALLE_ADMINRISKTIER AS DET_ADMINRT\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".DETALLE_ADMINRISKTIER AS DET_ADMINRT\n"
 //                    + "ON DET_ADMINRT.ID_RISKTIER = RT.ID_RISKTIER\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".ADMINRISKTIER AS ADMRT\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".ADMINRISKTIER AS ADMRT\n"
 //                    + "ON DET_ADMINRT.ID_ADMINRISKTIER = ADMRT.ID_ADMINRISKTIER\n"
-//                    + "INNER JOIN " + D.ESQUEMA_ONE + ".TIPO_ADMINRISKTIER AS TIPO_ADMRT\n"
+//                    + "INNER JOIN " + D.ESQUEMA + ".TIPO_ADMINRISKTIER AS TIPO_ADMRT\n"
 //                    + "ON ADMRT.ID_TIPOADMINRISKTIER = TIPO_ADMRT.ID_TIPOADMINRISKTIER\n"
-//                    + "LIMIT 1";
-//
-//            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//            ResultSet rs = pst.executeQuery();
-//            while (rs.next()) {
-//                riskIndicator = new TablaRiskIndicator();
-//                riskIndicator.setId(new BigInteger(rs.getString("ID_TABLARISKINDICATOR")));
-//                riskIndicator.setOrigenX(new Variable(rs.getInt("ID_ORIGENX"), rs.getString("NOM_ORIGENX")));
-//                riskIndicator.setOrigenY(new Variable(rs.getInt("ID_ORIGENY"), rs.getString("NOM_ORIGENY")));
-//                riskIndicator.setNumFilas(rs.getInt("NUM_FILAS"));
-//                riskIndicator.setNumColumnas(rs.getInt("NUM_COLUMNAS"));
-//                ArrayList<CabeceraTablaCore> arrCabeceras = new BnCabeceraTablaCore().listar(conn, riskIndicator);
-//                riskIndicator.setCaberasTablaCore(arrCabeceras);
-//
-//            }
-//        } finally {
-//            Conexion.Desconectar(conn, true);
-//        }
-//
-//        return riskIndicator;
-//    }
+//                    + "GROUP BY TIPO_ADMRT.ID_TIPOADMINRISKTIER ";
+////                    + "LIMIT 1";
+            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                riskIndicator = new TablaRiskIndicator();
+                riskIndicator.setId(new BigInteger(rs.getString("ID_TABLARISKINDICATOR")));
+                riskIndicator.setOrigenX(new Variable(rs.getInt("ID_ORIGENX"), rs.getString("NOM_ORIGENX")));
+                riskIndicator.setOrigenY(new Variable(rs.getInt("ID_ORIGENY"), rs.getString("NOM_ORIGENY")));
+                riskIndicator.setNumFilas(rs.getInt("NUM_FILAS"));
+                riskIndicator.setNumColumnas(rs.getInt("NUM_COLUMNAS"));
+                riskIndicator.setTipoAdminRiskTier(new TipoAdminRiskTier(rs.getInt("TIPO_ADMRT.ID_TIPOADMINRISKTIER"), rs.getString("TIPO_ADMRT.NOMBRE")));
+                ArrayList<CabeceraTablaCore> arrCabeceras = new BnCabeceraTablaCore().listar(conn, riskIndicator);
+                riskIndicator.setCaberasTablaCore(arrCabeceras);
+
+            }
+        } finally {
+            Conexion.Desconectar(conn);
+        }
+
+        return riskIndicator;
+    }
+
+    public TablaRiskIndicator listars() throws SQLException {
+        TablaRiskIndicator riskIndicator = null;
+        Connection conn = null;
+        try {
+            conn = Conexion.getConexionEasy();
+
+            String sql = "SELECT A.ID_TABLARISKINDICATOR, B.ID_VARIABLE AS ID_ORIGENX, B.NOMBRE AS NOM_ORIGENX, \n"
+                    + "C.ID_VARIABLE AS ID_ORIGENY, C.NOMBRE AS NOM_ORIGENY,A.NUM_FILAS, A.NUM_COLUMNAS,\n"
+                    + "TIPO_ADMRT.NOMBRE\n"
+                    + "FROM " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS A\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS B\n"
+                    + "ON A.ORIGEN_X = B.ID_VARIABLE\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS C\n"
+                    + "ON A.ORIGEN_Y = C.ID_VARIABLE\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".CABECERA_TABLA_CORE AS D\n"
+                    + "ON D.ID_TABLARISKINDICATOR = A.ID_TABLARISKINDICATOR\n"
+                    + "INNER  JOIN " + D.ESQUEMA + ".VALOR_TABLA_CORE AS E\n"
+                    + "ON D.ID_TABLACORE = E.X\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".RISKTIER AS RT\n"
+                    + "ON E.ID_RISKTIER = RT.ID_RISKTIER\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".DETALLE_ADMINRISKTIER AS DET_ADMINRT\n"
+                    + "ON DET_ADMINRT.ID_RISKTIER = RT.ID_RISKTIER\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".ADMINRISKTIER AS ADMRT\n"
+                    + "ON DET_ADMINRT.ID_ADMINRISKTIER = ADMRT.ID_ADMINRISKTIER\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".TIPO_ADMINRISKTIER AS TIPO_ADMRT\n"
+                    + "ON ADMRT.ID_TIPOADMINRISKTIER = TIPO_ADMRT.ID_TIPOADMINRISKTIER\n"
+                    + "LIMIT 1";
+
+            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                riskIndicator = new TablaRiskIndicator();
+                riskIndicator.setId(new BigInteger(rs.getString("ID_TABLARISKINDICATOR")));
+                riskIndicator.setOrigenX(new Variable(rs.getInt("ID_ORIGENX"), rs.getString("NOM_ORIGENX")));
+                riskIndicator.setOrigenY(new Variable(rs.getInt("ID_ORIGENY"), rs.getString("NOM_ORIGENY")));
+                riskIndicator.setNumFilas(rs.getInt("NUM_FILAS"));
+                riskIndicator.setNumColumnas(rs.getInt("NUM_COLUMNAS"));
+                ArrayList<CabeceraTablaCore> arrCabeceras = new BnCabeceraTablaCore().listar(conn, riskIndicator);
+                riskIndicator.setCaberasTablaCore(arrCabeceras);
+
+            }
+        } finally {
+            Conexion.Desconectar(conn);
+        }
+
+        return riskIndicator;
+    }
 
     public boolean guardarRiskInidcator(TablaRiskIndicator riskIndicator, JSONArray origenX, JSONArray origenY, JSONArray jsonClasificacion, int idTipoRiskTier) {
         Connection conn = null;

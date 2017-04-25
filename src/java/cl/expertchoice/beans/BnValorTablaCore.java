@@ -56,14 +56,14 @@ public class BnValorTablaCore {
 //            String sql = "SELECT X, Y, ID_RISKTIER\n"
 //                    + "FROM " + D.ESQUEMA_ONE + ".VALOR_TABLA_CORE";
             String sql = "SELECT A.X, A.Y, A.ID_RISKTIER, TABRI.ID_TIPOADMINRISKTIER\n"
-                    + "FROM ONE.VALOR_TABLA_CORE AS A\n"
-                    + "INNER JOIN ONE.CABECERA_TABLA_CORE AS B\n"
+                    + "FROM " + D.ESQUEMA + ".VALOR_TABLA_CORE AS A\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".CABECERA_TABLA_CORE AS B\n"
                     + "ON A.X = B.ID_TABLACORE\n"
-                    + "INNER JOIN ONE.CABECERA_TABLA_CORE AS C\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".CABECERA_TABLA_CORE AS C\n"
                     + "ON A.Y = C.ID_TABLACORE\n"
-                    + "INNER JOIN ONE.TABLA_RISK_INDICATOR AS TABRI\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS TABRI\n"
                     + "ON B.ID_TABLARISKINDICATOR = TABRI.ID_TABLARISKINDICATOR\n"
-                    + "INNER JOIN ONE.TABLA_RISK_INDICATOR AS TABRI2\n"
+                    + "INNER JOIN " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS TABRI2\n"
                     + "ON C.ID_TABLARISKINDICATOR = TABRI2.ID_TABLARISKINDICATOR";
 
             PreparedStatement pst = conn.prepareStatement(sql);

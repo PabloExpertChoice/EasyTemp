@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import cl.expertchoice.beans.BnTablaRiskIndicator;
+import cl.expertchoice.beans.BnValorTablaCore;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,10 +72,8 @@ public class Svl_RiskTier extends HttpServlet {
                 }
 
                 case "listar-riskindicator": {
-//                    ArrayList<TablaRiskIndicator> arr = new BnTablaRiskIndicator().listar2();
-//                    ArrayList<ValorTablaCore> vtc = new BnValorTablaCore().listar();
-                    ArrayList<TablaRiskIndicator> arr = null;
-                    ArrayList<ValorTablaCore> vtc = null;
+                    ArrayList<TablaRiskIndicator> arr = new BnTablaRiskIndicator().listar2();
+                    ArrayList<ValorTablaCore> vtc = new BnValorTablaCore().listar();
                     if (arr != null) {
                         json.addProperty("estado", D.EST_OK);
                         json.add("datos", new Gson().toJsonTree(arr));
@@ -86,7 +85,7 @@ public class Svl_RiskTier extends HttpServlet {
                     }
 
                     response.getWriter().print(json);
-                    break;
+                    break;          
                 }
 
                 case "guardar-risktier": {
