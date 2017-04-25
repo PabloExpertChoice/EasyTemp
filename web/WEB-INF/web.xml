@@ -16,6 +16,10 @@
         <servlet-name>Svl_Scoring</servlet-name>
         <servlet-class>cl.expertchoice.svl.Svl_Scoring</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Svl_BlackList</servlet-name>
+        <servlet-class>cl.expertchoice.svl.Svl_BlackList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Svl_Informacion</servlet-name>
         <url-pattern>/Svl_Informacion</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>Svl_Scoring</servlet-name>
         <url-pattern>/Svl_Scoring</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Svl_BlackList</servlet-name>
+        <url-pattern>/Svl_BlackList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

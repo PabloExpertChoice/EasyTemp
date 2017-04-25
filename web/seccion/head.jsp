@@ -41,19 +41,13 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user dropdown-dark">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <span class="username username-hide-on-mobile"> Maanuel Valls </span>
+                            <span class="username username-hide-on-mobile"> Manuel Valls </span>
                             <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                             <img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
                                 <a href="#">
-                                    <i class="icon-user"></i> My Profile </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-envelope-open"></i> My Inbox
-                                    <span class="badge badge-danger"> 3 </span>
-                                </a>
+                                    <i class="icon-user"></i> Perfil </a>
                             </li>
                             <li class="divider"> </li>
                             <li>

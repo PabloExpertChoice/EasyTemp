@@ -10,35 +10,50 @@ package cl.expertchoice.clases;
  * @author erick
  */
 public class Usuario {
-    private String nom_empresa;
+    private Empresa empresa;
     private String user_emp;
     private String pass_emp;
     private String nom_user;
 
-    public Usuario(String nom_empresa, String pass_emp, String nom_user, String user_emp) {
-        this.nom_empresa = nom_empresa;
+    public Usuario(Empresa empresa, String user_emp, String pass_emp, String nom_user) {
+        this.empresa = empresa;
+        this.user_emp = user_emp;
         this.pass_emp = pass_emp;
         this.nom_user = nom_user;
-        this.user_emp = user_emp;
     }
+
+//    public Usuario(String nom_empresa, String pass_emp, String nom_user, String user_emp) {
+//        this.nom_empresa = nom_empresa;
+//        this.pass_emp = pass_emp;
+//        this.nom_user = nom_user;
+//        this.user_emp = user_emp;
+//    }
 
     public Usuario() {
         
     }
 
-    /**
-     * @return the nom_empresa
-     */
-    public String getNom_empresa() {
-        return nom_empresa;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    /**
-     * @param nom_empresa the nom_empresa to set
-     */
-    public void setNom_empresa(String nom_empresa) {
-        this.nom_empresa = nom_empresa;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
+
+//    /**
+//     * @return the nom_empresa
+//     */
+//    public String getNom_empresa() {
+//        return nom_empresa;
+//    }
+//
+//    /**
+//     * @param nom_empresa the nom_empresa to set
+//     */
+//    public void setNom_empresa(String nom_empresa) {
+//        this.nom_empresa = nom_empresa;
+//    }
 
     /**
      * @return the pass_emp

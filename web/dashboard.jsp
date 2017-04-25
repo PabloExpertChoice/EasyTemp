@@ -36,6 +36,15 @@
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
+        <!-- Sweetalert2-->
+        <link rel="stylesheet" type="text/css" href="dist/css/sweetalert.css">
+        <!-- Tema loading-->
+        <link rel="stylesheet" type="text/css" href="css/loading.css">
+        <!-- Tema toggle-->        
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+
 
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -274,7 +283,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-xs-12 col-sm-12">
 
-                            <div class="portlet light bordered" style="height: 200px">
+                            <div class="portlet light bordered">
 
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -286,24 +295,25 @@
                                         <a href="#" class="collapse" data-original-title="" title=""> </a>
                                     </div>
                                     <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <div class="btn-toolbar">
-                                                <div class="btn-group">
-                                                    <button class="btn small active" style="background: #1bbc9b; color: rgb(255, 255, 255);"><i class="fa fa-plus"></i></button>
-                                                    <button class="btn small" style="background: #f3565d; color: rgb(255, 255, 255);"><i class="fa fa-remove"> </i></button> 
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <a data-toggle="modal" onclick="verModalBL()"> <i style="color: #b1b1b1"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
+
+                                    <div class="text-right">
+                                        <label>Estado del comentario:</label>
+                                        <input type="checkbox" name="estado" id="estado" checked data-toggle="toggle" data-on="<i class='fa fa-thumbs-up  '></i>  Positivo" data-off="<i class='fa fa-thumbs-down '></i>  Negativo" data-onstyle="success" data-offstyle="danger">
+
+                                    </div> 
+
+                                    <div style="height: 15px" ></div>  
                                     <div class="input-group input-group-lg">
-                                        <input type="text" class="form-control" placeholder="Agregar comentario...">
+                                        <input id="comentarioBL" name="comentarioBL" type="text" class="form-control" placeholder="Agregar comentario...">
                                         <span class="input-group-btn">
-                                            <button class="btn green-haze"  type="button"><i class="fa fa-plus"></i></button>
+                                            <button class="btn green-haze"  type="button" onclick="ingresarBlackList()"><i class="fa fa-plus"></i></button>
                                         </span>
                                     </div>
-
+                                    <div style="height: 10px" ></div>
                                 </div>
                             </div>
                         </div>
@@ -514,17 +524,17 @@
                                         </div>
                                     </div>
                                 </div>
-<!--                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
-                                            <span class="sr-only">76% progress</span>
-                                        </span>
-                                    </div>
-                                                                        <div class="status">
-                                                                            <div class="status-title"> progress </div>
-                                                                            <div class="status-number"> 76% </div>
-                                                                        </div>
-                                </div>-->
+                                <!--                                <div class="progress-info">
+                                                                    <div class="progress">
+                                                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
+                                                                            <span class="sr-only">76% progress</span>
+                                                                        </span>
+                                                                    </div>
+                                                                                                        <div class="status">
+                                                                                                            <div class="status-title"> progress </div>
+                                                                                                            <div class="status-number"> 76% </div>
+                                                                                                        </div>
+                                                                </div>-->
                             </div>
                         </div>
 
@@ -573,16 +583,16 @@
                                     <img src="images/empresas.png" style="width: 40px" class="pull-right">
 
                                 </div>
-<!--                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
-                                        </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> numero de sociedades </div>
-                                        <div class="status-number"> </div>
-                                    </div>
-                                </div>-->
+                                <!--                                <div class="progress-info">
+                                                                    <div class="progress">
+                                                                        <span style="width: 0%;" class="progress-bar progress-bar-success green-sharp">
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="status">
+                                                                        <div class="status-title"> numero de sociedades </div>
+                                                                        <div class="status-number"> </div>
+                                                                    </div>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -725,155 +735,324 @@
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             <script src="js/dash.js" type="text/javascript"></script>
             <script src="js/dashboard.js"></script>
+
+            <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+            <!-- Sweetalert2-->
+            <script src="dist/js/sweetalert.min.js"></script>
+            <!--            
+                        <script type="text/javascript" src="DataTables/datatables.min.js"></script>-->
+
+
+
             <!-- END THEME LAYOUT SCRIPTS -->
             <script>
-                rut = '<%= datos.get("rut").toString()%>';
-                dv = '<%= datos.get("dv").toString()%>';
-                function goTransunion() {
-                    var datos = <%= datos%>;
-                    go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
-                }
-            </script>
-            <script>
-                $(function () {
-                    $('#menuBarRut').show();
-                    $('#menuBarPrint').show();
-                    $('#menuBarCampana').show();
-                    $('#menuBarFlag').show();
-
-
-                <%
-                    String nom_completo = datos.get("nombre").toString();
-                    String[] arrNom_completo = nom_completo.split(" ");
-                    String nom = arrNom_completo[0] + " " + arrNom_completo[1];
-                    String apellPat = arrNom_completo[2];
-                    String apellMat = arrNom_completo[3];
-                %>;
-                    nomCompleto = '<%= nom_completo%>';
-                    nombre = '<%= nom%>';
-                    apePaterno = '<%= apellPat%>';
-                    apeMaterno = '<%= apellMat%>';
-
-                    $('#razonSocial').html(': ' + (nombre + " " + apePaterno + " " + apeMaterno));
-                    $('#rut').html(': ' + rut + "-" + dv);
-    //                $('#rut').html(': ' + number_format(rut, 0, ',', '.') + '-' + dv);
-
-
-                    getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
-                    buscarDatosOfac(nombre, apePaterno, apeMaterno);
-                    getScore(rut, dv);
-                    buscarActividadComercial(rut, dv);
-                    cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
-                    validarQuiebra(rut, dv);
-
-                    $("#tblResultadosOfac").DataTable({
-                        language: {
-                            url: 'json/Spanish.json'
-                        },
-                        "aoColumns": [
-                            {"mData": "nombre"},
-                            {"mData": "direccion"},
-                            {"mData": "tipo"},
-                            {"mData": "programa"},
-                            {"mData": "lista"},
-                            {"mData": "score"},
-    //                                            {"mData": "",
-    //                                                "mRender": function (data, type, full) {
-    //                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
-    //                                                }
-    //                                            }
-                        ]
-                    });
-
-                    $("#tblActComercial").DataTable({
-                        language: {
-                            url: 'json/Spanish.json'
-                        },
-                        "aoColumns": [
-                            {"mData": "actividad"},
-                            {"mData": "codigo"},
-                            {"mData": "categoria"},
-                            {"mData": "AfctaIVA"}
-                        ]
-                    });
-
-                    tblPjud = $("#tblPJUD").DataTable({
-                        language: {
-                            url: 'json/Spanish.json'
-                        },
-                        "aoColumns": [
-                            {
-                                "className": 'details-control',
-                                "orderable": false,
-                                "data": null,
-                                "defaultContent": ''
-                            },
-                            {"mData": "",
-                                "mRender": function (data, type, full) {
-                                    if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
-                                        return '<i class="fa fa-file-o"></i>';
-                                    } else {
-                                        return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
-                                    }
-                                }
-                            },
-                            {"mData": "rol"},
-                            {"mData": "fecha"},
-                            {"mData": "caratulado"},
-                            {"mData": "tribunal.nombre"}
-                        ]
-                    });
-    //                reglasAtb();
-                });
-            </script>
-            <script> 
-                $(document).ready(function() {
-                      var rut = '<%= datos.get("rut").toString()%>';
-                      var dv  = '<%= datos.get("dv").toString()%>';
-                      var scoreRut = 0;
-                      scoreRut = parseInt( getScoreValue(rut, dv) );
-                      console.log(scoreRut);
-                      $.ajax({
-                          url:'Svl_Scoring',
-                          dataType: 'json',
-                          type: 'POST',
-                          data:{accion: 'ObtenerScore','score' : scoreRut },
-                          success: function(data){ 
-                                $('#scoreToRut').text(data.datos.scoreText);
-                                console.log(JSON.stringify(data));
+                            rut = '<%= datos.get("rut").toString()%>';
+                            dv = '<%= datos.get("dv").toString()%>';
+                            function goTransunion() {
+                                var datos = <%= datos%>;
+                                go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
                             }
-                      });
+                            function ingresarBlackList() {
+                                //0 es negativo
+                                swal_procces();
+                                var estado = 0;
+                                if ($('#estado').prop('checked')) {
+                                    estado = 1;
+                                }
+                                $.ajax({
+                                    url: 'Svl_BlackList',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: {
+                                        accion: 'setBlackList',
+                                        id_empresa: <%=user.getEmpresa().getId()%>,
+                                        comentario: $('#comentarioBL').val(),
+                                        
+                                        estado: estado,
+                                        rut: rut,
+                                    },
+                                    success: function (data) {
+                                        if (data == true) {
+                                            swal({
+                                                title: "OPERACIÓN EXITOSA",
+                                                text: "Comentario registrado correctamente",
+                                                type: "success",
+                                                confirmButtonText: "Bien"
+                                            });
+                                        } else {
+                                            swal({
+                                                title: "OPERACIÓN FALLIDA",
+                                                text: "Ha ocurrido un error, intente mas tarde",
+                                                type: "error",
+                                                confirmButtonText: "Aceptar"
+                                            });
+
+                                        }
+                                    }
+                                });
+                            }
+
+                            function verModalBL() {
+                                $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
+                                $('#modalBlackList').modal({'backdrop': 'static'});
+                                $('#tblBLCont').show();
+                                getDatosBL(rut);
+                            }
+                            function swal_procces(mensaje, titulo, type) {
+                                swal({
+                                    title: titulo || "Procesando",
+                                    text: (mensaje || "Un momento por favor") + "<br><br><i class='fa fa-spinner fa-pulse fa-3x fa-fw'></i><span class='sr-only'>Loading...</span>",
+                                    html: true,
+                                    type: type || null,
+                                    showConfirmButton: false
+
+                                });
+                            }
+
+                            function swal_unprocces() {
+                                sweetAlert.close();
+                            }
+
+                            /**
+                             * 
+                             * @param {type} _rut
+                             */
+                            function getDatosBL(_rut) {
+                                $.ajax({
+                                    url: 'Svl_BlackList',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: {
+                                        accion: 'verBlackList',
+                                        rut: _rut,
+                                    },
+                                    success: function (data, textStatus, jqXHR) {
+                                        $('#tblBL').dataTable().fnClearTable();
+                                        var datos_tabla_aux = new Array();
+                                        console.log(data);
+                                        for (var y = 0; y < data.length; y++)
+                                        {
+                                            //agregar datos a tabla:                       
+                                            var comentario = data[y].comentario;
+                                            var fecha = data[y].fecha;
+                                            var estado = data[y].estado;
+
+
+                                            if (estado == 1) // es inactivo
+                                                estado = '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+                                            else // Ya esta Activo    
+                                                estado = '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+
+                                            datos_tabla_aux[y] = [estado, comentario, fecha];
+                                        }
+                                        $("#tblBL").dataTable().fnAddData(datos_tabla_aux);
+
+//                                        if ($.fn.dataTable.isDataTable('#tblBL')) {
+//                                            $('#tblBL').DataTable().destroy();                                            
+//                                        }
+//                                        $('#tblBL').dataTable({
+//                                            "clear": true,
+//                                            "destroy": true,
+//                                            "processing": true,
+//                                            "data": data,
+//                                            "columns": [
+//                                                {data: 'estado', "render": function (data, type, row) {
+//                                                        if (data == 1) {
+//                                                            return '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+//                                                        } else {
+//                                                            return '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+//                                                        }
+//                                                    }},
+//                                                {data: 'comentario', class: 'txt-center'},
+//                                                {data: 'fecha', class: 'txt-center'}
+//                                            ],
+//                                            "language": {
+//                                                "lengthMenu": "Mostrar _MENU_ registros por página",
+//                                                "zeroRecords": "Sin información para mostrar",
+//                                                "info": "Mostrando página _PAGE_ de _PAGES_ páginas",
+//                                                "infoEmpty": "",
+//                                                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+//                                                "paginate": {
+//                                                    "first": "Primero",
+//                                                    "last": "Último",
+//                                                    "next": "Siguiente",
+//                                                    "previous": "Anterior"
+//                                                },
+//                                                "aria": {
+//                                                    "sortAscending": ": Ordenar de forma ascendente",
+//                                                    "sortDescending": ": Ordenar de forma descendente"
+//                                                },
+//                                                "search": "Buscar:"
+//
+//                                            },
+//                                            "bLengthChange": false,
+//                                            "order": [[1, 'asc']]
+//                                        });
+                                    }});
+                            }
+                            $(function () {
+
+                                $('#tblBL').DataTable({
+                                    "language": {
+                                        "lengthMenu": "Mostrar _MENU_ registros por página",
+                                        "zeroRecords": "Sin información para mostrar",
+                                        "info": "Mostrando página _PAGE_ de _PAGES_ páginas",
+                                        "infoEmpty": "",
+                                        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                        "paginate": {
+                                            "first": "Primero",
+                                            "last": "Último",
+                                            "next": "Siguiente",
+                                            "previous": "Anterior"
+                                        },
+                                        "aria": {
+                                            "sortAscending": ": Ordenar de forma ascendente",
+                                            "sortDescending": ": Ordenar de forma descendente"
+                                        },
+                                        "search": "Buscar:"
+
+                                    },
+                                    "bLengthChange": false,
+                                    "order": [[2, 'desc']]
+                                });
+                                $('#menuBarRut').show();
+                                $('#menuBarPrint').show();
+                                $('#menuBarCampana').show();
+                                $('#menuBarFlag').show();
+
+
+            <%
+                String nom_completo = datos.get("nombre").toString();
+                String[] arrNom_completo = nom_completo.split(" ");
+                String nom = arrNom_completo[0] + " " + arrNom_completo[1];
+                String apellPat = arrNom_completo[2];
+                String apellMat = arrNom_completo[3];
+            %>;
+                                nomCompleto = '<%= nom_completo%>';
+                                nombre = '<%= nom%>';
+                                apePaterno = '<%= apellPat%>';
+                                apeMaterno = '<%= apellMat%>';
+
+                                $('#razonSocial').html(': ' + (nombre + " " + apePaterno + " " + apeMaterno));
+                                $('#rut').html(': ' + rut + "-" + dv);
+                                //                $('#rut').html(': ' + number_format(rut, 0, ',', '.') + '-' + dv);
+
+
+                                getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
+                                buscarDatosOfac(nombre, apePaterno, apeMaterno);
+                                getScore(rut, dv);
+                                buscarActividadComercial(rut, dv);
+                                cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
+                                validarQuiebra(rut, dv);
+
+                                $("#tblResultadosOfac").DataTable({
+                                    language: {
+                                        url: 'json/Spanish.json'
+                                    },
+                                    "aoColumns": [
+                                        {"mData": "nombre"},
+                                        {"mData": "direccion"},
+                                        {"mData": "tipo"},
+                                        {"mData": "programa"},
+                                        {"mData": "lista"},
+                                        {"mData": "score"},
+                                                //                                            {"mData": "",
+                                                //                                                "mRender": function (data, type, full) {
+                                                //                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
+                                                //                                                }
+                                                //                                            }
+                                    ]
+                                });
+
+                                $("#tblActComercial").DataTable({
+                                    language: {
+                                        url: 'json/Spanish.json'
+                                    },
+                                    "aoColumns": [
+                                        {"mData": "actividad"},
+                                        {"mData": "codigo"},
+                                        {"mData": "categoria"},
+                                        {"mData": "AfctaIVA"}
+                                    ]
+                                });
+
+                                tblPjud = $("#tblPJUD").DataTable({
+                                    language: {
+                                        url: 'json/Spanish.json'
+                                    },
+                                    "aoColumns": [
+                                        {
+                                            "className": 'details-control',
+                                            "orderable": false,
+                                            "data": null,
+                                            "defaultContent": ''
+                                        },
+                                        {"mData": "",
+                                            "mRender": function (data, type, full) {
+                                                if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
+                                                    return '<i class="fa fa-file-o"></i>';
+                                                } else {
+                                                    return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
+                                                }
+                                            }
+                                        },
+                                        {"mData": "rol"},
+                                        {"mData": "fecha"},
+                                        {"mData": "caratulado"},
+                                        {"mData": "tribunal.nombre"}
+                                    ]
+                                });
+                                //                reglasAtb();
+                            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                var rut = '<%= datos.get("rut").toString()%>';
+                var dv = '<%= datos.get("dv").toString()%>';
+                var scoreRut = 0;
+                scoreRut = parseInt(getScoreValue(rut, dv));
+                console.log(scoreRut);
+                $.ajax({
+                    url: 'Svl_Scoring',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: {accion: 'ObtenerScore', 'score': scoreRut},
+                    success: function (data) {
+                        $('#scoreToRut').text(data.datos.scoreText);
+                        console.log(JSON.stringify(data));
+                    }
                 });
-                
-                //popover:
-                $(function () {
-                    $('#ksDescripcion').popover({
-                        title: 'Prueba KS',
-                        content: '<p style="text-align: justify; color:gray;">La prueba de Kolmogórov-Smirnov (también prueba K-S) es una prueba no paramétrica que determina la bondad de ajuste de dos distribuciones de probabilidad entre sí.</p> <p> <a href="https://es.wikipedia.org/wiki/Prueba_de_Kolmog%C3%B3rov-Smirnov" target="_blank">leer mas</a></p>',
-                        placement: 'bottom',
-                        html : true
-                    });
-                    $('#aucDescripcion').popover({
-                        title: 'Curva AUC',
-                        content: '<p style="text-align: justify; color:gray;">Es el área bajo la curva ROC, llamada comúnmente AUC (Área Bajo la Curva). También se puede encontrar denominada A\' ("a-prima"), o el estadístico "c" (c-statistic).</p> <p> <a href="https://es.wikipedia.org/wiki/Curva_ROC#C.C3.B3mo_se_puede_interpretar_una_curva_ROC" target="_blank">leer mas</a></p>',
-                        placement: 'bottom',
-                        html : true
-                    });
-                    $('#rocDescripcion').popover({
-                        title: 'Curva ROC',
-                        content: '<p style="text-align: justify; color:gray;">Es una representación gráfica de la sensibilidad frente a la especificidad para un sistema clasificador binario según se varía el umbral de discriminación.</p><p> <a href="https://es.wikipedia.org/wiki/Curva_ROC\" target="_blank">leer mas</a></p>',
-                        placement: 'bottom',
-                        html : true
-                    });                    
-                    $('#Ley20521Descripcion').popover({
-                        title: 'Ley N° 20.521',
-                        content: '<p style="text-align: justify; color:gray;">Esta modifica la ley Nº 19.628, el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>',
-                        placement: 'bottom',
-                        html : true
-                    });
+            });
+
+            //popover:
+            $(function () {
+                $('#ksDescripcion').popover({
+                    title: 'Prueba KS',
+                    content: '<p style="text-align: justify; color:gray;">La prueba de Kolmogórov-Smirnov (también prueba K-S) es una prueba no paramétrica que determina la bondad de ajuste de dos distribuciones de probabilidad entre sí.</p> <p> <a href="https://es.wikipedia.org/wiki/Prueba_de_Kolmog%C3%B3rov-Smirnov" target="_blank">leer mas</a></p>',
+                    placement: 'bottom',
+                    html: true
                 });
-                
-            </script>
+                $('#aucDescripcion').popover({
+                    title: 'Curva AUC',
+                    content: '<p style="text-align: justify; color:gray;">Es el área bajo la curva ROC, llamada comúnmente AUC (Área Bajo la Curva). También se puede encontrar denominada A\' ("a-prima"), o el estadístico "c" (c-statistic).</p> <p> <a href="https://es.wikipedia.org/wiki/Curva_ROC#C.C3.B3mo_se_puede_interpretar_una_curva_ROC" target="_blank">leer mas</a></p>',
+                    placement: 'bottom',
+                    html: true
+                });
+                $('#rocDescripcion').popover({
+                    title: 'Curva ROC',
+                    content: '<p style="text-align: justify; color:gray;">Es una representación gráfica de la sensibilidad frente a la especificidad para un sistema clasificador binario según se varía el umbral de discriminación.</p><p> <a href="https://es.wikipedia.org/wiki/Curva_ROC\" target="_blank">leer mas</a></p>',
+                    placement: 'bottom',
+                    html: true
+                });
+                $('#Ley20521Descripcion').popover({
+                    title: 'Ley N° 20.521',
+                    content: '<p style="text-align: justify; color:gray;">Esta modifica la ley Nº 19.628, el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>',
+                    placement: 'bottom',
+                    html: true
+                });
+            });
+
+        </script>
         <!-- End -->
     </body>
 </html>
