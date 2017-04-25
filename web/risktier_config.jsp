@@ -114,7 +114,7 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label class="label-control">Tipo</label>
-                                                        <select class="form-control">
+                                                        <select id="cmboxTipoRiskTier" class="form-control">
                                                             <option value="1">Natural</option>
                                                             <option value="2">Jurídico</option>
                                                         </select>

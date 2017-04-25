@@ -22,7 +22,7 @@ function fillCoordenadasPresupuesto(table) {
         for (var i = 0; i <= column; i++) {
             if ($(this).find('td').eq(1).find('input').attr('id') != undefined) {
                 if (i == 0) {
-                    $(fila).append('<td>' + $('#' + row_id).val() + '</td>');
+                    $(fila).append('<td><span style="color:blue;">' + $('#' + row_id).val() + '</span></td>');
                 } else {
                     var colAux = '<td><select class="form-control"><option value="0">Seleccione</option>';
                     for (var j in RISKTIER) {
@@ -376,7 +376,7 @@ function guardarRiskTier(button) {
     var htmlBtn = $(button).html();
     $(button).html('Guardando... <i class="fa fa-spinner fa-spin"></i>');
     $(button).parent().find('button').prop('disabled', true);
-    console.log("paso por: guardarRiskTier");
+    //console.log("paso por: guardarRiskTier");
     $.ajax({
         url: 'Svl_RiskTier',
         type: 'POST',

@@ -23,7 +23,7 @@ public class BnValorTablaCore {
 
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "INSERT INTO VALOR_TABLA_CORE\n"
+            String sql = "INSERT INTO " + D.ESQUEMA + ".VALOR_TABLA_CORE\n"
                     + "(X, Y, ID_RISKTIER)\n"
                     + "VALUES(?, ?, ?)";
 

@@ -24,7 +24,7 @@ public class BnTablaRiskIndicator {
         Connection conn = null;
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "INSERT INTO TABLA_RISK_INDICATOR\n"
+            String sql = "INSERT INTO " + D.ESQUEMA + ".TABLA_RISK_INDICATOR\n"
                     + "(ORIGEN_X, ORIGEN_Y, NUM_FILAS, NUM_COLUMNAS, ID_TIPOADMINRISKTIER)\n"
                     + "VALUES(?, ?, ?, ?, ?) ";
             PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -241,7 +241,7 @@ public class BnTablaRiskIndicator {
 
     public static boolean eliminar(Connection conn, int idTipoRiskTier) throws SQLException {
         boolean flag = false;
-        String sql = "CALL ONE.SP_BORRAR_RISKTIER(" + idTipoRiskTier + ")";
+        String sql = "CALL SP_BORRAR_RISKTIER(" + idTipoRiskTier + ")";
         PreparedStatement pst1 = conn.prepareStatement(sql);
         pst1.executeQuery();
         Conexion.Desconectar(conn);

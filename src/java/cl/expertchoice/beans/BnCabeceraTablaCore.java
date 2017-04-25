@@ -19,7 +19,7 @@ public class BnCabeceraTablaCore {
         Connection conn = null;
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "INSERT INTO CABECERA_TABLA_CORE\n"
+            String sql = "INSERT INTO " + D.ESQUEMA + ".CABECERA_TABLA_CORE\n"
                     + "(ID_TABLARISKINDICATOR, EJE, VALOR)\n"
                     + "VALUES(?, ?, ?)";
 
@@ -46,7 +46,7 @@ public class BnCabeceraTablaCore {
         try {
             conn = Conexion.getConexionEasy();
             String sql = "SELECT ID_TABLACORE, ID_TABLARISKINDICATOR, EJE, VALOR\n"
-                    + "FROM CABECERA_TABLA_CORE\n"
+                    + "FROM " + D.ESQUEMA + ".CABECERA_TABLA_CORE\n"
                     + "WHERE ID_TABLARISKINDICATOR = ?";
 
             PreparedStatement pst = conn.prepareStatement(sql);
