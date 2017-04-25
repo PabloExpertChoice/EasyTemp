@@ -439,7 +439,6 @@ public class bnsInformacion {
     }
 
     public JSONObject obtenerNombre(String rut) {
-        JSONObject json = null;
         try {
             String user = "consultaMotor";
             String pass = "passMotor";
@@ -453,18 +452,21 @@ public class bnsInformacion {
             Document doc = db.parse(is);
             String[] arrRut = rut.split("-");
             int r = Integer.parseInt(arrRut[0]);
-            json = new JSONObject();
-            json.put("rut", r);
-            json.put("dv", arrRut[1]);
 
-            json.put("nombre", consultar("//nombre", doc));
-            json.put("apellPaterno", consultar("//ape_paterno", doc));
-            json.put("apellMaterno", consultar("//ape_materno", doc));
+            if (!consultar("//nombre", doc).equalsIgnoreCase("--")) {
+                JSONObject json  = new JSONObject();
+                json.put("rut", r);
+                json.put("dv", arrRut[1]);
+                String nom_com = consultar("//nombre", doc) + " " + consultar("//ape_paterno", doc) + " " + consultar("//ape_materno", doc);
+                json.put("nombre", nom_com.replaceAll("  ", " "));
+                return json;
+            }
+            return null;
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            return null;
         }
-        return json;
     }
 
     public JSONObject obtenerNombreDelSII(String rut) {
@@ -482,16 +484,21 @@ public class bnsInformacion {
             Document doc = db.parse(is);
             String[] arrRut = rut.split("-");
             int r = Integer.parseInt(arrRut[0]);
-            json = new JSONObject();
-            json.put("rut", r);
-            json.put("dv", arrRut[1]);
 
-            json.put("nombre", consultar("//detalleConsulta/razon", doc));
+            String nom_com = consultar("//detalleConsulta/razon", doc);
+            if (!nom_com.equalsIgnoreCase("** ")) {
+                json = new JSONObject();
+                json.put("rut", r);
+                json.put("dv", arrRut[1]);
+                json.put("nombre", consultar("//detalleConsulta/razon", doc));
+                return json;
+            }
+            return null;
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            return null;
         }
-        return json;
     }
 
 //    public static void main(String[] args) {

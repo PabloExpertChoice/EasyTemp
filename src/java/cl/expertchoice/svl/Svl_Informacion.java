@@ -35,11 +35,12 @@ public class Svl_Informacion extends HttpServlet {
                         String rut = request.getParameter("rut");
                         String dv = request.getParameter("dv");
                         bnsInformacion bn = new bnsInformacion();
-                        JSONObject jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
-
+                        JSONObject jsonInformacion = bn.obtenerNombre(rut + "-" + dv);
+                        if(jsonInformacion==null){
+                            jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
+                        }
                         if (jsonInformacion != null) {
                             request.setAttribute("datos", jsonInformacion);
-
                             toPage("/dashboard.jsp", request, response);
                         } else {
                             request.setAttribute("msg", "No se encuentran datos");
