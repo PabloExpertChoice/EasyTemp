@@ -767,7 +767,7 @@
                                         accion: 'setBlackList',
                                         id_empresa: <%=user.getEmpresa().getId()%>,
                                         comentario: $('#comentarioBL').val(),
-                                        
+
                                         estado: estado,
                                         rut: rut,
                                     },
@@ -793,9 +793,7 @@
                             }
 
                             function verModalBL() {
-                                $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
-                                $('#modalBlackList').modal({'backdrop': 'static'});
-                                $('#tblBLCont').show();
+                                swal_procces();
                                 getDatosBL(rut);
                             }
                             function swal_procces(mensaje, titulo, type) {
@@ -836,8 +834,6 @@
                                             var comentario = data[y].comentario;
                                             var fecha = data[y].fecha;
                                             var estado = data[y].estado;
-
-
                                             if (estado == 1) // es inactivo
                                                 estado = '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
                                             else // Ya esta Activo    
@@ -846,6 +842,11 @@
                                             datos_tabla_aux[y] = [estado, comentario, fecha];
                                         }
                                         $("#tblBL").dataTable().fnAddData(datos_tabla_aux);
+
+                                        $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
+                                        $('#modalBlackList').modal({'backdrop': 'static'});
+                                        $('#tblBLCont').show();
+                                        swal_unprocces();
 
 //                                        if ($.fn.dataTable.isDataTable('#tblBL')) {
 //                                            $('#tblBL').DataTable().destroy();                                            
@@ -891,7 +892,7 @@
                                     }});
                             }
                             $(function () {
-
+                                swal_procces();
                                 $('#tblBL').DataTable({
                                     "language": {
                                         "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -1002,6 +1003,7 @@
                                         {"mData": "tribunal.nombre"}
                                     ]
                                 });
+                                swal_unprocces();
                                 //                reglasAtb();
                             });
         </script>

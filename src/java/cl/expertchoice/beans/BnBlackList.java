@@ -17,7 +17,7 @@ public class BnBlackList {
         try {
             conn = Conexion.getConexionEasy();
 
-            String sql = "INSERT INTO " + D.ESQUEMA + ".BO_BLACKLIST\n"
+            String sql = "INSERT INTO " + D.ESQUEMA + ".LC_BLACKLIST\n"
                     + "( ID_EMPRESA, COMENTARIO, ESTADO, FECHA, ID_USUARIO, RUT)\n"
                     + "VALUES( ?, ?, ?, CURRENT_TIMESTAMP, ?, ?);";
 
@@ -43,7 +43,7 @@ public class BnBlackList {
         ResultSet rs = null;
         ArrayList<RegistroBlackList> lista = new ArrayList<RegistroBlackList>();
         String sql = "SELECT ID_BLACKLIST, ID_EMPRESA, COMENTARIO, ESTADO, FECHA, ID_USUARIO, RUT\n"
-                + "FROM easy.BO_BLACKLIST WHERE RUT = ? ORDER BY FECHA;";
+                + "FROM easy.LC_BLACKLIST WHERE RUT = ? ORDER BY FECHA;";
         conn = Conexion.getConexionEasy();
         pst = conn.prepareStatement(sql);
 
@@ -58,8 +58,6 @@ public class BnBlackList {
             registro.setFecha(rs.getTimestamp("FECHA"));
             registro.setId_usuario(rs.getLong("ID_USUARIO"));
             registro.setRut(rs.getInt("RUT"));
-
-            System.out.println(registro.toString());
             lista.add(registro);
         }
         pst.close();
