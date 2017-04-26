@@ -204,7 +204,7 @@ public class Svl_RiskTier extends HttpServlet {
 
                 case "arbol-risk-tier": {
                     json = new JsonObject();
-                    JsonArray resp = new BnRiskTier().listarArbol2();
+                    JsonObject resp = new BnRiskTier().listarArbol2();
 
                     if (resp != null) {
                         json.addProperty("estado", D.EST_OK);

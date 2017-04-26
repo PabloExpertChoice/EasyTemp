@@ -101,21 +101,21 @@
                         <div class="col-md-12 ">
                             <div class="portlet light">
                                 <div class="portlet-title">
-                                    <div class="caption">
-<!--                                        <i class="fa fa-database"></i> Tree 
-                                        <br><br>-->
-                                        <select name="order_status" class="form-control form-filter input-sm" style="width: 300px;">
-                                            <option value="">Natural</option>
-                                            <option value="pending">Juridico</option>
-                                        </select>
+                                    <div class="caption col-md-11">
+                                        <div <div class="col-md-2 col-lg-2" style="padding-left: 0px;">
+                                            <select class="form-control form-filter input-sm" return fillTree(this.value)>
+                                                <option value="1">Natural</option>
+                                                <option value="2">Jurídico</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="tools">
                                         <a href="#" class="collapse" data-original-title="" title=""> </a>
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <div class="table-scrollable">
-                                        <img src="images/risktier.png">
+                                    <div class="table-scrollable">                                        
+                                        <section class="content jtk-demo-canvas canvas-wide flowchart-demo jtk-surface jtk-surface-nopan" id="canvas" style="height: 1000px; overflow-y: scroll;overflow-x: hidden;"></section>
                                     </div>
                                 </div>
                             </div>
@@ -184,45 +184,40 @@
             <script src="assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
             <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
-            <!-- END THEME LAYOUT SCRIPTS -->
-            <!-- Google Code for Universal Analytics -->
-            <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r;
-                    i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                    a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                    a.async = 1;
-                    a.src = g;
-                    m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
-                ga('create', 'UA-37564768-1', 'auto');
-                ga('send', 'pageview');
-            </script>
-            <!-- End -->
-
-            <!-- Google Tag Manager -->
-            <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-W276BJ"
-                              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <script>(function (w, d, s, l, i) {
-                    w[l] = w[l] || [];
-                    w[l].push({'gtm.start':
-                                new Date().getTime(), event: 'gtm.js'});
-                    var f = d.getElementsByTagName(s)[0],
-                            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                    j.async = true;
-                    j.src =
-                            '../../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-                    f.parentNode.insertBefore(j, f);
-                })(window, document, 'script', 'dataLayer', 'GTM-W276BJ');</script>
-            <!-- End -->
+            <!-- END THEME LAYOUT SCRIPTS -->               
             
             <!-- Codigo A.M.-->
             <script src="js/funciones.js"></script>
+            <script src="js/number_format.js"></script>
             <script src="js/sidebar.js"></script>
             <script> menuSelected("<%=request.getParameter("code")%>");  </script>
+            <script src="plugins/jsPlumb/lib/jsBezier-0.8.js"></script>
+            <script src="plugins/jsPlumb/lib/mottle-0.7.4.js"></script>
+            <script src="plugins/jsPlumb/lib/biltong-0.3.js"></script>
+            <script src="plugins/jsPlumb/lib/katavorio-0.18.0.js"></script>
+            <script src="plugins/jsPlumb/src/util.js"></script>
+            <script src="plugins/jsPlumb/src/browser-util.js"></script>
+            <script src="plugins/jsPlumb/jsPlumb.js"></script>
+            <script src="plugins/jsPlumb/src/dom-adapter.js"></script>
+            <script src="plugins/jsPlumb/src/overlay-component.js"></script>
+            <script src="plugins/jsPlumb/src/endpoint.js"></script>
+            <script src="plugins/jsPlumb/src/connection.js"></script>
+            <script src="plugins/jsPlumb/src/anchors.js"></script>
+            <script src="plugins/jsPlumb/src/defaults.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-bezier.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-statemachine.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-flowchart.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-straight.js"></script>
+            <script src="plugins/jsPlumb/src/renderers-svg.js"></script>
+            <script src="plugins/jsPlumb/src/base-library-adapter.js"></script>
+            <script src="plugins/jsPlumb/src/dom.jsPlumb.js"></script>  
+            <script src="plugins/jsplumb.js"></script>  
+            <script src="js/politicas.js"></script>
+            <script>
+                $(function () {
+                    getPoliticasRiskTier();
+                });
+            </script>    
     </body>
 
 
