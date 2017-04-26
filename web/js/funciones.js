@@ -137,3 +137,33 @@ function addParams(params, form) {
         });
     }
 }
+
+/*
+ * Metodo que bloque la interfaz, paralas consulatas ajax:
+ * @returns {undefined}
+ */
+function bloquearUI(idTabla, overlayColor) {                          
+    App.blockUI({
+                target: "#"+idTabla,
+                overlayColor: overlayColor,
+                cenrerY: true,
+                boxed: false,
+                animate:!0
+    });
+}
+
+function bloquearUIText(idTabla, overlayColor, Texto) {                       
+    App.blockUI({
+                message: " <span style='font-size: 25px;'><b>"+Texto+"</b></span>",
+                target: "#"+idTabla,
+                overlayColor: overlayColor,
+                cenrerY: true,
+                boxed: false
+    });
+}
+
+function bloquearUIAll(Texto) {                          
+  
+    $.blockUI({ message: '<h1><img src="assets/global/img/loading-spinner-grey.gif" /> '+Texto+'...</h1>' });
+
+}

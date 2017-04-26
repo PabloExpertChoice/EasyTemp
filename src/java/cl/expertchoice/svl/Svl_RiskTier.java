@@ -5,6 +5,7 @@
  */
 package cl.expertchoice.svl;
 
+import cl.expertchoice.beans.BnAdminRiskTier;
 import cl.expertchoice.beans.BnRiskTier;
 import cl.expertchoice.clases.AdminRiskTier;
 import cl.expertchoice.clases.RiskTier;
@@ -25,6 +26,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import cl.expertchoice.beans.BnTablaRiskIndicator;
+import cl.expertchoice.beans.BnValorTablaCore;
+import cl.expertchoice.clases.DetalleAdminRiskTier;
+import com.google.gson.JsonArray;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,10 +75,8 @@ public class Svl_RiskTier extends HttpServlet {
                 }
 
                 case "listar-riskindicator": {
-//                    ArrayList<TablaRiskIndicator> arr = new BnTablaRiskIndicator().listar2();
-//                    ArrayList<ValorTablaCore> vtc = new BnValorTablaCore().listar();
-                    ArrayList<TablaRiskIndicator> arr = null;
-                    ArrayList<ValorTablaCore> vtc = null;
+                    ArrayList<TablaRiskIndicator> arr = new BnTablaRiskIndicator().listar2();
+                    ArrayList<ValorTablaCore> vtc = new BnValorTablaCore().listar();
                     if (arr != null) {
                         json.addProperty("estado", D.EST_OK);
                         json.add("datos", new Gson().toJsonTree(arr));
@@ -86,7 +88,7 @@ public class Svl_RiskTier extends HttpServlet {
                     }
 
                     response.getWriter().print(json);
-                    break;
+                    break;          
                 }
 
                 case "guardar-risktier": {
@@ -112,11 +114,10 @@ public class Svl_RiskTier extends HttpServlet {
                     break;
                     
                 }
-
+                
                 case "listar-admin-risktier": {
                     json = new JsonObject();
-//                    ArrayList<AdminRiskTier> arr = new BnAdminRiskTier().listar();
-                    ArrayList<AdminRiskTier> arr = null;
+                    ArrayList<AdminRiskTier> arr = new BnAdminRiskTier().listar();
                     if (arr.size() > 0) {
                         json.addProperty("estado", D.EST_OK);
                         json.add("datos", new Gson().toJsonTree(arr));
@@ -124,6 +125,95 @@ public class Svl_RiskTier extends HttpServlet {
                         json.addProperty("estado", D.EST_NORESULTADO);
                         json.addProperty("descripcion", "Sin datos");
                     }
+                    response.getWriter().print(json);
+                    break;
+                }
+
+                case "update-detalle-admin": {
+                    JSONArray jsonData = new JSONArray(request.getParameter("detalles"));
+                    for (int i = 0; i < jsonData.length(); i++) {
+                        JSONObject ob = jsonData.getJSONObject(i);
+                        new BnAdminRiskTier().actualizar(ob.getString("valor"), ob.getInt("idDetalleAdminRiskTier"));
+                    }
+
+                    json = new JsonObject();
+                    json.addProperty("estado", D.EST_OK);
+                    response.getWriter().print(json);
+                    break;
+                }
+
+                case "listar-detalle-admin-risktier": {
+                    json = new JsonObject();
+                    int idAdminRiskTier = Integer.parseInt(request.getParameter("idAdminRiskTier"));
+                    ArrayList<DetalleAdminRiskTier> arr = new BnAdminRiskTier().listarDetalles(idAdminRiskTier);
+                    if (arr.size() > 0) {
+                        json.addProperty("estado", D.EST_OK);
+                        json.add("datos", new Gson().toJsonTree(arr));
+                    } else {
+                        json.addProperty("estado", D.EST_NORESULTADO);
+                        json.addProperty("descripcion", "Error al listar Risk Tier");
+                    }
+                    response.getWriter().print(json);
+                    break;
+                }
+
+                case "listar-depuracion-renta": {
+                    json = new JsonObject();
+//                    ArrayList<DepuracionRenta> arr = new BnDepuracionRenta().listar();
+//                    if (arr.size() > 0) {
+//                        json.addProperty("estado", D.EST_OK);
+//                        json.add("datos", new Gson().toJsonTree(arr));
+//                    } else {
+//                        json.addProperty("estado", D.EST_NORESULTADO);
+//                        json.addProperty("descripcion", "No data");
+//                    }
+//                    response.getWriter().print(json);
+                    break;
+                }
+
+                case "guardar-depuracion-renta": {
+                    json = new JsonObject();
+//                    ArrayList<DepuracionRenta> arr = new ArrayList<>();
+//
+//                    DepuracionRenta dr = new DepuracionRenta();
+//                    dr.setId(Integer.parseInt(request.getParameter("id_deuda_cred_hipotecario")));
+//                    dr.setPorcentajeRenta(request.getParameter("deuda_cred_hipotecario"));
+//                    arr.add(dr);
+//
+//                    dr = new DepuracionRenta();
+//                    dr.setId(Integer.parseInt(request.getParameter("id_deuda_comercial")));
+//                    dr.setPorcentajeRenta(request.getParameter("deuda_comercial"));
+//                    arr.add(dr);
+//
+//                    dr = new DepuracionRenta();
+//                    dr.setId(Integer.parseInt(request.getParameter("id_deuda_credito_consumo")));
+//                    dr.setPorcentajeRenta(request.getParameter("deuda_credito_consumo"));
+//                    arr.add(dr);
+//
+//                    boolean flag = new BnDepuracionRenta().actualizar(arr);
+//                    if (flag) {
+//                        json.addProperty("estado", D.EST_OK);
+//                    } else {
+//                        json.addProperty("estado", D.EST_NORESULTADO);
+//                        json.addProperty("descripcion", "Error al guardar datos");
+//                    }
+//
+//                    response.getWriter().print(json);
+                    break;
+                }
+
+                case "arbol-risk-tier": {
+                    json = new JsonObject();
+                    JsonObject resp = new BnRiskTier().listarArbol2();
+
+                    if (resp != null) {
+                        json.addProperty("estado", D.EST_OK);
+                        json.add("datos", resp);
+                    } else {
+                        json.addProperty("estado", D.EST_NORESULTADO);
+                        json.addProperty("descripcion", "Sin datos");
+                    }
+
                     response.getWriter().print(json);
                     break;
                 }

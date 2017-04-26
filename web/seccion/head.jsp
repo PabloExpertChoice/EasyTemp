@@ -51,7 +51,7 @@
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="slv_login?code=logout"><i class="icon-key"></i>Cerrar sesion</a>
+                                <a href="slv_login?code=logout" id="id-logout"><i class="icon-key"></i>Cerrar sesion</a>
                             </li>
                         </ul>
                     </li>
@@ -59,7 +59,7 @@
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                     <li class="dropdown dropdown-extended quick-sidebar-toggler" onclick="logout()">
                         <span class="sr-only">Toggle Quick Sidebar</span>
-                        <i class="icon-logout"></i>
+                        <i class="icon-logout" onclick="window.location='slv_login?code=logout';"></i>
                     </li>
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>

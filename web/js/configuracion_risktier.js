@@ -100,7 +100,7 @@ function fillValidarTableColumnRow() {
         return false;
     }
     $('#tblPresupuesto tbody tr').each(function () {
-        if ($(this).find('td').eq(0).find('input').attr('id') != undefined) {              
+        if ($(this).find('td').eq(0).find('input').attr('id') != undefined) {
             var column_id = $(this).find('td').eq(0).find('input').attr('id');
             var row_id = $(this).find('td').eq(1).find('input').attr('id');
             if ($('#' + column_id).val().trim().length == 0 || $('#' + row_id).val() == 0) {
@@ -207,6 +207,7 @@ function buscarVariables() {
 }
 
 function getAdminRiskTier() {
+    
     $.ajax({
         url: 'Svl_RiskTier',
         type: 'post',
@@ -214,24 +215,32 @@ function getAdminRiskTier() {
         data: {
             accion: 'listar-admin-risktier'
         }, beforeSend: function () {
-            $('#tblAdminRiskTier tbody').html('Cargando datos... <i class="fa fa-spinner fa-spin"></i>');
+            bloquearUI('tblAdminRiskTier','white'); //bloquear UI 
         }, success: function (data) {
-            $('#tblAdminRiskTier tbody').empty();
-            var obTipo = new Object();
-            if (data.estado === 200) {
-                var datos = data.datos;
-                for (var i in datos) {
-                    obTipo[datos[i].tipo.id] = datos[i].tipo.nombre;
-                    _ADMINOB.push(datos[i]);
+            $('#tblAdminRiskTier').text('');    
+            if (data.estado === 405) {                
+                $('#tblAdminRiskTier').append('<thead> <tr> <th style="text-align: center;">NOMBRE</th> <th style="text-align: center;">FECHA</th> <th style="text-align: center;"><i class="fa fa fa-cogs"></i></th> </tr> </thead> <tbody><tr class=""> <td colspan="3" style="text-align: center;"> No Hay Datos </td> </tr></tbody>');
+            }
+            else
+            {
+                $('#tblAdminRiskTier').append('<thead> <tr> <th style="text-align: center;">NOMBRE</th> <th style="text-align: center;">FECHA</th> <th style="text-align: center;"><i class="fa fa fa-cogs"></i></th> </tr> </thead> <tbody> </tbody>');
+                $('#tblAdminRiskTier tbody').empty();
+                var obTipo = new Object();
+                if (data.estado === 200) {
+                    var datos = data.datos;
+                    for (var i in datos) {
+                        obTipo[datos[i].tipo.id] = datos[i].tipo.nombre;
+                        _ADMINOB.push(datos[i]);
+                    }
                 }
-            }
 
-            for (var i in obTipo) {
-                $('#cmboxTipoRiskTier').append('<option value="' + i + '">' + obTipo[i] + '</option>');
-            }
+                for (var i in obTipo) {
+                    $('#cmboxTipoRiskTier').append('<option value="' + i + '">' + obTipo[i] + '</option>');
+                }
 
-            $('#cmboxTipoRiskTier').val(1);
-            cambiarTipo(1);
+                $('#cmboxTipoRiskTier').val(1);
+                cambiarTipo(1);
+            }
         }
     });
 }
@@ -244,7 +253,7 @@ function cambiarTipo(idTipo) {
                     + '<td>' + _ADMINOB[i].nombre + '</td>'
                     + '<td>' + _ADMINOB[i].fechaCreacion + '</td>'
                     + '<td><button class="btn btn-dafult" '
-                    + ' onclick="go(\'cmd\',[{\'id\' : \'code\', \'val\' : \'adminRiskTier\' },{\'id\' : \'titulo\', \'val\' : \'' + _ADMINOB[i].nombre + '\' },{\'id\' : \'idAdminRiskTier\', \'val\' : \'' + _ADMINOB[i].id + '\' }], undefined,\'cmd\')">'
+                    + ' onclick="go(\'cmd\',[{\'id\' : \'code\', \'val\' : \'risktier_adminRiskTier\' },{\'id\' : \'titulo\', \'val\' : \'' + _ADMINOB[i].nombre + '\' },{\'id\' : \'idAdminRiskTier\', \'val\' : \'' + _ADMINOB[i].id + '\' }], undefined,\'cmd\')">'
                     + '<i class="fa fa-list-alt"></i></button></td>'
                     + '</tr>');
         }

@@ -10,19 +10,19 @@ function fillCoordenadasPresupuesto(table) {
     $(table).find('thead').empty();
     var column = $('#inpColumn').val();
     var columna = $('<tr>');
-    $(columna).append('<td style="max-width: 20px; min-width: 10px;"><span style="color:blue;">'+obConfig.variableY.nombre+'</span><b> / </b>'+obConfig.variableX.nombre+'</td>');
+    $(columna).append('<td style="text-align: center;"><span style="color:blue;">'+obConfig.variableY.nombre+'</span><b> / </b>'+obConfig.variableX.nombre+'</td>');
     $('#tblPresupuesto tbody tr').each(function () {
         var column_id = $(this).find('td').eq(0).find('input').attr('id');
         var row_id = $(this).find('td').eq(1).find('input').attr('id');
         if ($(this).find('td').eq(0).find('input').attr('id') != undefined) {
-            $(columna).append('<th>' + $('#' + column_id).val() + '</th>');
+            $(columna).append('<th style="text-align: center;">' + $('#' + column_id).val() + '</th>');
         }
 
         var fila = $('<tr>');
         for (var i = 0; i <= column; i++) {
             if ($(this).find('td').eq(1).find('input').attr('id') != undefined) {
                 if (i == 0) {
-                    $(fila).append('<td><span style="color:blue;">' + $('#' + row_id).val() + '</span></td>');
+                    $(fila).append('<td align="center"><span style="color:blue;">' + $('#' + row_id).val() + '</span></td>');
                 } else {
                     var colAux = '<td><select class="form-control"><option value="0">Seleccione</option>';
                     for (var j in RISKTIER) {
@@ -237,6 +237,10 @@ function guardarConfiguracion() {
  * @return {undefined}
  */
 function buscarRiskTier() {
+    origenX_N   = [];   origenY_N = [];
+    origenX_J   = [];   origenY_J = [];
+    arrCab      = [];   arrDef    = [];    
+    bloquearUI('tablaRiskTier','black'); //bloquear UI
     $.ajax({
         url: 'Svl_RiskTier',
         type: 'POST',
@@ -245,7 +249,7 @@ function buscarRiskTier() {
             accion: 'listar'
         }, success: function (data, textStatus, jqXHR) {
             if (data.estado === 200) {
-                console.log(data);
+                //console.log(data);
                 RISKTIER = data.datos;
             }
 
@@ -272,7 +276,7 @@ function buscarRiskIndicator() {
         }, success: function (data, textStatus, jqXHR) {
             if (data.estado === 200) {
                 $('#contenedorRiskTier').show();
-                $('#tablaRiskTier').empty();
+                $('#tablaRiskTier').empty();                
                 var datos = data.datos;
                 arrCab = datos;
                 arrDef = data.def;
@@ -294,22 +298,35 @@ function buscarRiskIndicator() {
                         }
                     }
                 }
-
+                
                 cambiarVista(1);
             }
         }
     });
 }
+/*
+ * Esta funcion intermedia a cambiarVista(idTipo) se implemento para no afectar la experiencia del usuario a nivel de UI:
+ */
+function cambiarTipoRiskTier(idTipo)
+{    
+    $('#tablaRiskTier').text('');
+    $('#tablaRiskTier').append('<thead> <tr class="uppercase"> <th style="text-align: center;"> Buscando datos para  RiskTier.. </th> </tr> </thead>');
+    bloquearUI('tablaRiskTier','black'); //bloquear UI
+    setTimeout(function(){
+      cambiarVista(idTipo);
+    }, 500);
+    
+}
 
-function cambiarVista(idTipo) {
-    $('#tablaRiskTier').html('');
+function cambiarVista(idTipo) {   
+    $('#tablaRiskTier').text('');//limpiar tabla
     if (idTipo == 1) {
         var cab = arrCab[0].tipoAdminRiskTier.id == 1 ? arrCab[0] : arrCab[1];
         var row = 0;
         for (var i = 0; i < origenY_N.length; i++) {
             var fila = '<tr>'
             if (row == 0) {
-                fila += '<th style="text-align: center;">' + cab.origenY.nombre + ' &#92; ' + cab.origenX.nombre + '</th>';
+                fila += '<th style="text-align: center; font-size:13px; max-width: 100px;">' + cab.origenY.nombre + ' &#92; ' + cab.origenX.nombre + '</th>';
                 for (var j in origenX_N) {
                     fila += '<th style="text-align: center;">' + origenX_N[j].valor + '</th>';
                 }
@@ -318,7 +335,7 @@ function cambiarVista(idTipo) {
             } else {
                 fila += '<th style="text-align: center;">' + origenY_N[i].valor + '</th>';
                 for (var j in origenX_N) {
-                    fila += '<td id="' + origenY_N[i].id + '_' + origenX_N[j].id + '"></td>';
+                    fila += '<td id="' + origenY_N[i].id + '_' + origenX_N[j].id + '" style="text-align: center;"></td>';
                 }
             }
 
@@ -342,7 +359,7 @@ function cambiarVista(idTipo) {
         for (var i = 0; i < origenY_J.length; i++) {
             var fila = '<tr>'
             if (row == 0) {
-                fila += '<th style="text-align: center;">' + cab.origenY.nombre + ' &#92; ' + cab.origenX.nombre + '</th>';
+                fila += '<th style="text-align: center; font-size:13px; max-width: 100px;">' + cab.origenY.nombre + ' &#92; ' + cab.origenX.nombre + '</th>';
                 for (var j in origenX_J) {
                     fila += '<th style="text-align: center;">' + origenX_J[j].valor + '</th>';
                 }
@@ -351,7 +368,7 @@ function cambiarVista(idTipo) {
             } else {
                 fila += '<th style="text-align: center;">' + origenY_J[i].valor + '</th>';
                 for (var j in origenX_J) {
-                    fila += '<td id="' + origenY_J[i].id + '_' + origenX_J[j].id + '"></td>';
+                    fila += '<td id="' + origenY_J[i].id + '_' + origenX_J[j].id + '" style="text-align: center;"></td>';
                 }
             }
 
@@ -390,7 +407,8 @@ function guardarRiskTier(button) {
             if (data.estado !== 200) {
                 alert('Error al guardar risktier');
             } else {
-                go('cmd', undefined, undefined, 'cmd');
+                alert('RiskTier Guardado con Exito, Será redireccionado!');
+                go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd')
             }
         }
     });
