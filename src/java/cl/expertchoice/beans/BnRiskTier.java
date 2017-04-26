@@ -83,7 +83,7 @@ public class BnRiskTier {
 
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT VAR1.NOMBRE AS VAR1, CAB.VALOR AS VALOR1, VAR2.NOMBRE AS VAR2, CAB2.VALOR AS VALOR2,\n"
+            String sql = "SELECT VAR1.VARIABLE AS VAR1, CAB.VALOR AS VALOR1, VAR2.VARIABLE AS VAR2, CAB2.VALOR AS VALOR2,\n"
                     + "RT.NOMBRE, TBL_RISKINDI1.ID_TIPOADMINRISKTIER\n"
                     + "FROM " + D.ESQUEMA + ".TABLA_RISK_INDICATOR AS TBL_RISKINDI1\n"
                     + "INNER JOIN " + D.ESQUEMA + ".VARIABLE AS VAR1\n"

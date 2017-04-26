@@ -43,6 +43,9 @@
         <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="stylesheet" href="plugins/jsPlumb/jsPlumbToolkit-defaults.css">
+        <link rel="stylesheet" href="plugins/jsPlumb/jsPlumbToolkit-demo.css">
+        <link rel="stylesheet" href="plugins/jsPlumb/demo.css">
     </head>
     <!-- END HEAD -->
 
@@ -103,7 +106,7 @@
                                 <div class="portlet-title">
                                     <div class="caption col-md-11">
                                         <div <div class="col-md-2 col-lg-2" style="padding-left: 0px;">
-                                            <select class="form-control form-filter input-sm" return fillTree(this.value)>
+                                            <select class="form-control form-filter input-sm" onclick="return fillTree(this.value)">
                                                 <option value="1">Natural</option>
                                                 <option value="2">Jurídico</option>
                                             </select>
@@ -115,7 +118,7 @@
                                 </div>
                                 <div class="portlet-body form">
                                     <div class="table-scrollable">                                        
-                                        <section class="content jtk-demo-canvas canvas-wide flowchart-demo jtk-surface jtk-surface-nopan" id="canvas" style="height: 1000px; overflow-y: scroll;overflow-x: hidden;"></section>
+                                        <section class="content jtk-demo-canvas canvas-wide flowchart-demo jtk-surface jtk-surface-nopan" id="canvas" style="padding: 20px; height: 1000px; overflow-y: scroll;overflow-x: hidden;"></section>
                                     </div>
                                 </div>
                             </div>
@@ -211,11 +214,11 @@
             <script src="plugins/jsPlumb/src/renderers-svg.js"></script>
             <script src="plugins/jsPlumb/src/base-library-adapter.js"></script>
             <script src="plugins/jsPlumb/src/dom.jsPlumb.js"></script>  
-            <script src="plugins/jsplumb.js"></script>  
+<!--            <script src="plugins/jsplumb.js"></script>  -->
             <script src="js/politicas.js"></script>
             <script>
                 $(function () {
-                    getPoliticasRiskTier();
+                    getPoliticasRiskTier('configuracionReglaNegocio');
                 });
             </script>    
     </body>

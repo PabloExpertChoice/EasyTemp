@@ -58,6 +58,10 @@
         <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        
+        <link rel="stylesheet" href="plugins/jsPlumb/jsPlumbToolkit-defaults.css">
+        <link rel="stylesheet" href="plugins/jsPlumb/jsPlumbToolkit-demo.css">
+        <link rel="stylesheet" href="plugins/jsPlumb/demo.css">
     </head>
     <!-- END HEAD -->
 
@@ -321,7 +325,7 @@
                                     </div>
                                     <div class="actions">
                                         <!--<a class="btn btn-circle btn-icon-only btn-default fullscreen fa fa-circle" data-toggle="modal" href="#basic"> </a>-->
-                                        <a data-toggle="modal" href="#basic"> <i style="color: #b1b1b1"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
+                                        <a data-toggle="modal" href="#basic" onclick="getPoliticasRiskTier('aplicarReglaNegocio')"> <i style="color: #b1b1b1"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
                                     </div>
                                 </div>
                                 <div class="portlet-body" style="display: block; margin: 0;">
@@ -397,7 +401,30 @@
                                     <h4 class="modal-title">Configuracion Risk Tier</h4>
                                 </div>
                                 <div class="modal-body"> Reglas de negocio del Risk Tier</div>
-                                <img src="images/risktier.png">
+                                
+                                <div class="col-md-12 ">
+                                    <div class="portlet light">
+                                        <div class="portlet-title">
+                                            <div class="caption col-md-11">
+                                                <div <div class="col-md-2 col-lg-2" style="padding-left: 0px;">
+                                                    <select class="form-control form-filter input-sm" onclick="return fillTree_arn(this.value)">
+                                                        <option value="1">Natural</option>
+                                                        <option value="2">Jurídico</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="tools">
+                                                <a href="#" class="collapse" data-original-title="" title=""> </a>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="table-scrollable">                                        
+                                                <section class="content jtk-demo-canvas canvas-wide flowchart-demo jtk-surface jtk-surface-nopan" id="canvas" style="padding: 20px; height: 1000px; overflow-y: scroll;overflow-x: hidden;"> <span style="text-align:center;">cargando..</span> </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
                                 <div class="modal-footer">
                                     <button type="button" class="btn dark btn-outline" data-dismiss="modal">Volver</button>
                                     <button type="button" class="btn green">Ir a configuracion Risk Tier</button>
@@ -874,6 +901,29 @@
                 });
                 
             </script>
+            
+            <script src="plugins/jsPlumb/lib/jsBezier-0.8.js"></script>
+            <script src="plugins/jsPlumb/lib/mottle-0.7.4.js"></script>
+            <script src="plugins/jsPlumb/lib/biltong-0.3.js"></script>
+            <script src="plugins/jsPlumb/lib/katavorio-0.18.0.js"></script>
+            <script src="plugins/jsPlumb/src/util.js"></script>
+            <script src="plugins/jsPlumb/src/browser-util.js"></script>
+            <script src="plugins/jsPlumb/jsPlumb.js"></script>
+            <script src="plugins/jsPlumb/src/dom-adapter.js"></script>
+            <script src="plugins/jsPlumb/src/overlay-component.js"></script>
+            <script src="plugins/jsPlumb/src/endpoint.js"></script>
+            <script src="plugins/jsPlumb/src/connection.js"></script>
+            <script src="plugins/jsPlumb/src/anchors.js"></script>
+            <script src="plugins/jsPlumb/src/defaults.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-bezier.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-statemachine.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-flowchart.js"></script>
+            <script src="plugins/jsPlumb/src/connectors-straight.js"></script>
+            <script src="plugins/jsPlumb/src/renderers-svg.js"></script>
+            <script src="plugins/jsPlumb/src/base-library-adapter.js"></script>
+            <script src="plugins/jsPlumb/src/dom.jsPlumb.js"></script>  
+<!--            <script src="plugins/jsplumb.js"></script>  -->
+            <script src="js/politicas.js"></script>            
         <!-- End -->
     </body>
 </html>
