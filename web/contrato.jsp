@@ -30,6 +30,11 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="Preview page of Metronic Admin Theme #4 for bootstrap switch" name="description" />
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+        <!-- Sweetalert2-->
+        <link rel="stylesheet" type="text/css" href="dist/css/sweetalert.css">
+        <!-- Tema loading-->
+        <link rel="stylesheet" type="text/css" href="css/loading.css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
@@ -47,7 +52,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="images/logo1.ico" /> </head>
 
-        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
     <!-- END HEAD -->
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
@@ -102,7 +107,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="portlet">
                                                 <div class="checkbox" onclick="abrirModalContrato('chkSinacofi');">
                                                     <label>
-                                                        <input id="chkSinacofi"  name="chkSinacofi" type="checkbox" data-toggle="toggle">
+                                                        <input id="chkSinacofi"  onclick ="updateContratacion(1379, 1)" name="chkSinacofi" type="checkbox" data-toggle="toggle">
 
                                                     </label>
                                                 </div>
@@ -190,6 +195,11 @@ License: You must have a valid license purchased only from themeforest(the above
             <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
             <!-- END CORE PLUGINS -->
             <!-- BEGIN THEME GLOBAL SCRIPTS -->
+            <!-- Swall-->
+            <script src="js/swall.js" type="text/javascript"></script>
+            <!-- Sweetalert2-->
+            <script src="dist/js/sweetalert.min.js"></script>
+
             <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
             <!-- END THEME GLOBAL SCRIPTS -->
             <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -241,6 +251,50 @@ License: You must have a valid license purchased only from themeforest(the above
             <script src="js/funciones.js"></script>
             <script src="js/sidebar.js"></script>
             <script> menuSelected("<%=request.getParameter("code")%>");</script>
+        <script src="dist/js/sweetalert.min.js"></script>
+        <script>
+                $(function () {
+                    swal_procces();
+                    $.ajax({
+                        url: 'Svl_Contratacion',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            accion: 'verContratacion',
+                            rut: 1379
+                        },
+                        success: function (data) {
+
+                            for (var obj in data) {
+                                var temp = data[obj]['Id_tipocontratacion'];
+                                console.log('TipoContratacion: ' + data[obj]['Id_tipocontratacion'] + "  Estado:" + data[obj]['Estado']);
+                                switch (temp) {
+                                    case 1:
+                                    {
+                                        setChecked('chkSinacofi', data[obj]['Estado']);
+                                        break;
+                                    }
+                                    case 2:
+                                    {
+                                        setChecked('chkEquifax', data[obj]['Estado']);
+                                        break;
+                                    }
+                                    case 3:
+                                    {
+                                        setChecked('chkTransunion', data[obj]['Estado']);
+                                        break;
+                                    }
+                                }
+                            }
+                            swal_unprocces();
+                        }});
+                });
+                
+                
+
+
+
+        </script>
 
     </body>
 
