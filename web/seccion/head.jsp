@@ -41,7 +41,7 @@
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user dropdown-dark">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <span class="username username-hide-on-mobile"> Maanuel Valls </span>
+                            <span class="username username-hide-on-mobile"> Manuel Valls </span>
                             <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                             <img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>
                         <ul class="dropdown-menu dropdown-menu-default">
@@ -57,7 +57,7 @@
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="slv_login?code=logout"><i class="icon-key"></i>Cerrar sesion</a>
+                                <a href="slv_login?code=logout" id="id-logout"><i class="icon-key"></i>Cerrar sesion</a>
                             </li>
                         </ul>
                     </li>
@@ -65,7 +65,7 @@
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                     <li class="dropdown dropdown-extended quick-sidebar-toggler">
                         <span class="sr-only">Toggle Quick Sidebar</span>
-                        <i class="icon-logout"></i>
+                        <i class="icon-logout" onclick="window.location='slv_login?code=logout';"></i>
                     </li>
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>

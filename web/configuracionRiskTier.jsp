@@ -1,22 +1,20 @@
 <%-- 
-    Document   : risktier
-    Created on : 22-03-2017, 16:56:49
-    Author     : ignacio
+    Document   : configuracionRiskTier
+    Created on : 25-04-2017, 20:51:01
+    Author     : amarin
 --%>
+<!-- 
+    Configuracion de las variables del risk tier
+-->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-    <!--<![endif]-->
-    <!-- BEGIN HEAD -->
-    <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:40:53 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<html>
     <head>
-        <meta charset="utf-8" />
-        <title>Risk Tier</title>
-        <link rel="shortcut icon" href="images/logo1.ico">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="images/toro-ico.ico">
+        <title>RiskTier - Listar</title>
+        <link rel="shortcut icon" href="images/logo1.ico">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
         <meta content="" name="author" />
@@ -42,10 +40,14 @@
         <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" />         
+        <link rel="shortcut icon" href="favicon.ico" />    
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+        </style>
     </head>
-    <!-- END HEAD -->
-
+    
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
         <jsp:include page="seccion/head.jsp"></jsp:include>
@@ -69,7 +71,7 @@
                             <!-- BEGIN PAGE TOOLBAR -->
                             <div class="page-toolbar" style="font-size: 13px;">
                                 <!-- BEGIN THEME PANEL -->
-                                <i class="fa fa-home" style="color: #69788c;"> Home</i> 
+                                <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier'}], undefined, 'cmd');"><i class="fa fa-home"> Home</i>  </a>
                                 <i class="fa fa-angle-left"></i>
                                 <a href="javascript:;" onclick="go('cmd', [{id: 'code', val: 'risktier_config'}], undefined, 'cmd');"><i class="fa fa-cogs"> Configuraci&#243;n</i>  </a>
                                 <i class="fa fa-angle-left"></i>
@@ -100,23 +102,16 @@
                             <div class="col-md-12 col-lg-12">
                                 <div class="portlet light">
                                     <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fa fa-database"></i> Risk Tier 
+                                        <div class="caption col-md-12">
+                                            <i class="fa fa-list"></i> Lista
                                             <br><br>
-                                            <div class="col-md-2 col-lg-2" style="padding-left: 0px;">
-                                                <select name="order_status" onchange="return cambiarTipoRiskTier(this.value)" class="form-control form-filter input-sm" style="width: 300px;">
-                                                    <option value="1">Natural</option>
-                                                    <option value="2">Jur&#237;dico</option>
+                                            <div class="col-md-3 col-lg-3" style="padding-left: 0px;">                                                
+                                                <select id="cmboxTipoRiskTier" class="form-control form-filter input-sm" onchange="return cambiarTipo(this.value)">
+                                                    
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="tools">
-                                            <!--<a href="#" class="collapse" data-original-title="" title=""> </a>-->
-                                            <br>
-                                            <button type="button" class="btn blue mt-ladda-btn ladda-button btn-circle btn-outline" data-style="slide-up" data-spinner-color="#333" onclick="go('cmd', [{id: 'code', val: 'risktier_configRiskTier'}], undefined, 'cmd')">
-                                                <span class="ladda-label"><i class="fa fa-wrench"></i> Configuraci&#243;n</span>
-                                            </button>
-                                        </div>
+                                        
                                     </div>
                                     <div class="portlet-body">
                                         <!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -128,19 +123,22 @@
                                                 </div>
                                                 <div class="tools">
                                                     <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                                    <a href="javascript:buscarRiskTier();" class="" data-original-title="Refrescar" style="width: 13px; height: 15px; background-image:url(assets/global/img/portlet-reload-icon-white.png)"> </a>
-                                                    <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                                    <a href="javascript:; class="" data-original-title="Refrescar" style="width: 13px; height: 15px; background-image:url(assets/global/img/portlet-reload-icon-white.png)"> </a>
                                                 </div>
                                             </div>
                                             <div class="portlet-body">
                                                 <div class="table-scrollable">
-                                                    <table class="table table-bordered table-hover" id="tablaRiskTier">
+                                                    <table class="table table-bordered" style="text-align: center;" id="tblAdminRiskTier">
                                                         <thead>
-                                                            <tr class="uppercase">
-                                                                <th style="text-align: center;"> Buscando datos para  RiskTier.. </th>
+                                                            <tr>
+                                                                <th style="text-align: center;">NOMBRE</th>
+                                                                <th style="text-align: center;">FECHA</th>
+                                                                <th style="text-align: center;"><i class="fa fa fa-cogs"></i></th>
                                                             </tr>
                                                         </thead>
+                                                        <tbody>
+
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -149,7 +147,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                    
+                        
                     </div>
                 </div>
                 <!-- END CONTENT -->
@@ -205,13 +204,9 @@
             <!-- Codigo A.M.-->
             <script src="js/sidebar.js"></script>
             <script> menuSelected("<%=request.getParameter("code")%>");</script>
-            <script src="js/mod_crear_indicador.js"></script>
-            <script>
-                $(function () {                
-                    buscarRiskTier();
-                }); 
-            </script>
+            <script src="js/configuracion_risktier.js"></script>
     </body>
 
     <!-- Mirrored from keenthemes.com/preview/metronic/theme/admin_4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Mar 2017 15:44:48 GMT -->
 </html>
+   
