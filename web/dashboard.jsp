@@ -851,29 +851,49 @@
                                         accion: 'verBlackList',
                                         rut: _rut,
                                     },
-                                    success: function (data, textStatus, jqXHR) {
-                                        $('#tblBL').dataTable().fnClearTable();
-                                        var datos_tabla_aux = new Array();
-                                        console.log(data);
-                                        for (var y = 0; y < data.length; y++)
-                                        {
-                                            //agregar datos a tabla:                       
-                                            var comentario = data[y].comentario;
-                                            var fecha = data[y].fecha;
-                                            var estado = data[y].estado;
-                                            if (estado == 1) // es inactivo
-                                                estado = '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
-                                            else // Ya esta Activo    
-                                                estado = '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
-
-                                            datos_tabla_aux[y] = [estado, comentario, fecha];
-                                        }
-                                        $("#tblBL").dataTable().fnAddData(datos_tabla_aux);
-
+                                    success: function (data, textStatus, jqXHR) {                                        
+                                        $('#tblBL').DataTable().destroy();
+                                        $('#tblBL').DataTable({
+                                            "data": data,
+                                            "columns": [
+                                                {data: 'estado', "render": function (data, type, row) {
+                                                        if (data == 1) {
+                                                            return '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+                                                        } else {
+                                                            return '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+                                                        }
+                                                    }},
+                                                {data: 'comentario', class: 'txt-center'},
+                                                {data: 'fecha', class: 'txt-center'}
+                                            ]
+                                        });
                                         $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
                                         $('#modalBlackList').modal({'backdrop': 'static'});
                                         $('#tblBLCont').show();
+                                        
                                         swal_unprocces();
+//                                        $('#tblBL').dataTable().fnClearTable();
+//                                        var datos_tabla_aux = new Array();
+//                                        console.log(data);
+//                                        for (var y = 0; y < data.length; y++)
+//                                        {
+//                                            //agregar datos a tabla:                       
+//                                            var comentario = data[y].comentario;
+//                                            var fecha = data[y].fecha;
+//                                            var estado = data[y].estado;
+//                                            if (estado == 1) // es inactivo
+//                                                estado = '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+//                                            else // Ya esta Activo    
+//                                                estado = '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+//
+//                                            datos_tabla_aux[y] = [estado, comentario, fecha];
+//                                        }
+//                                        $("#tblBL").dataTable().fnAddData(datos_tabla_aux);
+//
+//                                        $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
+//                                        $('#modalBlackList').modal({'backdrop': 'static'});
+//                                        $('#tblBLCont').show();
+//                                        swal_unprocces();
 
 //                                        if ($.fn.dataTable.isDataTable('#tblBL')) {
 //                                            $('#tblBL').DataTable().destroy();                                            
@@ -920,29 +940,29 @@
                             }
                             $(function () {
                                 swal_procces();
-                                $('#tblBL').DataTable({
-                                    "language": {
-                                        "lengthMenu": "Mostrar _MENU_ registros por página",
-                                        "zeroRecords": "Sin información para mostrar",
-                                        "info": "Mostrando página _PAGE_ de _PAGES_ páginas",
-                                        "infoEmpty": "",
-                                        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                        "paginate": {
-                                            "first": "Primero",
-                                            "last": "Último",
-                                            "next": "Siguiente",
-                                            "previous": "Anterior"
-                                        },
-                                        "aria": {
-                                            "sortAscending": ": Ordenar de forma ascendente",
-                                            "sortDescending": ": Ordenar de forma descendente"
-                                        },
-                                        "search": "Buscar:"
-
-                                    },
-                                    "bLengthChange": false,
-                                    "order": [[2, 'desc']]
-                                });
+//                                $('#tblBL').DataTable({
+//                                    "language": {
+//                                        "lengthMenu": "Mostrar _MENU_ registros por página",
+//                                        "zeroRecords": "Sin información para mostrar",
+//                                        "info": "Mostrando página _PAGE_ de _PAGES_ páginas",
+//                                        "infoEmpty": "",
+//                                        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+//                                        "paginate": {
+//                                            "first": "Primero",
+//                                            "last": "Último",
+//                                            "next": "Siguiente",
+//                                            "previous": "Anterior"
+//                                        },
+//                                        "aria": {
+//                                            "sortAscending": ": Ordenar de forma ascendente",
+//                                            "sortDescending": ": Ordenar de forma descendente"
+//                                        },
+//                                        "search": "Buscar:"
+//
+//                                    },
+//                                    "bLengthChange": false,
+//                                    "order": [[2, 'desc']]
+//                                });
                                 $('#menuBarRut').show();
                                 $('#menuBarPrint').show();
                                 $('#menuBarCampana').show();
