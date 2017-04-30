@@ -521,7 +521,6 @@
 
     </div>
 </div>-->
-<
 
 <script src="dist/js/sweetalert.min.js"></script>
 <script src="/js/contrato.js" type="text/javascript"></script>

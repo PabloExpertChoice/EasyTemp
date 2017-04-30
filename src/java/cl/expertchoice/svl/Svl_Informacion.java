@@ -35,9 +35,14 @@ public class Svl_Informacion extends HttpServlet {
                         String rut = request.getParameter("rut");
                         String dv = request.getParameter("dv");
                         bnsInformacion bn = new bnsInformacion();
-                        JSONObject jsonInformacion = bn.obtenerNombre(rut + "-" + dv);
-                        if(jsonInformacion==null){
+                        JSONObject jsonInformacion = null;
+                        if (Integer.parseInt(rut) >= 50000000) {
                             jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
+                        } else {
+                            jsonInformacion = bn.obtenerNombre(rut + "-" + dv);
+                            if (jsonInformacion == null) {
+                                jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
+                            }
                         }
                         if (jsonInformacion != null) {
                             request.setAttribute("datos", jsonInformacion);
@@ -59,7 +64,6 @@ public class Svl_Informacion extends HttpServlet {
                         break;
                     }
                     case "home": {
-
                         datos = new JSONObject(request.getParameter("obDatos"));
                         request.setAttribute("datos", datos);
                         toPage("/dashboard.jsp", request, response);
@@ -72,21 +76,6 @@ public class Svl_Informacion extends HttpServlet {
                         toPage("/InformacionJuridico.jsp", request, response);
                         break;
                     }
-
-//                    if (jsonInformacion != null) {
-////                        int rutP = Integer.parseInt(rut);
-//                        request.setAttribute("datos", jsonInformacion);
-////                if (rutP > 50000000) {
-////                    toPage("/InformacionJuridico.jsp", request, response);
-////                } else {
-////                    toPage("/InformacionNatural.jsp", request, response);
-////                }
-//                        toPage("/transunion.jsp", request, response);
-//                        request.setAttribute("datos", jsonInformacion);
-//                    } else {
-//                        request.setAttribute("msg", "No se encuentran datos");
-//                        toPage("/index.jsp", request, response);
-//                    }
                 }
             } catch (JSONException ex) {
                 Logger.getLogger(Svl_Informacion.class.getName()).log(Level.SEVERE, null, ex);

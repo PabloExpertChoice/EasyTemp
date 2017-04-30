@@ -58,7 +58,7 @@ public class slv_login extends HttpServlet {
                             if (usuario != null) {
                                 session.setAttribute("sesion", usuario);
                                 json.put("estado", "200");
-                                System.out.println("Paso");
+                                System.out.println("Inicio Seccion");
                                 RequestDispatcher d = request.getRequestDispatcher("cmd");
                                 d.forward(request, response);
 

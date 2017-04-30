@@ -101,7 +101,6 @@ public class cmd extends HttpServlet {
             }
         } else {
             HttpSession session = request.getSession();
-            System.out.println(session);
             if (session != null) {
                 if (request.getParameter("code") != null) {
                     String code = request.getParameter("code");
@@ -118,7 +117,7 @@ public class cmd extends HttpServlet {
                                 if (usuario != null) {
                                     session.setAttribute("sesion", usuario);
                                     json.put("estado", "200");
-                                    System.out.println("Paso");
+                                    System.out.println("Inicio Seccion");
                                     toPage("/index.jsp", request, response);
 
                                 } else {

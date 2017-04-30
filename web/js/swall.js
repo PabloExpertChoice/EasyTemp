@@ -19,3 +19,19 @@ function swal_procces(mensaje, titulo, type) {
 function swal_unprocces() {
     sweetAlert.close();
 }
+function swal_opExitosa() {
+    swal({
+        title: "OPERACIÓN EXITOSA",
+        text: "Comentario registrado correctamente",
+        type: "success",
+        confirmButtonText: "Bien"
+    });
+}
+function swal_opFallida() {
+    swal({
+        title: "OPERACIÓN FALLIDA",
+        text: "Ha ocurrido un error, intente mas tarde",
+        type: "error",
+        confirmButtonText: "Aceptar"
+    });
+}

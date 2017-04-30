@@ -39,7 +39,7 @@ function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
             dv: _dv,
             nombre: _nombre,
             apePaterno: _apePaterno,
-            apeMaterno: _apeMaterno,
+            apeMaterno: _apeMaterno
         },
         beforeSend: function (xhr) {
             $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
@@ -53,11 +53,11 @@ function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
                 $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
                 $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
                 var nro = (arrPjud.length);
-                $('#nroDemandas').attr('data-value', nro)
+                $('#nroDemandas').attr('data-value', nro);
             } else {
                 $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
             }
-            
+
 //            $('.counter').counterUp({
 //    delay: 10,
 //    time: 1000
@@ -146,7 +146,7 @@ function getScore(_rut, _dv) {
  * @returns {undefined}
  */
 function getScoreValue(_rut, _dv) {
-    
+
     var resultado = 0;
     $.ajax({
         url: 'Svl_Scoring',
@@ -159,12 +159,12 @@ function getScoreValue(_rut, _dv) {
             dv: _dv
         },
         success: function (data, textStatus, jqXHR) {
-            if (data.estado === 200) {                
-                resultado = data.datos.mes1;                      
+            if (data.estado === 200) {
+                resultado = data.datos.mes1;
             }
         }
     });
-    
+
     return resultado;
 }
 
@@ -231,7 +231,7 @@ function buscarActividadComercial(_rut, _dv) {
             if (data.estado === 200) {
                 var datos = data.datos;
                 $('#siiNroDoc').attr('data-value', datos.numDocTimbrados);
-                
+
                 $('#boxActividadComercial .info-box-content .info-box-number').html(datos.inicioActividades);
                 $('#tblActComercial').DataTable().rows.add(datos.actividadEconomica).draw(false);
                 $('#tblActComercial1 tr:eq(0) td').html(new Date().toLocaleDateString());

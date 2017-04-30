@@ -51,7 +51,6 @@ public class bnsLogin {
             usuario.setNom_user(rs.getString("nom_user"));
             usuario.setUser_emp(user);
             usuario.setPass_emp(pass);
-            System.out.println(usuario.toString());
         }
         Conexion.Desconectar(conn);
         return usuario;

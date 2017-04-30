@@ -1,22 +1,24 @@
 package soporte;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author jgalleguillos
+ */
 public class DescomponerNombre {
 
-    public static void main(String[] args) throws SQLException {
-//        String nombre ="de las carmen san pedro maria paz";
-        String nombre = "JAIME GABRIEL GREZ MAUNA";
-//        String nombre = "claudio bryan miranda pizarro";
-        DescomponerNombre d = new DescomponerNombre(nombre);
-        d.descomponeNombreApellido();
-        //d.descomponeNombreApellido(nombre);
-        //d.getPrimerNombre());
-        //d.getNOMBRES() 
-        //d.getAPELLIDOP() 
-        //d.getAPELLIDOM());
-    }
+//    public static void main(String[] args) throws SQLException {
+////        String nombre ="de las carmen san pedro maria paz";
+//        String nombre = "smaria del carmen concepcion de paz ";
+////        String nombre = "claudio bryan miranda pizarro";
+//        DescomponerNombre d = new DescomponerNombre(nombre);
+//        d.descomponeNombreApellido();
+////        d.descomponeNombreApellido(nombre);
+//        //System.out.println("in :" + nombre);
+//        System.out.println("primer nombres " + d.getPrimerNombre());
+//        System.out.println("nombres " + d.getNOMBRES() + " \napellidop " + d.getAPELLIDOP() + "\napellidom " + d.getAPELLIDOM());
+//    }
 
     private String nombre = null;
     private String NOMBRES = "";
@@ -118,6 +120,7 @@ public class DescomponerNombre {
     public void descomponeApellidoNombre() throws SQLException {
         nombre = nombre.toUpperCase().trim();
         int len = nombre.trim().replace("  ", " ").split(" ").length;
+        //System.out.println("largo " + len);
         switch (len) {
             case 1: {
                 largo1(nombre);
@@ -157,6 +160,7 @@ public class DescomponerNombre {
     public void descomponeNombreApellido() throws SQLException {
 
         nombre = nombre.toUpperCase().trim();
+        //System.out.println("1:"+nombre);
         largo4_2(nombre);
 
     }
@@ -170,6 +174,7 @@ public class DescomponerNombre {
      */
     public boolean consultarPref(String nombre) throws SQLException {
         for (int i = 0; i < pref.length; i++) {
+            //System.out.println(pref[i] + " = " + nombres[cant]);
             if (nombre.trim().equalsIgnoreCase(pref[i])) {
 
                 return true;
@@ -199,9 +204,11 @@ public class DescomponerNombre {
                 b = false;
 
                 for (int i = 0; i < pref.length; i++) {
+                    //System.out.println(pref[i] + " = " + nombres[cant]);
                     if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                         b = true;
+                        //System.out.println("sale en  = " + nombres[cant]);
                     }
 
                 }
@@ -236,13 +243,16 @@ public class DescomponerNombre {
                     b = false;
 
                     for (int i = 0; i < pref.length; i++) {
+                        //System.out.println(pref[i] + " = " + nombres[cant]);
                         if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                             b = true;
+                            //System.out.println("sale en  = " + nombres[cant]);
                         }
 
                     }
 
+                    //System.out.println("agrego = " + nombres[cant]);
                     if (apellidosCompuestos(nombres, cant)) {
                         b = true;
                     }
@@ -256,6 +266,7 @@ public class DescomponerNombre {
                 APELLIDOM += " " + mater.get(i);
             }
 
+            //System.out.println("mater " + APELLIDOM);
             try {
                 do {
                     b = false;
@@ -263,6 +274,7 @@ public class DescomponerNombre {
                     pater.add(nombres[cant--]);
 
                     for (int i = 0; i < pref.length; i++) {
+                        //System.out.println(pref[i] + " = " + nombres[cant]);
                         if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                             b = true;
@@ -327,6 +339,7 @@ public class DescomponerNombre {
             }
             NOMBRES = (nombre);
 
+            //System.out.println(NOMBRES.trim() + " " + APELLIDOP.trim() + " " + APELLIDOM.trim());
         } catch (Exception e) {
             largo3(linea);
         }
@@ -359,6 +372,7 @@ public class DescomponerNombre {
         }
         setNOMBRES(nombre);
 
+        System.out.println(NOMBRES.trim() + " " + APELLIDOP.trim() + " " + APELLIDOM.trim());
 
     }
 
@@ -387,6 +401,7 @@ public class DescomponerNombre {
         }
         setNOMBRES(nombre);
 
+        System.out.println(NOMBRES.trim() + " " + APELLIDOP.trim() + " " + APELLIDOM.trim());
 
     }
 
@@ -406,6 +421,7 @@ public class DescomponerNombre {
                 b = false;
 
                 for (int i = 0; i < pref.length; i++) {
+                    //System.out.println(pref[i] + " = " + nombres[cant]);
                     if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                         b = true;
@@ -424,12 +440,15 @@ public class DescomponerNombre {
             do {
                 b = false;
                 for (int i = 0; i < pref.length; i++) {
+                    //System.out.println(pref[i] + " = " + nombres[cant]);
                     if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                         b = true;
+                        //System.out.println("sale en  = " + nombres[cant]);
                     }
 
                 }
+                //System.out.println("agrego = " + nombres[cant]);
 
                 if (apellidosCompuestos2(nombres, cant)) {
                     b = true;
@@ -473,6 +492,8 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("peña")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("y")) {
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
+
                     b = true;
                 }
             }
@@ -481,6 +502,8 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("y")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("lillo")) {
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
+
                     b = true;
                 }
             }
@@ -489,6 +512,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("peña")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("i")) {
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
 
                     b = true;
                 }
@@ -498,6 +522,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("i")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("lillo")) {
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
 
                     b = true;
                 }
@@ -508,6 +533,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("ruiz")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("tagle")) {
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]);
                     b = true;
                 }
             }
@@ -516,6 +542,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("rui")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("perez")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -524,6 +551,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("lay")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("men")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -532,6 +560,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("lay")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("son")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -540,6 +569,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("lay")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("wangnet")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -549,6 +579,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("lay")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("IEONG")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -557,6 +588,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("lay")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("WON")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -566,6 +598,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("HAY")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("SANG")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -574,6 +607,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ora")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("YANURI")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -582,6 +616,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("chu")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("han")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -591,6 +626,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("sur")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("LIPPE")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -599,6 +635,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ao")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("IEONG")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -607,6 +644,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("auf")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("KIESLINGSTEIN")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -615,6 +653,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("too")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("kong")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -623,6 +662,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("fung")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("moo")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -631,6 +671,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("jul")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("CLURTHILL")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -639,6 +680,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("yi")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("YAPSAN")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -647,6 +689,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("cau")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("cau")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -655,6 +698,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("taj")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("taj")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -663,6 +707,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("eh")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ren")) {
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -671,7 +716,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ren")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("FELD")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -680,7 +725,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("dow")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("RODERICK")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -689,7 +734,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("te")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("KLOOT")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -698,7 +743,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("GUIN")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("po")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -707,7 +752,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("WAH")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("HING")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -716,7 +761,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("CORTEZ")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ruy")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -725,7 +770,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ZARATE")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ruy")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -734,7 +779,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("RUPAILLAN")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ruy")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -743,7 +788,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("VILLALOBOS")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ruy")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -752,7 +797,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("MALDONADO")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ruy")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -761,7 +806,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("le")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("got")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -770,7 +815,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("din")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("BARRAZA")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -779,7 +824,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("e-v")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("GOOSSENS")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -789,9 +834,9 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("PONCE")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("de")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     if (nombres[cant + 2].trim().equalsIgnoreCase("Leon")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -802,7 +847,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("ten")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("HOVE")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -811,7 +856,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("cg")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("GARDINI")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -821,7 +866,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("bas")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("PALMA")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -830,7 +875,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("eve")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("LAURENCE")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -839,7 +884,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("orr")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("devia")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -848,7 +893,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("dit")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("cachin")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -857,7 +902,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("dio")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("medi")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -866,7 +911,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("mal")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("verde")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -875,7 +920,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("yo")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("yo")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -885,7 +930,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("nin")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("de")) {
                     if (nombres[cant + 2].trim().equalsIgnoreCase("cardona")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -896,7 +941,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("jan")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("del")) {
                     if (nombres[cant + 2].trim().equalsIgnoreCase("PEDREGAL")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -907,7 +952,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("sal")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("y")) {
                     if (nombres[cant + 2].trim().equalsIgnoreCase("rosa")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -918,7 +963,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("foo")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("lam")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -929,7 +974,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("gut")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("mann")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -940,7 +985,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant + 1].trim().equalsIgnoreCase("-")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -950,7 +995,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant + 1].trim().equalsIgnoreCase("i")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -959,7 +1004,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant + 1].trim().equalsIgnoreCase("ii")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -968,7 +1013,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant + 1].trim().equalsIgnoreCase("iii")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -979,7 +1024,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("li")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("kso")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -990,7 +1035,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("py")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("MARGALL")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1001,7 +1046,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("fon")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("RAUCH") || nombres[cant + 1].trim().equalsIgnoreCase("RAUSCH")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1012,7 +1057,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("yun")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("kan")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1025,7 +1070,7 @@ public class DescomponerNombre {
                     if (nombres[cant + 2].trim().equalsIgnoreCase("la")) {
                         if (nombres[cant + 3].trim().equalsIgnoreCase("guardia")) {
 
-                            
+                            //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                             b = true;
 
                         }
@@ -1039,7 +1084,7 @@ public class DescomponerNombre {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("DER")) {
                     if (nombres[cant + 2].trim().equalsIgnoreCase("FUHREN")) {
 
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
 
                     }
@@ -1052,7 +1097,7 @@ public class DescomponerNombre {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("de")) {
                     if (nombres[cant + 1].trim().equalsIgnoreCase("oca")) {
 
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
 
                     }
@@ -1064,7 +1109,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("ira")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("ira")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1076,7 +1121,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("cui")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("cui")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1101,7 +1146,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("y")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("peña")) {
-                   
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
 
                     b = true;
                 }
@@ -1111,7 +1156,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("lillo")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("y")) {
-                   
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
 
                     b = true;
                 }
@@ -1121,7 +1166,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("i")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("peña")) {
-                   
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
 
                     b = true;
                 }
@@ -1131,7 +1176,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("lillo")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("i")) {
-                   
+                    //System.err.println("  " + nombres[cant].trim()+" "+nombres[cant+1]+" "+nombres[cant+2]);
 
                     b = true;
                 }
@@ -1152,7 +1197,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("perez")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("rui")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1161,7 +1206,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("men")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("lay")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1170,7 +1215,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("son")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("lay")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1179,7 +1224,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("wangnet")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("lay")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1189,7 +1234,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("IEONG")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("lay")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1199,7 +1244,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("WON")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("lay")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1210,7 +1255,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("SANG")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("hay")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1219,7 +1264,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("YANURI")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("ora")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1228,7 +1273,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("han")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("chu")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1238,7 +1283,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("LIPPE")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("sur")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1247,7 +1292,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("IEONG")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("ao")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1256,7 +1301,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("KIESLINGSTEIN")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("auf")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1265,7 +1310,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("kong")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("too")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1274,7 +1319,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("moo")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("fung")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1283,7 +1328,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("CLURTHILL")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("jul")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1292,7 +1337,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("YAPSAN")) {
                 if (nombres[cant + 1].trim().equalsIgnoreCase("yi")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1301,7 +1346,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("cau")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("cau")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1310,7 +1355,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("taj")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("taj")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1319,7 +1364,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ren")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("eh")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1328,7 +1373,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("FELD")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("ren")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1337,7 +1382,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("RODERICK")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("dow")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1346,7 +1391,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("KLOOT")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("te")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1355,7 +1400,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("po")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("GUIN")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1364,7 +1409,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("HING")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("wah")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1373,7 +1418,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ruy")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("CORTEZ")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1382,7 +1427,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ruy")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("ZARATE")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1391,7 +1436,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ruy")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("RUPAILLAN")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1400,7 +1445,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ruy")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("VILLALOBOS")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1409,7 +1454,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("ruy")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("MALDONADO")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1418,7 +1463,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("got")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("le")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1427,7 +1472,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("BARRAZA")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("din")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1436,7 +1481,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("GOOSSENS")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("e-v")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1446,9 +1491,9 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("Leon")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("de")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     if (nombres[cant - 2].trim().equalsIgnoreCase("ponce")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -1459,7 +1504,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("HOVE")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("ten")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1468,7 +1513,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("GARDINI")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("cg")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1478,7 +1523,7 @@ public class DescomponerNombre {
 
             if (nombres[cant].trim().equalsIgnoreCase("PALMA")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("bas")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1487,7 +1532,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("LAURENCE")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("eve")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1496,7 +1541,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("devia")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("orr")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1505,7 +1550,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("cachin")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("dit")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1514,7 +1559,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("medi")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("dio")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1523,7 +1568,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("verde")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("mal")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1532,7 +1577,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant].trim().equalsIgnoreCase("yo")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("yo")) {
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
                 }
             }
@@ -1542,7 +1587,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("cardona")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("de")) {
                     if (nombres[cant - 2].trim().equalsIgnoreCase("nin")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -1553,7 +1598,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("PEDREGAL")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("del")) {
                     if (nombres[cant - 2].trim().equalsIgnoreCase("jan")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -1564,7 +1609,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("rosa")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("y")) {
                     if (nombres[cant - 2].trim().equalsIgnoreCase("sal")) {
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
                     }
                 }
@@ -1576,7 +1621,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("lam")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("foo")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1587,7 +1632,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("mann")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("gut")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1598,7 +1643,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant - 1].trim().equalsIgnoreCase("-")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -1608,7 +1653,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant - 1].trim().equalsIgnoreCase("i")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -1617,7 +1662,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant - 1].trim().equalsIgnoreCase("ii")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -1626,7 +1671,7 @@ public class DescomponerNombre {
         try {
             if (nombres[cant - 1].trim().equalsIgnoreCase("iii")) {
 
-                
+                //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                 b = true;
 
             }
@@ -1637,7 +1682,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("kso")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("li")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1648,7 +1693,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("MARGALL")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("py")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1659,7 +1704,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("RAUCH") || nombres[cant].trim().equalsIgnoreCase("RAUSCH")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("fon")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1670,7 +1715,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("kan")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("yun")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1683,7 +1728,7 @@ public class DescomponerNombre {
                     if (nombres[cant - 2].trim().equalsIgnoreCase("de")) {
                         if (nombres[cant - 3].trim().equalsIgnoreCase("oses")) {
 
-                            
+                            //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                             b = true;
 
                         }
@@ -1697,7 +1742,7 @@ public class DescomponerNombre {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("DER")) {
                     if (nombres[cant - 2].trim().equalsIgnoreCase("an")) {
 
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
 
                     }
@@ -1710,7 +1755,7 @@ public class DescomponerNombre {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("de")) {
                     if (nombres[cant - 2].trim().equalsIgnoreCase("montes")) {
 
-                        
+                        //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                         b = true;
 
                     }
@@ -1722,7 +1767,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("ira")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("ira")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }
@@ -1734,7 +1779,7 @@ public class DescomponerNombre {
             if (nombres[cant].trim().equalsIgnoreCase("cui")) {
                 if (nombres[cant - 1].trim().equalsIgnoreCase("cui")) {
 
-                    
+                    //System.err.println("  " + nombres[cant].trim() + " " + nombres[cant + 1]);
                     b = true;
 
                 }

@@ -49,11 +49,27 @@ public class Svl_Cliente extends HttpServlet {
                     pjud.setNombre(nombre.trim().toUpperCase());
                     pjud.setApePaterno(apePaterno.trim().toUpperCase());
                     pjud.setApeMaterno(apeMaterno.trim().toUpperCase());
-                    json = pjud.buscarCausas();
+                    json = pjud.buscarCausas(new JsonObject());
+                    System.out.println(json);
+                    if (rut < 50000000) {
+                        try {
+                            json.get("descripcion");
+                            json = new JsonObject();
+                        } catch (Exception e) {}
+                        if (pjud.buscarNombre() == true) {
+                            JsonObject json2 = pjud.buscarCausas(json);
+                            System.out.println("Finalizo la carga de PODERJUDICIAL");
+                            System.out.println(json2);
+                            response.getWriter().print(json2);
+                            break;
+                        }
+                    }
+                    System.out.println("Finalizo la carga de PODERJUDICIAL");
+                    System.out.println(json);
                     response.getWriter().print(json);
                     break;
                 }
-                
+
                 case "getDatosOfac": {
                     String nombre = request.getParameter("nombre");
                     HtmlUnit_ofac p = new HtmlUnit_ofac(nombre);
@@ -63,7 +79,7 @@ public class Svl_Cliente extends HttpServlet {
                     response.getWriter().print(json);
                     break;
                 }
-                
+
                 case "getActividadComercial": {
                     String rut = request.getParameter("rut");
                     String dv = request.getParameter("dv");
@@ -80,7 +96,7 @@ public class Svl_Cliente extends HttpServlet {
                     response.getWriter().print(json);
                     break;
                 }
-                
+
                 case "cargaIframe": {
                     String rut = request.getParameter("rut");
                     String dv = request.getParameter("dv");
@@ -104,7 +120,7 @@ public class Svl_Cliente extends HttpServlet {
                     response.getWriter().print(json);
                     break;
                 }
-                
+
                 case "enviarFormulario": {
                     String imagen = request.getParameter("imagen");
                     String apellido = request.getParameter("apePat");
@@ -117,7 +133,7 @@ public class Svl_Cliente extends HttpServlet {
                     response.getWriter().print(json);
                     break;
                 }
-                
+
                 case "validarQuiebra": {
                     String rut = request.getParameter("rut");
                     String dv = request.getParameter("dv");

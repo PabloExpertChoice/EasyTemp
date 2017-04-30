@@ -31,7 +31,8 @@
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <!-- Sweetalert2-->
         <link rel="stylesheet" type="text/css" href="dist/css/sweetalert.css">
-
+        <!-- Tema loading-->
+        <link rel="stylesheet" type="text/css" href="css/loading.css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
@@ -128,7 +129,7 @@
                                                 <div class="col-md-offset-4 col-md-8 col-xs-offset-4 col-xs-8">
                                                     <!--<button type="button" class="btn default">Limpiar</button>-->
                                                     <!--<button type="submit" class="btn blue">Consultar rut</button>-->
-                                                    <a href="javascript:;" onclick="go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Svl_Informacion')">
+                                                    <a href="javascript:;" onclick="ingresarRut()">
                                                         <button class="btn btn-primary " type="button"><i class="fa fa-search"></i> Consultar Rut</button>
                                                     </a>
                                                 </div>
@@ -204,13 +205,22 @@
                 <script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
                 <!-- Sweetalert2-->
                 <script src="dist/js/sweetalert.min.js"></script>
+                <!-- Sweetalert2-->
+                <script src="js/swall.js"></script>
                 <!-- END THEME LAYOUT SCRIPTS -->
 
                 <!--libreria redirigir-->
                 <script src="js/jquery.Rut.js"></script>
                 <script src="js/number_format.js"></script>
                 <script src="js/funciones.js"></script>
-                <script type="text/javascript" charset="utf-8">
+                <script>
+                    function ingresarRut() {
+                        swal_procces();
+                        go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Svl_Informacion');
+                    }
+                </script>
+<!--                <script type="text/javascript" charset="utf-8">
+                
                                                         function sendConsulta() {
                                                             if ($("input[name='radTipInf']:checked").val() === undefined) {
                                                                 alert('Seleccionar Informe');
@@ -237,13 +247,13 @@
                                                                 alert('Rut incorrecto');
                                                             }
                                                         }
-                </script>
+              </script>-->
 
                 <!-- Codigo A.M.-->
                 <script src="js/sidebar.js"></script>
                 <script> menuSelected("<%=request.getParameter("code")%>");</script>
 
-            <script>
+<!--            <script>
                 $(".inputExcelBAL").keypress(function (e) {
                     e.stopPropagation();
 
@@ -252,7 +262,7 @@
                     }
                 });
 
-            </script>
+            </script>-->
     </body>
 
 
