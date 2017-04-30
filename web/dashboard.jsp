@@ -788,7 +788,6 @@
                 </script>
                 <script>
                     $(document).ready(function () {
-                        swal_procces();
                         rut = '<%= datos.get("rut").toString()%>';
                         dv = '<%= datos.get("dv").toString()%>';
                         nomCompleto = '<%= nom_completo%>';
@@ -883,7 +882,6 @@
                                 console.log(JSON.stringify(data));
                             }
                         });
-                        swal_unprocces();
                     });
                     function goTransunion() {
                         go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');

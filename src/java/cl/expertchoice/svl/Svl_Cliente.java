@@ -8,6 +8,7 @@ import cl.expertchoice.beans.BnCliente;
 import cl.expertchoice.clases.Cliente;
 import cl.expertchoice.clases.Quiebra;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -52,19 +53,21 @@ public class Svl_Cliente extends HttpServlet {
                     json = pjud.buscarCausas(new JsonObject());
                     System.out.println(json);
                     if (rut < 50000000) {
-                        try {
-                            json.get("descripcion");
+                        JsonElement get = json.get("estado");
+                        int asInt = get.getAsInt();
+                        System.out.println(json.get("estado").getAsInt());
+                        if(asInt!=200){
                             json = new JsonObject();
-                        } catch (Exception e) {}
+                        }
                         if (pjud.buscarNombre() == true) {
                             JsonObject json2 = pjud.buscarCausas(json);
-                            System.out.println("Finalizo la carga de PODERJUDICIAL");
+                            System.out.println("Finalizo la carga de PODERJUDICIAL2");
                             System.out.println(json2);
                             response.getWriter().print(json2);
                             break;
                         }
                     }
-                    System.out.println("Finalizo la carga de PODERJUDICIAL");
+                    System.out.println("Finalizo la carga de PODERJUDICIAL1");
                     System.out.println(json);
                     response.getWriter().print(json);
                     break;
