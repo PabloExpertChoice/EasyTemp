@@ -44,7 +44,7 @@ function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
         beforeSend: function (xhr) {
             $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
         },
-        success: function (data, textStatus, jqXHR) {
+        success: function (data) {
 
 
             $('#boxPjud .info-box-content .info-box-number').html('No registra datos asociados');

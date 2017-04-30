@@ -51,24 +51,18 @@ public class Svl_Cliente extends HttpServlet {
                     pjud.setApePaterno(apePaterno.trim().toUpperCase());
                     pjud.setApeMaterno(apeMaterno.trim().toUpperCase());
                     json = pjud.buscarCausas(new JsonObject());
-                    System.out.println(json);
                     if (rut < 50000000) {
-                        JsonElement get = json.get("estado");
-                        int asInt = get.getAsInt();
-                        System.out.println(json.get("estado").getAsInt());
-                        if(asInt!=200){
+                        if(json.get("estado").getAsInt()!=200){
                             json = new JsonObject();
                         }
                         if (pjud.buscarNombre() == true) {
                             JsonObject json2 = pjud.buscarCausas(json);
-                            System.out.println("Finalizo la carga de PODERJUDICIAL2");
-                            System.out.println(json2);
+                            System.out.println("Finalizo la carga de PODERJUDICIAL");
                             response.getWriter().print(json2);
                             break;
                         }
                     }
-                    System.out.println("Finalizo la carga de PODERJUDICIAL1");
-                    System.out.println(json);
+                    System.out.println("Finalizo la carga de PODERJUDICIAL");
                     response.getWriter().print(json);
                     break;
                 }

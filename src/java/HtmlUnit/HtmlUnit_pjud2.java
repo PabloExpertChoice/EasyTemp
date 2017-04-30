@@ -159,7 +159,6 @@ public class HtmlUnit_pjud2 extends Thread {
 //        System.out.println();
 //        System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
 //    }
-
 //    public static String[] corregir(String[] nombres) {
 //        System.out.println("Entrando a ortografia");
 //        try {
@@ -236,24 +235,28 @@ public class HtmlUnit_pjud2 extends Thread {
         return nombre;
     }
 
-    private static String subBuscarNombre(String nombre1){
+    private static String subBuscarNombre(String nombre1) {
         String[] nombres = nombre1.toUpperCase().trim().split(" ");
-        String name="";
+        String name = "";
         for (int a = 0; a < nombres.length; a++) {
             System.out.println("Buscando en FILTRO Palabra: " + nombres[a]);
             String n = buscarNombre(nombres[a]);
-            if (n == null || n.equalsIgnoreCase(nombres[a])) {
+            if (n == null) {
                 System.out.println("No se encontro en BD.../nReturn: " + n);
                 String nn = corregir(nombres[a]);
-                if(nn==null || nn.equalsIgnoreCase(nombres[a])){
+                if (nn == null) {  
                     System.out.println("No encontrado en ORTOGRAFIA.../nReturn: " + nn);
                     name = name + (nombres[a].toUpperCase() + " ");
-                }else{
+                    insertarNombre(nombres[a].toUpperCase().trim());
+                }else if(nn.equalsIgnoreCase(nombres[a])) {
+                    System.out.println("No encontrado en ORTOGRAFIA.../nReturn: " + nn);
+                    name = name + (nn.toUpperCase() + " ");
+                    insertarNombre(nn.toUpperCase().trim());
+                } else {
                     System.out.println("Encontrado en ORTOGRAFIA.../nReturn: " + nn);
                     name = name + (nn.toUpperCase() + " ");
-//                    insertarNombre(nn);
-                }           
-                insertarNombre(nn);
+                    insertarNombre(nn.toUpperCase().trim());
+                }
             } else {
                 System.out.println("Encontrado en BD.../nReturn: " + n);
                 name = name + (n.toUpperCase() + " ");
@@ -261,23 +264,24 @@ public class HtmlUnit_pjud2 extends Thread {
         }
         return name.trim().toUpperCase();
     }
+
     public Boolean buscarNombre() {
         System.out.println("Entrando a BD.easy.LC_FILTRO_NOMBRES");
         String name2 = subBuscarNombre(this.nombre.trim());
         String ap_1 = subBuscarNombre(this.apePaterno.trim());
         String ap_2 = subBuscarNombre(this.apeMaterno.trim());
         Boolean flag = false;
-        if(!name2.trim().toUpperCase().equalsIgnoreCase(this.nombre.trim().toUpperCase())){
-            this.nombre=name2;
-            flag=true;
+        if (!name2.trim().toUpperCase().equalsIgnoreCase(this.nombre.trim().toUpperCase())) {
+            this.nombre = name2;
+            flag = true;
         }
-        if(!ap_1.trim().toUpperCase().equalsIgnoreCase(this.apePaterno.trim().toUpperCase())){
-            this.apePaterno=ap_1;
-            flag=true;
+        if (!ap_1.trim().toUpperCase().equalsIgnoreCase(this.apePaterno.trim().toUpperCase())) {
+            this.apePaterno = ap_1;
+            flag = true;
         }
-        if(!ap_2.trim().toUpperCase().equalsIgnoreCase(this.apeMaterno.trim().toUpperCase())){
-            this.apeMaterno=ap_2;
-            flag=true;
+        if (!ap_2.trim().toUpperCase().equalsIgnoreCase(this.apeMaterno.trim().toUpperCase())) {
+            this.apeMaterno = ap_2;
+            flag = true;
         }
         return flag;
     }
@@ -305,7 +309,7 @@ public class HtmlUnit_pjud2 extends Thread {
     }
 
     private static void insertarNombre(String nombre) {
-        System.out.println("Insertando "+nombre+" en los FILTROS");
+        System.out.println("Insertando " + nombre + " en los FILTROS");
         Connection conn = null;
         boolean flag = false;
         try {
@@ -430,7 +434,7 @@ public class HtmlUnit_pjud2 extends Thread {
             }
 
             if (jsonArr.size() > 0) {
-                
+
                 jsonResp.addProperty("estado", 200);
                 jsonResp.add("causasJudiciales", new Gson().toJsonTree(arrCausasJ));
             } else {
