@@ -64,7 +64,6 @@ public class bnsLogin {
             usuario.setStatus(status);
             
             usuario.setSubsidiary(emp);
-            System.out.println(usuario.toString());
         }
         Conexion.Desconectar(conn);
         return usuario;

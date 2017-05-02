@@ -1,8 +1,5 @@
-<%-- 
-    Document   : index
-    Created on : 13-03-2017, 15:22:02
-    Author     : ignacio
---%>
+<%@page import="com.google.gson.Gson"%>
+<%@page import="soporte.D"%>
 <%@page import="java.util.StringTokenizer"%>
 <%@page import="cl.expertchoice.clases.DescomponerNombre"%>
 <%@page import="cl.expertchoice.clases.Usuario"%>
@@ -13,6 +10,8 @@
         response.sendRedirect("cmd");
         return;
     }
+    
+    out.println(new Gson().toJson(request.getAttribute("datos")));
     JSONObject datos = (JSONObject) request.getAttribute("datos");
     String nom_completo = datos.get("nombre").toString();
     DescomponerNombre d = new DescomponerNombre(nom_completo);
@@ -23,82 +22,45 @@
     String apellPat = d.getAPELLIDOP();
     String apellMat = d.getAPELLIDOM();
 %>
-
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-
-<!--rut con ofac 5224937-6-->
-
-<html lang="en">
-    <!--<![endif]-->
-    <!-- BEGIN HEAD -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>Dashboard</title>
+        <title><%= D.TITULO%></title>
         <link rel="shortcut icon" href="images/logo1.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
         <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-        <!-- Sweetalert2-->
         <link rel="stylesheet" type="text/css" href="dist/css/sweetalert.css">
-        <!-- Tema loading-->
         <link rel="stylesheet" type="text/css" href="css/loading.css">
-        <!-- Tema toggle-->        
         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
         <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-
-
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="assets/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-
         <link rel="stylesheet" href="plugins/jsPlumb/jsPlumbToolkit-defaults.css">
         <link rel="stylesheet" href="plugins/jsPlumb/jsPlumbToolkit-demo.css">
         <link rel="stylesheet" href="plugins/jsPlumb/demo.css">
     </head>
-    <!-- END HEAD -->
-
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
-        <!-- BEGIN HEADER -->
         <jsp:include page="seccion/head.jsp"></jsp:include>
-
-
-            <!-- BEGIN CONTAINER -->
             <div class="page-container">
-                <!-- BEGIN SIDEBAR -->
             <jsp:include page="seccion/sidebar.jsp"></jsp:include>
-                <!-- BEGIN CONTENT -->
                 <div class="page-content-wrapper">
-                    <!-- BEGIN CONTENT BODY -->
                     <div class="page-content">
-                        <!-- BEGIN PAGE HEAD-->
-                        <!-- Ruta-->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
                                 <a href="index.jsp">Inicio</a>
@@ -108,104 +70,88 @@
                                 Home
                             </li>
                         </ul>
-                        <!-- Fin ruta -->
                         <div class="portlet light bordered">
                             <div class="page-head">
-                                <!-- BEGIN PAGE TITLE -->
                                 <div class="page-title">
                                     <h1>Informaci&#243n de Cliente
-                                        <!--<small>para evaluacion</small>-->
                                     </h1>
                                     <br>
-                                    <!--<h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small>:  <%//= datos.get("nombre")%></small></h1>-->
-                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small id="razonSocial"> </small></h1>
-                                <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small id="rut"></small></h1>
-                                <!--                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Razon Social</span>: <span class="small" style="color: #5b9bd1">Pedro Pablo Perez</span><br>
-                                                                            <span class="small" style="display: inline-block;width: 155px; color: #5b9bd1">Rut</span>: <span class="small" style="color: #5b9bd1">10.497.521-9</span>-->
+                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Nombre o razon social </small><small id="razonSocial"> </small></h1>
+                                    <h1><small class="small" style="display: inline-block;width: 155px; color: #697882;">Rut </small><small id="rut"></small></h1>
+                                </div>
                             </div>
                         </div>
-                        <!-- END PAGE TITLE -->
-                    </div>
-                    <!-- END PAGE HEAD-->
 
-
-
-                    <!--indicadores principales-->
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
-                                <div class="visual">
-                                    <i class="fa fa-comments"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="number"> +
-                                        <span data-counter="counterup" data-value="89">89</span>% </div>
-                                    <div class="desc"> Estimacion de Leverage </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
-                                <div class="visual">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="number">
-                                        <span data-counter="counterup" data-value="12,5">12,5</span>M$ </div>
-                                    <div class="desc"> Estimaci&oacute;n de Activos </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
-                                <div class="visual">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="number">
-                                        <span data-counter="counterup" data-value="8,5">8,5</span>M$ </div>
-                                    <div class="desc"> Estimacion de Deuda </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
-                                <div class="visual">
-                                    <i class="fa fa-globe"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="number">
-                                        <span data-counter="counterup" data-value="4,5">4,5</span>M$ </div>
-                                    <div class="desc"> Estimacion de mora </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!--fin indicadores principales-->
-
-                    <!--seccion de graficos-->
-                    <div class="row">
-
-                        <div class="col-lg-7 col-xs-12 col-sm-12">
-                            <div class="portlet box blue" style="border: none;">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <!--                                            <span class="caption-subject bold uppercase font-dark">RISK TIER</span>
-                                                                                    <span class="caption-helper">distance stats...</span>-->
-                                        <div class="caption"><i class="fa fa-database"></i> ANSWER TREE BUSINESS</div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                                    <div class="visual">
+                                        <i class="fa fa-comments"></i>
                                     </div>
-                                    <div class="tools">
-                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                                        <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
-                                        <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
-                                        <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                    <div class="details">
+                                        <div class="number"> +
+                                            <span data-counter="counterup" data-value="89">89</span>% </div>
+                                        <div class="desc"> Estimacion de Leverage </div>
                                     </div>
-                                    <div class="actions">
-                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                                    <div class="visual">
+                                        <i class="fa fa-bar-chart-o"></i>
                                     </div>
-                                </div>
-                                <!--grafico de barras-->
-                                <div class="portlet-body">
+                                    <div class="details">
+                                        <div class="number">
+                                            <span data-counter="counterup" data-value="12,5">12,5</span>M$ </div>
+                                        <div class="desc"> Estimaci&oacute;n de Activos </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                                    <div class="visual">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            <span data-counter="counterup" data-value="8,5">8,5</span>M$ </div>
+                                        <div class="desc"> Estimacion de Deuda </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                                    <div class="visual">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            <span data-counter="counterup" data-value="4,5">4,5</span>M$ </div>
+                                        <div class="desc"> Estimacion de mora </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-7 col-xs-12 col-sm-12">
+                                <div class="portlet box blue" style="border: none;">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <div class="caption"><i class="fa fa-database"></i> ANSWER TREE BUSINESS</div>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                        </div>
+                                        <div class="actions">
+                                            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <!--grafico de barras-->
+                                    <div class="portlet-body">
                                     <%--<jsp:include page="seccion/grafico_risktier.jsp"></jsp:include>--%>
                                     <div id="dashboard_amchart_1" class="CSSAnimationChart" style="height: 380px"></div>
                                 </div>
@@ -1029,7 +975,6 @@
                                                             console.log('dentro if');
                                                             console.log("i:" + i + ", " + "j:" + j + ", arrPjud:" + arrPjud[i]['rol']);
                                                             console.log("i:" + i + ", " + "j:" + j + ", arrayPJUD:" + arrayPJUD[j]['rol']);
-
                                                             flag = false;
                                                         } else {
                                                             console.log('dentro else');
@@ -1053,7 +998,7 @@
                                                 $('#nroDemandas').attr('data-value', nro);
                                                 if (flag2 == true) {
                                                     swal_infoCausas();
-                                                }else{
+                                                } else {
                                                     swal_zero2Causas();
                                                 }
                                             } else {

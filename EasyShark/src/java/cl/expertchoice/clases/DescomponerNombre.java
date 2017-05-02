@@ -8,18 +8,6 @@ import java.util.ArrayList;
  */
 public class DescomponerNombre {
 
-//    public static void main(String[] args) throws SQLException {
-////        String nombre ="de las carmen san pedro maria paz";
-//        String nombre = "smaria del carmen concepcion de paz ";
-////        String nombre = "claudio bryan miranda pizarro";
-//        DescomponerNombre d = new DescomponerNombre(nombre);
-//        d.descomponeNombreApellido();
-////        d.descomponeNombreApellido(nombre);
-//        //System.out.println("in :" + nombre);
-//        System.out.println("primer nombres " + d.getPrimerNombre());
-//        System.out.println("nombres " + d.getNOMBRES() + " \napellidop " + d.getAPELLIDOP() + "\napellidom " + d.getAPELLIDOM());
-//    }
-
     private String nombre = null;
     private String NOMBRES = "";
     private String APELLIDOP = "";
@@ -120,7 +108,6 @@ public class DescomponerNombre {
     public void descomponeApellidoNombre() throws SQLException {
         nombre = nombre.toUpperCase().trim();
         int len = nombre.trim().replace("  ", " ").split(" ").length;
-        //System.out.println("largo " + len);
         switch (len) {
             case 1: {
                 largo1(nombre);
@@ -160,7 +147,6 @@ public class DescomponerNombre {
     public void descomponeNombreApellido() throws SQLException {
 
         nombre = nombre.toUpperCase().trim();
-        //System.out.println("1:"+nombre);
         largo4_2(nombre);
 
     }
@@ -174,7 +160,6 @@ public class DescomponerNombre {
      */
     public boolean consultarPref(String nombre) throws SQLException {
         for (int i = 0; i < pref.length; i++) {
-            //System.out.println(pref[i] + " = " + nombres[cant]);
             if (nombre.trim().equalsIgnoreCase(pref[i])) {
 
                 return true;
@@ -204,11 +189,9 @@ public class DescomponerNombre {
                 b = false;
 
                 for (int i = 0; i < pref.length; i++) {
-                    //System.out.println(pref[i] + " = " + nombres[cant]);
                     if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                         b = true;
-                        //System.out.println("sale en  = " + nombres[cant]);
                     }
 
                 }
@@ -243,16 +226,13 @@ public class DescomponerNombre {
                     b = false;
 
                     for (int i = 0; i < pref.length; i++) {
-                        //System.out.println(pref[i] + " = " + nombres[cant]);
                         if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                             b = true;
-                            //System.out.println("sale en  = " + nombres[cant]);
                         }
 
                     }
 
-                    //System.out.println("agrego = " + nombres[cant]);
                     if (apellidosCompuestos(nombres, cant)) {
                         b = true;
                     }
@@ -266,7 +246,6 @@ public class DescomponerNombre {
                 APELLIDOM += " " + mater.get(i);
             }
 
-            //System.out.println("mater " + APELLIDOM);
             try {
                 do {
                     b = false;
@@ -274,7 +253,6 @@ public class DescomponerNombre {
                     pater.add(nombres[cant--]);
 
                     for (int i = 0; i < pref.length; i++) {
-                        //System.out.println(pref[i] + " = " + nombres[cant]);
                         if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                             b = true;
@@ -339,7 +317,6 @@ public class DescomponerNombre {
             }
             NOMBRES = (nombre);
 
-            //System.out.println(NOMBRES.trim() + " " + APELLIDOP.trim() + " " + APELLIDOM.trim());
         } catch (Exception e) {
             largo3(linea);
         }
@@ -372,7 +349,6 @@ public class DescomponerNombre {
         }
         setNOMBRES(nombre);
 
-        System.out.println(NOMBRES.trim() + " " + APELLIDOP.trim() + " " + APELLIDOM.trim());
 
     }
 
@@ -401,7 +377,6 @@ public class DescomponerNombre {
         }
         setNOMBRES(nombre);
 
-        System.out.println(NOMBRES.trim() + " " + APELLIDOP.trim() + " " + APELLIDOM.trim());
 
     }
 
@@ -421,7 +396,6 @@ public class DescomponerNombre {
                 b = false;
 
                 for (int i = 0; i < pref.length; i++) {
-                    //System.out.println(pref[i] + " = " + nombres[cant]);
                     if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                         b = true;
@@ -440,15 +414,12 @@ public class DescomponerNombre {
             do {
                 b = false;
                 for (int i = 0; i < pref.length; i++) {
-                    //System.out.println(pref[i] + " = " + nombres[cant]);
                     if (nombres[cant].trim().equalsIgnoreCase(pref[i])) {
 
                         b = true;
-                        //System.out.println("sale en  = " + nombres[cant]);
                     }
 
                 }
-                //System.out.println("agrego = " + nombres[cant]);
 
                 if (apellidosCompuestos2(nombres, cant)) {
                     b = true;

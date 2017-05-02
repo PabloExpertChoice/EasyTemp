@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package SQL;
 
 import java.sql.Connection;
@@ -22,13 +17,10 @@ public class Conexion {
             conexion = DriverManager.getConnection(servidor, usuario, password);
             conexion.setAutoCommit(true);
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex.toString());
             conexion = null;
         } catch (SQLException ex) {
-            System.out.println(ex.toString());
             conexion = null;
         } catch (Exception ex) {
-            System.out.println(ex.toString());
             conexion = null;
         }
         return conexion;
@@ -43,13 +35,10 @@ public class Conexion {
             conexion = DriverManager.getConnection(servidor, usuario, password);
             conexion.setAutoCommit(true);
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex.toString());
             conexion = null;
         } catch (SQLException ex) {
-            System.out.println(ex.toString());
             conexion = null;
         } catch (Exception ex) {
-            System.out.println(ex.toString());
             conexion = null;
         }
         return conexion;
@@ -80,9 +69,4 @@ public class Conexion {
 
         return flag;
     }
-
-//    public static void main(String[] args) {
-//        System.out.println(Conexion.getConexionEasy());
-//        System.out.println(Conexion.getConexion());
-//    }
 }

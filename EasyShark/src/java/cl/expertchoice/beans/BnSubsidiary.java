@@ -116,8 +116,7 @@ public class BnSubsidiary {
         Subsidiary emp = new Subsidiary();
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT a.id, a.nomb, a.rut, "
-                    + "b.id, b.nomb "
+            String sql = "SELECT a.id, a.nombre, a.rut "
                     + "FROM " + D.ESQUEMA + ".SUBSIDIARY a "
                     + "WHERE a.id = ?";
 
@@ -132,7 +131,6 @@ public class BnSubsidiary {
             return emp;
         } catch (SQLException ex) {
             ex.printStackTrace();
-            System.out.println(ex.toString());
             return null;
         } finally {
             Conexion.Desconectar(conn);
@@ -159,7 +157,6 @@ public class BnSubsidiary {
             return emp;
         } catch (SQLException ex) {
             ex.printStackTrace();
-            System.out.println(ex.toString());
             return null;
         } finally {
             Conexion.Desconectar(conn);
@@ -261,8 +258,7 @@ public class BnSubsidiary {
 
         return cli_resp;
     }
-*/
-
+     */
     public Subsidiary consultar(Subsidiary cliente) throws SQLException {
         Subsidiary cli_resp = null;
         Connection conn = null;

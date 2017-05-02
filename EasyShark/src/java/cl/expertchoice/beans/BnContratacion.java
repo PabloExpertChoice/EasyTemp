@@ -59,15 +59,4 @@ public class BnContratacion {
         return flag;
 
     }
-
-//    public static void main(String[] args) {
-//        try {
-//            ArrayList<Contratacion> lista = new BnContratacion().getContrataciones(1379);
-//            for (int x = 0; x < lista.size(); x++) {
-//                System.out.println(lista.get(x));
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(BnContratacion.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 }

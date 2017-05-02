@@ -163,26 +163,20 @@ public class HtmlUnit_pjud2 extends Thread {
         String[] nombres = nombre1.toUpperCase().trim().split(" ");
         String name = "";
         for (int a = 0; a < nombres.length; a++) {
-            System.out.println("Buscando en FILTRO Palabra: " + nombres[a]);
             String n = buscarNombre(nombres[a]);
             if (n == null) {
-                System.out.println("No se encontro en FILTRO.../nReturn: " + n);
                 String nn = corregir(nombres[a]);
                 if (nn == null) {  
-                    System.out.println("No encontrado en ORTOGRAFIA.../nReturn: " + nn);
                     name = name + (nombres[a].toUpperCase() + " ");
                     insertarNombre(nombres[a].toUpperCase().trim());
                 }else if(nn.equalsIgnoreCase(nombres[a])) {
-                    System.out.println("No encontrado en ORTOGRAFIA.../nReturn: " + nn);
                     name = name + (nn.toUpperCase() + " ");
                     insertarNombre(nn.toUpperCase().trim());
                 } else {
-                    System.out.println("Encontrado en ORTOGRAFIA.../nReturn: " + nn);
                     name = name + (nn.toUpperCase() + " ");
                     insertarNombre(nn.toUpperCase().trim());
                 }
             } else {
-                System.out.println("Encontrado en FILTRO.../nReturn: " + n);
                 name = name + (n.toUpperCase() + " ");
             }
         }
@@ -190,7 +184,6 @@ public class HtmlUnit_pjud2 extends Thread {
     }
 
     public Boolean buscarNombre() {
-        System.out.println("Entrando a BD.easy.LC_FILTRO_NOMBRES");
         String name2 = subBuscarNombre(this.nombre.trim());
         String ap_1 = subBuscarNombre(this.apePaterno.trim());
         String ap_2 = subBuscarNombre(this.apeMaterno.trim());
@@ -233,7 +226,6 @@ public class HtmlUnit_pjud2 extends Thread {
     }
 
     private static void insertarNombre(String nombre) {
-        System.out.println("Insertando " + nombre + " en los FILTROS");
         Connection conn = null;
         boolean flag = false;
         try {
@@ -254,7 +246,6 @@ public class HtmlUnit_pjud2 extends Thread {
     }
 
     public JsonObject buscarCausas(JsonObject jsonResp) {
-        System.out.println("Buscando Causas en PODERJUDICIAL....");
         WebClient webClient = new WebClient(BrowserVersion.FIREFOX_45);
         //JsonObject jsonResp = new JsonObject();
         JsonArray jsonArr = new JsonArray();
@@ -330,7 +321,6 @@ public class HtmlUnit_pjud2 extends Thread {
                     String nombre2 = row2.getElementsByTagName("td").get(3).getTextContent().trim();
                     if (participante.equalsIgnoreCase("DDO.") && rut2.equalsIgnoreCase(rut3)) {
                         isDemandado = true;
-                        System.out.println("Participante: " + participante + ", RUT: " + rut2 + ", Nombre: " + nombre2);
                     }
                 }
                 if (isDemandado == true) {
@@ -365,7 +355,6 @@ public class HtmlUnit_pjud2 extends Thread {
                 jsonResp.addProperty("estado", 405);
                 jsonResp.addProperty("descripcion", "El cliente no posee causas judiciales");
             }
-            System.out.println("Saliendo de PODERJUDICIAL...");
 //            }
 
         } catch (IOException ex) {

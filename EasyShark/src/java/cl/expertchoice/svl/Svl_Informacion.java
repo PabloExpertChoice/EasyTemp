@@ -1,7 +1,10 @@
 package cl.expertchoice.svl;
 
+import HtmlUnit.BuscarInformacion;
+import cl.expertchoice.clases.Subsidiary;
 import cl.expertchoice.clases.Usuario;
 import cl.expertchoice.xml.bnsInformacion;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -33,20 +36,29 @@ public class Svl_Informacion extends HttpServlet {
 
                 switch (code) {
                     case "dashboard": {
-                        String rut = request.getParameter("rut");
+                        int rut = Integer.parseInt(request.getParameter("rut"));
                         String dv = request.getParameter("dv");
                         bnsInformacion bn = new bnsInformacion();
                         JSONObject jsonInformacion = null;
-                        if (Integer.parseInt(rut) >= 50000000) {
-                            jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
+                        Subsidiary subsidiary = new Subsidiary();
+                        subsidiary.setRut(rut);
+                        subsidiary.setDv(dv);
+                        if (rut >= 50000000) {
+                            subsidiary = new BuscarInformacion().buscarEmpresa(rut, dv);
                         } else {
-                            jsonInformacion = bn.obtenerNombre(rut + "-" + dv);
-                            if (jsonInformacion == null) {
-                                jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
-                            }
+                            subsidiary = new BuscarInformacion().buscarPersona(rut, dv);
                         }
+//                        if (subsidiary == null) {
+//                            jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
+//                        } else {
+//                            jsonInformacion = bn.obtenerNombre(rut + "-" + dv);
+//                            if (jsonInformacion == null) {
+//                                jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
+//                            }
+//                        }
+
                         if (jsonInformacion != null) {
-                            request.setAttribute("datos", jsonInformacion);
+                            request.setAttribute("datos", subsidiary);
                             toPage("/dashboard.jsp", request, response);
                         } else {
                             request.setAttribute("msg", "No se encuentran datos");
@@ -60,7 +72,6 @@ public class Svl_Informacion extends HttpServlet {
                         String rut = request.getParameter("rut");
                         String dv = request.getParameter("dv");
                         JSONObject jsonInformacion = bn.obtenerInformacion(rut + "-" + dv, usuario);
-                        System.out.println(jsonInformacion);
                         request.setAttribute("datos", jsonInformacion);
                         toPage("/transunion.jsp", request, response);
                         break;
