@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
+import soporte.D;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Svl_Informacion extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             try {
                 HttpSession sesion = request.getSession();
-                Usuario usuario = (Usuario) sesion.getAttribute("sesion");
+                Usuario usuario = (Usuario) sesion.getAttribute(D.SESSION_USUARIO);
                 String code = request.getParameter("code");
                 JSONObject datos;
 

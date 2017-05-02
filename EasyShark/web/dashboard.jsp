@@ -22,8 +22,6 @@
     int nNombre = st.countTokens();
     String apellPat = d.getAPELLIDOP();
     String apellMat = d.getAPELLIDOM();
-    Long id_empresa = user.getEmpresa().getId();
-
 %>
 
 <!DOCTYPE html>
@@ -792,7 +790,6 @@
                                     apePaterno = '<%= apellPat%>';
                                     apeMaterno = '<%= apellMat%>';
                                     nNombre = '<%= nNombre%>';
-                                    id_empresa = '<%= id_empresa%>';
                                     var arrayPJUD;
                                     var arrayTemp;
                                     $('#razonSocial').html(': ' + nomCompleto);

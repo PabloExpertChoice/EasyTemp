@@ -1,6 +1,5 @@
 package HtmlUnit;
 
-import cl.expertchoice.beans.BnCausaJudicial;
 import cl.expertchoice.clases.CausaJudicial;
 import cl.expertchoice.clases.Consultado;
 import cl.expertchoice.clases.Tribunal;
@@ -24,7 +23,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import SQL.Conexion;
@@ -125,81 +123,7 @@ public class HtmlUnit_pjud2 extends Thread {
         }
     }
 
-//    public static void main(String[] args) {
-//        HtmlUnit_pjud2 v = new HtmlUnit_pjud2();
-//        v.setRut(13300593);
-//        v.setDv("5");
-//        v.setNombre("Juan Carlos");
-//        v.setApePaterno("Ahumada");
-//        v.setApeMaterno("Peña");
-//        System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
-////        ArrayList<String> st = new ArrayList<String>();
-////        st.add("ANGELICA");
-////        st.add("MARIA");
-////        st.add("LOPEZ");
-////        for (int i = 0; i < st.size(); i++) {
-////            System.out.println(st.get(i));
-////        }
-//        JsonObject buscarCausas = v.buscarCausas(new JsonObject());
-//        System.out.println(buscarCausas);
-//        System.out.println();
-//        System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
-//        v.setRut(76178360);
-//        v.setDv("2");
-//        System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
-////        ArrayList<String> st = new ArrayList<String>();
-////        st.add("ANGELICA");
-////        st.add("MARIA");
-////        st.add("LOPEZ");
-////        for (int i = 0; i < st.size(); i++) {
-////            System.out.println(st.get(i));
-////        }
-//        JsonObject buscarCausas2 = v.buscarCausas(buscarCausas);
-//        System.out.println(buscarCausas2);
-//        System.out.println();
-//        System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
-//    }
-//    public static String[] corregir(String[] nombres) {
-//        System.out.println("Entrando a ortografia");
-//        try {
-//            WebClient webClient = new WebClient(BrowserVersion.FIREFOX_45);
-//            Logger logger = Logger.getLogger("");
-//            logger.setLevel(Level.OFF);
-//            webClient.getOptions().setThrowExceptionOnScriptError(false);
-//            webClient.getOptions().setPrintContentOnFailingStatusCode(false);
-//            webClient.getOptions().setRedirectEnabled(false);
-//            HtmlPage page = webClient.getPage("http://lenguaje.com/herramientas/ortografo.html");
-//            for (int j = 0; j < nombres.length; j++) {
-//                HtmlForm form = (HtmlForm) page.getFormByName("corpus_capture");
-//                form.getTextAreaByName("edition_field").setText(nombres[j]);
-//                HtmlPage page2 = form.getElementsByTagName("button").get(0).click();
-//                try {
-//                    HtmlForm form2 = (HtmlForm) page2.getFormByName("spelling");
-//                    DomNodeList filas = form2.getElementsByTagName("ul").get(0).getElementsByTagName("li");
-//
-//                    for (int i = 0; i < filas.getLength(); i++) {
-//                        HtmlListItem item = (HtmlListItem) filas.get(i);
-//                        String nom = item.getTextContent().trim();
-//                        if (nom.length() == nombres[j].length()) {
-//                            String s = Normalizer.normalize(nom, Normalizer.Form.NFD);
-//                            s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-//                            if (s.equalsIgnoreCase(nombres[j])) {
-//                                nombres[j] = nom;
-//                                break;
-//                            }
-//                        }
-//                    }
-//                } catch (Exception ex) {
-//                }
-//            }
-//
-//        } catch (Exception ex) {
-//        }
-//
-//        return nombres;
-//    }
     private static String corregir(String nombre) {
-        System.out.println("Entrando a ortografia con " + nombre);
         try {
             WebClient webClient = new WebClient(BrowserVersion.FIREFOX_45);
             Logger logger = Logger.getLogger("");
