@@ -782,375 +782,382 @@
 
 
                 <!-- END THEME LAYOUT SCRIPTS -->
+
                 <script>
-
-
-
-                </script>
-                <script>
-
-
-
-
-                    $(document).ready(function () {
-                        document.getElementById("divPJUD").disabled = false;
-                        rut = '<%= datos.get("rut").toString()%>';
-                        dv = '<%= datos.get("dv").toString()%>';
-                        nomCompleto = '<%= nom_completo%>';
-                        nombre = '<%= nom%>';
-                        apePaterno = '<%= apellPat%>';
-                        apeMaterno = '<%= apellMat%>';
-                        nNombre = '<%= nNombre%>';
-                        id_empresa = '<%= id_empresa%>';
-                        $('#razonSocial').html(': ' + nomCompleto);
-                        $('#rut').html(': ' + rut + "-" + dv);
-                        $('#menuBarRut').show();
-                        $('#menuBarPrint').show();
-                        $('#menuBarCampana').show();
-                        $('#menuBarFlag').show();
-                        //                                    if(nNombre<=4){
-                        //                                        alert(nNombre);
-                        //                                    }else{
-                        //                                        alert(nNombre);
-                        //                                    }
-                        getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
-
-                        tblPjud = $("#tblPJUD").DataTable({
-                            language: {
-                                "sProcessing": "Procesando...",
-                                "sLengthMenu": "Mostrar _MENU_ registros",
-                                "sZeroRecords": "No se encontraron resultados",
-                                "sEmptyTable": "<i class=\"fa fa-spinner fa-pulse fa-fw\"></i> Cargando Causas... <span class=\"sr-only\">Loading...</span>",
-                                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                "sInfoPostFix": "",
-                                "sSearch": "Buscar:",
-                                "sUrl": "",
-                                "sInfoThousands": ",",
-                                "sLoadingRecords": "Cargando...",
-                                "oPaginate": {
-                                    "sFirst": "Primero",
-                                    "sLast": "Último",
-                                    "sNext": "Siguiente",
-                                    "sPrevious": "Anterior"
-                                },
-                                "oAria": {
-                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                }
-                            },
-                            "aoColumns": [
-                                {
-                                    "className": 'details-control',
-                                    "orderable": false,
-                                    "data": null,
-                                    "defaultContent": ''
-                                },
-                                {"mData": "",
-                                    "mRender": function (data, type, full) {
-                                        if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
-                                            return '<i class="fa fa-file-o"></i>';
-                                        } else {
-                                            return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
-                                        }
-                                    }
-                                },
-                                {"mData": "rol"},
-                                {"mData": "fecha"},
-                                {"mData": "caratulado"},
-                                {"mData": "tribunal.nombre"}
-                            ], "order": [[3, "asc"]]
-                        });
-                        buscarDatosOfac(nombre, apePaterno, apeMaterno);
-                        /**                         
-                         * @param {type} _rut
-                         * @param {type} _dv
-                         * @param {type} _nombre
-                         * @param {type} _apePaterno
-                         * @param {type} _apeMaterno
-                         * @returns {undefined}
-                         */
-                        function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
-                            $.ajax({
-                                url: 'Svl_Cliente',
-                                type: 'POST',
-                                dataType: 'json',
-                                data: {
-                                    accion: 'getDatosPJUD',
-                                    rut: _rut,
-                                    dv: _dv,
-                                    nombre: _nombre,
-                                    apePaterno: _apePaterno,
-                                    apeMaterno: _apeMaterno
-                                },
-                                beforeSend: function (xhr) {
-                                    $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span></td>');
-                                    $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
-                                },
-                                success: function (data) {
-//                                    if (data.estado == 200) {
-//                                        arrPjud = data.causasJudiciales;
-//                                        $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
-//                                        $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
-//                                        var nro = (arrPjud.length);
-//                                        $('#nroDemandas').attr('data-value', nro);
-//                                    } else {
-                                    $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty">No registra causas judiciales</td>');
-                                    $('#boxPjud .info-box-content .info-box-number').html('No registra causas judiciales');
-                                    $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
-                                    $('#tblPJUD_wrapper').append('<div class="portlet light bordered" id="div_input">\n\
-                            <div class="portlet-title">\n\
-<div class="caption">\n\
-<i class="icon-speech">\n\
-</i>\n\
-<span class="caption-subject bold uppercase">\n\
-BUSQUEDA MANUAL DE CAUSAS\n\
-</span>\n\
-</br>\n\
-</br>\n\
-<span class="caption-helper">\n\
-Por favor ingrese lo más específicamente posible el nombre completo (incluyendo acentuación):\n\
-</span>\n\
-</div>\n\
-<div class="tools">\n\
-<a href="#" class="expand" data-original-title="" title=""> \n\
-</a>\n\
-</div>\n\
-</div>\n\
-<div class="portlet-body" style="display: none;">\n\
-<div class="form-group" style=" width:100%;">\n\
-<label for="nom_com" style="width:29%;">\n\
-Nombres: \n\
-</label> \n\
-<input id="nombre_com" name="nombre_com" type="text" class="form-control" placeholder="Nombres..." style="width:70%;">\n\
-</div>\n\
-<div class="form-group" style=" width:100%;">\n\
-<label for="ape_pri" style="width:29%;">\n\
-Primer Apellido:\n\
-</label>\n\
-<input id="ape_prim" name="ape_prim" type="text" class="form-control" placeholder="Primer Apellido..." style="width:70%;">\n\
-</div><div class="form-group" style=" width:100%;">\n\
-<label for="ape_seg" style="width:29%;">\n\
-Segundo Apellido: \n\
-</label>\n\
-<input id="ape_segu" name="ape_segu" type="text" class="form-control" placeholder="Segundo Apellido..." style="width:70%;">\n\
-</div>\n\
-<div class="divider" style="height:20px;" ></div>\n\
-<button type="button" class="btn btn-primary" style=" width:100%;" onclick="getDatosManualPJUD(document.getElementById(\'nombre_com\').value,document.getElementById(\'ape_prim\').value,document.getElementById(\'ape_segu\').value);">Buscar causas judiciales</button>\n\
-</div>\n\
-</div>\n\
-</div>\n\
-</div>');
-//                                    }
-
-                                    //            $('.counter').counterUp({
-//    delay: 10,
-//    time: 1000
-//});
-                                }
-                            });
-                        }
-
-                        getScore(rut, dv);
-                        buscarActividadComercial(rut, dv);
-                        //                                    cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
-                        validarQuiebra(rut, dv);
-                        $("#tblResultadosOfac").DataTable({
-                            language: {
-                                url: 'json/Spanish.json'
-                            },
-                            "aoColumns": [
-                                {"mData": "nombre"},
-                                {"mData": "direccion"},
-                                {"mData": "tipo"},
-                                {"mData": "programa"},
-                                {"mData": "lista"},
-                                {"mData": "score"},
-                                        //                                            {"mData": "",
-                                        //                                                "mRender": function (data, type, full) {
-                                        //                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
-                                        //                                                }
-                                        //                                            }
-                            ]
-                        });
-                        $("#tblActComercial").DataTable({
-                            language: {
-                                url: 'json/Spanish.json'
-                            },
-                            "aoColumns": [
-                                {"mData": "actividad"},
-                                {"mData": "codigo"},
-                                {"mData": "categoria"},
-                                {"mData": "AfctaIVA"}
-                            ]
-                        });
-                        var scoreRut = 0;
-                        scoreRut = parseInt(getScoreValue(rut, dv));
-                        console.log(scoreRut);
-                        $.ajax({
-                            url: 'Svl_Scoring',
-                            dataType: 'json',
-                            type: 'POST',
-                            data: {accion: 'ObtenerScore', 'score': scoreRut},
-                            success: function (data) {
-                                $('#scoreToRut').text(data.datos.scoreText);
-                                console.log(JSON.stringify(data));
-                            }
-                        });
-                    });
-
-                    /**                   
-                     * @param {type} _nombre
-                     * @param {type} _apePaterno
-                     * @param {type} _apeMaterno
-                     * @returns {undefined}
-                     */
-                    function getDatosManualPJUD(_nombre, _apePaterno, _apeMaterno) {
-                        $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty"><i class="fa fa-spinner fa-pulse fa-fw"></i> Cargando Causas... <span class="sr-only">Loading...</span></td>');
-                        $.ajax({
-                            url: 'Svl_Cliente',
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                accion: 'getDatosManualPJUD',
-                                rut: rut,
-                                dv: dv,
-                                nombre: _nombre,
-                                apePaterno: _apePaterno,
-                                apeMaterno: _apeMaterno
-                            },
-                            beforeSend: function (xhr) {
-                                $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty"><i class="fa fa-spinner fa-pulse fa-fw"></i> Cargando Causas... <span class="sr-only">Loading...</span></td>');
-                                $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
-                            },
-                            success: function (data) {
-                                if (data.estado == 200) {
-                                    arrPjud = data.causasJudiciales;
-                                    $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
-                                    $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
-                                    var nro = (arrPjud.length);
-                                    $('#nroDemandas').attr('data-value', nro);
-                                } else {
-                                    $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty">No registra causas judiciales</td>');
-                                    $('#boxPjud .info-box-content .info-box-number').html('No registra causas judiciales');
-                                    $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
-                                    $('#div_input').remove();
-
-                                }
-
-                                //            $('.counter').counterUp({
-//    delay: 10,
-//    time: 1000
-//});
-                            }
-                        });
-                    }
-                    function goTransunion() {
-                        go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
-                    }
-                    function ingresarBlackList() {
-                        //0 es negativo
-                        swal_procces();
-                        var estado = 0;
-                        if ($('#estado').prop('checked')) {
-                            estado = 1;
-                        }
-                        $.ajax({
-                            url: 'Svl_BlackList',
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                accion: 'setBlackList',
-                                id_empresa: id_empresa,
-                                comentario: $('#comentarioBL').val(),
-                                estado: estado,
-                                rut: rut
-                            },
-                            success: function (data) {
-                                if (data == true) {
-                                    swal_opExitosa();
-                                } else {
-                                    swal_opFallida();
-                                }
-                            }
-                        });
-                    }
-
-                    function verModalBL() {
-                        swal_procces();
-                        getDatosBL(rut);
-                    }
-                    /**
-                     * 
-                     * @param {type} _rut
-                     */
-                    function getDatosBL(_rut) {
-                        $.ajax({
-                            url: 'Svl_BlackList',
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                accion: 'verBlackList',
-                                rut: _rut,
-                            },
-                            success: function (data) {
-                                $('#tblBL').DataTable().destroy();
-                                $('#tblBL').DataTable({
-                                    "data": data,
-                                    "columns": [
-                                        {data: 'estado', "render": function (data, type, row) {
-                                                if (data == 1) {
-                                                    return '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
-                                                } else {
-                                                    return '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+                                $(document).ready(function () {
+                                    document.getElementById("divPJUD").disabled = false;
+                                    rut = '<%= datos.get("rut").toString()%>';
+                                    dv = '<%= datos.get("dv").toString()%>';
+                                    nomCompleto = '<%= nom_completo%>';
+                                    nombre = '<%= nom%>';
+                                    apePaterno = '<%= apellPat%>';
+                                    apeMaterno = '<%= apellMat%>';
+                                    nNombre = '<%= nNombre%>';
+                                    id_empresa = '<%= id_empresa%>';
+                                    var arrayPJUD;
+                                    var arrayTemp;
+                                    $('#razonSocial').html(': ' + nomCompleto);
+                                    $('#rut').html(': ' + rut + "-" + dv);
+                                    $('#menuBarRut').show();
+                                    $('#menuBarPrint').show();
+                                    $('#menuBarCampana').show();
+                                    $('#menuBarFlag').show();
+                                    //                                    if(nNombre<=4){
+                                    //                                        alert(nNombre);
+                                    //                                    }else{
+                                    //                                        alert(nNombre);
+                                    //                                    }
+                                    getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
+                                    buscarDatosOfac(nombre, apePaterno, apeMaterno);
+//                                    getScore(rut, dv);
+                                    buscarActividadComercial(rut, dv);
+                                    //                                    cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
+                                    validarQuiebra(rut, dv);
+                                    tblPjud = $("#tblPJUD").DataTable({
+                                        language: {
+                                            "sProcessing": "Procesando...",
+                                            "sLengthMenu": "Mostrar _MENU_ registros",
+                                            "sZeroRecords": "No se encontraron resultados",
+                                            "sEmptyTable": "<i class=\"fa fa-spinner fa-pulse fa-fw\"></i> Cargando Causas... <span class=\"sr-only\">Loading...</span>",
+                                            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                            "sInfoPostFix": "",
+                                            "sSearch": "Buscar:",
+                                            "sUrl": "",
+                                            "sInfoThousands": ",",
+                                            "sLoadingRecords": "Cargando...",
+                                            "oPaginate": {
+                                                "sFirst": "Primero",
+                                                "sLast": "Último",
+                                                "sNext": "Siguiente",
+                                                "sPrevious": "Anterior"
+                                            },
+                                            "oAria": {
+                                                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                            }
+                                        },
+                                        "aoColumns": [
+                                            {
+                                                "className": 'details-control',
+                                                "orderable": false,
+                                                "data": null,
+                                                "defaultContent": ''
+                                            },
+                                            {"mData": "",
+                                                "mRender": function (data, type, full) {
+                                                    if (full.documentoDemanda == undefined || full.documentoDemanda == '') {
+                                                        return '<i class="fa fa-file-o"></i>';
+                                                    } else {
+                                                        return '<img style="cursor: pointer;"  src="images/iconos/pdf.png" onclick="return verPdfPjud(this)" />';
+                                                    }
                                                 }
-                                            }},
-                                        {data: 'comentario', class: 'txt-center'},
-                                        {data: 'fecha', class: 'txt-center'}
-                                    ],
-                                    pageLength: 10,
-                                    "order": [[1, "desc"]],
-                                    dom: "<'row'<'col-sm-12 col-md-12 datatable-table table-responsive'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
-                                    "language": {
-                                        url: 'json/Spanish.json'
-                                    }
+                                            },
+                                            {"mData": "rol"},
+                                            {"mData": "fecha"},
+                                            {"mData": "caratulado"},
+                                            {"mData": "tribunal.nombre"}
+                                        ], "order": [[3, "asc"]]
+                                    });
+                                    $("#tblResultadosOfac").DataTable({
+                                        language: {
+                                            url: 'json/Spanish.json'
+                                        },
+                                        "aoColumns": [
+                                            {"mData": "nombre"},
+                                            {"mData": "direccion"},
+                                            {"mData": "tipo"},
+                                            {"mData": "programa"},
+                                            {"mData": "lista"},
+                                            {"mData": "score"},
+                                                    //                                            {"mData": "",
+                                                    //                                                "mRender": function (data, type, full) {
+                                                    //                                                    return full.rut != undefined && full.rut != 0 ? number_format(full.rut, 0, ',', '.') + '-' + full.dv : '';
+                                                    //                                                }
+                                                    //                                            }
+                                        ]
+                                    });
+                                    $("#tblActComercial").DataTable({
+                                        language: {
+                                            url: 'json/Spanish.json'
+                                        },
+                                        "aoColumns": [
+                                            {"mData": "actividad"},
+                                            {"mData": "codigo"},
+                                            {"mData": "categoria"},
+                                            {"mData": "AfctaIVA"}
+                                        ]
+                                    });
+//                                    var scoreRut = 0;
+//                                    scoreRut = parseInt(getScoreValue(rut, dv));
+//                                    console.log(scoreRut);
+//                                    $.ajax({
+//                                        url: 'Svl_Scoring',
+//                                        dataType: 'json',
+//                                        type: 'POST',
+//                                        data: {accion: 'ObtenerScore', 'score': scoreRut},
+//                                        success: function (data) {
+//                                            $('#scoreToRut').text(data.datos.scoreText);
+//                                            console.log(JSON.stringify(data));
+//                                        }
+//                                    });
+
+
                                 });
-                                $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
-                                $('#modalBlackList').modal({'backdrop': 'static'});
-                                $('#tblBLCont').show();
-                                swal_unprocces();
-                            }});
-                    }
 
 
-                    //popover:
-                    $(function () {
-                        $('#ksDescripcion').popover({
-                            title: 'Prueba KS',
-                            content: '<p style="text-align: justify; color:gray;">La prueba de Kolmogórov-Smirnov (también prueba K-S) es una prueba no paramétrica que determina la bondad de ajuste de dos distribuciones de probabilidad entre sí.</p> <p> <a href="https://es.wikipedia.org/wiki/Prueba_de_Kolmog%C3%B3rov-Smirnov" target="_blank">leer mas</a></p>',
-                            placement: 'bottom',
-                            html: true
-                        });
-                        $('#aucDescripcion').popover({
-                            title: 'Curva AUC',
-                            content: '<p style="text-align: justify; color:gray;">Es el área bajo la curva ROC, llamada comúnmente AUC (Área Bajo la Curva). También se puede encontrar denominada A\' ("a-prima"), o el estadístico "c" (c-statistic).</p> <p> <a href="https://es.wikipedia.org/wiki/Curva_ROC#C.C3.B3mo_se_puede_interpretar_una_curva_ROC" target="_blank">leer mas</a></p>',
-                            placement: 'bottom',
-                            html: true
-                        });
-                        $('#rocDescripcion').popover({
-                            title: 'Curva ROC',
-                            content: '<p style="text-align: justify; color:gray;">Es una representación gráfica de la sensibilidad frente a la especificidad para un sistema clasificador binario según se varía el umbral de discriminación.</p><p> <a href="https://es.wikipedia.org/wiki/Curva_ROC\" target="_blank">leer mas</a></p>',
-                            placement: 'bottom',
-                            html: true
-                        });
-                        $('#Ley20521Descripcion').popover({
-                            title: 'Ley N° 20.521',
-                            content: '<p style="text-align: justify; color:gray;">Esta modifica la ley Nº 19.628, el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>',
-                            placement: 'bottom',
-                            html: true
-                        });
-                    });
+
+                                /**                         
+                                 * @param {type} _rut
+                                 * @param {type} _dv
+                                 * @param {type} _nombre
+                                 * @param {type} _apePaterno
+                                 * @param {type} _apeMaterno
+                                 * @returns {undefined}
+                                 */
+                                function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
+                                    $.ajax({
+                                        url: 'Svl_Cliente',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            accion: 'getDatosPJUD',
+                                            rut: _rut,
+                                            dv: _dv,
+                                            nombre: _nombre,
+                                            apePaterno: _apePaterno,
+                                            apeMaterno: _apeMaterno
+                                        },
+                                        beforeSend: function (xhr) {
+                                            $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+                                        },
+                                        success: function (data) {
+                                            $('#btnPJUD').html('Buscar causas judiciales');
+                                            if (data.estado == 200) {
+                                                arrayPJUD = data.causasJudiciales;
+//                                                arrPjud = data.causasJudiciales;
+                                                $('#tblPJUD').DataTable().rows.add(arrayPJUD).draw(false);
+                                                $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrayPJUD.length);
+                                                var nro = (arrayPJUD.length);
+                                                $('#nroDemandas').attr('data-value', nro);
+                                            } else {
+                                                $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty">No registra causas judiciales</td>');
+                                                $('#boxPjud .info-box-content .info-box-number').html('No registra causas judiciales');
+                                                $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
+                                            }
+                                            if (_rut < 50000000) {
+                                                $('#tblPJUD_wrapper').append('<div class="portlet light bordered" id="div_input">\n\
+                                                    <div class="portlet-title">\n\
+                                                    <div class="caption">\n\
+                                                    <i class="icon-speech">\n\
+                                                    </i>\n\
+                                                    <span class="caption-subject bold uppercase">\n\
+                                                    BUSQUEDA MANUAL DE CAUSAS\n\
+                                                    </span>\n\
+                                                    </br>\n\
+                                                    </br>\n\
+                                                    <span class="caption-helper">\n\
+                                                    Por favor ingrese lo más específicamente posible el nombre completo (incluyendo acentuación):\n\
+                                                    </span>\n\
+                                                    </div>\n\
+                                                    <div class="tools">\n\
+                                                    <a href="#" class="expand" data-original-title="" title=""> \n\
+                                                    </a>\n\
+                                                    </div>\n\
+                                                    </div>\n\
+                                                    <div class="portlet-body" style="display: none;">\n\
+                                                    <div class="form-group" style=" width:100%;">\n\
+                                                    <label for="nom_com" style="width:29%;">\n\
+                                                    Nombres: \n\
+                                                    </label> \n\
+                                                    <input id="nombre_com" name="nombre_com" type="text" class="form-control" placeholder="Nombres..." style="width:70%;">\n\
+                                                    </div>\n\
+                                                    <div class="form-group" style=" width:100%;">\n\
+                                                    <label for="ape_pri" style="width:29%;">\n\
+                                                    Primer Apellido:\n\
+                                                    </label>\n\
+                                                    <input id="ape_prim" name="ape_prim" type="text" class="form-control" placeholder="Primer Apellido..." style="width:70%;">\n\
+                                                    </div><div class="form-group" style=" width:100%;">\n\
+                                                    <label for="ape_seg" style="width:29%;">\n\
+                                                    Segundo Apellido: \n\
+                                                    </label>\n\
+                                                    <input id="ape_segu" name="ape_segu" type="text" class="form-control" placeholder="Segundo Apellido..." style="width:70%;">\n\
+                                                    </div>\n\
+                                                    <div class="divider" style="height:20px;" ></div>\n\
+                                                    <button id="btnPJUD" type="button" class="btn btn-primary" style=" width:100%;" onclick="getDatosManualPJUD(document.getElementById(\'nombre_com\').value,document.getElementById(\'ape_prim\').value,document.getElementById(\'ape_segu\').value);">Buscar causas judiciales</button>\n\
+                                                    </div>\n\
+                                                    </div>\n\
+                                                    </div>\n\
+                                                    </div>');
+                                            }
+                                        }});
+                                }
+
+                                /**                   
+                                 * @param {type} _nombre
+                                 * @param {type} _apePaterno
+                                 * @param {type} _apeMaterno
+                                 * @returns {undefined}
+                                 */
+                                function getDatosManualPJUD(_nombre, _apePaterno, _apeMaterno) {
+                                    $('#loadPJUM').remove();
+                                    $.ajax({
+                                        url: 'Svl_Cliente',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            accion: 'getDatosManualPJUD',
+                                            rut: rut,
+                                            dv: dv,
+                                            nombre: _nombre,
+                                            apePaterno: _apePaterno,
+                                            apeMaterno: _apeMaterno
+                                        },
+                                        beforeSend: function (xhr) {
+                                            $('#btnPJUD').html('Buscar causas judiciales <i class="fa fa-spinner fa-pulse fa-fw"></i>');//                                                                               
+                                            $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+                                        },
+                                        success: function (data) {
+                                            $('#btnPJUD').html('Buscar causas judiciales');//                                            
+                                            if (data.estado == 200) {
+                                                arrPjud = data.causasJudiciales;
+                                                var arrayTemp = [];
+                                                for (var i = 0; i < arrayPJUD.length; i++) {
+                                                    console.log(arrayPJUD[i]['rol']);
+                                                    for (var j = 0; j < arrPjud.length; j++) {
+                                                        if(arrPjud[j]['rol'] != arrayPJUD[i]['rol']){
+                                                            arrayTemp.push(arrPjud[j]);
+                                                        }
+                                                    }
+                                                }
+                                                arrayPJUD = arrayPJUD.concat(arrayTemp);
+                                                
+                                                console.log(arrayPJUD);
+                                                $('#tblPJUD').DataTable().rows.add(arrayTemp).draw(false);
+//                                                $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
+//                                                var nro = (arrPjud.length);
+//                                                $('#nroDemandas').attr('data-value', nro);
+                                            } else {
+                                                $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty">No registra causas judiciales</td>');
+                                                $('#boxPjud .info-box-content .info-box-number').html('No registra causas judiciales');
+                                                $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
+                                                $('#div_input').remove();
+
+                                            }
+
+                                            //            $('.counter').counterUp({
+//    delay: 10,
+//    time: 1000
+//});
+                                        }
+                                    });
+                                }
+                                function goTransunion() {
+                                    go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
+                                }
+                                function ingresarBlackList() {
+                                    //0 es negativo
+                                    swal_procces();
+                                    var estado = 0;
+                                    if ($('#estado').prop('checked')) {
+                                        estado = 1;
+                                    }
+                                    $.ajax({
+                                        url: 'Svl_BlackList',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            accion: 'setBlackList',
+                                            id_empresa: id_empresa,
+                                            comentario: $('#comentarioBL').val(),
+                                            estado: estado,
+                                            rut: rut
+                                        },
+                                        success: function (data) {
+                                            if (data == true) {
+                                                swal_opExitosa();
+                                            } else {
+                                                swal_opFallida();
+                                            }
+                                        }
+                                    });
+                                }
+
+                                function verModalBL() {
+                                    swal_procces();
+                                    getDatosBL(rut);
+                                }
+                                /**
+                                 * 
+                                 * @param {type} _rut
+                                 */
+                                function getDatosBL(_rut) {
+                                    $.ajax({
+                                        url: 'Svl_BlackList',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            accion: 'verBlackList',
+                                            rut: _rut,
+                                        },
+                                        success: function (data) {
+                                            $('#tblBL').DataTable().destroy();
+                                            $('#tblBL').DataTable({
+                                                "data": data,
+                                                "columns": [
+                                                    {data: 'estado', "render": function (data, type, row) {
+                                                            if (data == 1) {
+                                                                return '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+                                                            } else {
+                                                                return '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+                                                            }
+                                                        }},
+                                                    {data: 'comentario', class: 'txt-center'},
+                                                    {data: 'fecha', class: 'txt-center'}
+                                                ],
+                                                pageLength: 10,
+                                                "order": [[1, "desc"]],
+                                                dom: "<'row'<'col-sm-12 col-md-12 datatable-table table-responsive'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
+                                                "language": {
+                                                    url: 'json/Spanish.json'
+                                                }
+                                            });
+                                            $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
+                                            $('#modalBlackList').modal({'backdrop': 'static'});
+                                            $('#tblBLCont').show();
+                                            swal_unprocces();
+                                        }});
+                                }
+
+
+                                //popover:
+                                $(function () {
+                                    $('#ksDescripcion').popover({
+                                        title: 'Prueba KS',
+                                        content: '<p style="text-align: justify; color:gray;">La prueba de Kolmogórov-Smirnov (también prueba K-S) es una prueba no paramétrica que determina la bondad de ajuste de dos distribuciones de probabilidad entre sí.</p> <p> <a href="https://es.wikipedia.org/wiki/Prueba_de_Kolmog%C3%B3rov-Smirnov" target="_blank">leer mas</a></p>',
+                                        placement: 'bottom',
+                                        html: true
+                                    });
+                                    $('#aucDescripcion').popover({
+                                        title: 'Curva AUC',
+                                        content: '<p style="text-align: justify; color:gray;">Es el área bajo la curva ROC, llamada comúnmente AUC (Área Bajo la Curva). También se puede encontrar denominada A\' ("a-prima"), o el estadístico "c" (c-statistic).</p> <p> <a href="https://es.wikipedia.org/wiki/Curva_ROC#C.C3.B3mo_se_puede_interpretar_una_curva_ROC" target="_blank">leer mas</a></p>',
+                                        placement: 'bottom',
+                                        html: true
+                                    });
+                                    $('#rocDescripcion').popover({
+                                        title: 'Curva ROC',
+                                        content: '<p style="text-align: justify; color:gray;">Es una representación gráfica de la sensibilidad frente a la especificidad para un sistema clasificador binario según se varía el umbral de discriminación.</p><p> <a href="https://es.wikipedia.org/wiki/Curva_ROC\" target="_blank">leer mas</a></p>',
+                                        placement: 'bottom',
+                                        html: true
+                                    });
+                                    $('#Ley20521Descripcion').popover({
+                                        title: 'Ley N° 20.521',
+                                        content: '<p style="text-align: justify; color:gray;">Esta modifica la ley Nº 19.628, el cual se encuentra basado únicamente en información objetiva relativa a las morosidades y protestos.</p>',
+                                        placement: 'bottom',
+                                        html: true
+                                    });
+                                });
             </script>
             <script src="plugins/jsPlumb/lib/jsBezier-0.8.js"></script>
             <script src="plugins/jsPlumb/lib/mottle-0.7.4.js"></script>
