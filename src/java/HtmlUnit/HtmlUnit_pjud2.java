@@ -242,7 +242,7 @@ public class HtmlUnit_pjud2 extends Thread {
             System.out.println("Buscando en FILTRO Palabra: " + nombres[a]);
             String n = buscarNombre(nombres[a]);
             if (n == null) {
-                System.out.println("No se encontro en BD.../nReturn: " + n);
+                System.out.println("No se encontro en FILTRO.../nReturn: " + n);
                 String nn = corregir(nombres[a]);
                 if (nn == null) {  
                     System.out.println("No encontrado en ORTOGRAFIA.../nReturn: " + nn);
@@ -258,7 +258,7 @@ public class HtmlUnit_pjud2 extends Thread {
                     insertarNombre(nn.toUpperCase().trim());
                 }
             } else {
-                System.out.println("Encontrado en BD.../nReturn: " + n);
+                System.out.println("Encontrado en FILTRO.../nReturn: " + n);
                 name = name + (n.toUpperCase() + " ");
             }
         }

@@ -52,16 +52,37 @@ public class Svl_Cliente extends HttpServlet {
                     pjud.setApeMaterno(apeMaterno.trim().toUpperCase());
                     json = pjud.buscarCausas(new JsonObject());
                     if (rut < 50000000) {
-                        if(json.get("estado").getAsInt()!=200){
+                        if (json.get("estado").getAsInt() != 200) {
                             json = new JsonObject();
                         }
                         if (pjud.buscarNombre() == true) {
-                            JsonObject json2 = pjud.buscarCausas(json);
+                            JsonObject json2 = pjud.buscarCausas(json);                            
                             System.out.println("Finalizo la carga de PODERJUDICIAL");
+                            System.out.println(json2);
                             response.getWriter().print(json2);
                             break;
                         }
+
                     }
+                    System.out.println("Finalizo la carga de PODERJUDICIAL");
+                    System.out.println(json);
+                    response.getWriter().print(json);
+                    break;
+                }
+                case "getDatosManualPJUD": {
+                    int rut = Integer.parseInt(request.getParameter("rut"));
+                    String dv = request.getParameter("dv");
+                    String nombre = request.getParameter("nombre") != null ? request.getParameter("nombre") : "";
+                    String apePaterno = request.getParameter("apePaterno") != null ? request.getParameter("apePaterno") : "";
+                    String apeMaterno = request.getParameter("apeMaterno") != null ? request.getParameter("apeMaterno") : "";
+                    System.out.println("Nombre: " +nombre +" "+apeMaterno+" "+apePaterno +", RUT: " +rut +"-" +dv);
+                    HtmlUnit_pjud2 pjud = new HtmlUnit_pjud2();
+                    pjud.setRut(rut);
+                    pjud.setDv(dv);
+                    pjud.setNombre(nombre.trim().toUpperCase());
+                    pjud.setApePaterno(apePaterno.trim().toUpperCase());
+                    pjud.setApeMaterno(apeMaterno.trim().toUpperCase());
+                    json = pjud.buscarCausas(new JsonObject());
                     System.out.println("Finalizo la carga de PODERJUDICIAL");
                     response.getWriter().print(json);
                     break;

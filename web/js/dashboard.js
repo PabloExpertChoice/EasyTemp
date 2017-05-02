@@ -19,52 +19,8 @@ function verModalPJUD() {
     $('#modalPJUD .modal-dialog .modal-content .modal-header .modal-title').html(nombre + ' ' + apePaterno + ' ' + apeMaterno);
 }
 
-/**
- * 
- * @param {type} _rut
- * @param {type} _dv
- * @param {type} _nombre
- * @param {type} _apePaterno
- * @param {type} _apeMaterno
- * @returns {undefined}
- */
-function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
-    $.ajax({
-        url: 'Svl_Cliente',
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            accion: 'getDatosPJUD',
-            rut: _rut,
-            dv: _dv,
-            nombre: _nombre,
-            apePaterno: _apePaterno,
-            apeMaterno: _apeMaterno
-        },
-        beforeSend: function (xhr) {
-            $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
-        },
-        success: function (data) {
 
 
-            $('#boxPjud .info-box-content .info-box-number').html('No registra datos asociados');
-            if (data.estado === 200) {
-                arrPjud = data.causasJudiciales;
-                $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
-                $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
-                var nro = (arrPjud.length);
-                $('#nroDemandas').attr('data-value', nro);
-            } else {
-                $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
-            }
-
-//            $('.counter').counterUp({
-//    delay: 10,
-//    time: 1000
-//});
-        }
-    });
-}
 
 function verPdfPjud(icono) {
     $('#tblPjudCont').hide();

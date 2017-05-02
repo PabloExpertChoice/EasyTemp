@@ -331,6 +331,7 @@
                                     </div>
                                     <div style="height: 10px" ></div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -489,7 +490,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12 col-xs-12" onclick="return verModalPJUD()">
+                            <div class="col-md-4 col-sm-12 col-xs-12" onclick="return verModalPJUD()" id="divPJUD">
                                 <div class="dashboard-stat2 bordered" id="boxPjud">
                                     <div class="display">
                                         <img src="images/poder_judicial-icon.png" style="width: 40px;" class="pull-right">
@@ -787,7 +788,12 @@
 
                 </script>
                 <script>
+
+
+
+
                     $(document).ready(function () {
+                        document.getElementById("divPJUD").disabled = false;
                         rut = '<%= datos.get("rut").toString()%>';
                         dv = '<%= datos.get("dv").toString()%>';
                         nomCompleto = '<%= nom_completo%>';
@@ -802,9 +808,37 @@
                         $('#menuBarPrint').show();
                         $('#menuBarCampana').show();
                         $('#menuBarFlag').show();
+                        //                                    if(nNombre<=4){
+                        //                                        alert(nNombre);
+                        //                                    }else{
+                        //                                        alert(nNombre);
+                        //                                    }
+                        getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
+
                         tblPjud = $("#tblPJUD").DataTable({
                             language: {
-                                url: 'json/Spanish.json'
+                                "sProcessing": "Procesando...",
+                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                "sZeroRecords": "No se encontraron resultados",
+                                "sEmptyTable": "<i class=\"fa fa-spinner fa-pulse fa-fw\"></i> Cargando Causas... <span class=\"sr-only\">Loading...</span>",
+                                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                "sInfoPostFix": "",
+                                "sSearch": "Buscar:",
+                                "sUrl": "",
+                                "sInfoThousands": ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast": "Último",
+                                    "sNext": "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                }
                             },
                             "aoColumns": [
                                 {
@@ -828,18 +862,100 @@
                                 {"mData": "tribunal.nombre"}
                             ], "order": [[3, "asc"]]
                         });
-                        //                                    if(nNombre<=4){
-                        //                                        alert(nNombre);
-                        //                                    }else{
-                        //                                        alert(nNombre);
-                        //                                    }
-                        getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
                         buscarDatosOfac(nombre, apePaterno, apeMaterno);
+                        /**                         
+                         * @param {type} _rut
+                         * @param {type} _dv
+                         * @param {type} _nombre
+                         * @param {type} _apePaterno
+                         * @param {type} _apeMaterno
+                         * @returns {undefined}
+                         */
+                        function getDatosPJUD(_rut, _dv, _nombre, _apePaterno, _apeMaterno) {
+                            $.ajax({
+                                url: 'Svl_Cliente',
+                                type: 'POST',
+                                dataType: 'json',
+                                data: {
+                                    accion: 'getDatosPJUD',
+                                    rut: _rut,
+                                    dv: _dv,
+                                    nombre: _nombre,
+                                    apePaterno: _apePaterno,
+                                    apeMaterno: _apeMaterno
+                                },
+                                beforeSend: function (xhr) {
+                                    $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span></td>');
+                                    $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+                                },
+                                success: function (data) {
+//                                    if (data.estado == 200) {
+//                                        arrPjud = data.causasJudiciales;
+//                                        $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
+//                                        $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
+//                                        var nro = (arrPjud.length);
+//                                        $('#nroDemandas').attr('data-value', nro);
+//                                    } else {
+                                    $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty">No registra causas judiciales</td>');
+                                    $('#boxPjud .info-box-content .info-box-number').html('No registra causas judiciales');
+                                    $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
+                                    $('#tblPJUD_wrapper').append('<div class="portlet light bordered" id="div_input">\n\
+                            <div class="portlet-title">\n\
+<div class="caption">\n\
+<i class="icon-speech">\n\
+</i>\n\
+<span class="caption-subject bold uppercase">\n\
+BUSQUEDA MANUAL DE CAUSAS\n\
+</span>\n\
+</br>\n\
+</br>\n\
+<span class="caption-helper">\n\
+Por favor ingrese lo más específicamente posible el nombre completo (incluyendo acentuación):\n\
+</span>\n\
+</div>\n\
+<div class="tools">\n\
+<a href="#" class="expand" data-original-title="" title=""> \n\
+</a>\n\
+</div>\n\
+</div>\n\
+<div class="portlet-body" style="display: none;">\n\
+<div class="form-group" style=" width:100%;">\n\
+<label for="nom_com" style="width:29%;">\n\
+Nombres: \n\
+</label> \n\
+<input id="nombre_com" name="nombre_com" type="text" class="form-control" placeholder="Nombres..." style="width:70%;">\n\
+</div>\n\
+<div class="form-group" style=" width:100%;">\n\
+<label for="ape_pri" style="width:29%;">\n\
+Primer Apellido:\n\
+</label>\n\
+<input id="ape_prim" name="ape_prim" type="text" class="form-control" placeholder="Primer Apellido..." style="width:70%;">\n\
+</div><div class="form-group" style=" width:100%;">\n\
+<label for="ape_seg" style="width:29%;">\n\
+Segundo Apellido: \n\
+</label>\n\
+<input id="ape_segu" name="ape_segu" type="text" class="form-control" placeholder="Segundo Apellido..." style="width:70%;">\n\
+</div>\n\
+<div class="divider" style="height:20px;" ></div>\n\
+<button type="button" class="btn btn-primary" style=" width:100%;" onclick="getDatosManualPJUD(document.getElementById(\'nombre_com\').value,document.getElementById(\'ape_prim\').value,document.getElementById(\'ape_segu\').value);">Buscar causas judiciales</button>\n\
+</div>\n\
+</div>\n\
+</div>\n\
+</div>');
+//                                    }
+
+                                    //            $('.counter').counterUp({
+//    delay: 10,
+//    time: 1000
+//});
+                                }
+                            });
+                        }
+
                         getScore(rut, dv);
                         buscarActividadComercial(rut, dv);
                         //                                    cargaIframe(rut, dv, nombre, apePaterno, apeMaterno, 0);
                         validarQuiebra(rut, dv);
-
                         $("#tblResultadosOfac").DataTable({
                             language: {
                                 url: 'json/Spanish.json'
@@ -883,6 +999,53 @@
                             }
                         });
                     });
+
+                    /**                   
+                     * @param {type} _nombre
+                     * @param {type} _apePaterno
+                     * @param {type} _apeMaterno
+                     * @returns {undefined}
+                     */
+                    function getDatosManualPJUD(_nombre, _apePaterno, _apeMaterno) {
+                        $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty"><i class="fa fa-spinner fa-pulse fa-fw"></i> Cargando Causas... <span class="sr-only">Loading...</span></td>');
+                        $.ajax({
+                            url: 'Svl_Cliente',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: {
+                                accion: 'getDatosManualPJUD',
+                                rut: rut,
+                                dv: dv,
+                                nombre: _nombre,
+                                apePaterno: _apePaterno,
+                                apeMaterno: _apeMaterno
+                            },
+                            beforeSend: function (xhr) {
+                                $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty"><i class="fa fa-spinner fa-pulse fa-fw"></i> Cargando Causas... <span class="sr-only">Loading...</span></td>');
+                                $('#boxPjud .info-box-content .info-box-number').html('<i class="fa fa-spinner fa-spin"></i>');
+                            },
+                            success: function (data) {
+                                if (data.estado == 200) {
+                                    arrPjud = data.causasJudiciales;
+                                    $('#tblPJUD').DataTable().rows.add(arrPjud).draw(false);
+                                    $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrPjud.length);
+                                    var nro = (arrPjud.length);
+                                    $('#nroDemandas').attr('data-value', nro);
+                                } else {
+                                    $('#tblPJUD .odd').html('<td valign="top" colspan="6" class="dataTables_empty">No registra causas judiciales</td>');
+                                    $('#boxPjud .info-box-content .info-box-number').html('No registra causas judiciales');
+                                    $('#boxPjud .info-box-content .info-box-number').css({'font-size': '15px'});
+                                    $('#div_input').remove();
+
+                                }
+
+                                //            $('.counter').counterUp({
+//    delay: 10,
+//    time: 1000
+//});
+                            }
+                        });
+                    }
                     function goTransunion() {
                         go('Svl_Informacion', [{id: 'code', val: 'transunion'}, {id: 'rut', val: rut}, {id: 'dv', val: dv}], undefined, 'Svl_Informacion');
                     }
@@ -901,7 +1064,6 @@
                                 accion: 'setBlackList',
                                 id_empresa: id_empresa,
                                 comentario: $('#comentarioBL').val(),
-
                                 estado: estado,
                                 rut: rut
                             },
@@ -950,7 +1112,6 @@
                                     pageLength: 10,
                                     "order": [[1, "desc"]],
                                     dom: "<'row'<'col-sm-12 col-md-12 datatable-table table-responsive'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
-
                                     "language": {
                                         url: 'json/Spanish.json'
                                     }
@@ -990,7 +1151,6 @@
                             html: true
                         });
                     });
-
             </script>
             <script src="plugins/jsPlumb/lib/jsBezier-0.8.js"></script>
             <script src="plugins/jsPlumb/lib/mottle-0.7.4.js"></script>
