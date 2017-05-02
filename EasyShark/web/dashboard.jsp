@@ -798,11 +798,6 @@
                                     $('#menuBarPrint').show();
                                     $('#menuBarCampana').show();
                                     $('#menuBarFlag').show();
-                                    //                                    if(nNombre<=4){
-                                    //                                        alert(nNombre);
-                                    //                                    }else{
-                                    //                                        alert(nNombre);
-                                    //                                    }
                                     getDatosPJUD(rut, dv, nombre, apePaterno, apeMaterno);
                                     buscarDatosOfac(nombre, apePaterno, apeMaterno);
                                     getScore(rut, dv);
@@ -1026,31 +1021,20 @@
                                                     var flag = true;
                                                     for (var j = 0; j < arrayPJUD.length; j++) {
                                                         if (arrPjud[i]['rol'] === arrayPJUD[j]['rol']) {
-                                                            console.log('dentro if');
-                                                            console.log("i:" + i + ", " + "j:" + j + ", arrPjud:" + arrPjud[i]['rol']);
-                                                            console.log("i:" + i + ", " + "j:" + j + ", arrayPJUD:" + arrayPJUD[j]['rol']);
-
                                                             flag = false;
-                                                        } else {
-                                                            console.log('dentro else');
-                                                            console.log("i:" + i + ", " + "j:" + j + ", arrPjud:" + arrPjud[i]['rol']);
-                                                            console.log("i:" + i + ", " + "j:" + j + ", arrayPJUD:" + arrayPJUD[j]['rol']);
-                                                        }
+                                                        } 
                                                     }
                                                     if (flag == true) {
                                                         flag2 = true;
-                                                        console.log('insertando');
                                                         arrayTemp.push(arrPjud[i]);
                                                     }
                                                 }
-                                                console.log('arreglo a insertar');
-                                                console.log(arrayTemp);
                                                 arrayPJUD = arrayPJUD.concat(arrayTemp);
-
                                                 $('#tblPJUD').DataTable().rows.add(arrayTemp).draw(false);
                                                 $('#boxPjud .info-box-content .info-box-number').html('Nro. ' + arrayPJUD.length);
                                                 var nro = (arrayPJUD.length);
                                                 $('#nroDemandas').attr('data-value', nro);
+                                                console.log(nro);
                                                 if (flag2 == true) {
                                                     swal_infoCausas();
                                                 }else{
@@ -1060,12 +1044,6 @@
                                                 swal_zeroCausas();
 
                                             }
-
-
-                                            //            $('.counter').counterUp({
-//    delay: 10,
-//    time: 1000
-//});
                                         }
                                     });
                                 }
