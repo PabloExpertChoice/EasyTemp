@@ -73,7 +73,7 @@ $(function () {
             $('#msgError').html('Debe aceptar las condiciones de uso para finalizar la operación.');
         } else {
             $.ajax({
-                url: 'Svl_RegistroMeses',
+                url: 'Svl_Usuarios',
                 type: 'POST',
                 dataType: 'json',
                 data: {

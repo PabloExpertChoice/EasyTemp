@@ -28,9 +28,9 @@ public class BnUsuario {
         try {
             conn = Conexion.getConexionEasy();
 
-            String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,users.pdmin,\n"
+            String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,\n"
                     + "users.email, per.id, per.nomb,\n"
-                    + "sub.id, sub.nomb,\n"
+                    + "sub.id, sub.nombre,\n"
                     + "comp.id, comp.nomb,\n"
                     + "sta.id, sta.nomb,sta.descripcion\n"
                     + "FROM " + D.ESQUEMA + ".USER AS users\n"
@@ -56,10 +56,9 @@ public class BnUsuario {
                 usuario.setApellidoPaterno(rs.getString("users.apellpat"));
                 usuario.setApellidoMaterno(rs.getString("users.apellmat"));
                 usuario.setCorreo(rs.getString("users.email"));
-                usuario.setTipoUsuario(rs.getInt("users.pdmin"));
                 Subsidiary subsidiary = new Subsidiary();
                 subsidiary.setId(rs.getInt("sub.id"));
-                subsidiary.setNombre(rs.getString("sub.nomb"));
+                subsidiary.setNombre(rs.getString("sub.nombre"));
                 usuario.setSubsidiary(subsidiary);
                 Status status = new Status(rs.getInt("sta.id"), rs.getString("sta.nomb"), rs.getString("sta.descripcion"));
                 usuario.setStatus(status);
@@ -80,18 +79,15 @@ public class BnUsuario {
         try {
             conn = Conexion.getConexionEasy();
 
-            String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,users.pdmin,\n"
+            String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,\n"
                     + "users.email, per.id, per.nomb,\n"
-                    + "sub.id, sub.nomb,\n"
-                    + "comp.id, comp.nomb,\n"
+                    + "sub.id, sub.nombre,\n"
                     + "sta.id, sta.nomb,sta.descripcion\n"
                     + "FROM " + D.ESQUEMA + ".USER AS users\n"
                     + "INNER JOIN " + D.ESQUEMA + ".PERFIL per\n"
                     + "ON users.perfil_id = per.id\n"
                     + "INNER JOIN " + D.ESQUEMA + ".SUBSIDIARY AS sub\n"
                     + "ON users.subsidiary_id = sub.id\n"
-                    + "INNER JOIN " + D.ESQUEMA + ".COMPANY as comp\n"
-                    + "ON sub.company_id = comp.id\n"
                     + "INNER JOIN " + D.ESQUEMA + ".STATUS AS sta\n"
                     + "ON users.status_id = sta.id AND sta.id IN (1) \n"
                     + "WHERE users.email like '" + correo + "' \n";
@@ -105,11 +101,10 @@ public class BnUsuario {
                 usuario.setApellidoPaterno(rs.getString("users.apellpat"));
                 usuario.setApellidoMaterno(rs.getString("users.apellmat"));
                 usuario.setCorreo(rs.getString("users.email"));
-                usuario.setTipoUsuario(rs.getInt("users.pdmin"));
 
                 Subsidiary subsidiary = new Subsidiary();
                 subsidiary.setId(rs.getInt("sub.id"));
-                subsidiary.setNombre(rs.getString("sub.nomb"));
+                subsidiary.setNombre(rs.getString("sub.nombre"));
 
                 usuario.setSubsidiary(subsidiary);
 
@@ -133,9 +128,9 @@ public class BnUsuario {
         try {
             conn = Conexion.getConexionEasy();
 
-            String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,users.pdmin,\n"
+            String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,\n"
                     + "users.email, per.id, per.nomb,\n"
-                    + "sub.id, sub.nomb,\n"
+                    + "sub.id, sub.nombre,\n"
                     + "comp.id, comp.nomb,\n"
                     + "sta.id, sta.nomb,sta.descripcion\n"
                     + "FROM " + D.ESQUEMA + ".USER AS users\n"
@@ -159,11 +154,10 @@ public class BnUsuario {
                 usuario.setApellidoPaterno(rs.getString("users.apellpat"));
                 usuario.setApellidoMaterno(rs.getString("users.apellmat"));
                 usuario.setCorreo(rs.getString("users.email"));
-                usuario.setTipoUsuario(rs.getInt("users.pdmin"));
 
                 Subsidiary subsidiary = new Subsidiary();
                 subsidiary.setId(rs.getInt("sub.id"));
-                subsidiary.setNombre(rs.getString("sub.nomb"));
+                subsidiary.setNombre(rs.getString("sub.nombre"));
 
                 usuario.setSubsidiary(subsidiary);
 
