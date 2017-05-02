@@ -70,7 +70,7 @@ public class Svl_RegistroMeses extends HttpServlet {
                                 BnSubsidiary bnSub = new BnSubsidiary();
                                 emp.setRut(rut);
                                 emp.setDv(dv);
-                                bnSub.crearEmpresa(emp, usu, rut, dv);
+                                bnSub.crearEmpresa(emp, usu);
                                 json.addProperty("estado", D.EST_OK);
                                 json.addProperty("descripcion", "OK");
                             } else {

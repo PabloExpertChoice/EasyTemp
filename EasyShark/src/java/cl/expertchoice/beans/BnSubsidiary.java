@@ -144,11 +144,8 @@ public class BnSubsidiary {
         Subsidiary emp = new Subsidiary();
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT a.id, a.nomb, a.rut, "
-                    + "b.id, b.nomb "
+            String sql = "SELECT a.id, a.nombre, a.rut "
                     + "FROM " + D.ESQUEMA + ".SUBSIDIARY a "
-                    + "INNER JOIN " + D.ESQUEMA + ".COMPANY b "
-                    + "ON a.company_id = b.id "
                     + "WHERE a.rut = ?";
 
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -175,11 +172,8 @@ public class BnSubsidiary {
         JSONArray arrJson = new JSONArray();
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT a.id, a.nomb, "
-                    + "b.id, b.nomb "
-                    + "FROM " + D.ESQUEMA + ".SUBSIDIARY a "
-                    + "INNER JOIN " + D.ESQUEMA + ".COMPANY b "
-                    + "ON a.company_id = b.id ";
+            String sql = "SELECT * \n"
+                    + "FROM " + D.ESQUEMA + ".SUBSIDIARY ";
 
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -187,8 +181,6 @@ public class BnSubsidiary {
                 JSONObject jsonSubsidiary = new JSONObject();
                 jsonSubsidiary.put("id", rs.getInt(1));
                 jsonSubsidiary.put("nombre", rs.getString(2));
-                jsonSubsidiary.put("id_company", rs.getInt(3));
-                jsonSubsidiary.put("nom_company", rs.getString(4));
                 arrJson.put(jsonSubsidiary);
             }
 
@@ -205,7 +197,7 @@ public class BnSubsidiary {
         }
     }
 
-    public boolean crearEmpresa(Subsidiary subsidiary, Usuario usu, int rut, String dv) throws JSONException {
+    public boolean crearEmpresa(Subsidiary subsidiary, Usuario usu) throws JSONException {
         boolean resp = false;
         BnSubsidiary bn = new BnSubsidiary();
         JSONObject sub = bn.agregar(subsidiary);
@@ -221,6 +213,7 @@ public class BnSubsidiary {
         return resp;
     }
 
+    /*
     public Subsidiary guardarCliente(Subsidiary cliente) throws SQLException {
         Connection conn = null;
         Subsidiary cli_resp = null;
@@ -268,6 +261,7 @@ public class BnSubsidiary {
 
         return cli_resp;
     }
+*/
 
     public Subsidiary consultar(Subsidiary cliente) throws SQLException {
         Subsidiary cli_resp = null;
@@ -277,8 +271,8 @@ public class BnSubsidiary {
             if (cliente.getRut() != 0) {
                 conn = Conexion.getConexionEasy();
 
-                String sql = "SELECT ID_CLIENTE, RUT, DV, NOMBRE, APE_PATERNO, APE_MATERNO, DIRECCION, REGION\n"
-                        + "FROM " + D.ESQUEMA + ".CLIENTE\n"
+                String sql = "SELECT ID, RUT, DV, NOMBRE, APE_PATERNO, APE_MATERNO \n"
+                        + "FROM " + D.ESQUEMA + ".SUBSIDIARY\n"
                         + "WHERE RUT = ? ";
 
                 PreparedStatement pst = conn.prepareStatement(sql);
@@ -287,7 +281,7 @@ public class BnSubsidiary {
                 ResultSet rs = pst.executeQuery();
                 while (rs.next()) {
                     cli_resp = new Subsidiary();
-                    cli_resp.setId(rs.getInt("ID_CLIENTE"));
+                    cli_resp.setId(rs.getInt("ID"));
                     cli_resp.setRut(rs.getInt("RUT"));
                     cli_resp.setDv(rs.getString("DV"));
                     cli_resp.setNombre(rs.getString("NOMBRE"));

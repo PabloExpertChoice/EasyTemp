@@ -32,7 +32,7 @@ public class cmd extends HttpServlet {
         if (usu_session != null) {
             System.out.println(request.getParameter("code"));
             if (request.getParameter("code") != null) {
-                String in_code = request.getParameter("code");                               
+                String in_code = request.getParameter("code");
                 switch (in_code) {
                     case "inicio": {
                         toPage("/index.jsp", request, response);
@@ -85,13 +85,17 @@ public class cmd extends HttpServlet {
                     case "perfil": {
                         toPage("/perfil.jsp", request, response);
                         break;
-                    }                    
+                    }
                     case "configuracion": {
                         toPage("/configuracion.jsp", request, response);
                         break;
                     }
                     case "Empresa": {
                         toPage("/easy_registro_ws_respuesta.jsp", request, response);
+                        break;
+                    }
+                    case "registrar": {
+                        toPage("/easy_registro_ws.jsp", request, response);
                         break;
                     }
                     default: {
@@ -101,7 +105,7 @@ public class cmd extends HttpServlet {
                 }
             } else {
                 toPage("/index.jsp", request, response);
-                
+
             }
         } else {
             HttpSession session = request.getSession();
@@ -125,7 +129,7 @@ public class cmd extends HttpServlet {
                                     toPage("/index.jsp", request, response);
 
                                 } else {
-                                    request.setAttribute("valido","no");
+                                    request.setAttribute("valido", "no");
                                     toPage("/login.jsp", request, response);
                                 }
                             } catch (JSONException ex) {
@@ -141,7 +145,7 @@ public class cmd extends HttpServlet {
                             break;
                         }
                     }
-                }else{
+                } else {
                     toPage("/login.jsp", request, response);
                 }
 
@@ -215,7 +219,5 @@ public class cmd extends HttpServlet {
             ioe.printStackTrace(System.err);
         }
     }
-    
-    
 
 }

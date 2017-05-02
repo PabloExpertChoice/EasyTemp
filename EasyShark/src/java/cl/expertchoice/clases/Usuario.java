@@ -20,7 +20,6 @@ public class Usuario {
     private Perfil perfil;
     private Subsidiary subsidiary;
     private Status status;
-    private int tipoUsuario;
 
     public Usuario() {
     }
@@ -108,14 +107,6 @@ public class Usuario {
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public int getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(int tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
     }
 
     public JsonObject toJson() {

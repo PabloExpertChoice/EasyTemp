@@ -112,7 +112,7 @@
             <!-- END LOGIN FORM -->
             <div class="form-actions">
                 <!--al hacer clic los datos se envian a clave.js para validar la sesion-->
-                <input class="btn green pull-right" id="btnRegistro" type="submit" value="REGISTRATE" onclick = "location = '/easy.V0/Registrar'"/>
+                <input class="btn green pull-right" id="btnRegistro" type="submit" value="REGISTRATE" onclick="location.href='easy_registro_ws.jsp'"/>
             </div>
         </div>
         <!-- END LOGIN -->
@@ -120,6 +120,7 @@
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
         <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
         <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -143,7 +144,6 @@
         <!--scrip para validar inicio de sesion-->
         <!--<script src="js/clave.js" type="text/javascript"></script>-->
         <script src="js/clave.js" type="text/javascript">
-
         </script>
         <!-- End -->
     </body>
