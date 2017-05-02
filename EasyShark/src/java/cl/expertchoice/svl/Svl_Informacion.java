@@ -4,7 +4,6 @@ import HtmlUnit.BuscarInformacion;
 import cl.expertchoice.clases.Subsidiary;
 import cl.expertchoice.clases.Usuario;
 import cl.expertchoice.xml.bnsInformacion;
-import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -18,10 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import soporte.D;
 
-/**
- *
- * @author erick
- */
 public class Svl_Informacion extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -48,6 +43,7 @@ public class Svl_Informacion extends HttpServlet {
                         } else {
                             subsidiary = new BuscarInformacion().buscarPersona(rut, dv);
                         }
+                        
 //                        if (subsidiary == null) {
 //                            jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
 //                        } else {
