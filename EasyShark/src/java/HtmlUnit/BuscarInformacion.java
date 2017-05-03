@@ -46,6 +46,8 @@ public class BuscarInformacion {
                 d.descomponeNombreApellido();
             }
             sub = new Subsidiary();
+            sub.setRut(rut);
+            sub.setDv(dv);
             sub.setNombre(d.getNOMBRES().trim());
             sub.setApePaterno(d.getAPELLIDOP().trim());
             sub.setApeMaterno(d.getAPELLIDOM().trim());

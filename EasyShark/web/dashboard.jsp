@@ -1,3 +1,4 @@
+<%@page import="cl.expertchoice.clases.Subsidiary"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="soporte.D"%>
 <%@page import="java.util.StringTokenizer"%>
@@ -5,22 +6,12 @@
 <%@page import="cl.expertchoice.clases.Usuario"%>
 <%@page import="org.json.JSONObject"%>
 <%
-    Usuario user = (Usuario) session.getAttribute("sesion");
-    if (user == null) {
+    if (!D.isSesionActiva(request)) {
         response.sendRedirect("cmd");
         return;
     }
-    
-    out.println(new Gson().toJson(request.getAttribute("datos")));
-    JSONObject datos = (JSONObject) request.getAttribute("datos");
-    String nom_completo = datos.get("nombre").toString();
-    DescomponerNombre d = new DescomponerNombre(nom_completo);
-    d.descomponeNombreApellido();
-    String nom = d.getNOMBRES();
-    StringTokenizer st = new StringTokenizer(nom_completo);
-    int nNombre = st.countTokens();
-    String apellPat = d.getAPELLIDOP();
-    String apellMat = d.getAPELLIDOM();
+
+    Subsidiary sub = (Subsidiary) request.getAttribute("datos");
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -716,26 +707,17 @@
                 <script src="https://code.highcharts.com/modules/exporting.js"></script>
                 <script src="js/dash.js" type="text/javascript"></script>
                 <script src="js/dashboard.js"></script>
-
                 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-                <!-- Sweetalert2-->
                 <script src="dist/js/sweetalert.min.js"></script>
-                <!--            
-                            <script type="text/javascript" src="DataTables/datatables.min.js"></script>-->
-
-
-
-                <!-- END THEME LAYOUT SCRIPTS -->
-
                 <script>
+                                var rut = '<%= sub.getRut()%>';
+                                var dv = '<%= sub.getDv()%>';
+                                var nomCompleto = '<%= sub.getNombre() + " " + sub.getApePaterno() + " " + sub.getApeMaterno()%>';
+                                var nombre = '<%= sub.getNombre()%>';
+                                var apePaterno = '<%= sub.getApePaterno()%>';
+                                var apeMaterno = '<%= sub.getApeMaterno()%>';
                                 $(document).ready(function () {
-                                    rut = '<%= datos.get("rut").toString()%>';
-                                    dv = '<%= datos.get("dv").toString()%>';
-                                    nomCompleto = '<%= nom_completo%>';
-                                    nombre = '<%= nom%>';
-                                    apePaterno = '<%= apellPat%>';
-                                    apeMaterno = '<%= apellMat%>';
-                                    nNombre = '<%= nNombre%>';
+
                                     var arrayPJUD;
                                     var arrayTemp;
                                     $('#razonSocial').html(': ' + nomCompleto);
@@ -968,7 +950,7 @@
                                                     for (var j = 0; j < arrayPJUD.length; j++) {
                                                         if (arrPjud[i]['rol'] === arrayPJUD[j]['rol']) {
                                                             flag = false;
-                                                        } 
+                                                        }
                                                     }
                                                     if (flag == true) {
                                                         flag2 = true;
@@ -1119,9 +1101,7 @@
             <script src="plugins/jsPlumb/src/renderers-svg.js"></script>
             <script src="plugins/jsPlumb/src/base-library-adapter.js"></script>
             <script src="plugins/jsPlumb/src/dom.jsPlumb.js"></script>  
-            <!--            <script src="plugins/jsplumb.js"></script>  -->
             <script src="js/politicas.js"></script>            
             <script src="js/swall.js"></script>            
-            <!-- End -->
     </body>
 </html>

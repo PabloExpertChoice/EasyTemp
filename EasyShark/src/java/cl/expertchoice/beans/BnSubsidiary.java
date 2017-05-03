@@ -54,6 +54,36 @@ public class BnSubsidiary {
         }
     }
 
+    public int agregarSubsidiary(Subsidiary subsidiary) throws JSONException {
+        Connection conn = null;
+        int id = 0;
+        try {
+            conn = Conexion.getConexionEasy();
+            String sql = "INSERT INTO " + D.ESQUEMA + ".SUBSIDIARY\n"
+                    + "(rut, dv, nombre, apePaterno, apeMaterno)\n"
+                    + "VALUES(?, ?, ?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pst.setInt(1, subsidiary.getRut());
+            pst.setString(2, subsidiary.getDv());
+            pst.setString(3, subsidiary.getNombre());
+            pst.setString(4, subsidiary.getApePaterno());
+            pst.setString(5, subsidiary.getApeMaterno());
+            System.out.println(pst);
+            pst.executeUpdate();
+            ResultSet keys = pst.getGeneratedKeys();
+            keys.next();
+            id = keys.getInt(1);
+            pst.close();
+            keys.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            Conexion.Desconectar(conn);
+        }
+
+        return id;
+    }
+
     public JSONObject eliminar(Subsidiary subsidiary) throws JSONException {
         Connection conn = null;
         JSONObject json = new JSONObject();
@@ -139,28 +169,30 @@ public class BnSubsidiary {
 
     public Subsidiary buscarPorRut(int rut) {
         Connection conn = null;
-        Subsidiary emp = new Subsidiary();
+        Subsidiary emp = null;
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT a.id, a.nombre, a.rut "
-                    + "FROM " + D.ESQUEMA + ".SUBSIDIARY a "
-                    + "WHERE a.rut = ?";
+            String sql = "SELECT id, nombre,apePaterno, apeMaterno, rut \n"
+                    + "FROM " + D.ESQUEMA + ".SUBSIDIARY \n"
+                    + "WHERE rut = ? ";
 
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, rut);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                emp.setId(rs.getInt(1));
-                emp.setNombre(rs.getString(2));
+                emp = new Subsidiary();
+                emp.setId(rs.getInt("is"));
+                emp.setNombre(rs.getString("nombre"));
+                emp.setApePaterno(rs.getString("apePaterno"));
+                emp.setApeMaterno(rs.getString("apeMaterno"));
             }
 
-            return emp;
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return null;
         } finally {
             Conexion.Desconectar(conn);
         }
+        return emp;
     }
 
     public JSONObject listarTodos() throws JSONException {
@@ -204,7 +236,7 @@ public class BnSubsidiary {
         int idUsuario = bnUsu.agregarUsuario(usu);
         String codigo = Encriptar.encriptar(idUsuario + "");
         BnEmail email = new BnEmail();
-        email.sendMailConfirmacionRegistro(usu.getCorreo(), codigo);
+        email.sendMailConfirmacionRegistro(usu.getEmail(), codigo);
 
         resp = true;
         return resp;

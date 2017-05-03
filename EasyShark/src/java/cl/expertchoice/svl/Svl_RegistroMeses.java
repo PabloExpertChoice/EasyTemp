@@ -43,8 +43,8 @@ public class Svl_RegistroMeses extends HttpServlet {
                         String terminos = request.getParameter("terminos");
 
                         usu.setNombre(nombre);
-                        usu.setApellidoPaterno(apellido);
-                        usu.setCorreo(email);
+                        usu.setApePaterno(apellido);
+                        usu.setEmail(email);
 
                         BnUsuario bnUsu = new BnUsuario();
                         json = new JsonObject();
@@ -61,7 +61,7 @@ public class Svl_RegistroMeses extends HttpServlet {
                                 emp.setId(c.getId());
 
                                 Status estado = new Status(1, null, null);
-                                usu.setStatus(estado);
+                                usu.setEstado(estado);
 
                                 Perfil per = new Perfil(2, "");
                                 usu.setPerfil(per);
@@ -116,9 +116,9 @@ public class Svl_RegistroMeses extends HttpServlet {
                         String email = request.getParameter("email");
 
                         usu.setNombre(nombre);
-                        usu.setApellidoPaterno(apellidoPaterno);
-                        usu.setApellidoMaterno(apellidoMaterno);
-                        usu.setCorreo(email);
+                        usu.setApePaterno(apellidoPaterno);
+                        usu.setApeMaterno(apellidoMaterno);
+                        usu.setEmail(email);
 
                         Usuario usuAdmin = (Usuario) request.getSession().getAttribute("sesion");
                         usu.setSubsidiary(usuAdmin.getSubsidiary());
@@ -131,7 +131,7 @@ public class Svl_RegistroMeses extends HttpServlet {
                         } else {
                             //estado = creado
                             Status estado = new Status(1, null, null);
-                            usu.setStatus(estado);
+                            usu.setEstado(estado);
                             //perfil = analista, usuario comun
                             Perfil per = new Perfil(3, "");
                             usu.setPerfil(per);
@@ -145,7 +145,7 @@ public class Svl_RegistroMeses extends HttpServlet {
                             bnUsu.agregarUsuarioComun(usu);
                             //envia correo
                             BnEmail correo = new BnEmail();
-                            correo.sendMailConfirmacionRegistro(usu.getCorreo(), claveTemporal);
+                            correo.sendMailConfirmacionRegistro(usu.getEmail(), claveTemporal);
 
                             json.addProperty("estado", D.EST_OK);
                             json.addProperty("descripcion", "Usuario Agregado");

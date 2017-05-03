@@ -1,12 +1,7 @@
-<%-- 
-    Document   : index
-    Created on : 13-03-2017, 15:22:02
-    Author     : ignacio
---%>
+<%@page import="soporte.D"%>
 <%@page import="cl.expertchoice.clases.Usuario"%>
 <%
-    Usuario user = (Usuario) session.getAttribute("sesion");
-    if (user == null) {
+    if (!D.isSesionActiva(request)) {
         response.sendRedirect("cmd");
         return;
     }
@@ -214,55 +209,55 @@
                 <script src="js/number_format.js"></script>
                 <script src="js/funciones.js"></script>
                 <script>
-                    function ingresarRut() {
-                        swal_procces();
-                        go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Svl_Informacion');
-                    }
-                </script>
-<!--                <script type="text/javascript" charset="utf-8">
-                
-                                                        function sendConsulta() {
-                                                            if ($("input[name='radTipInf']:checked").val() === undefined) {
-                                                                alert('Seleccionar Informe');
-                                                                return false;
-                                                            }
-                                                            if ($('#txtRenta').attr('visible') == 'true') {
-                                                                if ($('#txtRenta').val().trim().length == 0 || $('#txtRenta').val().trim() == '0') {
-                                                                    alert('Ingrese renta');
-                                                                    return false;
-                                                                }
-                                                            }
-
-                                                            if ($.Rut.validar($('#tx_rut').val() + '-' + $('#tx_dv').val()) === true) {
-                                                                go('cmd', [
-                                                                    {id: 'drut', val: $('#tx_rut').val()},
-                                                                    {id: 'ddv', val: $('#tx_dv').val()},
-                                                                    {id: 'renta', val: $('#txtRenta').val().trim().replace(/\./g, '')},
-                                                                    {id: 'code', val: 'usrResponse'},
-                                                                    {id: 'resp', val: $("input[name='radTipInf']:checked").val()},
-                                                                    {id: 'idApplication', val: $("input[name='radTipInf']:checked").attr('idApplication')},
-                                                                    {id: 'codApplication', val: $("input[name='radTipInf']:checked").attr('codApplication')}
-                                                                ], undefined, 'cmd');
-                                                            } else {
-                                                                alert('Rut incorrecto');
-                                                            }
+                                                        function ingresarRut() {
+                                                            swal_procces();
+                                                            go('Dashboard', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Dashboard');
                                                         }
-              </script>-->
+                </script>
+                <!--                <script type="text/javascript" charset="utf-8">
+                                
+                                                                        function sendConsulta() {
+                                                                            if ($("input[name='radTipInf']:checked").val() === undefined) {
+                                                                                alert('Seleccionar Informe');
+                                                                                return false;
+                                                                            }
+                                                                            if ($('#txtRenta').attr('visible') == 'true') {
+                                                                                if ($('#txtRenta').val().trim().length == 0 || $('#txtRenta').val().trim() == '0') {
+                                                                                    alert('Ingrese renta');
+                                                                                    return false;
+                                                                                }
+                                                                            }
+                
+                                                                            if ($.Rut.validar($('#tx_rut').val() + '-' + $('#tx_dv').val()) === true) {
+                                                                                go('cmd', [
+                                                                                    {id: 'drut', val: $('#tx_rut').val()},
+                                                                                    {id: 'ddv', val: $('#tx_dv').val()},
+                                                                                    {id: 'renta', val: $('#txtRenta').val().trim().replace(/\./g, '')},
+                                                                                    {id: 'code', val: 'usrResponse'},
+                                                                                    {id: 'resp', val: $("input[name='radTipInf']:checked").val()},
+                                                                                    {id: 'idApplication', val: $("input[name='radTipInf']:checked").attr('idApplication')},
+                                                                                    {id: 'codApplication', val: $("input[name='radTipInf']:checked").attr('codApplication')}
+                                                                                ], undefined, 'cmd');
+                                                                            } else {
+                                                                                alert('Rut incorrecto');
+                                                                            }
+                                                                        }
+                              </script>-->
 
                 <!-- Codigo A.M.-->
                 <script src="js/sidebar.js"></script>
                 <script> menuSelected("<%=request.getParameter("code")%>");</script>
 
-<!--            <script>
-                $(".inputExcelBAL").keypress(function (e) {
-                    e.stopPropagation();
-
-                    if (e.which == 13) {
-                        alert('');
-                    }
-                });
-
-            </script>-->
+            <!--            <script>
+                            $(".inputExcelBAL").keypress(function (e) {
+                                e.stopPropagation();
+            
+                                if (e.which == 13) {
+                                    alert('');
+                                }
+                            });
+            
+                        </script>-->
     </body>
 
 

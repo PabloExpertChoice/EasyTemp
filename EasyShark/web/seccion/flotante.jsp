@@ -1,9 +1,3 @@
-<%-- 
-    Document   : flotante
-    Created on : 13-03-2017, 17:06:49
-    Author     : erick
---%>
-
 <%@page import="org.json.JSONObject"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,4 +36,3 @@
     <span aria-hidden="true" class="quick-nav-bg"></span>
 </nav>
 <div class="quick-nav-overlay"></div>
-<!--fin boton flotante--> 

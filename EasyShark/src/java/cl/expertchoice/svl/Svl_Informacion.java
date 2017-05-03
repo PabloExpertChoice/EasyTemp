@@ -1,6 +1,7 @@
 package cl.expertchoice.svl;
 
 import HtmlUnit.BuscarInformacion;
+import cl.expertchoice.beans.BnSubsidiary;
 import cl.expertchoice.clases.Subsidiary;
 import cl.expertchoice.clases.Usuario;
 import cl.expertchoice.xml.bnsInformacion;
@@ -9,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import soporte.D;
 
+@WebServlet(name = "Svl_Informacion", urlPatterns = {"/Svl_Informacion", "/Dashboard"})
 public class Svl_Informacion extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -33,32 +36,24 @@ public class Svl_Informacion extends HttpServlet {
                     case "dashboard": {
                         int rut = Integer.parseInt(request.getParameter("rut"));
                         String dv = request.getParameter("dv");
-                        bnsInformacion bn = new bnsInformacion();
-                        JSONObject jsonInformacion = null;
-                        Subsidiary subsidiary = new Subsidiary();
-                        subsidiary.setRut(rut);
-                        subsidiary.setDv(dv);
-                        if (rut >= 50000000) {
-                            subsidiary = new BuscarInformacion().buscarEmpresa(rut, dv);
-                        } else {
-                            subsidiary = new BuscarInformacion().buscarPersona(rut, dv);
-                        }
-                        
-//                        if (subsidiary == null) {
-//                            jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
-//                        } else {
-//                            jsonInformacion = bn.obtenerNombre(rut + "-" + dv);
-//                            if (jsonInformacion == null) {
-//                                jsonInformacion = bn.obtenerNombreDelSII(rut + "-" + dv);
-//                            }
-//                        }
+                        Subsidiary subsidiary = null;
 
-                        if (jsonInformacion != null) {
+                        subsidiary = new BnSubsidiary().buscarPorRut(rut);
+                        if (subsidiary == null) {
+                            if (rut >= 50000000) {
+                                subsidiary = new BuscarInformacion().buscarEmpresa(rut, dv);
+                            } else {
+                                subsidiary = new BuscarInformacion().buscarPersona(rut, dv);
+                            }
+                        }
+
+                        if (subsidiary != null) {
+                            new BnSubsidiary().agregarSubsidiary(subsidiary);
                             request.setAttribute("datos", subsidiary);
                             toPage("/dashboard.jsp", request, response);
                         } else {
                             request.setAttribute("msg", "No se encuentran datos");
-                            toPage("/index.jsp", request, response);
+                            toPage("/cmd", request, response);
                         }
                         break;
                     }

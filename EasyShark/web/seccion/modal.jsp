@@ -1,9 +1,3 @@
-<%-- 
-    Document   : modal
-    Created on : 07-04-2017, 18:55:00
-    Author     : ignacio
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>

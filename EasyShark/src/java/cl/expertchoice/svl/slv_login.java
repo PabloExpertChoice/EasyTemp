@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.expertchoice.svl;
 
 import cl.expertchoice.beans.bnsLogin;
 import cl.expertchoice.clases.Usuario;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,11 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
+import soporte.D;
+import soporte.ENCR;
 
-/**
- *
- * @author erick
- */
 @WebServlet(name = "slv_login", urlPatterns = {"/slv_login"})
 public class slv_login extends HttpServlet {
 
@@ -44,43 +35,35 @@ public class slv_login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String code = request.getParameter("code");
             HttpSession session = request.getSession();
-            try {
-                switch (code) {
-                    case "login": {
-                        String user = request.getParameter("username");
-                        String clave = request.getParameter("password");
-                        bnsLogin bsn = new bnsLogin();
-                        Usuario usuario;
-                        usuario = bsn.iniciarSesion(user, clave);
-                        JSONObject json = new JSONObject();
-                        
-                        try {
-                            if (usuario != null) {
-                                session.setAttribute("sesion", usuario);
-                                json.put("estado", "200");
-                                System.out.println("Inicio Seccion");
-                                RequestDispatcher d = request.getRequestDispatcher("cmd");
-                                d.forward(request, response);
+            switch (code) {
+                case "login": {
+                    String user = request.getParameter("username");
+                    String clave = request.getParameter("password");
+                    bnsLogin bsn = new bnsLogin();
+                    Usuario usuario = bsn.iniciarSesion(user, ENCR.toMD5(clave));
+                    JSONObject json = new JSONObject();
+                    if (usuario != null) {
+                        session.setAttribute(D.SESSION_USUARIO, usuario);
+                        json.put("estado", D.EST_OK);
+                    } else {
+                        json.put("estado", D.EST_NORESULTADO);
+                        json.put("descripcion", "Error de usuario o contraseña");
+                    }
 
-                            } else {
-                                json.put("estado", "405");
-                            }
-                        } catch (JSONException ex) {
-                            Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
-                       out.print(json);
-                            break;
-                    }
-                    case "logout": {
-                        session.invalidate();
-                        response.sendRedirect("cmd");
-                        break;
-                    }
+                    out.print(json);
+                    break;
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(slv_login.class.getName()).log(Level.SEVERE, null, ex);
+                case "logout": {
+                    session.invalidate();
+                    response.sendRedirect("cmd");
+                    break;
+                }
             }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (JSONException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -97,7 +80,7 @@ public class slv_login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
+
     }
 
     /**

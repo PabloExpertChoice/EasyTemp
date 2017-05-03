@@ -15,9 +15,8 @@ function login() {
     $('#msgLogin').html('');
     var username = $('#username').val();
     var password = $('#password').val();
-    console.log(username,password);
 
-    if (usuario.trim().length > 0 && password.trim().length > 0) {
+    if (username.trim().length > 0 && password.trim().length > 0) {
         if (!logeando) {
             logeando = true;
             var html = $('#btnEntrar').html();
@@ -37,7 +36,7 @@ function login() {
                 success: function (data, textStatus, jqXHR) {
                     $('#btnEntrar').html(html);
                     $('#btnEntrar').prop('disabled', false);
-                    
+
                     if (data['estado'] == 200) {
                         location.href = 'cmd';
                     } else {

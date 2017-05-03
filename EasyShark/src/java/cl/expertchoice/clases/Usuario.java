@@ -1,43 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.expertchoice.clases;
 
-import soporte.ENCR;
-import com.google.gson.JsonObject;
-import java.math.BigInteger;
+import java.util.ArrayList;
 
 public class Usuario {
 
-    private BigInteger id;
+    private int id;
     private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
-    private String correo;
+    private String apePaterno;
+    private String apeMaterno;
+    private String email;
     private String password;
-    private Perfil perfil;
     private Subsidiary subsidiary;
-    private Status status;
+    private Status estado;
+    private Perfil perfil;
+    private ArrayList<Recurso> recursos;
 
     public Usuario() {
     }
 
-    public Usuario(BigInteger id) {
-        this.id = id;
-    }
-
-    public Usuario(String correo, String password) {
-        this.correo = correo;
+    public Usuario(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
-    public BigInteger getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -49,28 +39,28 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
+    public String getApePaterno() {
+        return apePaterno;
     }
 
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
+    public void setApePaterno(String apePaterno) {
+        this.apePaterno = apePaterno;
     }
 
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
+    public String getApeMaterno() {
+        return apeMaterno;
     }
 
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
+    public void setApeMaterno(String apeMaterno) {
+        this.apeMaterno = apeMaterno;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -81,8 +71,20 @@ public class Usuario {
         this.password = password;
     }
 
-    public void setPasswordMD5(String password) {
-        this.password = ENCR.toMD5(password);
+    public Subsidiary getSubsidiary() {
+        return subsidiary;
+    }
+
+    public void setSubsidiary(Subsidiary subsidiary) {
+        this.subsidiary = subsidiary;
+    }
+
+    public Status getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Status estado) {
+        this.estado = estado;
     }
 
     public Perfil getPerfil() {
@@ -93,34 +95,16 @@ public class Usuario {
         this.perfil = perfil;
     }
 
-    public Subsidiary getSubsidiary() {
-        return subsidiary;
+    public ArrayList<Recurso> getRecursos() {
+        return recursos;
     }
 
-    public void setSubsidiary(Subsidiary subsidiary) {
-        this.subsidiary = subsidiary;
+    public void setRecursos(ArrayList<Recurso> recursos) {
+        this.recursos = recursos;
     }
 
-    public Status getStatus() {
-        return status;
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", apePaterno=" + apePaterno + ", apeMaterno=" + apeMaterno + ", email=" + email + ", password=" + password + ", subsidiary=" + subsidiary + ", estado=" + estado + ", perfil=" + perfil + ", recursos=" + recursos + '}';
     }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public JsonObject toJson() {
-        JsonObject json = new JsonObject();
-        json.addProperty("id", this.id);
-        json.addProperty("nombre", this.nombre);
-        json.addProperty("apellidoPaterno", this.apellidoPaterno);
-        json.addProperty("apellidoMaterno", this.apellidoMaterno);
-        json.addProperty("correo", this.correo);
-        json.add("perfil", this.perfil.toJson());
-        json.add("subsidiary", this.subsidiary.toJson());
-        json.add("status", this.status.toJson());
-
-        return json;
-    }
-}    
-
+}

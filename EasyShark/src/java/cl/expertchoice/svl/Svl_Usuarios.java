@@ -46,20 +46,20 @@ public class Svl_Usuarios extends HttpServlet {
                         String apePaternoUsuAdmin = request.getParameter("apellido");
                         String emailUsuAdmin = request.getParameter("email");
                         String terminos = request.getParameter("terminos");
-                        
+
                         //seteo los parametos del usuario Administrador
                         usu.setNombre(nombreUsuAdmin);
-                        usu.setApellidoPaterno(apePaternoUsuAdmin);
-                        usu.setCorreo(emailUsuAdmin);
+                        usu.setApePaterno(apePaternoUsuAdmin);
+                        usu.setEmail(emailUsuAdmin);
 
                         BnUsuario bnUsu = new BnUsuario();
                         json = new JsonObject();
-                        
+
                         //validar si existe el correo
                         if (bnUsu.buscarPorCorreo(emailUsuAdmin) != null) {
                             json.addProperty("estado", D.EST_NORESULTADO);
                             json.addProperty("descripcion", "El correo <b>" + emailUsuAdmin + "</b> ya se encuentra registrado.");
-                        //validar si existe la empresa
+                            //validar si existe la empresa
                         } else if (new BnSubsidiary().buscarPorRut(rutEmpresa) == null) {
                             json.addProperty("estado", D.EST_NORESULTADO);
                             json.addProperty("descripcion", "El empresa con el rut <b>" + rutEmpresa + "-" + dvEmpresa + "</b> ya se encuentra registrada.");
@@ -77,8 +77,8 @@ public class Svl_Usuarios extends HttpServlet {
 
                                 //estado por defecto 1 = creado
                                 Status estado = new Status(1, null, null);
-                                usu.setStatus(estado);
-                                
+                                usu.setEstado(estado);
+
                                 //perfin 2 Administrador
                                 Perfil per = new Perfil(2, "");
                                 usu.setPerfil(per);
@@ -132,9 +132,9 @@ public class Svl_Usuarios extends HttpServlet {
                         String email = request.getParameter("email");
 
                         usu.setNombre(nombre);
-                        usu.setApellidoPaterno(apellidoPaterno);
-                        usu.setApellidoMaterno(apellidoMaterno);
-                        usu.setCorreo(email);
+                        usu.setApePaterno(apellidoPaterno);
+                        usu.setApeMaterno(apellidoMaterno);
+                        usu.setEmail(email);
 
                         Usuario usuAdmin = (Usuario) request.getSession().getAttribute("sesion");
                         usu.setSubsidiary(usuAdmin.getSubsidiary());
@@ -147,7 +147,7 @@ public class Svl_Usuarios extends HttpServlet {
                         } else {
                             //estado = creado
                             Status estado = new Status(1, null, null);
-                            usu.setStatus(estado);
+                            usu.setEstado(estado);
                             //perfil = analista, usuario comun
                             Perfil per = new Perfil(3, "");
                             usu.setPerfil(per);
@@ -161,7 +161,7 @@ public class Svl_Usuarios extends HttpServlet {
                             bnUsu.agregarUsuarioComun(usu);
                             //envia correo
                             BnEmail correo = new BnEmail();
-                            correo.sendMailConfirmacionRegistro(usu.getCorreo(), claveTemporal);
+                            correo.sendMailConfirmacionRegistro(usu.getEmail(), claveTemporal);
 
                             json.addProperty("estado", D.EST_OK);
                             json.addProperty("descripcion", "Usuario Agregado");

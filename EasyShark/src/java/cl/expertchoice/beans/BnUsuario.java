@@ -12,10 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import javafx.application.Application;
-//import static one.controlador.Svl_Cliente.round;
-//import one.modelo.Informe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,22 +42,22 @@ public class BnUsuario {
                     + "AND BINARY users.password = ? ";
 
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, user.getCorreo());
+            pst.setString(1, user.getEmail());
             pst.setString(2, user.getPassword());
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 usuario = new Usuario();
-                usuario.setId(new BigInteger(rs.getString("users.id")));
+                usuario.setId(rs.getInt("users.id"));
                 usuario.setNombre(rs.getString("users.nomb"));
-                usuario.setApellidoPaterno(rs.getString("users.apellpat"));
-                usuario.setApellidoMaterno(rs.getString("users.apellmat"));
-                usuario.setCorreo(rs.getString("users.email"));
+                usuario.setApePaterno(rs.getString("users.apellpat"));
+                usuario.setApeMaterno(rs.getString("users.apellmat"));
+                usuario.setEmail(rs.getString("users.email"));
                 Subsidiary subsidiary = new Subsidiary();
                 subsidiary.setId(rs.getInt("sub.id"));
                 subsidiary.setNombre(rs.getString("sub.nombre"));
                 usuario.setSubsidiary(subsidiary);
                 Status status = new Status(rs.getInt("sta.id"), rs.getString("sta.nomb"), rs.getString("sta.descripcion"));
-                usuario.setStatus(status);
+                usuario.setEstado(status);
                 Perfil per = new Perfil(rs.getInt("per.id"), rs.getString("per.nomb"));
                 usuario.setPerfil(per);
             }
@@ -96,11 +92,11 @@ public class BnUsuario {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 usuario = new Usuario();
-                usuario.setId(new BigInteger(rs.getString("users.id")));
+                usuario.setId(rs.getInt("users.id"));
                 usuario.setNombre(rs.getString("users.nomb"));
-                usuario.setApellidoPaterno(rs.getString("users.apellpat"));
-                usuario.setApellidoMaterno(rs.getString("users.apellmat"));
-                usuario.setCorreo(rs.getString("users.email"));
+                usuario.setApePaterno(rs.getString("users.apellpat"));
+                usuario.setApeMaterno(rs.getString("users.apellmat"));
+                usuario.setEmail(rs.getString("users.email"));
 
                 Subsidiary subsidiary = new Subsidiary();
                 subsidiary.setId(rs.getInt("sub.id"));
@@ -109,7 +105,7 @@ public class BnUsuario {
                 usuario.setSubsidiary(subsidiary);
 
                 Status status = new Status(rs.getInt("sta.id"), rs.getString("sta.nomb"), rs.getString("sta.descripcion"));
-                usuario.setStatus(status);
+                usuario.setEstado(status);
 
                 Perfil per = new Perfil(rs.getInt("per.id"), rs.getString("per.nomb"));
                 usuario.setPerfil(per);
@@ -149,11 +145,11 @@ public class BnUsuario {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 usuario = new Usuario();
-                usuario.setId(new BigInteger(rs.getString("users.id")));
+                usuario.setId(rs.getInt("users.id"));
                 usuario.setNombre(rs.getString("users.nomb"));
-                usuario.setApellidoPaterno(rs.getString("users.apellpat"));
-                usuario.setApellidoMaterno(rs.getString("users.apellmat"));
-                usuario.setCorreo(rs.getString("users.email"));
+                usuario.setApePaterno(rs.getString("users.apellpat"));
+                usuario.setApeMaterno(rs.getString("users.apellmat"));
+                usuario.setEmail(rs.getString("users.email"));
 
                 Subsidiary subsidiary = new Subsidiary();
                 subsidiary.setId(rs.getInt("sub.id"));
@@ -162,7 +158,7 @@ public class BnUsuario {
                 usuario.setSubsidiary(subsidiary);
 
                 Status status = new Status(rs.getInt("sta.id"), rs.getString("sta.nomb"), rs.getString("sta.descripcion"));
-                usuario.setStatus(status);
+                usuario.setEstado(status);
 
                 Perfil per = new Perfil(rs.getInt("per.id"), rs.getString("per.nomb"));
                 usuario.setPerfil(per);
@@ -184,12 +180,12 @@ public class BnUsuario {
                     + "VALUES (?,?,?,MD5(?),?,?,1,?)";
             PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, user.getNombre());
-            pst.setString(2, user.getApellidoPaterno());
-            pst.setString(3, user.getApellidoMaterno());
+            pst.setString(2, user.getApePaterno());
+            pst.setString(3, user.getApeMaterno());
             pst.setString(4, user.getPassword());
-            pst.setString(5, user.getCorreo());
+            pst.setString(5, user.getEmail());
             pst.setInt(6, user.getSubsidiary().getId());
-            //pst.setInt(7, user.getStatus().getId());
+            //pst.setInt(7, user.getEstado().getId());
             pst.setInt(7, user.getPerfil().getId());
             pst.executeUpdate();
             ResultSet keys = pst.getGeneratedKeys();
@@ -219,11 +215,11 @@ public class BnUsuario {
                     + "VALUES (?,?,?,null,?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, user.getNombre());
-            pst.setString(2, user.getApellidoPaterno());
-            pst.setString(3, user.getApellidoMaterno());
-            pst.setString(4, user.getCorreo());
+            pst.setString(2, user.getApePaterno());
+            pst.setString(3, user.getApeMaterno());
+            pst.setString(4, user.getEmail());
             pst.setInt(5, user.getSubsidiary().getId());
-            pst.setInt(6, user.getStatus().getId());
+            pst.setInt(6, user.getEstado().getId());
             pst.setInt(7, user.getPerfil().getId());
             pst.executeUpdate();
             ResultSet keys = pst.getGeneratedKeys();
@@ -247,12 +243,12 @@ public class BnUsuario {
                     + "VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, user.getNombre());
-            pst.setString(2, user.getApellidoPaterno());
-            pst.setString(3, user.getApellidoMaterno());
+            pst.setString(2, user.getApePaterno());
+            pst.setString(3, user.getApeMaterno());
             pst.setString(4, user.getPassword());
-            pst.setString(5, user.getCorreo());
+            pst.setString(5, user.getEmail());
             pst.setInt(6, user.getSubsidiary().getId());
-            pst.setInt(7, user.getStatus().getId());
+            pst.setInt(7, user.getEstado().getId());
             pst.setInt(8, user.getPerfil().getId());
             pst.executeUpdate();
             ResultSet keys = pst.getGeneratedKeys();
@@ -275,7 +271,7 @@ public class BnUsuario {
             String sql = "DELETE FROM " + D.ESQUEMA + ".USER "
                     + "WHERE id = ? ";
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, user.getId().toString());
+            pst.setInt(1, user.getId());
             int resp = pst.executeUpdate();
             pst.close();
             if (resp > 0) {
@@ -313,12 +309,12 @@ public class BnUsuario {
                         + "WHERE id = ?";
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, user.getNombre());
-                pst.setString(2, user.getApellidoPaterno());
-                pst.setString(3, user.getApellidoMaterno());
+                pst.setString(2, user.getApePaterno());
+                pst.setString(3, user.getApeMaterno());
                 pst.setInt(4, user.getSubsidiary().getId());
-                pst.setInt(5, user.getStatus().getId());
+                pst.setInt(5, user.getEstado().getId());
                 pst.setInt(6, user.getPerfil().getId());
-                pst.setString(7, user.getId().toString());
+                pst.setInt(7, user.getId());
             } else {
                 sql = "UPDATE " + D.ESQUEMA + ".USER "
                         + "SET nomb = ?, "
@@ -331,13 +327,13 @@ public class BnUsuario {
                         + "WHERE id = ?";
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, user.getNombre());
-                pst.setString(2, user.getApellidoPaterno());
-                pst.setString(3, user.getApellidoMaterno());
+                pst.setString(2, user.getApePaterno());
+                pst.setString(3, user.getApeMaterno());
                 pst.setString(4, user.getPassword());
                 pst.setInt(5, user.getSubsidiary().getId());
-                pst.setInt(6, user.getStatus().getId());
+                pst.setInt(6, user.getEstado().getId());
                 pst.setInt(7, user.getPerfil().getId());
-                pst.setString(8, user.getId().toString());
+                pst.setInt(8, user.getId());
             }
 
             pst.executeUpdate();
@@ -367,7 +363,7 @@ public class BnUsuario {
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, user.getPassword());
-            pst.setString(2, user.getId().toString());
+            pst.setInt(2, user.getId());
             pst.executeUpdate();
 
             json.put("estado", "ok");
@@ -448,8 +444,8 @@ public class BnUsuario {
                     + "WHERE id= ? ";
 
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setInt(1, usuario.getStatus().getId());
-            pst.setString(2, usuario.getId().toString());
+            pst.setInt(1, usuario.getEstado().getId());
+            pst.setInt(2, usuario.getId());
             int resp = pst.executeUpdate();
             pst.close();
             if (resp > 0) {
