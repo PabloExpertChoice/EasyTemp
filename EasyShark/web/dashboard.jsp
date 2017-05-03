@@ -10,8 +10,10 @@
         response.sendRedirect("cmd");
         return;
     }
-
+    int id_usuario = D.getUsuarioSesion(request).getId();
     Subsidiary sub = (Subsidiary) request.getAttribute("datos");
+    int id_empresa = D.getUsuarioSesion(request).getSubsidiary().getId();
+    
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -246,7 +248,9 @@
                                         <a href="#" class="collapse" data-original-title="" title=""> </a>
                                     </div>
                                     <div class="actions">
-                                        <a data-toggle="modal" onclick="verModalBL()"> <i style="color: #b1b1b1"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
+                                        <a data-toggle="modal" onclick="verModalBL(1)"> Global <i style="color: green"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
+                                        <a data-toggle="modal" onclick="verModalBL(2)"> Empresa<i style="color: yellow"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
+                                        <a data-toggle="modal" onclick="verModalBL(3)"> Asesor<i style="color: red"class="btn btn-circle btn-icon-only btn-default fa fa-expand"></i> </a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -716,8 +720,11 @@
                                 var nombre = '<%= sub.getNombre()%>';
                                 var apePaterno = '<%= sub.getApePaterno()%>';
                                 var apeMaterno = '<%= sub.getApeMaterno()%>';
+                                var id_empresa = '<%= id_empresa%>';
+                                var id_usuario = '<%= id_usuario%>';
+                                
+                                
                                 $(document).ready(function () {
-
                                     var arrayPJUD;
                                     var arrayTemp;
                                     $('#razonSocial').html(': ' + nomCompleto);
@@ -992,6 +999,7 @@
                                         data: {
                                             accion: 'setBlackList',
                                             id_empresa: id_empresa,
+                                            id_usuario: id_usuario,
                                             comentario: $('#comentarioBL').val(),
                                             estado: estado,
                                             rut: rut
@@ -1006,22 +1014,123 @@
                                     });
                                 }
 
-                                function verModalBL() {
+                                function verModalBL(opcion) {
                                     swal_procces();
-                                    getDatosBL(rut);
+                                    switch(opcion){
+                                        case 1: {
+                                                getDatosBLrut(rut);
+                                                break;
+                                        }
+                                        case 2: {
+                                                getDatosBLempresa(rut, id_empresa);
+                                                break;
+                                        }
+                                        case 3: {
+                                                getDatosBLusuario(rut, id_usuario);
+                                                break;
+                                        }
+                                    }
+                                    
+                                    
                                 }
                                 /**
                                  * 
                                  * @param {type} _rut
                                  */
-                                function getDatosBL(_rut) {
+                                function getDatosBLrut(_rut) {
                                     $.ajax({
                                         url: 'Svl_BlackList',
                                         type: 'POST',
                                         dataType: 'json',
                                         data: {
-                                            accion: 'verBlackList',
+                                            accion: 'verBlackListXrut',
                                             rut: _rut,
+                                        },
+                                        success: function (data) {
+                                            $('#tblBL').DataTable().destroy();
+                                            $('#tblBL').DataTable({
+                                                "data": data,
+                                                "columns": [
+                                                    {data: 'estado', "render": function (data, type, row) {
+                                                            if (data == 1) {
+                                                                return '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+                                                            } else {
+                                                                return '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+                                                            }
+                                                        }},
+                                                    {data: 'comentario', class: 'txt-center'},
+                                                    {data: 'fecha', class: 'txt-center'}
+                                                ],
+                                                pageLength: 10,
+                                                "order": [[1, "desc"]],
+                                                dom: "<'row'<'col-sm-12 col-md-12 datatable-table table-responsive'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
+                                                "language": {
+                                                    url: 'json/Spanish.json'
+                                                }
+                                            });
+                                            $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
+                                            $('#modalBlackList').modal({'backdrop': 'static'});
+                                            $('#tblBLCont').show();
+                                            swal_unprocces();
+                                        }});
+                                }
+                                /**
+                                 * 
+                                 * @param {type} _rut
+                                 * @param {type} _id_empresa
+                                 */
+                                function getDatosBLempresa(_rut, _id_empresa) {
+                                    $.ajax({
+                                        url: 'Svl_BlackList',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            accion: 'verBlackListXempresa',
+                                            rut: _rut,
+                                            id_empresa: _id_empresa
+                                        },
+                                        success: function (data) {
+                                            $('#tblBL').DataTable().destroy();
+                                            $('#tblBL').DataTable({
+                                                "data": data,
+                                                "columns": [
+                                                    {data: 'estado', "render": function (data, type, row) {
+                                                            if (data == 1) {
+                                                                return '<label style="color:green;"><i class="fa fa-thumbs-up"></i> Positivo </label>';
+                                                            } else {
+                                                                return '<label  style="color:red"><i class="fa fa-thumbs-down"></i> Negativo </label>';
+                                                            }
+                                                        }},
+                                                    {data: 'comentario', class: 'txt-center'},
+                                                    {data: 'fecha', class: 'txt-center'}
+                                                ],
+                                                pageLength: 10,
+                                                "order": [[1, "desc"]],
+                                                dom: "<'row'<'col-sm-12 col-md-12 datatable-table table-responsive'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
+                                                "language": {
+                                                    url: 'json/Spanish.json'
+                                                }
+                                            });
+                                            $('#modalBlackList .modal-dialog .modal-content .modal-body object').remove();
+                                            $('#modalBlackList').modal({'backdrop': 'static'});
+                                            $('#tblBLCont').show();
+                                            swal_unprocces();
+                                        }});
+                                }
+                                /**
+                                 * 
+                                 * @param {type} _rut
+                                 * @param {type} _id_usuario
+                                 */
+                                function getDatosBLusuario(_rut, _id_usuario) {
+                                    $.ajax({
+                                        url: 'Svl_BlackList',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            accion: 'verBlackListXusuario',
+                                            rut: _rut,
+                                            id_usuario: _id_usuario
                                         },
                                         success: function (data) {
                                             $('#tblBL').DataTable().destroy();

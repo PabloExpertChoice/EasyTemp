@@ -46,9 +46,32 @@ public class Svl_Informacion extends HttpServlet {
                                 subsidiary = new BuscarInformacion().buscarPersona(rut, dv);
                             }
                         }
-
                         if (subsidiary != null) {
                             new BnSubsidiary().agregarSubsidiary(subsidiary);
+                            request.setAttribute("datos", subsidiary);
+                            toPage("/dashboard.jsp", request, response);
+                        } else {
+                            request.setAttribute("msg", "No se encuentran datos");
+                            toPage("/cmd", request, response);
+                        }
+                        break;
+                    }
+                    case "dashboard2": {
+                        int rut = Integer.parseInt(request.getParameter("rut"));
+                        String dv = request.getParameter("dv");
+                        Subsidiary subsidiary = null;
+
+                        subsidiary = new BnSubsidiary().buscarPorRut(rut);
+                        if (subsidiary == null) {
+                            if (rut >= 50000000) {
+                                subsidiary = new BuscarInformacion().buscarEmpresa(rut, dv);
+                            } else {
+                                subsidiary = new BuscarInformacion().buscarPersona(rut, dv);
+                            }
+                        }
+                        if (subsidiary != null) {
+                            subsidiary.setRut(rut);
+                            subsidiary.setDv(dv);
                             request.setAttribute("datos", subsidiary);
                             toPage("/dashboard.jsp", request, response);
                         } else {

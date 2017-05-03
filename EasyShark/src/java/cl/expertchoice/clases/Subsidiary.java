@@ -85,4 +85,10 @@ public class Subsidiary {
         
         return json;
     }
+
+    @Override
+    public String toString() {
+        return "Subsidiary{" + "id=" + id + ", rut=" + rut + ", dv=" + dv + ", nombre=" + nombre + ", apePaterno=" + apePaterno + ", apeMaterno=" + apeMaterno + '}';
+    }
+    
 }

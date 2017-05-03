@@ -38,13 +38,14 @@ public class BuscarInformacion {
                 }
             }
 
-            String nombreCompleto = page.getElementById("results").getElementsByTagName("a").get(0).getTextContent();
-            DescomponerNombre d = null;
-            if (nombreCompleto.split(" ").length == 4) {
-                String[] nom = nombreCompleto.split(" ");
-                d = new DescomponerNombre(nom[2] + " " + nom[3] + " " + nom[0] + " " + nom[1]);
-                d.descomponeNombreApellido();
-            }
+            String nombreCompleto = page.getElementById("results").getElementsByTagName("a").get(0).getTextContent().trim().toUpperCase().replaceAll("  ", " ");
+            DescomponerNombre d = new DescomponerNombre(nombreCompleto);
+            d.descomponeApellidoNombre();
+//            if (nombreCompleto.split(" ").length == 4) {
+//                String[] nom = nombreCompleto.split(" ");
+//                d = new DescomponerNombre(nom[2] + " " + nom[3] + " " + nom[0] + " " + nom[1]);
+//                d.descomponeNombreApellido();
+//            }
             sub = new Subsidiary();
             sub.setRut(rut);
             sub.setDv(dv);

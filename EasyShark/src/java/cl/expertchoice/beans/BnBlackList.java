@@ -64,4 +64,60 @@ public class BnBlackList {
         Conexion.Desconectar(conn);
         return lista;
     }
+    public ArrayList<RegistroBlackList> verBlackListxEmpresa(int rut, int id_empresa) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        ArrayList<RegistroBlackList> lista = new ArrayList<RegistroBlackList>();
+        String sql = "SELECT ID_BLACKLIST, ID_EMPRESA, COMENTARIO, ESTADO, FECHA, ID_USUARIO, RUT\n"
+                + "FROM easy.LC_BLACKLIST WHERE RUT = ? AND ID_EMPRESA = ? ORDER BY FECHA;";
+        conn = Conexion.getConexionEasy();
+        pst = conn.prepareStatement(sql);
+
+        pst.setInt(1, rut);
+        pst.setInt(2, id_empresa);
+        rs = pst.executeQuery();
+        while (rs.next()) {
+            RegistroBlackList registro = new RegistroBlackList();
+            registro.setId_blacklist(rs.getLong("ID_BLACKLIST"));
+            registro.setId_empresa(rs.getLong("ID_EMPRESA"));
+            registro.setComentario(rs.getString("COMENTARIO"));
+            registro.setEstado(rs.getInt("ESTADO"));
+            registro.setFecha(rs.getTimestamp("FECHA"));
+            registro.setId_usuario(rs.getLong("ID_USUARIO"));
+            registro.setRut(rs.getInt("RUT"));
+            lista.add(registro);
+        }
+        pst.close();
+        Conexion.Desconectar(conn);
+        return lista;
+    }
+    public ArrayList<RegistroBlackList> verBlackListxUsuario(int rut, int id_usuario) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        ArrayList<RegistroBlackList> lista = new ArrayList<RegistroBlackList>();
+        String sql = "SELECT ID_BLACKLIST, ID_EMPRESA, COMENTARIO, ESTADO, FECHA, ID_USUARIO, RUT\n"
+                + "FROM easy.LC_BLACKLIST WHERE RUT = ? AND ID_USUARIO = ? ORDER BY FECHA;";
+        conn = Conexion.getConexionEasy();
+        pst = conn.prepareStatement(sql);
+
+        pst.setInt(1, rut);
+        pst.setInt(2, id_usuario);
+        rs = pst.executeQuery();
+        while (rs.next()) {
+            RegistroBlackList registro = new RegistroBlackList();
+            registro.setId_blacklist(rs.getLong("ID_BLACKLIST"));
+            registro.setId_empresa(rs.getLong("ID_EMPRESA"));
+            registro.setComentario(rs.getString("COMENTARIO"));
+            registro.setEstado(rs.getInt("ESTADO"));
+            registro.setFecha(rs.getTimestamp("FECHA"));
+            registro.setId_usuario(rs.getLong("ID_USUARIO"));
+            registro.setRut(rs.getInt("RUT"));
+            lista.add(registro);
+        }
+        pst.close();
+        Conexion.Desconectar(conn);
+        return lista;
+    }
 }

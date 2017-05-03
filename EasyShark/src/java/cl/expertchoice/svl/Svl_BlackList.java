@@ -42,19 +42,38 @@ public class Svl_BlackList extends HttpServlet {
             switch (accion) {
                 case "setBlackList": {
                         String id_empresa = request.getParameter("id_empresa");
+                        String id_usuario = request.getParameter("id_usuario");
                         String comentarioBL = request.getParameter("comentario");
                         String estadoBL = request.getParameter("estado");
                         String rut = request.getParameter("rut");
                         BnBlackList bn = new BnBlackList();  
                         Boolean insertado = bn.insertarBlackList(Integer.parseInt(id_empresa),
-                                comentarioBL, Integer.parseInt(estadoBL), 10234567, Integer.parseInt(rut));
+                                comentarioBL, Integer.parseInt(estadoBL), Integer.parseInt(id_usuario), Integer.parseInt(rut));
                         out.print(insertado);
                         break; 
                 }
-                case "verBlackList": {
+                case "verBlackListXrut": {
                         String rut = request.getParameter("rut");
                         BnBlackList bn = new BnBlackList();  
                         ArrayList<RegistroBlackList> list= bn.verBlackListxRut(Integer.parseInt(rut));
+                        String json = new Gson().toJson(list);
+                        out.print(json);                        
+                        break; 
+                }
+                case "verBlackListXempresa": {
+                        String rut = request.getParameter("rut");
+                        String id_empresa = request.getParameter("id_empresa");                        
+                        BnBlackList bn = new BnBlackList();  
+                        ArrayList<RegistroBlackList> list= bn.verBlackListxEmpresa(Integer.parseInt(rut),Integer.parseInt(id_empresa));
+                        String json = new Gson().toJson(list);
+                        out.print(json);                        
+                        break; 
+                }
+                case "verBlackListXusuario": {
+                        String rut = request.getParameter("rut");
+                        String id_usuario = request.getParameter("id_usuario");                        
+                        BnBlackList bn = new BnBlackList();  
+                        ArrayList<RegistroBlackList> list= bn.verBlackListxUsuario(Integer.parseInt(rut),Integer.parseInt(id_usuario));
                         String json = new Gson().toJson(list);
                         out.print(json);                        
                         break; 
