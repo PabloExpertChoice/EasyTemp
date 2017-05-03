@@ -33,7 +33,7 @@ public class BnEmail {
             String msgBody = "";
             msgBody += "<p style='font-family: Calibri;'>Se ha registrado la empresa.</p>";
             msgBody += "<p>Ingrese al siguiente link para completar el proceso.<br />";
-            msgBody += "<a style='color: rgb(224,142,11);' href='http://" + D.DOMINIO + "/Password?key=" + codigo + "'>Cambiar contraseña</a></p>";
+            msgBody += "<a style='color: rgb(224,142,11);' href='http://" + D.DOMINIO + "/Svl_Password?key=" + codigo + "'>Cambiar contraseña</a></p>";
             
             String mail = cx.getMail(msgBody);
             boolean sendEmail;

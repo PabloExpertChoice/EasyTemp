@@ -211,7 +211,7 @@
                 <script>
                                                         function ingresarRut() {
                                                             swal_procces();
-                                                            go('Dashboard', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Dashboard');
+                                                            go('Svl_Informacion', [{id: 'code', val: 'dashboard'}, {id: 'rut', val: $('#txtRut').val().replace(/\./g, '')}, {id: 'dv', val: $('#txtDv').val()}], undefined, 'Svl_Informacion');
                                                         }
                 </script>
                 <!--                <script type="text/javascript" charset="utf-8">

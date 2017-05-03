@@ -238,7 +238,9 @@ public class BnSubsidiary {
         BnUsuario bnUsu = new BnUsuario();
         int idUsuario = bnUsu.agregarUsuario(usu);
         String codigo = Encriptar.encriptar(idUsuario + "");
+        
         BnEmail email = new BnEmail();
+        //se envia el Email
         email.sendMailConfirmacionRegistro(usu.getEmail(), codigo);
 
         resp = true;

@@ -12,7 +12,7 @@ public class D {
 
     public static String ESQUEMA = "easy";
     public static String TITULO = "Easy Shark";
-    public static String DOMINIO = "localhost:8084/easy.V0";
+    public static String DOMINIO = "localhost:8084/EasyShark";
     //Estados de respuesta ajax
     public static final int EST_OK = 200;
     public static final int EST_ERROR = 404;

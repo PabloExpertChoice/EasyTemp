@@ -143,7 +143,7 @@
                         $('#msgError').html('Las contraseñas no coinciden');
                     } else {
                         $.ajax({
-                            url: 'Password',
+                            url: 'Svl_Password',
                             type: 'POST',
                             dataType: 'json',
                             data: {
@@ -157,9 +157,9 @@
                                 $('#btnEnviar').prop('disabled', false);
                                 $('#btnEnviar').html('Actualizar');
                                 if (data.estado == 200) {
-                                    go('Registrar', [{id: 'accion', val: 'respuesta-cambio-password'}, {id: 'msgTipo', val: '3'}], undefined, 'Registrar');
+                                    go('Svl_Usuarios', [{id: 'accion', val: 'respuesta-cambio-password'}, {id: 'msgTipo', val: '3'}], undefined, 'Svl_Usuarios');
                                 } else {
-                                    go('Registrar', [{id: 'accion', val: 'respuesta-cambio-password-error'}, {id: 'msgTipo', val: '4'}], undefined, 'Registrar');
+                                    go('Svl_Usuarios', [{id: 'accion', val: 'respuesta-cambio-password-error'}, {id: 'msgTipo', val: '4'}], undefined, 'Svl_Usuarios');
                                 }
                             }
                         });

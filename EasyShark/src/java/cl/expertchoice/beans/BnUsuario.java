@@ -27,15 +27,12 @@ public class BnUsuario {
             String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,\n"
                     + "users.email, per.id, per.nomb,\n"
                     + "sub.id, sub.nombre,\n"
-                    + "comp.id, comp.nomb,\n"
                     + "sta.id, sta.nomb,sta.descripcion\n"
                     + "FROM " + D.ESQUEMA + ".USER AS users\n"
                     + "INNER JOIN " + D.ESQUEMA + ".PERFIL per\n"
                     + "ON users.perfil_id = per.id\n"
                     + "INNER JOIN " + D.ESQUEMA + ".SUBSIDIARY AS sub\n"
                     + "ON users.subsidiary_id = sub.id\n"
-                    + "INNER JOIN " + D.ESQUEMA + ".COMPANY as comp\n"
-                    + "ON sub.company_id = comp.id\n"
                     + "INNER JOIN " + D.ESQUEMA + ".STATUS AS sta\n"
                     + "ON users.status_id = sta.id AND sta.id IN (2) \n"
                     + "WHERE users.email = ? \n"
@@ -127,15 +124,12 @@ public class BnUsuario {
             String sql = "SELECT users.id, users.nomb, users.apellpat, users.apellmat,\n"
                     + "users.email, per.id, per.nomb,\n"
                     + "sub.id, sub.nombre,\n"
-                    + "comp.id, comp.nomb,\n"
                     + "sta.id, sta.nomb,sta.descripcion\n"
                     + "FROM " + D.ESQUEMA + ".USER AS users\n"
                     + "INNER JOIN " + D.ESQUEMA + ".PERFIL per\n"
                     + "ON users.perfil_id = per.id\n"
                     + "INNER JOIN " + D.ESQUEMA + ".SUBSIDIARY AS sub\n"
                     + "ON users.subsidiary_id = sub.id\n"
-                    + "INNER JOIN " + D.ESQUEMA + ".COMPANY as comp\n"
-                    + "ON sub.company_id = comp.id\n"
                     + "INNER JOIN " + D.ESQUEMA + ".STATUS AS sta\n"
                     + "ON users.status_id = sta.id \n"
                     + "WHERE users.id = ? \n";
@@ -386,14 +380,11 @@ public class BnUsuario {
             conn = Conexion.getConexionEasy();
             String sql = "SELECT a.id,a.nomb,a.apellpat,a.apellmat,a.email, a.password, " //parametros 1 - 5
                     + "b.id AS id_subsidiary,b.nomb AS nom_subsidiary, " //parametros 6 - 7
-                    + "c.id AS id_company, c.nomb AS nom_company, " //parametros 8 - 9
                     + "d.id AS id_status, d.nomb as nom_status, d.descripcion AS desc_status, " //parametros 10 - 13
                     + "e.id AS id_perfil, e.nomb as nom_perfil " //parametros 14 - 15
                     + "FROM " + D.ESQUEMA + ".USER a "
                     + "INNER JOIN " + D.ESQUEMA + ".SUBSIDIARY b "
                     + "ON a.subsidiary_id = b.id "
-                    + "INNER JOIN " + D.ESQUEMA + ".COMPANY c "
-                    + "ON b.company_id = c.id "
                     + "INNER JOIN " + D.ESQUEMA + ".STATUS d "
                     + "ON a.status_id = d.id "
                     + "INNER JOIN " + D.ESQUEMA + ".PERFIL e "
@@ -412,13 +403,11 @@ public class BnUsuario {
                 jsonUser.put("password", rs.getString(6) != null ? rs.getString(6) : "");
                 jsonUser.put("id_subsidiary", rs.getString(7) != null ? rs.getString(7) : "");
                 jsonUser.put("nom_subsidiary", rs.getString(8) != null ? rs.getString(8) : "");
-                jsonUser.put("id_company", rs.getString(9) != null ? rs.getString(9) : "");
-                jsonUser.put("nom_company", rs.getString(10) != null ? rs.getString(10) : "");
-                jsonUser.put("id_status", rs.getString(11) != null ? rs.getString(11) : "");
-                jsonUser.put("nom_status", rs.getString(12) != null ? rs.getString(12) : "");
-                jsonUser.put("desc_status", rs.getString(13) != null ? rs.getString(13) : "");
-                jsonUser.put("id_perfil", rs.getString(14) != null ? rs.getString(14) : "");
-                jsonUser.put("nom_perfil", rs.getString(15) != null ? rs.getString(15) : "");
+                jsonUser.put("id_status", rs.getString(11) != null ? rs.getString(9) : "");
+                jsonUser.put("nom_status", rs.getString(12) != null ? rs.getString(10) : "");
+                jsonUser.put("desc_status", rs.getString(13) != null ? rs.getString(11) : "");
+                jsonUser.put("id_perfil", rs.getString(14) != null ? rs.getString(12) : "");
+                jsonUser.put("nom_perfil", rs.getString(15) != null ? rs.getString(13) : "");
                 arrJson.put(jsonUser);
             }
             json.put("estado", "ok");

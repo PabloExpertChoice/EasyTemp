@@ -83,9 +83,11 @@ public class Svl_Usuarios extends HttpServlet {
                                 Perfil per = new Perfil(2, "");
                                 usu.setPerfil(per);
 
+                                //se agrega la subsidiaria al usuario
                                 usu.setSubsidiary(nuevaEmpresa);
                                 BnSubsidiary bnSub = new BnSubsidiary();
-
+                                
+                                //se usa crearEmpresa para ingresar a la bbdd los datos y enviar el correo
                                 bnSub.crearEmpresa(nuevaEmpresa, usu);
                                 json.addProperty("estado", D.EST_OK);
                                 json.addProperty("descripcion", "OK");

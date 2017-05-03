@@ -82,8 +82,8 @@
                 <div style="text-align: center;font-size: 20px;">
                     <p>El proceso de registro se ha completado.</p>
                     <p>Se ha enviado un link a su correo para el cambio de contraseña y activación de su cuenta.</p>
+                    <input class="btn green pull-right" id="volverLogin" type="submit" value="volver a Login" onclick="location.href = 'login.jsp'"/>
                 </div>
-                <img src="images/logo_toro.png" width="100" style="display: inline-block;vertical-align: top;margin-top: 10px;">
 
             </div>
             <div class="col-md-4">
@@ -96,7 +96,6 @@
                     <p>Hubo un error al intentar registrar empresa.</p>
                     <p>Porfavor intente más tarde.</p>
                 </div>
-                <img src="images/logo_toro.png" width="100" style="display: inline-block;vertical-align: top;margin-top: 10px;">
             </div>
             <div class="col-md-4">
             </div>
@@ -110,7 +109,6 @@
                     </p>
                     <p><a href="http://<%= D.DOMINIO%>">Click aquí para ir a inicio de sesión</a></p>
                 </div>
-                <img src="images/logo_toro.png" width="100" style="display: inline-block;vertical-align: top;margin-top: 10px;">
 
             </div>
             <div class="col-md-4">
@@ -120,10 +118,9 @@
             </div>
             <div class="col-md-4 col-xs-12" style="margin: 0 auto;">
                 <div style="text-align: center;font-size: 20px;">
-                    <p>Hubo un error al intentar cambiar la contraseña.</p>
-                    <p>Porfavor intente más tarde.</p>
+                    <p>Hubo un error al intentar cambiar la contraseÃ±a.</p>
+                    <p>Porfavor intente mÃ¡s tarde.</p>
                 </div>
-                <img src="images/logo_toro.png" width="100" style="display: inline-block;vertical-align: top;margin-top: 10px;">
             </div>
             <div class="col-md-4">
             </div>

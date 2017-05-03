@@ -92,7 +92,7 @@ $(function () {
                     $('#btnEnviar').html('Registrar');
 
                     if (data.estado == 200) {
-                        go('Registrar', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Registrar');
+                        go('Svl_Usuarios', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Svl_Usuarios');
                     } else {
                         $('#modalError').modal({backdrop: 'static'});
                         $('#msgError').html(data.descripcion);
@@ -153,7 +153,7 @@ $(function () {
                     $('#btnRegistrarUsuComun').html('Registrar');
 
                     if (data.estado == 200) {
-                        go('Registrar', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Registrar');
+                        go('Svl_Usuarios', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Svl_Usuarios');
                     } else {
                         $('#modalError').modal({backdrop: 'static'});
                         $('#msgError').html(data.descripcion);
