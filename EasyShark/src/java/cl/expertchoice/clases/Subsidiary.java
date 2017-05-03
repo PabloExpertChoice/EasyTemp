@@ -66,11 +66,16 @@ public class Subsidiary {
     public void setApeMaterno(String apeMaterno) {
         this.apeMaterno = apeMaterno;
     }
-
+    
     public JsonObject toJson() {
         JsonObject json = new JsonObject();
         json.addProperty("id", this.id);
+        json.addProperty("nombre", this.rut);
+        json.addProperty("nombre", this.dv);
         json.addProperty("nombre", this.nombre);
+        json.addProperty("nombre", this.apePaterno);
+        json.addProperty("nombre", this.apeMaterno);
+        
         return json;
     }
 }

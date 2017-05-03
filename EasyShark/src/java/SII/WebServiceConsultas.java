@@ -15,6 +15,13 @@ import cl.expertchoice.clases.Subsidiary;
 
 public class WebServiceConsultas {
 
+//    public static void main(String[] args) {
+//        WebServiceConsultas sub = new WebServiceConsultas();
+//        Subsidiary consultaWSIdentificacion = sub.consultaSii(76178360, "2");
+//        System.out.println("");
+//    }
+    
+    
     public Subsidiary consultaSii(int rut, String dv) {
         String user = "test1234";
         String pass = "test5678";
@@ -122,7 +129,7 @@ public class WebServiceConsultas {
             String uSER = "consultaMotor";
             String pASS = "passMotor";
 
-            RestResponse result = Rootwe.getXmlSII(rut + "-" + dv, uSER, pASS);
+            RestResponse result = Rootwe.getXmlIdentificacion(rut + "-" + dv, uSER, pASS);
             String xml = result.getDataAsString();
             DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             InputSource is = new InputSource();

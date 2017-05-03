@@ -24,7 +24,7 @@ public class BnSubsidiary {
         JSONObject json = new JSONObject();
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "INSERT INTO " + D.ESQUEMA + "SUBSIDIARY\n"
+            String sql = "INSERT INTO " + D.ESQUEMA + ".SUBSIDIARY\n"
                     + "(rut, dv, nombre, apePaterno, apeMaterno)\n"
                     + "VALUES(?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -122,11 +122,10 @@ public class BnSubsidiary {
             conn = Conexion.getConexionEasy();
             String sql = "UPDATE " + D.ESQUEMA + ".SUBSIDIARY "
                     + "SET nomb = ?, "
-                    + "company_id = ? "
                     + "WHERE id = ? ";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, subsidiary.getNombre());
-            pst.setInt(3, subsidiary.getId());
+            pst.setInt(2, subsidiary.getId());
             pst.executeUpdate();
             pst.close();
             json.put("estado", "ok");
@@ -146,9 +145,9 @@ public class BnSubsidiary {
         Subsidiary emp = new Subsidiary();
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT a.id, a.nombre, a.rut "
-                    + "FROM " + D.ESQUEMA + ".SUBSIDIARY a "
-                    + "WHERE a.id = ?";
+            String sql = "SELECT * "
+                    + "FROM " + D.ESQUEMA + ".SUBSIDIARY"
+                    + "WHERE id = ?";
 
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, id);
@@ -172,7 +171,7 @@ public class BnSubsidiary {
         Subsidiary emp = null;
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT id, nombre,apePaterno, apeMaterno, rut \n"
+            String sql = "SELECT id, nombre, apePaterno, apeMaterno, rut \n"
                     + "FROM " + D.ESQUEMA + ".SUBSIDIARY \n"
                     + "WHERE rut = ? ";
 
@@ -181,7 +180,7 @@ public class BnSubsidiary {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 emp = new Subsidiary();
-                emp.setId(rs.getInt("is"));
+                emp.setId(rs.getInt("id"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApePaterno(rs.getString("apePaterno"));
                 emp.setApeMaterno(rs.getString("apeMaterno"));
@@ -201,15 +200,19 @@ public class BnSubsidiary {
         JSONArray arrJson = new JSONArray();
         try {
             conn = Conexion.getConexionEasy();
-            String sql = "SELECT * \n"
+            String sql = "SELECT id, nombre, apePaterno, apeMaterno, rut, dv \n"
                     + "FROM " + D.ESQUEMA + ".SUBSIDIARY ";
 
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 JSONObject jsonSubsidiary = new JSONObject();
-                jsonSubsidiary.put("id", rs.getInt(1));
-                jsonSubsidiary.put("nombre", rs.getString(2));
+                jsonSubsidiary.put("id", rs.getInt("id"));
+                jsonSubsidiary.put("rut", rs.getInt("rut"));
+                jsonSubsidiary.put("dv", rs.getInt("dv"));
+                jsonSubsidiary.put("nombre", rs.getString("nombre"));
+                jsonSubsidiary.put("apePaterno", rs.getInt("apePaterno"));
+                jsonSubsidiary.put("apeMaterno", rs.getInt("apeMaterno"));
                 arrJson.put(jsonSubsidiary);
             }
 
@@ -242,55 +245,6 @@ public class BnSubsidiary {
         return resp;
     }
 
-    /*
-    public Subsidiary guardarCliente(Subsidiary cliente) throws SQLException {
-        Connection conn = null;
-        Subsidiary cli_resp = null;
-        try {
-            conn = Conexion.getConexionEasy();
-            String sql = "";
-            PreparedStatement pst = null;
-
-            boolean insertar = false;
-            sql = "SELECT ID_CLIENTE \n"
-                    + "FROM " + D.ESQUEMA + ".CLIENTE\n"
-                    + "WHERE RUT = ? ";
-
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1, cliente.getRut());
-
-            ResultSet rs1 = pst.executeQuery();
-            if (rs1.next()) {
-                cli_resp = cliente;
-                cli_resp.setId(rs1.getInt(1));
-                insertar = true;
-            }
-
-            if (!insertar) {
-                sql = "INSERT INTO " + D.ESQUEMA + ".CLIENTE\n"
-                        + "(RUT, DV, NOMBRE, APE_PATERNO, APE_MATERNO, DIRECCION, REGION)\n"
-                        + "VALUES(?, ?, ?, ?, ?, ?, ?) ";
-
-                pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                pst.setInt(1, cliente.getRut());
-                pst.setString(2, cliente.getDv());
-                pst.setString(3, cliente.getNombre());
-                pst.setString(4, cliente.getApePaterno());
-                pst.setString(5, cliente.getApeMaterno());
-                pst.executeUpdate();
-                ResultSet rs = pst.getGeneratedKeys();
-                if (rs.next()) {
-                    cli_resp = cliente;
-                    cli_resp.setId(rs.getInt(1));
-                }
-            }
-        } finally {
-            Conexion.Desconectar(conn);
-        }
-
-        return cli_resp;
-    }
-     */
     public Subsidiary consultar(Subsidiary cliente) throws SQLException {
         Subsidiary cli_resp = null;
         Connection conn = null;
@@ -299,7 +253,7 @@ public class BnSubsidiary {
             if (cliente.getRut() != 0) {
                 conn = Conexion.getConexionEasy();
 
-                String sql = "SELECT ID, RUT, DV, NOMBRE, APE_PATERNO, APE_MATERNO \n"
+                String sql = "SELECT ID, RUT, DV, NOMBRE, APEPATERNO, APEMATERNO \n"
                         + "FROM " + D.ESQUEMA + ".SUBSIDIARY\n"
                         + "WHERE RUT = ? ";
 
@@ -313,8 +267,8 @@ public class BnSubsidiary {
                     cli_resp.setRut(rs.getInt("RUT"));
                     cli_resp.setDv(rs.getString("DV"));
                     cli_resp.setNombre(rs.getString("NOMBRE"));
-                    cli_resp.setApePaterno(rs.getString("APE_PATERNO"));
-                    cli_resp.setApeMaterno(rs.getString("APE_MATERNO"));
+                    cli_resp.setApePaterno(rs.getString("APEPATERNO"));
+                    cli_resp.setApeMaterno(rs.getString("APEMATERNO"));
                 }
             }
         } finally {

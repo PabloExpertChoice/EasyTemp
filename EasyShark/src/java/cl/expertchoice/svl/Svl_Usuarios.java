@@ -60,7 +60,7 @@ public class Svl_Usuarios extends HttpServlet {
                             json.addProperty("estado", D.EST_NORESULTADO);
                             json.addProperty("descripcion", "El correo <b>" + emailUsuAdmin + "</b> ya se encuentra registrado.");
                             //validar si existe la empresa
-                        } else if (new BnSubsidiary().buscarPorRut(rutEmpresa) == null) {
+                        } else if (new BnSubsidiary().buscarPorRut(rutEmpresa) != null) {
                             json.addProperty("estado", D.EST_NORESULTADO);
                             json.addProperty("descripcion", "El empresa con el rut <b>" + rutEmpresa + "-" + dvEmpresa + "</b> ya se encuentra registrada.");
                         } else {
