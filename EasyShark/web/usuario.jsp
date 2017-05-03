@@ -1,9 +1,20 @@
+<%@page import="cl.expertchoice.clases.Subsidiary"%>
+<%@page import="soporte.D"%>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
+
 <%@page import="cl.expertchoice.clases.Usuario"%>
 <%@page import="org.json.JSONObject"%>
+
+<%
+    if (!D.isSesionActiva(request)) {
+        response.sendRedirect("cmd");
+        return;
+    }
+   
+%>
 <html lang="en">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
@@ -292,8 +303,7 @@
                                             <label for="txtEmailCorporativo2Comun">Repetir correo corporativo</label>
                                             <input type="email" class="form-control" id="txtEmailCorporativo2Comun" >
                                         </div>
-                                        <%Usuario usu = (Usuario) session.getAttribute("sesion");%>
-                                        <input type="hidden" class="form-control" id="id_subsidiary" value="<%= usu.getSubsidiary().getId()%>" >
+                                        
                                         <button type="submit" class="btn btn-primary" id="btnRegistrarUsuComun">Registrar</button>
                                     </form>
                                 </div>

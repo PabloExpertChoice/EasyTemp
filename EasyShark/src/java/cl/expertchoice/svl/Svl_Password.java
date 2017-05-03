@@ -47,6 +47,8 @@ public class Svl_Password extends HttpServlet {
                             Usuario u = new Usuario();
                             u.setId(id);
                             u.setPassword(password);
+                            //cambia el estado a 5 = pendiente de confirmacion
+                            //luego cuando el usuario cambie su contraseña pasa a tener un estado 2 = activo
                             u.setEstado(new Status(5, null, null));
                             bn.actualizarPassword(u);
                             bn.cambiarEstado(u);

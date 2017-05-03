@@ -10,6 +10,7 @@
         response.sendRedirect("cmd");
         return;
     }
+   
 
     Subsidiary sub = (Subsidiary) request.getAttribute("datos");
 %>
