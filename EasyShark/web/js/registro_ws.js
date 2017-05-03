@@ -92,7 +92,7 @@ $(function () {
                     $('#btnEnviar').html('Registrar');
 
                     if (data.estado == 200) {
-                        go('Registrar', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Registrar');
+                        go('Svl_Usuarios', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Svl_Usuarios');
                     } else {
                         $('#modalError').modal({backdrop: 'static'});
                         $('#msgError').html(data.descripcion);
@@ -109,7 +109,7 @@ $(function () {
         var apellidoMaterno = $('#txtAmaUsuarioComun').val();
         var email = $('#txtEmailCorporativoComun').val();
         var email2 = $('#txtEmailCorporativo2Comun').val();
-        var id_subsidiary = $('#id_subsidiary').val();
+        var usuAdmin = $('#usuAdmin').val();
         var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
 
         if (nombre.length === 0) {
@@ -135,7 +135,7 @@ $(function () {
             $('#msgError').html('El correo ingresado no es válido.');
         } else {
             $.ajax({
-                url: 'Svl_RegistroMeses',
+                url: 'Svl_Usuarios',
                 type: 'POST',
                 dataType: 'json',
                 data: {
@@ -144,7 +144,7 @@ $(function () {
                     apellidoPaterno: apellidoPaterno,
                     apellidoMaterno: apellidoMaterno,
                     email: email,
-                    id_subsidiary: id_subsidiary
+                    usuAdmin: usuAdmin
                 }, beforeSend: function (xhr) {
                     $('#btnRegistrarUsuComun').prop('disabled', true);
                     $('#btnRegistrarUsuComun').html('Registrando... <i class="fa fa-spinner fa-spin"></i>');
@@ -153,7 +153,7 @@ $(function () {
                     $('#btnRegistrarUsuComun').html('Registrar');
 
                     if (data.estado == 200) {
-                        go('Registrar', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Registrar');
+                        go('Svl_Usuarios', [{id: 'accion', val: 'respuesta-crear-empresa'}, {id: 'msgTipo', val: '1'}], undefined, 'Svl_Usuarios');
                     } else {
                         $('#modalError').modal({backdrop: 'static'});
                         $('#msgError').html(data.descripcion);

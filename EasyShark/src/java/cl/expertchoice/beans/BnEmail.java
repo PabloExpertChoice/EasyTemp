@@ -33,7 +33,7 @@ public class BnEmail {
             String msgBody = "";
             msgBody += "<p style='font-family: Calibri;'>Se ha registrado la empresa.</p>";
             msgBody += "<p>Ingrese al siguiente link para completar el proceso.<br />";
-            msgBody += "<a style='color: rgb(224,142,11);' href='http://" + D.DOMINIO + "/Password?key=" + codigo + "'>Cambiar contraseña</a></p>";
+            msgBody += "<a style='color: rgb(224,142,11);' href='http://" + D.DOMINIO + "/Svl_Password?key=" + codigo + "'>Cambiar contraseña</a></p>";
             
             String mail = cx.getMail(msgBody);
             boolean sendEmail;
@@ -56,8 +56,9 @@ public class BnEmail {
             String msgBody = "";
             msgBody += "<p style='font-family: Calibri;'>Usuario Registrado .</p>";
             msgBody += "<p>su contraseña temporal es la siguiente.<br />";
-            msgBody += "<p>"+clave+".<br />";
-            msgBody += "<p>puede modificar esta contraseña despues.<br />";
+            msgBody += "<p>"+clave+"<br />";
+            msgBody += "<p>Cuando se logee por primera vez se le pedira cambiar la contraseña .<br />";
+            msgBody += "<p>una vez lo haga podra usar el programa .<br />";
             String mail = cx.getMail(msgBody);
             boolean sendEmail;
             sendEmail = MailUtil.sendEmailT(Correo, "Registro de Usuario", mail, Config_mail.MAIL_USER_INFO, Config_mail.MAIL_PASS_INFO);

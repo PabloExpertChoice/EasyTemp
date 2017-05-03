@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import soporte.D;
 import soporte.ENCR;
@@ -83,9 +84,11 @@ public class Svl_Usuarios extends HttpServlet {
                                 Perfil per = new Perfil(2, "");
                                 usu.setPerfil(per);
 
+                                //se agrega la subsidiaria al usuario
                                 usu.setSubsidiary(nuevaEmpresa);
                                 BnSubsidiary bnSub = new BnSubsidiary();
-
+                                
+                                //se usa crearEmpresa para ingresar a la bbdd los datos y enviar el correo
                                 bnSub.crearEmpresa(nuevaEmpresa, usu);
                                 json.addProperty("estado", D.EST_OK);
                                 json.addProperty("descripcion", "OK");
@@ -126,18 +129,22 @@ public class Svl_Usuarios extends HttpServlet {
                     case "crear-usuario-comun": {
                         Usuario usu = new Usuario();
 
+                        //parametros usuario comun
                         String nombre = request.getParameter("nombre");
                         String apellidoPaterno = request.getParameter("apellidoPaterno");
                         String apellidoMaterno = request.getParameter("apellidoMaterno");
                         String email = request.getParameter("email");
+                        
+                        //Parametros del Administrador
+                        HttpSession sesion = request.getSession(false);
+                        Usuario usuLogin = (Usuario) sesion.getAttribute(D.SESSION_USUARIO);
 
+                        //seteo de parametros
                         usu.setNombre(nombre);
                         usu.setApePaterno(apellidoPaterno);
                         usu.setApeMaterno(apellidoMaterno);
                         usu.setEmail(email);
-
-                        Usuario usuAdmin = (Usuario) request.getSession().getAttribute("sesion");
-                        usu.setSubsidiary(usuAdmin.getSubsidiary());
+                        usu.setSubsidiary(usuLogin.getSubsidiary());
 
                         BnUsuario bnUsu = new BnUsuario();
                         json = new JsonObject();
@@ -159,9 +166,10 @@ public class Svl_Usuarios extends HttpServlet {
                             usu.setPassword(claveEnciptada);
                             //crear el usuario
                             bnUsu.agregarUsuarioComun(usu);
-                            //envia correo
+                            //creo el correo
                             BnEmail correo = new BnEmail();
-                            correo.sendMailConfirmacionRegistro(usu.getEmail(), claveTemporal);
+                            //envio el correo con la clave sin encriptar 
+                            correo.sendMailUsuarioComun(usu.getEmail(), claveTemporal);
 
                             json.addProperty("estado", D.EST_OK);
                             json.addProperty("descripcion", "Usuario Agregado");

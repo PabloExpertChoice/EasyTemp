@@ -43,13 +43,6 @@ public class Subsidiary {
         this.dv = dv;
     }
     
-    
-    
-    
-    
-    
-    
-
     public String getNombre() {
         return nombre;
     }
